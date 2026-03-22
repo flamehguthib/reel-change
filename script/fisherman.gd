@@ -19,7 +19,7 @@ var max_cast_distance = 190.0
 var cast_speed = 280.0
 var reel_speed = 420.0
 var cast_origin_offset = Vector2(8, -8)
-var cast_water_y_offset = 16.0
+var cast_water_y_offset = 92.0
 var arc_peak_height = 46.0
 var min_arc_peak_height = 28.0
 var max_arc_peak_height = 62.0
@@ -28,6 +28,7 @@ var charge_time = 0.0
 var max_charge_time = 0.9
 var power_bar_offset = Vector2(-26, -48)
 var power_bar_size = Vector2(52, 6)
+var actual_cast_distance = 0.0  # Distance where the line actually hits something
 
 func _ready() -> void:
 	$Sprite2D.connect("animation_finished", Callable(self, "on_casting_finished"))
@@ -46,6 +47,12 @@ func _physics_process(delta):
 	
 	#animation
 	if state == "fish" and Input.is_action_just_pressed("fish_button"):
+		$Sprite2D.play("hook")
+		state = "hook"
+		start_reel()
+	
+	# Retract cast when moving
+	elif state == "fish" and velocity.x != 0:
 		$Sprite2D.play("hook")
 		state = "hook"
 		start_reel()
@@ -83,6 +90,27 @@ func movement():
 func can_start_charge():
 	return state != "cast" and state != "fish" and state != "hook"
 
+func calculate_cast_collision() -> float:
+	var start = get_cast_start_offset()
+	# Cast downward and outward based on cast direction
+	var target_horizontal = start + Vector2(cast_direction * max_cast_distance, 0)
+	var end_position = target_horizontal + Vector2(0, cast_water_y_offset)
+	
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(start, end_position)
+	query.exclude = [self]
+	
+	var result = space_state.intersect_ray(query)
+	if result:
+		# Calculate distance to hit point
+		var hit_pos = result.position
+		# Calculate the horizontal distance traveled before hitting
+		var horizontal_distance = abs(hit_pos.x - start.x)
+		return clamp(horizontal_distance, min_cast_distance, max_cast_distance)
+	else:
+		# No collision found, use the charged cast distance
+		return cast_target_distance
+
 func begin_charge_cast():
 	is_charging_cast = true
 	charge_time = 0.0
@@ -114,6 +142,7 @@ func start_cast():
 	cast_visual_state = CAST_THROWING
 	cast_distance = 0.0
 	cast_direction = -1 if $Sprite2D.flip_h else 1
+	actual_cast_distance = calculate_cast_collision()
 	queue_redraw()
 
 func start_reel():
@@ -125,8 +154,8 @@ func update_cast_visual(delta):
 		return
 
 	if cast_visual_state == CAST_THROWING:
-		cast_distance = move_toward(cast_distance, cast_target_distance, cast_speed * delta)
-		if is_equal_approx(cast_distance, cast_target_distance):
+		cast_distance = move_toward(cast_distance, actual_cast_distance, cast_speed * delta)
+		if is_equal_approx(cast_distance, actual_cast_distance):
 			cast_visual_state = CAST_WAITING
 	elif cast_visual_state == CAST_RETRACTING:
 		cast_distance = move_toward(cast_distance, 0.0, reel_speed * delta)
