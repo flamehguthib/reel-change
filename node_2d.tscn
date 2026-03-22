@@ -2,9 +2,93 @@
 
 [ext_resource type="Texture2D" uid="uid://tnggekcjc7an" path="res://fishing_game_assets/1 Fisherman/Fisherman_idle.png" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://x7xj5fom70mn" path="res://fisherman.gd" id="1_epypp"]
+[ext_resource type="Texture2D" uid="uid://bnvnvtd5axrkp" path="res://fishing_game_assets/1 Fisherman/Fisherman_walk.png" id="3_epypp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(597, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
+atlas = ExtResource("1_0e48y")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
+atlas = ExtResource("1_0e48y")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
+atlas = ExtResource("1_0e48y")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d21ai"]
+atlas = ExtResource("1_0e48y")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj586"]
+atlas = ExtResource("3_epypp")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d7sh"]
+atlas = ExtResource("3_epypp")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir8iy"]
+atlas = ExtResource("3_epypp")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqns4"]
+atlas = ExtResource("3_epypp")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0ka3"]
+atlas = ExtResource("3_epypp")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h7mo"]
+atlas = ExtResource("3_epypp")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nr8wp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hol4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6r6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdubu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d21ai")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj586")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d7sh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir8iy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqns4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0ka3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h7mo")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hol4"]
 radius = 11.0
@@ -15,7 +99,7 @@ height = 40.0
 [node name="floor or sm" type="Node" parent="." unique_id=1626147616]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="floor or sm" unique_id=755876179]
-position = Vector2(213, 261)
+position = Vector2(216, 320)
 disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor or sm/StaticBody2D" unique_id=2047325719]
@@ -24,13 +108,16 @@ shape = SubResource("RectangleShape2D_0e48y")
 metadata/_edit_lock_ = true
 
 [node name="Fisherman" type="CharacterBody2D" parent="." unique_id=883382534]
-position = Vector2(272, 190)
+unique_name_in_owner = true
+position = Vector2(268, 221)
 script = ExtResource("1_epypp")
 
-[node name="Sprite2D" type="Sprite2D" parent="Fisherman" unique_id=321087226]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Fisherman" unique_id=427833626]
 position = Vector2(8, -3)
-texture = ExtResource("1_0e48y")
-hframes = 4
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_nr8wp")
+animation = &"idle"
+frame_progress = 0.9708085
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fisherman" unique_id=1281136739]

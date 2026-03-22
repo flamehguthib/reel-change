@@ -1,14 +1,27 @@
 extends CharacterBody2D
 
 var movement_speed = 67
-const gravity = 9800
-var jump_force = -670
+const gravity = 980
+var jump_force = -150
 
 func _physics_process(delta):
 	#gravity typa shi
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		move_and_slide()
+		
+	#invert
+	if velocity.x < 0:
+		$Sprite2D.flip_h = true
+	elif velocity.x > 0: 
+		$Sprite2D.flip_h = false 
+	
+	
+	#animation
+	if velocity.x == 0:
+		$Sprite2D.play("idle")
+	else:
+		$Sprite2D.play("walk")
 		
 	movement()
 	
