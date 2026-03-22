@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://drulitiqs7n65"]
+
+[ext_resource type="Texture2D" uid="uid://tnggekcjc7an" path="res://fishing_game_assets/1 Fisherman/Fisherman_idle.png" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://x7xj5fom70mn" path="res://fisherman.gd" id="1_epypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+size = Vector2(597, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hol4"]
+radius = 11.0
+height = 40.0
+
+[node name="visayas fishing range" type="Node2D" unique_id=1181082693]
+
+[node name="floor or sm" type="Node" parent="." unique_id=1626147616]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="floor or sm" unique_id=755876179]
+position = Vector2(213, 261)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor or sm/StaticBody2D" unique_id=2047325719]
+position = Vector2(86.5, 0)
+shape = SubResource("RectangleShape2D_0e48y")
+metadata/_edit_lock_ = true
+
+[node name="Fisherman" type="CharacterBody2D" parent="." unique_id=883382534]
+position = Vector2(272, 190)
+script = ExtResource("1_epypp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Fisherman" unique_id=321087226]
+position = Vector2(8, -3)
+texture = ExtResource("1_0e48y")
+hframes = 4
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fisherman" unique_id=1281136739]
+visible = false
+position = Vector2(-8, 7)
+shape = SubResource("CapsuleShape2D_0hol4")
