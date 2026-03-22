@@ -3,6 +3,10 @@ extends CharacterBody2D
 var movement_speed = 67
 const gravity = 980
 var jump_force = -200
+var state = "idle"
+
+func _ready() -> void:
+	$Sprite2D.connect("animation_finished", Callable(self, "on_casting_finished"))
 
 func _physics_process(delta):
 	#gravity typa shi
@@ -16,18 +20,26 @@ func _physics_process(delta):
 	elif velocity.x > 0: 
 		$Sprite2D.flip_h = false 
 	
-	#fish
-	if Input.is_action_just_pressed("fish_button"):
-		$Sprite2D.play("cast")
-		fish()
-	
-	
 	#animation
-	if velocity.x == 0:
-		$Sprite2D.play("idle")
-	else:
-		$Sprite2D.play("walk")
+	if state == "fish" and Input.is_action_just_pressed("fish_button"):
+		$Sprite2D.play("hook")
+		state = "idle"
 		
+	elif state != "cast" and Input.is_action_just_pressed("fish_button"):
+		$Sprite2D.play("cast")
+		state = "cast"
+		fish()
+		
+	elif state != "cast" and state != "fish":	
+		if velocity.x == 0:
+			if state != "idle":
+				$Sprite2D.play("idle")
+				state = "idle"
+		elif velocity.x != 0:
+			if state != "walk":
+				$Sprite2D.play("walk")
+				state = "walk"
+				
 	movement()
 	
 func movement():
@@ -40,3 +52,15 @@ func movement():
 	
 func fish():
 	pass
+
+func on_casting_finished():
+	if $Sprite2D.animation == "cast":
+		$Sprite2D.play("fish")
+		state = "fish"
+		
+	if $Sprite2D.animation == "fish":
+		$Sprite2D.play("idle")
+		state = "idle"
+			
+				
+				

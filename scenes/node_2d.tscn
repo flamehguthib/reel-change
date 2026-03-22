@@ -110,7 +110,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rjqkl")
 }],
-"loop": true,
+"loop": false,
 "name": &"cast",
 "speed": 5.0
 }, {
@@ -150,7 +150,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nr8wp")
 }],
-"loop": true,
+"loop": false,
 "name": &"hook",
 "speed": 5.0
 }, {
@@ -221,8 +221,7 @@ script = ExtResource("1_04qyp")
 position = Vector2(8, -3)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_nr8wp")
-animation = &"cast"
-frame_progress = 0.96232057
+animation = &"hook"
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fisherman" unique_id=1281136739]
