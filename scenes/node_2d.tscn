@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://drulitiqs7n65"]
 
 [ext_resource type="Script" uid="uid://x7xj5fom70mn" path="res://script/fisherman.gd" id="1_04qyp"]
+[ext_resource type="Texture2D" uid="uid://bvteygqbwpsjq" path="res://temp asset/pixel-art-game-scene-with-ground-grass-trees-sky-clouds-character-coins-treasure-chests-and-8-bit-heart-vector-726236617.jpg" id="1_j7wrs"]
 [ext_resource type="Texture2D" uid="uid://bsm3dmwnc43mi" path="res://fishing_game_assets/1 Fisherman/Fisherman_hook.png" id="2_j7wrs"]
 [ext_resource type="Texture2D" uid="uid://bnm6s508kntr3" path="res://fishing_game_assets/1 Fisherman/Fisherman_fish.png" id="3_fws66"]
 [ext_resource type="Texture2D" uid="uid://tnggekcjc7an" path="res://fishing_game_assets/1 Fisherman/Fisherman_idle.png" id="4_hh0fu"]
 [ext_resource type="Texture2D" uid="uid://bnvnvtd5axrkp" path="res://fishing_game_assets/1 Fisherman/Fisherman_walk.png" id="5_3m5ht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
-size = Vector2(597, 20)
+size = Vector2(1154, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nr8wp"]
 atlas = ExtResource("2_j7wrs")
@@ -196,8 +197,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hol4"]
-radius = 11.0
-height = 40.0
+radius = 36.0
+height = 126.0
 
 [node name="visayas fishing range" type="Node2D" unique_id=1181082693]
 
@@ -208,23 +209,27 @@ position = Vector2(216, 320)
 disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor or sm/StaticBody2D" unique_id=2047325719]
-position = Vector2(86.5, 0)
+position = Vector2(365, 0)
 shape = SubResource("RectangleShape2D_0e48y")
 metadata/_edit_lock_ = true
 
+[node name="Sprite2D" type="Sprite2D" parent="floor or sm/StaticBody2D" unique_id=1727189174]
+position = Vector2(361.00003, 42)
+scale = Vector2(0.6010417, 0.1465035)
+texture = ExtResource("1_j7wrs")
+
 [node name="Fisherman" type="CharacterBody2D" parent="." unique_id=883382534]
 unique_name_in_owner = true
-position = Vector2(268, 221)
+position = Vector2(256, 240)
 script = ExtResource("1_04qyp")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Fisherman" unique_id=427833626]
 position = Vector2(8, -3)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_nr8wp")
-animation = &"hook"
+animation = &"cast"
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fisherman" unique_id=1281136739]
-visible = false
-position = Vector2(-8, 7)
+position = Vector2(-13, 6)
 shape = SubResource("CapsuleShape2D_0hol4")

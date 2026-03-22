@@ -210,6 +210,7 @@ func on_casting_finished():
 		state = "fish"
 		is_charging_cast = false
 		
+
 	if $Sprite2D.animation == "hook":
 		$Sprite2D.play("idle")
 		state = "idle"
@@ -218,6 +219,7 @@ func on_casting_finished():
 		is_charging_cast = false
 		charge_time = 0.0
 		queue_redraw()
+
 			
 				
 				
