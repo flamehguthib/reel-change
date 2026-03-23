@@ -10,10 +10,9 @@ radius = 12.0
 [node name="Sprite2D" type="Area2D" parent="." unique_id=1153435755]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=526779523]
-position = Vector2(432, 342)
 shape = SubResource("CircleShape2D_cv7u0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1652406520]
-position = Vector2(431.87503, 340.625)
+visible = false
 scale = Vector2(0.10069448, 0.09652781)
 texture = ExtResource("1_kpcy3")

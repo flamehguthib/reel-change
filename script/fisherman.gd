@@ -41,7 +41,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		move_and_slide()
-		
+	
+	if state == "hook":
+		kill_fishing_bob()
+	
 	#invert
 	if velocity.x < 0:
 		$Sprite2D.flip_h = true
@@ -147,6 +150,7 @@ func start_cast():
 	cast_direction = -1 if $Sprite2D.flip_h else 1
 	actual_cast_distance = calculate_cast_collision()
 	queue_redraw()
+	
 
 func start_reel():
 	if cast_visual_state != CAST_IDLE:
@@ -237,12 +241,14 @@ func _draw():
 	draw_circle(end, 4.0, Color(0.95, 0.2, 0.2))
 	bobber_global_pos = end
 	
-	spawn_fishing_bob()
+	
+	
 
 func on_casting_finished():
 	if $Sprite2D.animation == "cast":
 		$Sprite2D.play("fish")
 		state = "fish"
+		spawn_fishing_bob()
 		is_charging_cast = false
 		
 
@@ -257,13 +263,17 @@ func on_casting_finished():
 
 var fishing_bob_scene = preload("res://scenes/fishingbob.tscn")
 var fishing_bob = null
-
 func spawn_fishing_bob(): 
+	
 	if fishing_bob == null:
 		fishing_bob = fishing_bob_scene.instantiate()
 		fishing_bob.position = bobber_global_pos
 		add_child(fishing_bob)
-	
+
+func kill_fishing_bob():
+	if fishing_bob != null:
+		fishing_bob.queue_free()
+		fishing_bob = null
 	
 	
 	

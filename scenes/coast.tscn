@@ -245,7 +245,10 @@ position = Vector2(256, 240)
 script = ExtResource("2_12l7w")
 
 [node name="RodTip" type="Marker2D" parent="Fisherman" unique_id=1326956565]
-position = Vector2(143, 47)
+position = Vector2(50, 2)
+
+[node name="Camera2D" type="Camera2D" parent="Fisherman" unique_id=726384672]
+position = Vector2(-16, -7)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Fisherman" unique_id=427833626]
 position = Vector2(8, -3)
