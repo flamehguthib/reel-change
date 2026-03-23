@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+#this fucking bobber
+var bobber_global_pos : Vector2 = Vector2.ZERO
+
 var movement_speed = 67
 const gravity = 980
 var jump_force = -200
@@ -232,6 +235,9 @@ func _draw():
 	var line_points = get_line_curve_points(start, end)
 	draw_polyline(line_points, Color(0.92, 0.92, 0.95), 2.0, true)
 	draw_circle(end, 4.0, Color(0.95, 0.2, 0.2))
+	bobber_global_pos = end
+	
+	spawn_fishing_bob()
 
 func on_casting_finished():
 	if $Sprite2D.animation == "cast":
@@ -249,6 +255,19 @@ func on_casting_finished():
 		charge_time = 0.0
 		queue_redraw()
 
+var fishing_bob_scene = preload("res://scenes/fishingbob.tscn")
+var fishing_bob = null
+
+func spawn_fishing_bob(): 
+	if fishing_bob == null:
+		fishing_bob = fishing_bob_scene.instantiate()
+		fishing_bob.position = bobber_global_pos
+		add_child(fishing_bob)
+	
+	
+	
+	
+	
 			
 				
 				

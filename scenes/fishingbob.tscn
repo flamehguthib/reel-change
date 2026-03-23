@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://chc5gd83f7c4x"]
+
+[ext_resource type="Texture2D" uid="uid://dy8aeokcdmksc" path="res://temp asset/pngtree-realistic-red-and-white-fishing-bobber-illustration-isolated-on-white-angling-copy-space-vector-png-image_23993818-962596116.png" id="1_kpcy3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cv7u0"]
+radius = 12.0
+
+[node name="kingbob" type="Node2D" unique_id=471987922]
+
+[node name="Sprite2D" type="Area2D" parent="." unique_id=1153435755]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=526779523]
+position = Vector2(432, 342)
+shape = SubResource("CircleShape2D_cv7u0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1652406520]
+position = Vector2(431.87503, 340.625)
+scale = Vector2(0.10069448, 0.09652781)
+texture = ExtResource("1_kpcy3")
