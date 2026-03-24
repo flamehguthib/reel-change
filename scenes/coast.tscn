@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bnm6s508kntr3" path="res://fishing_game_assets/1 Fisherman/Fisherman_fish.png" id="4_j6l5m"]
 [ext_resource type="Texture2D" uid="uid://tnggekcjc7an" path="res://fishing_game_assets/1 Fisherman/Fisherman_idle.png" id="5_hjpby"]
 [ext_resource type="Texture2D" uid="uid://bnvnvtd5axrkp" path="res://fishing_game_assets/1 Fisherman/Fisherman_walk.png" id="6_va6ck"]
+[ext_resource type="Texture2D" uid="uid://bxunarbtpdg0" path="res://fishing_game_assets/1 Fisherman/Fisherman_row.png" id="7_j6l5m"]
+[ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/boat.tscn" id="8_itksv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itksv"]
 size = Vector2(1153, 42)
@@ -68,6 +70,22 @@ region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d21ai"]
 atlas = ExtResource("5_hjpby")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjpby"]
+atlas = ExtResource("7_j6l5m")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va6ck"]
+atlas = ExtResource("7_j6l5m")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q55mb"]
+atlas = ExtResource("7_j6l5m")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5tke"]
+atlas = ExtResource("7_j6l5m")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rj586"]
@@ -178,6 +196,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hjpby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_va6ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q55mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5tke")
+}],
+"loop": true,
+"name": &"row",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rj586")
 }, {
 "duration": 1.0,
@@ -241,22 +276,27 @@ metadata/_edit_lock_ = true
 
 [node name="Fisherman" type="CharacterBody2D" parent="." unique_id=883382534]
 unique_name_in_owner = true
-position = Vector2(256, 240)
+position = Vector2(920, 248)
 script = ExtResource("2_12l7w")
 
 [node name="RodTip" type="Marker2D" parent="Fisherman" unique_id=1326956565]
 position = Vector2(50, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Fisherman" unique_id=726384672]
-position = Vector2(-16, -7)
+position = Vector2(-7, 7)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Fisherman" unique_id=427833626]
 position = Vector2(8, -3)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_nr8wp")
-animation = &"cast"
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.009910835
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fisherman" unique_id=1281136739]
 position = Vector2(-13, 6)
 shape = SubResource("CapsuleShape2D_0hol4")
+
+[node name="Boat" parent="." unique_id=2115580054 instance=ExtResource("8_itksv")]
+position = Vector2(1075, 295)

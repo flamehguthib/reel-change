@@ -29,13 +29,44 @@ var max_charge_time = 0.9
 var power_bar_offset = Vector2(-26, -48)
 var power_bar_size = Vector2(52, 6)
 var actual_cast_distance = 0.0  # Distance where the line actually hits something
+var nearby_boat: CharacterBody2D = null
+var mounted_boat: CharacterBody2D = null
+var board_interact_distance = 120.0
+
+@onready var body_collision_shape: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
 	$Sprite2D.connect("animation_finished", Callable(self, "on_casting_finished"))
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("interact"):
+		if mounted_boat != null:
+			unmount_boat()
+		else:
+			var boat_to_mount: CharacterBody2D = nearby_boat
+			if boat_to_mount == null:
+				boat_to_mount = get_nearest_boat_in_range()
+			if boat_to_mount != null:
+				mount_boat(boat_to_mount)
+
+	if mounted_boat != null:
+		global_position = mounted_boat.get_mount_position()
+		velocity = Vector2.ZERO
+		if mounted_boat.velocity.x < 0:
+			$Sprite2D.flip_h = true
+		elif mounted_boat.velocity.x > 0:
+			$Sprite2D.flip_h = false
+		if state != "cast" and state != "fish" and state != "hook" and state != "charge":
+			if abs(mounted_boat.velocity.x) > 0.1 and $Sprite2D.sprite_frames.has_animation("row"):
+				if state != "row":
+					$Sprite2D.play("row")
+					state = "row"
+			elif state != "idle":
+				$Sprite2D.play("idle")
+				state = "idle"
+
 	#gravity typa shi
-	if not is_on_floor():
+	if mounted_boat == null and not is_on_floor():
 		velocity.y += gravity * delta
 		move_and_slide()
 		
@@ -66,7 +97,7 @@ func _physics_process(delta):
 		elif Input.is_action_just_released("fish_button"):
 			release_charge_cast()
 		
-	elif state != "cast" and state != "fish" and state != "hook" and state != "charge":	
+	elif state != "cast" and state != "fish" and state != "hook" and state != "charge" and mounted_boat == null:	
 		if velocity.x == 0:
 			if state != "idle":
 				$Sprite2D.play("idle")
@@ -80,6 +111,10 @@ func _physics_process(delta):
 	movement()
 	
 func movement():
+	if mounted_boat != null:
+		velocity = Vector2.ZERO
+		return
+
 	velocity.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	velocity.x *= movement_speed
 	
@@ -89,6 +124,57 @@ func movement():
 
 func can_start_charge():
 	return state != "cast" and state != "fish" and state != "hook"
+
+func set_nearby_boat(boat: CharacterBody2D):
+	if mounted_boat != null:
+		return
+	nearby_boat = boat
+
+func clear_nearby_boat(boat: CharacterBody2D):
+	if nearby_boat == boat:
+		nearby_boat = null
+
+func mount_boat(boat: CharacterBody2D):
+	if boat == null:
+		return
+	if boat.has_method("mount_player"):
+		boat.mount_player(self)
+
+func unmount_boat():
+	if mounted_boat == null:
+		return
+	var boat = mounted_boat
+	if boat.has_method("unmount_player"):
+		boat.unmount_player(self)
+	else:
+		set_mounted_boat(null)
+
+func set_mounted_boat(boat: CharacterBody2D):
+	mounted_boat = boat
+	velocity = Vector2.ZERO
+	cast_visual_state = CAST_IDLE
+	cast_distance = 0.0
+	actual_cast_distance = 0.0
+	is_charging_cast = false
+	charge_time = 0.0
+	queue_redraw()
+
+	if body_collision_shape != null:
+		body_collision_shape.disabled = mounted_boat != null
+
+func get_nearest_boat_in_range() -> CharacterBody2D:
+	var nearest: CharacterBody2D = null
+	var nearest_distance: float = board_interact_distance
+
+	for node in get_tree().get_nodes_in_group("boats"):
+		if node is CharacterBody2D:
+			var candidate := node as CharacterBody2D
+			var d := global_position.distance_to(candidate.global_position)
+			if d <= nearest_distance:
+				nearest_distance = d
+				nearest = candidate
+
+	return nearest
 
 func calculate_cast_collision() -> float:
 	var start = get_cast_start_offset()
