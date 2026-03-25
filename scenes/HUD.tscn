@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dtks2i5s4u164"]
+
+[ext_resource type="Script" path="res://script/hud.gd" id="1_hud"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1622611448]
+script = ExtResource("1_hud")
+
+[node name="TopBar" type="Panel" parent="." unique_id=177970924]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 56.0
+
+[node name="Stats" type="VBoxContainer" parent="TopBar" unique_id=1102285176]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DayLabel" type="Label" parent="TopBar/Stats" unique_id=1350615213]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+
+[node name="TimeLabel" type="Label" parent="TopBar/Stats" unique_id=492147045]
+layout_mode = 2
+
+[node name="EnergyLabel" type="Label" parent="TopBar/Stats" unique_id=1934863651]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="TopBar/Stats" unique_id=1666421492]
+layout_mode = 2
+
+[node name="GoalLabel" type="Label" parent="TopBar/Stats" unique_id=1547926586]
+layout_mode = 2

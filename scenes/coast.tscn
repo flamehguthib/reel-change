@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bxunarbtpdg0" path="res://fishing_game_assets/1 Fisherman/Fisherman_row.png" id="7_j6l5m"]
 [ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/boat.tscn" id="8_itksv"]
 [ext_resource type="PackedScene" uid="uid://crqfajs2y3nfo" path="res://scenes/SleepZone.tscn" id="10_hjpby"]
+[ext_resource type="PackedScene" uid="uid://dtks2i5s4u164" path="res://scenes/HUD.tscn" id="11_va6ck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itksv"]
 size = Vector2(1153, 42)
@@ -306,3 +307,5 @@ position = Vector2(1075, 295)
 [node name="SleepZone" parent="." unique_id=34740492 instance=ExtResource("10_hjpby")]
 position = Vector2(520, 305)
 scale = Vector2(2, 2)
+
+[node name="HUD" parent="." unique_id=1622611448 instance=ExtResource("11_va6ck")]
