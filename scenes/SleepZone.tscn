@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://crqfajs2y3nfo"]
+
+[ext_resource type="Texture2D" uid="uid://vshqflrd5dvd" path="res://fishing_game_assets/3 Objects/Fishing_hut.png" id="1_y746t"]
+[ext_resource type="Script" path="res://script/sleep_zone.gd" id="2_sleep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_liyfo"]
+size = Vector2(198, 117)
+
+[node name="SleepZone" type="Node2D" unique_id=34740492]
+script = ExtResource("2_sleep")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1288715736]
+texture = ExtResource("1_y746t")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=2090381052]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=898149667]
+position = Vector2(-3, 3.5)
+shape = SubResource("RectangleShape2D_liyfo")

@@ -123,7 +123,10 @@ func movement():
 	move_and_slide()
 
 func can_start_charge():
-	return state != "cast" and state != "fish" and state != "hook"
+	# Check if valid state and if player has enough energy
+	if state != "cast" and state != "fish" and state != "hook":
+		return GameState.can_fish()
+	return false
 
 func set_nearby_boat(boat: CharacterBody2D):
 	if mounted_boat != null:
@@ -217,6 +220,8 @@ func release_charge_cast():
 	$Sprite2D.play("cast")
 	state = "cast"
 	start_cast()
+	# Spend energy on cast
+	GameState.spend_energy(GameState.fishing_energy_cost)
 	queue_redraw()
 
 func get_charge_ratio():

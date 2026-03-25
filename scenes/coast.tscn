@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bnvnvtd5axrkp" path="res://fishing_game_assets/1 Fisherman/Fisherman_walk.png" id="6_va6ck"]
 [ext_resource type="Texture2D" uid="uid://bxunarbtpdg0" path="res://fishing_game_assets/1 Fisherman/Fisherman_row.png" id="7_j6l5m"]
 [ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/boat.tscn" id="8_itksv"]
+[ext_resource type="PackedScene" uid="uid://crqfajs2y3nfo" path="res://scenes/SleepZone.tscn" id="10_hjpby"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itksv"]
 size = Vector2(1153, 42)
@@ -276,6 +277,7 @@ metadata/_edit_lock_ = true
 
 [node name="Fisherman" type="CharacterBody2D" parent="." unique_id=883382534]
 unique_name_in_owner = true
+z_index = 10
 position = Vector2(920, 248)
 script = ExtResource("2_12l7w")
 
@@ -300,3 +302,7 @@ shape = SubResource("CapsuleShape2D_0hol4")
 
 [node name="Boat" parent="." unique_id=2115580054 instance=ExtResource("8_itksv")]
 position = Vector2(1075, 295)
+
+[node name="SleepZone" parent="." unique_id=34740492 instance=ExtResource("10_hjpby")]
+position = Vector2(520, 305)
+scale = Vector2(2, 2)
