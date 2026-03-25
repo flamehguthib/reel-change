@@ -1,15 +1,20 @@
 extends CharacterBody2D
 
+#this fucking bobber
+var bobber_global_pos : Vector2 = Vector2.ZERO
+
+#player stats
 var movement_speed = 67
-const gravity = 980
-var jump_force = -200
+const GRAVITY = 980
 var state = "idle"
 
+#cast states
 const CAST_IDLE = 0
 const CAST_THROWING = 1
 const CAST_WAITING = 2
 const CAST_RETRACTING = 3
 
+#casting logic
 var cast_visual_state = CAST_IDLE
 var cast_distance = 0.0
 var cast_direction = 1
@@ -32,6 +37,8 @@ var actual_cast_distance = 0.0  # Distance where the line actually hits somethin
 var nearby_boat: CharacterBody2D = null
 var mounted_boat: CharacterBody2D = null
 var board_interact_distance = 120.0
+const FISH_BAR_OFFSET_RIGHT = Vector2(112.0, 18.0)
+const FISH_BAR_OFFSET_LEFT = Vector2(-96.0, 18.0)
 
 @onready var body_collision_shape: CollisionShape2D = $CollisionShape2D
 
@@ -67,9 +74,13 @@ func _physics_process(delta):
 
 	#gravity typa shi
 	if mounted_boat == null and not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += GRAVITY * delta
 		move_and_slide()
-		
+	
+	if state == "hook":
+		kill_fishing_bob()
+		update_fish_bar_position()
+	
 	#invert
 	if velocity.x < 0:
 		$Sprite2D.flip_h = true
@@ -77,7 +88,7 @@ func _physics_process(delta):
 		$Sprite2D.flip_h = false 
 	
 	#animation
-	if state == "fish" and Input.is_action_just_pressed("fish_button"):
+	if state == "fish" and fish_bar_instance == null and Input.is_action_just_pressed("fish_button"):
 		$Sprite2D.play("hook")
 		state = "hook"
 		start_reel()
@@ -106,6 +117,9 @@ func _physics_process(delta):
 			if state != "walk":
 				$Sprite2D.play("walk")
 				state = "walk"
+
+	if fish_bar_instance != null:
+		update_fish_bar_position()
 				
 	update_cast_visual(delta)
 	movement()
@@ -118,8 +132,6 @@ func movement():
 	velocity.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	velocity.x *= movement_speed
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_force
 	move_and_slide()
 
 func can_start_charge():
@@ -235,6 +247,7 @@ func start_cast():
 	cast_direction = -1 if $Sprite2D.flip_h else 1
 	actual_cast_distance = calculate_cast_collision()
 	queue_redraw()
+	
 
 func start_reel():
 	if cast_visual_state != CAST_IDLE:
@@ -323,23 +336,94 @@ func _draw():
 	var line_points = get_line_curve_points(start, end)
 	draw_polyline(line_points, Color(0.92, 0.92, 0.95), 2.0, true)
 	draw_circle(end, 4.0, Color(0.95, 0.2, 0.2))
+	bobber_global_pos = end
+	
+	
+	
 
 func on_casting_finished():
 	if $Sprite2D.animation == "cast":
 		$Sprite2D.play("fish")
 		state = "fish"
+		spawn_fishing_bob()
 		is_charging_cast = false
 		
 
 	if $Sprite2D.animation == "hook":
 		$Sprite2D.play("idle")
 		state = "idle"
+		kill_fish_bar()
 		cast_visual_state = CAST_IDLE
 		cast_distance = 0.0
 		is_charging_cast = false
 		charge_time = 0.0
 		queue_redraw()
 
-			
-				
-				
+#fishing bob func
+var fishing_bob_scene = preload("res://scenes/fishing_bob.tscn")
+var fishing_bob = null
+var fish_bar_scene = preload("res://scenes/fishing_mechanic.tscn")
+var fish_bar_instance = null
+
+func spawn_fishing_bob(): 
+	
+	if fishing_bob == null:
+		fishing_bob = fishing_bob_scene.instantiate()
+		fishing_bob.position = bobber_global_pos
+		add_child(fishing_bob)
+		var fish_detector = fishing_bob.get_node_or_null("Sprite2D")
+		if fish_detector != null and fish_detector.has_signal("fish_bite"):
+			fish_detector.fish_bite.connect(_on_fish_bite)
+		if fish_detector != null and fish_detector.has_signal("fish_missed"):
+			fish_detector.fish_missed.connect(_on_fish_missed)
+
+func spawn_fish_bar():
+	if fish_bar_instance == null:
+		fish_bar_instance = fish_bar_scene.instantiate()
+		add_child(fish_bar_instance)
+		fish_bar_instance.z_as_relative = false
+		fish_bar_instance.z_index = 100
+		update_fish_bar_position()
+		var fish_ui = fish_bar_instance.get_node_or_null("Control")
+		if fish_ui != null and fish_ui.has_signal("finished"):
+			fish_ui.finished.connect(_on_fish_bar_finished)
+
+func update_fish_bar_position() -> void:
+	if fish_bar_instance == null or not is_instance_valid(fish_bar_instance):
+		return
+	# Left and right use slightly different offsets so they visually match.
+	if $Sprite2D.flip_h:
+		fish_bar_instance.position = FISH_BAR_OFFSET_LEFT
+	else:
+		fish_bar_instance.position = FISH_BAR_OFFSET_RIGHT
+
+func kill_fish_bar():
+	if fish_bar_instance != null and is_instance_valid(fish_bar_instance):
+		fish_bar_instance.queue_free()
+		fish_bar_instance = null
+
+func _on_fish_bar_finished(caught: bool) -> void:
+	fish_bar_instance = null
+	if caught:
+		GameState.add_money(randi_range(80, 150))
+	if state == "fish":
+		$Sprite2D.play("hook")
+		state = "hook"
+		start_reel()
+
+func _on_fish_bite() -> void:
+	print("Fish bite triggered")
+	if state == "fish" and fish_bar_instance == null:
+		spawn_fish_bar()
+
+func _on_fish_missed() -> void:
+	print("Fish escaped before minigame")
+	if state == "fish" and fish_bar_instance == null:
+		$Sprite2D.play("hook")
+		state = "hook"
+		start_reel()
+
+func kill_fishing_bob():
+	if fishing_bob != null:
+		fishing_bob.queue_free()
+		fishing_bob = null
