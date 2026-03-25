@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cqqxkh6s42tjj"]
+
+[node name="Node2D" type="Node2D" unique_id=399001178]
+
+[node name="Label" type="Label" parent="." unique_id=871226120]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "NIGGER
+"
