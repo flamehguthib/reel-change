@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://dmugp5r04odb8"]
+
+[ext_resource type="Script" uid="uid://byxg35gotbut0" path="res://victory.gd" id="1_qr7ta"]
+[ext_resource type="Texture2D" uid="uid://bsmmo3ovutuds" path="res://Warm Sunset Over the Sea Mood.png" id="2_v3ap6"]
+[ext_resource type="FontFile" uid="uid://dgl4qpel5whkk" path="res://ari-w9500-condensed-bold.ttf" id="3_e8xaq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_15ee3"]
+texture = ExtResource("2_v3ap6")
+modulate_color = Color(0.5569533, 0.5569529, 0.55695313, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr7ta"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_color = Color(0.19434929, 0.19434926, 0.19434926, 0.99607843)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qr7ta"]
+
+[node name="Victory" type="Control" unique_id=1149921359]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qr7ta")
+
+[node name="Panel" type="Panel" parent="." unique_id=981650929]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_15ee3")
+
+[node name="Label" type="Label" parent="." unique_id=303303712]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49713543
+anchor_top = 0.3101852
+anchor_right = 0.49713543
+anchor_bottom = 0.3101852
+offset_left = -859.5
+offset_top = -53.0
+offset_right = 816.5
+offset_bottom = 284.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.1764706, 0.1764706, 0.1764706, 0.7529412)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 15
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 12
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_e8xaq")
+theme_override_font_sizes/font_size = 135
+theme_override_styles/normal = SubResource("StyleBoxFlat_qr7ta")
+text = "CONGRATULATIONS!
+YOU SURVIVED!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=354651295]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_e8xaq")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qr7ta")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qr7ta")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qr7ta")
+
+[node name="Label" type="Label" parent="Button" unique_id=236968628]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.73055553
+anchor_right = 0.5
+anchor_bottom = 0.73055553
+offset_left = -451.0
+offset_top = -53.0
+offset_right = 451.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.08468992, 0.08468992, 0.08468992, 0.61960787)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("3_e8xaq")
+theme_override_font_sizes/font_size = 28
+text = "CLICK ANYWHERE TO RETURN TO THE MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

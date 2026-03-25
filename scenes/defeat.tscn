@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://bsks58npm3vp0"]
+
+[ext_resource type="Script" uid="uid://beuvr2ltl25j0" path="res://defeat.gd" id="1_a4708"]
+[ext_resource type="Texture2D" uid="uid://cc6t0y4mjvqjk" path="res://Weathered Wooden Dock Tiles.png" id="2_a4708"]
+[ext_resource type="FontFile" uid="uid://dgl4qpel5whkk" path="res://ari-w9500-condensed-bold.ttf" id="3_txko1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_15ee3"]
+texture = ExtResource("2_a4708")
+modulate_color = Color(0.4817894, 0.48178953, 0.4817894, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr7ta"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_color = Color(0.19434929, 0.19434926, 0.19434926, 0.99607843)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qr7ta"]
+
+[node name="Defeat" type="Control" unique_id=1149921359]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a4708")
+
+[node name="Panel" type="Panel" parent="." unique_id=981650929]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_15ee3")
+
+[node name="Label" type="Label" parent="." unique_id=303303712]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49713543
+anchor_top = 0.3101852
+anchor_right = 0.49713543
+anchor_bottom = 0.3101852
+offset_left = -859.5
+offset_top = -53.0
+offset_right = 816.5
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.1764706, 0.1764706, 0.1764706, 0.7529412)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 15
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 12
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_txko1")
+theme_override_font_sizes/font_size = 135
+theme_override_styles/normal = SubResource("StyleBoxFlat_qr7ta")
+text = "YOU LOST!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1831126013]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -584.5
+offset_top = -90.0
+offset_right = 584.5
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.1764706, 0.1764706, 0.1764706, 0.7529412)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 15
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 12
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_txko1")
+theme_override_font_sizes/font_size = 88
+theme_override_styles/normal = SubResource("StyleBoxFlat_qr7ta")
+text = "TRY AGAIN..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=354651295]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_txko1")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qr7ta")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qr7ta")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qr7ta")
+
+[node name="Label" type="Label" parent="Button" unique_id=236968628]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.73055553
+anchor_right = 0.5
+anchor_bottom = 0.73055553
+offset_left = -451.0
+offset_top = -53.0
+offset_right = 451.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.08468992, 0.08468992, 0.08468992, 0.61960787)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("3_txko1")
+theme_override_font_sizes/font_size = 28
+text = "CLICK ANYWHERE TO RETURN TO THE MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

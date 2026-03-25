@@ -166,4 +166,4 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_a8sje")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t622t")
 text = "<- Return"
 
-[connection signal="pressed" from="Exit" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_button_pressed"]
