@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dvc8m6gmxdl4"]
+
+[ext_resource type="Script" uid="uid://i4whp5vlrkuy" path="res://script/fish_detect.gd" id="1_cv7u0"]
+[ext_resource type="Texture2D" uid="uid://dy8aeokcdmksc" path="res://temp asset/pngtree-realistic-red-and-white-fishing-bobber-illustration-isolated-on-white-angling-copy-space-vector-png-image_23993818-962596116.png" id="1_kpcy3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cv7u0"]
+radius = 12.0
+
+[node name="kingbob" type="Node2D" unique_id=471987922]
+visibility_layer = 2
+
+[node name="Sprite2D" type="Area2D" parent="." unique_id=1153435755]
+script = ExtResource("1_cv7u0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=526779523]
+shape = SubResource("CircleShape2D_cv7u0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1652406520]
+visible = false
+scale = Vector2(0.10069448, 0.09652781)
+texture = ExtResource("1_kpcy3")
+
+[node name="Timer" type="Timer" parent="Sprite2D" unique_id=942799576]
+
+[connection signal="area_entered" from="Sprite2D" to="Sprite2D" method="_on_area_entered"]
+[connection signal="timeout" from="Sprite2D/Timer" to="Sprite2D" method="_on_timer_timeout"]

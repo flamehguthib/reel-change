@@ -25,7 +25,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	queue_redraw()
-	if Input.is_action_pressed("fish_button"):
+	if Input.is_action_pressed("space"):
 		bar_velocity += delta * lift_force
 	
 	bar_velocity += delta * GRAVITY
@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		var min_y = 10
 		var max_y = max_height - fish_height - 10
 		fish_target = randf_range(min_y, max_y)
-		fish_timer = randf_range(2.0, 4.0)
+		fish_timer = randf_range(0.5, 4.0)
 		
 	fish_pos = lerp(fish_pos, fish_target, delta * 3.6)
 
@@ -48,9 +48,9 @@ func _physics_process(delta: float) -> void:
 		grace_time = max(grace_time - delta, 0.0)
 	else:
 		if fish_pos >= bar_pos and fish_pos <= (bar_pos + bar_size):
-			progress += delta * 15
+			progress += delta * 12
 		else:
-			progress += delta * -11
+			progress += delta * -22
 		
 	progress = clamp(progress, 0, 100)
 	

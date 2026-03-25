@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 func random_timer():
 	if bite_triggered:
 		return
-	var wait_secs = randf_range(1.0, 2.0)
+	var wait_secs = randf_range(5.0, 10.0)
 	$Timer.wait_time = wait_secs
 	$Timer.start()
 	print("Fish bite in %.2fs" % wait_secs)
