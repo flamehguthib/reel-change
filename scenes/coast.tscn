@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://etmiyq6vn33t"]
 
 [ext_resource type="Texture2D" uid="uid://sf1evdon10xj" path="res://fishing_game_assets/3 Objects/Water.png" id="1_12l7w"]
+[ext_resource type="PackedScene" path="res://scenes/boat.tscn" id="1_lxtxo"]
 [ext_resource type="Texture2D" uid="uid://bvteygqbwpsjq" path="res://temp asset/pixel-art-game-scene-with-ground-grass-trees-sky-clouds-character-coins-treasure-chests-and-8-bit-heart-vector-726236617.jpg" id="1_oyeco"]
 [ext_resource type="Script" uid="uid://7tn3u7wcpgro" path="res://script/spawn.gd" id="3_4rybp"]
 
@@ -11,6 +12,9 @@ size = Vector2(1153, 42)
 size = Vector2(1154, 40.5)
 
 [node name="Coast" type="Node2D" unique_id=1181082693]
+
+[node name="Boat" parent="." unique_id=2115580054 instance=ExtResource("1_lxtxo")]
+position = Vector2(1111, 298)
 
 [node name="Floor" type="Node" parent="." unique_id=1626147616]
 
@@ -47,5 +51,5 @@ metadata/_edit_lock_ = true
 
 [node name="Spawn" type="Marker2D" parent="." unique_id=629376151]
 unique_name_in_owner = true
-position = Vector2(1050, 199)
+position = Vector2(879, 202)
 script = ExtResource("3_4rybp")

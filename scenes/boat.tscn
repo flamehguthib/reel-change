@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bjworn45gymki"]
+
+[ext_resource type="Texture2D" uid="uid://cun2jmm05re6p" path="res://fishing_game_assets/3 Objects/Boat.png" id="1_0063d"]
+[ext_resource type="Script" uid="uid://ctgxv74ts5miy" path="res://script/boat.gd" id="2_1f4x8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0063d"]
+size = Vector2(71, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyrje"]
+size = Vector2(116.5, 35.5)
+
+[node name="Boat" type="CharacterBody2D" unique_id=2115580054]
+scale = Vector2(2, 2)
+script = ExtResource("2_1f4x8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=731943248]
+texture = ExtResource("1_0063d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1183787065]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0063d")
+
+[node name="MountPoint" type="Marker2D" parent="." unique_id=1588901923]
+position = Vector2(-13, -12)
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=415937869]
+position = Vector2(-26, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=660792494]
+position = Vector2(18.25, 5.25)
+shape = SubResource("RectangleShape2D_qyrje")
