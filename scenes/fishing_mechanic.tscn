@@ -1,12 +1,44 @@
 [gd_scene format=3 uid="uid://cled5yjky8ogd"]
 
+[ext_resource type="Script" uid="uid://cl8mmk0ena0vw" path="res://script/fish_bar.gd" id="1_dmaw5"]
+[ext_resource type="Texture2D" uid="uid://c53mbvypqdj6h" path="res://fishing_game_assets/4 Icons/Icons_04.png" id="3_sdupj"]
+
 [node name="Node2D" type="Node2D" unique_id=399001178]
 
-[node name="Label" type="Label" parent="." unique_id=871226120]
-offset_left = 11.0
-offset_top = -133.0
-offset_right = 103.0
-offset_bottom = -81.0
-scale = Vector2(3, 3)
-text = "NIGGER
-"
+[node name="Control" type="Control" parent="." unique_id=127233768]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dmaw5")
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=399027541]
+layout_mode = 0
+offset_right = 35.0
+offset_bottom = 200.0
+color = Color(0.43583372, 0.2755311, 4.813075e-08, 1)
+
+[node name="Fish_icon" type="TextureRect" parent="Control/ColorRect" unique_id=230371027]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = 56.0
+offset_right = 35.0
+offset_bottom = 94.0
+texture = ExtResource("3_sdupj")
+
+[node name="PlayerBar" type="ColorRect" parent="Control/ColorRect" unique_id=168126968]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 1.0
+offset_top = 47.0
+offset_right = 35.0
+offset_bottom = 100.0
+color = Color(0, 0.34425986, 0.23220602, 0.59607846)
+
+[node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=672790883]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 67.0
+offset_top = 82.0
+offset_right = 90.0
+offset_bottom = 109.0

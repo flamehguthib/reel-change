@@ -21,7 +21,7 @@ func _on_area_entered(area):
 		random_timer()
 
 func _on_timer_timeout() -> void:
-	print("nigga fishing na tayo")
 	if fishing_mechanic == null:
 		fishing_mechanic = fishing_mechanic_scene.instantiate()
+		fishing_mechanic.position.y = -200
 		add_child(fishing_mechanic)

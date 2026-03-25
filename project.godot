@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 <<<<<<<Updatedupstreamrun/main_scene="uid://c5n0mru5lqyqd"
 
+[autoload]
+
+Events="*uid://bhfustxc27aq0"
+
 [global_group]
 
 water=""

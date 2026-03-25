@@ -4,8 +4,7 @@ extends CharacterBody2D
 var bobber_global_pos : Vector2 = Vector2.ZERO
 
 var movement_speed = 67
-const gravity = 980
-var jump_force = -200
+const GRAVITY = 980
 var state = "idle"
 
 const CAST_IDLE = 0
@@ -39,7 +38,7 @@ func _ready() -> void:
 func _physics_process(delta):
 	#gravity typa shi
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += GRAVITY * delta
 		move_and_slide()
 	
 	if state == "hook":
@@ -89,8 +88,6 @@ func movement():
 	velocity.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	velocity.x *= movement_speed
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_force
 	move_and_slide()
 
 func can_start_charge():

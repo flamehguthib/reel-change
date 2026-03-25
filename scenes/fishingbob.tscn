@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chc5gd83f7c4x"]
 
-[ext_resource type="Script" uid="uid://i4whp5vlrkuy" path="res://script/fish_mechanic.gd" id="1_cv7u0"]
+[ext_resource type="Script" uid="uid://i4whp5vlrkuy" path="res://script/fish_detect.gd" id="1_cv7u0"]
 [ext_resource type="Texture2D" uid="uid://dy8aeokcdmksc" path="res://temp asset/pngtree-realistic-red-and-white-fishing-bobber-illustration-isolated-on-white-angling-copy-space-vector-png-image_23993818-962596116.png" id="1_kpcy3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cv7u0"]
