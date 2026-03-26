@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://drlvaw7uu4163"]
+[gd_scene format=3 uid="uid://h5qnt0tp3xkc"]
 
-[ext_resource type="Texture2D" uid="uid://sqbvod08bwrn" path="res://Parallax Layer 2_ Foreground Foliage.png" id="1_7vrkn"]
-[ext_resource type="Script" uid="uid://cdy6lfpkwn4kh" path="res://main_menu.gd" id="1_fu7sn"]
-[ext_resource type="FontFile" uid="uid://dgl4qpel5whkk" path="res://ari-w9500-condensed-bold.ttf" id="2_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://dv6fkeidgb5qf" path="res://fishing_game_assets/Parallax Layer 2_ Foreground Foliage.png" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://cdy6lfpkwn4kh" path="res://script/main_menu.gd" id="1_fu7sn"]
+[ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="2_fu7sn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jix8l"]
 texture = ExtResource("1_7vrkn")
@@ -140,16 +140,17 @@ text = "Exit"
 [node name="Label" type="Label" parent="." unique_id=907449066]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.2736111
-anchor_right = 0.5
-anchor_bottom = 0.2736111
+anchor_left = 0.55512154
+anchor_top = 0.263
+anchor_right = 0.55512154
+anchor_bottom = 0.27700618
 offset_left = -600.5
-offset_top = -93.5
+offset_top = -84.42401
 offset_right = 600.5
 offset_bottom = 93.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9, 0.9)
 theme_override_colors/font_color = Color(0.47335416, 0.9548002, 0.8769623, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.62352943)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://brnrw57i3aev1"]
+[gd_scene format=3 uid="uid://wlojrgslcayo"]
 
 [ext_resource type="Script" uid="uid://x7xj5fom70mn" path="res://script/fisherman.gd" id="1_q87sm"]
 [ext_resource type="Texture2D" uid="uid://bsm3dmwnc43mi" path="res://fishing_game_assets/1 Fisherman/Fisherman_hook.png" id="2_gib2q"]

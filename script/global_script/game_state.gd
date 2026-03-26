@@ -23,7 +23,7 @@ var demo_duration_minutes: float = 15.0
 func _ready() -> void:
 	# Initialize game state
 	current_day = 1
-	current_time = 6.0  # Start at 6 AM (morning)
+	current_time = 6  # Start at 6 AM (morning)
 	current_energy = max_energy
 	current_money = 0
 
@@ -33,12 +33,17 @@ func _process(delta: float) -> void:
 
 func update_time(delta: float) -> void:
 	"""Advance in-game time. Full day cycle is 24 hours."""
-	current_time += delta * time_scale
+	current_time += delta * time_scale 
 	
 	# Day complete - advance to next day or trigger end condition
-	if current_time >= 24.0:
+	if current_time >= 24.0 and current_day > 3:
+		set_process(false)
+		check_game_end()
+		
+	elif current_time >= 24.0:
 		current_time = 0.0
 		advance_day()
+		
 
 func advance_day() -> void:
 	"""Move to next day. If max days reached, trigger end condition."""
@@ -95,13 +100,13 @@ func add_money(amount: int) -> void:
 
 func check_game_end() -> void:
 	"""Check win/lose conditions and trigger end state."""
-	if current_day > max_days:
+	if current_day >= max_days:
 		if current_money >= money_goal:
 			print("=== VICTORY! You reached ₱%d! ===" % money_goal)
-			get_tree().paused = true
+			get_tree().change_scene_to_file("res://scenes/victory.tscn") 
 		else:
 			print("=== GAME OVER - You earned ₱%d / ₱%d ===" % [current_money, money_goal])
-			get_tree().paused = true
+			get_tree().change_scene_to_file("res://scenes/defeat.tscn")
 
 func reset_game() -> void:
 	"""Reset to initial state for new game."""

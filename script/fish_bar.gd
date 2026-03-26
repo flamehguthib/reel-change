@@ -24,7 +24,6 @@ func _ready() -> void:
 	bar_size = %PlayerBar.size.y
 
 func _physics_process(delta: float) -> void:
-	queue_redraw()
 	if Input.is_action_pressed("space"):
 		bar_velocity += delta * lift_force
 	
@@ -40,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		var min_y = 10
 		var max_y = max_height - fish_height - 10
 		fish_target = randf_range(min_y, max_y)
-		fish_timer = randf_range(0.5, 4.0)
+		fish_timer = randf_range(0.5, 1.5)
 		
 	fish_pos = lerp(fish_pos, fish_target, delta * 3.6)
 
@@ -48,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		grace_time = max(grace_time - delta, 0.0)
 	else:
 		if fish_pos >= bar_pos and fish_pos <= (bar_pos + bar_size):
-			progress += delta * 12
+			progress += delta * 30
 		else:
 			progress += delta * -22
 		
@@ -70,8 +69,3 @@ func check_win_loss():
 		emit_signal("finished", false)
 		queue_free()
 		
-func _draw():
-	# Draw a red line at the calculated bottom of the bar
-	# We use (0, bar_pos + bar_size) as the starting point
-	var bottom_y = bar_pos + bar_size
-	draw_line(Vector2(0, bottom_y), Vector2(100, bottom_y), Color.RED, 2.0)

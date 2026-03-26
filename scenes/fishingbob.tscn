@@ -22,5 +22,13 @@ texture = ExtResource("1_kpcy3")
 
 [node name="Timer" type="Timer" parent="Sprite2D" unique_id=942799576]
 
+[node name="FishStatus" type="Label" parent="Sprite2D" unique_id=2141201056]
+unique_name_in_owner = true
+visible = false
+offset_left = 22.0
+offset_top = -148.0
+offset_right = 62.0
+offset_bottom = -125.0
+
 [connection signal="area_entered" from="Sprite2D" to="Sprite2D" method="_on_area_entered"]
 [connection signal="timeout" from="Sprite2D/Timer" to="Sprite2D" method="_on_timer_timeout"]

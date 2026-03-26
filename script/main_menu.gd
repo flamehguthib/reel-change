@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("coast.tscn")
+	get_tree().change_scene_to_file("res://scenes/coast.tscn")
 
 
 func _on_exit_pressed() -> void:
@@ -10,4 +10,4 @@ func _on_exit_pressed() -> void:
 
 
 func _on_controls_pressed() -> void:
-	get_tree().change_scene_to_file("controls.tscn")
+	get_tree().change_scene_to_file("res://scenes/controls.tscn")

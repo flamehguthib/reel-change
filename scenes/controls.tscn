@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://jix67xwsg3vq"]
 
-[ext_resource type="Texture2D" uid="uid://sqbvod08bwrn" path="res://Parallax Layer 2_ Foreground Foliage.png" id="1_5tddo"]
-[ext_resource type="Script" uid="uid://blgljijux8lqm" path="res://controls.gd" id="1_cywyo"]
-[ext_resource type="FontFile" uid="uid://dgl4qpel5whkk" path="res://ari-w9500-condensed-bold.ttf" id="2_cywyo"]
+[ext_resource type="Texture2D" uid="uid://dv6fkeidgb5qf" path="res://fishing_game_assets/Parallax Layer 2_ Foreground Foliage.png" id="1_5tddo"]
+[ext_resource type="Script" uid="uid://blgljijux8lqm" path="res://script/controls.gd" id="1_cywyo"]
+[ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="2_cywyo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ihl6s"]
 texture = ExtResource("1_5tddo")
@@ -126,16 +126,17 @@ metadata/_edit_use_anchors_ = true
 [node name="Label" type="Label" parent="." unique_id=2009529068]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.1736111
-anchor_right = 0.5
-anchor_bottom = 0.1736111
+anchor_left = 0.55425346
+anchor_top = 0.125
+anchor_right = 0.55425346
+anchor_bottom = 0.13811728
 offset_left = -600.5
-offset_top = -93.5
+offset_top = -84.0
 offset_right = 600.5
 offset_bottom = 93.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9, 0.9)
 theme_override_colors/font_color = Color(0.47335416, 0.9548002, 0.8769623, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.62352943)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -149,10 +150,10 @@ metadata/_edit_use_anchors_ = true
 [node name="Exit" type="Button" parent="." unique_id=678456448]
 modulate = Color(0.9428228, 0.94282264, 0.94282264, 1)
 layout_mode = 0
-offset_left = 734.0
-offset_top = 850.0
-offset_right = 1185.0
-offset_bottom = 964.0
+offset_left = 426.0
+offset_top = 539.0
+offset_right = 749.0
+offset_bottom = 625.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)

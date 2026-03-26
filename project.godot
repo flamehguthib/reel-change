@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Reel Change"
-run/main_scene="uid://etmiyq6vn33t"
+run/main_scene="uid://h5qnt0tp3xkc"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 <<<<<<<Updatedupstreamrun/main_scene="uid://c5n0mru5lqyqd"
@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*uid://bhfustxc27aq0"
-GameState="*res://script/game_state.gd"
+GameState="*res://script/global_script/game_state.gd"
 
 [global_group]
 
