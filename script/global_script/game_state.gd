@@ -114,4 +114,4 @@ func reset_game() -> void:
 	current_time = 6.0
 	current_energy = max_energy
 	current_money = 0
-	get_tree().paused = false
+	

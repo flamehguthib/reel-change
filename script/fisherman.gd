@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-#this fucking bobber
+#bobber position
 var bobber_global_pos : Vector2 = Vector2.ZERO
 
 #player stats
