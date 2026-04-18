@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgg3g5vr3ayyi"
-path="res://.godot/imported/(fisher man)casting long string.png-9b7ac40bd8bb61b3593f27951ee93850.ctex"
+path="res://.godot/imported/(fisher man)casting long string.png-fb529f23bc94030c8c4bf00369dab450.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fisherman/FISHER MAN/long string casting/(fisher man)casting long string.png"
-dest_files=["res://.godot/imported/(fisher man)casting long string.png-9b7ac40bd8bb61b3593f27951ee93850.ctex"]
+source_file="res://assets/fisherman/long string casting/(fisher man)casting long string.png"
+dest_files=["res://.godot/imported/(fisher man)casting long string.png-fb529f23bc94030c8c4bf00369dab450.ctex"]
 
 [params]
 

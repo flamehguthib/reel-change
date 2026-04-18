@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6ignq77uijgp"
-path="res://.godot/imported/(fisherman)hook.png-c9e0454108059f91143505cd56992107.ctex"
+path="res://.godot/imported/(fisherman)hook.png-c23880ca5e6f1ca550f642fcd3880a36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fisherman/FISHER MAN/HOOK/(fisherman)hook.png"
-dest_files=["res://.godot/imported/(fisherman)hook.png-c9e0454108059f91143505cd56992107.ctex"]
+source_file="res://assets/fisherman/HOOK/(fisherman)hook.png"
+dest_files=["res://.godot/imported/(fisherman)hook.png-c23880ca5e6f1ca550f642fcd3880a36.ctex"]
 
 [params]
 

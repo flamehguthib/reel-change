@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cn6o43m7dew6h"]
+
+[ext_resource type="Texture2D" uid="uid://b474x0lbj3dur" path="res://assets/sceneries/Settings Extension (3).png" id="1_itwo7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hdu7"]
+atlas = ExtResource("1_itwo7")
+region = Rect2(0, 0, 4080, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jusdd"]
+atlas = ExtResource("1_itwo7")
+region = Rect2(4080, 0, 4080, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg5tr"]
+atlas = ExtResource("1_itwo7")
+region = Rect2(8160, 0, 4080, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35oo4"]
+atlas = ExtResource("1_itwo7")
+region = Rect2(0, 2160, 4080, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_km5pp"]
+atlas = ExtResource("1_itwo7")
+region = Rect2(4080, 2160, 4080, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjc7p"]
+atlas = ExtResource("1_itwo7")
+region = Rect2(8160, 2160, 4080, 2160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uy2to"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hdu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jusdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg5tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35oo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_km5pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjc7p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5fkd"]
+size = Vector2(4065.5, 371)
+
+[node name="OpenSea" type="Node2D" unique_id=249379820]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1320343873]
+sprite_frames = SubResource("SpriteFrames_uy2to")
+frame_progress = 0.547914
+
+[node name="WaterArea" type="Area2D" parent="." unique_id=747912014]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea" unique_id=769710990]
+position = Vector2(4.25, 889.5)
+shape = SubResource("RectangleShape2D_p5fkd")
+debug_color = Color(0.9230278, 0.27755997, 0, 0.41960785)

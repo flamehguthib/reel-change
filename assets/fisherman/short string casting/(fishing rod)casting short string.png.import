@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxcirx2ef2nvj"
-path="res://.godot/imported/(fishing rod)casting short string.png-7845901eaec3437c66e0be6cf03e3b11.ctex"
+path="res://.godot/imported/(fishing rod)casting short string.png-fdac7065ee4954583a3f2c4e4e71a647.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fisherman/FISHER MAN/short string casting/(fishing rod)casting short string.png"
-dest_files=["res://.godot/imported/(fishing rod)casting short string.png-7845901eaec3437c66e0be6cf03e3b11.ctex"]
+source_file="res://assets/fisherman/short string casting/(fishing rod)casting short string.png"
+dest_files=["res://.godot/imported/(fishing rod)casting short string.png-fdac7065ee4954583a3f2c4e4e71a647.ctex"]
 
 [params]
 

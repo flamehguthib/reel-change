@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8ue7ikig35hl"
-path="res://.godot/imported/(fishing man)casting short string.png-03a1337e1629139822a3cf082a0d2a39.ctex"
+uid="uid://sgcg1d4p6rm"
+path="res://.godot/imported/FIRST SETTINGS CONCEPT (3) (4) (3) (2).png-4b6ca13f1b1237727120e81c3ef2f526.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fisherman/short string casting/(fishing man)casting short string.png"
-dest_files=["res://.godot/imported/(fishing man)casting short string.png-03a1337e1629139822a3cf082a0d2a39.ctex"]
+source_file="res://assets/sceneries/FIRST SETTINGS CONCEPT (3) (4) (3) (2).png"
+dest_files=["res://.godot/imported/FIRST SETTINGS CONCEPT (3) (4) (3) (2).png-4b6ca13f1b1237727120e81c3ef2f526.ctex"]
 
 [params]
 
