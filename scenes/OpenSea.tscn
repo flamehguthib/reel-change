@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cn6o43m7dew6h"]
+[gd_scene format=3 uid="uid://dqe8hi1imn0bd"]
 
 [ext_resource type="Texture2D" uid="uid://b474x0lbj3dur" path="res://assets/sceneries/Settings Extension (3).png" id="1_itwo7"]
 
@@ -59,7 +59,7 @@ size = Vector2(4065.5, 371)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1320343873]
 sprite_frames = SubResource("SpriteFrames_uy2to")
-frame_progress = 0.547914
+frame_progress = 0.90607864
 
 [node name="WaterArea" type="Area2D" parent="." unique_id=747912014]
 
