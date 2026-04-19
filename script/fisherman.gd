@@ -64,13 +64,11 @@ func _physics_process(delta):
 		elif mounted_boat.velocity.x > 0:
 			$Sprite2D.flip_h = false
 		if state != "cast" and state != "fish" and state != "hook" and state != "charge":
-			if abs(mounted_boat.velocity.x) > 0.1 and $Sprite2D.sprite_frames.has_animation("row"):
-				if state != "row":
-					$Sprite2D.play("row")
-					state = "row"
-			elif state != "idle":
-				$Sprite2D.play("idle")
-				state = "idle"
+			if state != "boat_cast_ready":
+				$Sprite2D.play("cast")
+				$Sprite2D.stop()
+				$Sprite2D.frame = 0
+				state = "boat_cast_ready"
 
 	#gravity typa shi
 	if mounted_boat == null and not is_on_floor():
@@ -360,9 +358,9 @@ func on_casting_finished():
 		queue_redraw()
 
 #fishing bob func
-var fishing_bob_scene = preload("res://scenes/fishing_bob.tscn")
+var fishing_bob_scene = preload("res://scenes/Fisherman/fishing_bob.tscn")
 var fishing_bob = null
-var fish_bar_scene = preload("res://scenes/fishing_mechanic.tscn")
+var fish_bar_scene = preload("res://scenes/Fisherman/fishing_mechanic.tscn")
 var fish_bar_instance = null
 
 func spawn_fishing_bob(): 
