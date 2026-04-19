@@ -1,114 +1,72 @@
 [gd_scene format=3 uid="uid://c4nojc5cw6y6"]
 
-[ext_resource type="Script" uid="uid://x7xj5fom70mn" path="res://script/fisherman.gd" id="1_q87sm"]
-[ext_resource type="Texture2D" uid="uid://dgg3g5vr3ayyi" path="res://assets/fisherman/long string casting/(fisher man)casting long string.png" id="2_816or"]
-[ext_resource type="Script" uid="uid://dh0ubhxr6xwkg" path="res://script/camera_2d.gd" id="2_asd3w"]
-[ext_resource type="Texture2D" uid="uid://bsm3dmwnc43mi" path="res://fishing_game_assets/1 Fisherman/Fisherman_hook.png" id="2_gib2q"]
-[ext_resource type="Texture2D" uid="uid://bnm6s508kntr3" path="res://fishing_game_assets/1 Fisherman/Fisherman_fish.png" id="3_pbyaq"]
-[ext_resource type="Texture2D" uid="uid://va386d0nke0x" path="res://assets/fisherman/walkING FISHERMAN.png" id="4_3ixxf"]
+[ext_resource type="Script" uid="uid://x7xj5fom70mn" path="res://script/fisherman.gd" id="1_a5dt2"]
+[ext_resource type="Script" uid="uid://dh0ubhxr6xwkg" path="res://script/camera_2d.gd" id="2_47n1r"]
+[ext_resource type="Texture2D" uid="uid://dgg3g5vr3ayyi" path="res://assets/fisherman/long string casting/(fisher man)casting long string.png" id="3_nnsgk"]
+[ext_resource type="Texture2D" uid="uid://va386d0nke0x" path="res://assets/fisherman/walkING FISHERMAN.png" id="4_vnetq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tabxy"]
-atlas = ExtResource("2_816or")
+atlas = ExtResource("3_nnsgk")
 region = Rect2(0, 0, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g0lq0"]
-atlas = ExtResource("2_816or")
+atlas = ExtResource("3_nnsgk")
 region = Rect2(124, 0, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhr81"]
-atlas = ExtResource("2_816or")
+atlas = ExtResource("3_nnsgk")
 region = Rect2(248, 0, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ttf3q"]
-atlas = ExtResource("2_816or")
+atlas = ExtResource("3_nnsgk")
 region = Rect2(0, 124, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_76hk5"]
-atlas = ExtResource("2_816or")
+atlas = ExtResource("3_nnsgk")
 region = Rect2(124, 124, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wkwq6"]
-atlas = ExtResource("2_816or")
+atlas = ExtResource("3_nnsgk")
 region = Rect2(248, 124, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wca42"]
-atlas = ExtResource("2_816or")
+atlas = ExtResource("3_nnsgk")
 region = Rect2(0, 248, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpoid"]
-atlas = ExtResource("2_816or")
+atlas = ExtResource("3_nnsgk")
 region = Rect2(124, 248, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jv5b3"]
-atlas = ExtResource("2_816or")
+atlas = ExtResource("3_nnsgk")
 region = Rect2(248, 248, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uc807"]
-atlas = ExtResource("2_816or")
+atlas = ExtResource("3_nnsgk")
 region = Rect2(0, 372, 124, 124)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fs4d3"]
-atlas = ExtResource("3_pbyaq")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7vxoj"]
-atlas = ExtResource("3_pbyaq")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ei405"]
-atlas = ExtResource("3_pbyaq")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8dv2"]
-atlas = ExtResource("3_pbyaq")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rjqkl"]
-atlas = ExtResource("2_gib2q")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_flf07"]
-atlas = ExtResource("2_gib2q")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k73cj"]
-atlas = ExtResource("2_gib2q")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ta5nu"]
-atlas = ExtResource("2_gib2q")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2bti"]
-atlas = ExtResource("2_gib2q")
-region = Rect2(192, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nr8wp"]
-atlas = ExtResource("2_gib2q")
-region = Rect2(240, 0, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_816or"]
-atlas = ExtResource("4_3ixxf")
+atlas = ExtResource("4_vnetq")
 region = Rect2(0, 0, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_asd3w"]
-atlas = ExtResource("4_3ixxf")
+atlas = ExtResource("4_vnetq")
 region = Rect2(0, 124, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c14h4"]
-atlas = ExtResource("4_3ixxf")
+atlas = ExtResource("4_vnetq")
 region = Rect2(0, 0, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smsyo"]
-atlas = ExtResource("4_3ixxf")
+atlas = ExtResource("4_vnetq")
 region = Rect2(124, 0, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_optjk"]
-atlas = ExtResource("4_3ixxf")
+atlas = ExtResource("4_vnetq")
 region = Rect2(0, 124, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4redl"]
-atlas = ExtResource("4_3ixxf")
+atlas = ExtResource("4_vnetq")
 region = Rect2(124, 124, 124, 124)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ofheh"]
@@ -146,47 +104,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"cast",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fs4d3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7vxoj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ei405")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e8dv2")
-}],
-"loop": true,
-"name": &"fish",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rjqkl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_flf07")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k73cj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ta5nu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d2bti")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nr8wp")
-}],
-"loop": false,
-"name": &"hook",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -225,7 +143,7 @@ height = 142.0
 
 [node name="Fisherman" type="CharacterBody2D" parent="." unique_id=2120142873]
 unique_name_in_owner = true
-script = ExtResource("1_q87sm")
+script = ExtResource("1_a5dt2")
 
 [node name="RodTip" type="Marker2D" parent="Fisherman" unique_id=2035858610]
 position = Vector2(50, 2)
@@ -237,13 +155,16 @@ limit_right = 4760
 limit_bottom = 2520
 limit_smoothed = true
 position_smoothing_enabled = true
-script = ExtResource("2_asd3w")
+script = ExtResource("2_47n1r")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Fisherman" unique_id=37638068]
 position = Vector2(8, -3)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ofheh")
-animation = &"idle"
+animation = &"cast"
+autoplay = "idle"
+frame = 9
+frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fisherman" unique_id=1835153346]

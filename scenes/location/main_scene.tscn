@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://sgcg1d4p6rm" path="res://assets/sceneries/FIRST SETTINGS CONCEPT (3) (4) (3) (2).png" id="1_ml5nv"]
 [ext_resource type="Script" uid="uid://rk83fbji3h05" path="res://script/sceneries script/home_animation.gd" id="2_5von4"]
 [ext_resource type="Script" uid="uid://7tn3u7wcpgro" path="res://script/spawn.gd" id="3_srowd"]
+[ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/Fisherman/boat.tscn" id="4_5von4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2c62f"]
 atlas = ExtResource("1_ml5nv")
@@ -107,3 +108,7 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 position = Vector2(6, 15)
 script = ExtResource("3_srowd")
+
+[node name="Boat" parent="Home" unique_id=2115580054 instance=ExtResource("4_5von4")]
+position = Vector2(538.54767, 663.94617)
+scale = Vector2(9, 9)

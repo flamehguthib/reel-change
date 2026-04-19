@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://etmiyq6vn33t"]
 
-[ext_resource type="Texture2D" uid="uid://sf1evdon10xj" path="res://fishing_game_assets/3 Objects/Water.png" id="1_12l7w"]
-[ext_resource type="Texture2D" uid="uid://bvteygqbwpsjq" path="res://temp asset/pixel-art-game-scene-with-ground-grass-trees-sky-clouds-character-coins-treasure-chests-and-8-bit-heart-vector-726236617.jpg" id="1_oyeco"]
-[ext_resource type="Script" uid="uid://x7xj5fom70mn" path="res://script/fisherman.gd" id="2_12l7w"]
-[ext_resource type="Texture2D" uid="uid://bsm3dmwnc43mi" path="res://fishing_game_assets/1 Fisherman/Fisherman_hook.png" id="3_itksv"]
-[ext_resource type="Texture2D" uid="uid://bnm6s508kntr3" path="res://fishing_game_assets/1 Fisherman/Fisherman_fish.png" id="4_j6l5m"]
-[ext_resource type="Texture2D" uid="uid://tnggekcjc7an" path="res://fishing_game_assets/1 Fisherman/Fisherman_idle.png" id="5_hjpby"]
-[ext_resource type="Texture2D" uid="uid://bnvnvtd5axrkp" path="res://fishing_game_assets/1 Fisherman/Fisherman_walk.png" id="6_va6ck"]
-[ext_resource type="Texture2D" uid="uid://bxunarbtpdg0" path="res://fishing_game_assets/1 Fisherman/Fisherman_row.png" id="7_j6l5m"]
-[ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/boat.tscn" id="8_itksv"]
-[ext_resource type="PackedScene" uid="uid://crqfajs2y3nfo" path="res://scenes/sleep_zone.tscn" id="10_hjpby"]
-[ext_resource type="PackedScene" uid="uid://dtks2i5s4u164" path="res://scenes/hud.tscn" id="11_va6ck"]
+[ext_resource type="Texture2D" uid="uid://sf1evdon10xj" path="res://fishing_game_assets/3 Objects/Water.png" id="1_ukknd"]
+[ext_resource type="Texture2D" uid="uid://bvteygqbwpsjq" path="res://temp asset/pixel-art-game-scene-with-ground-grass-trees-sky-clouds-character-coins-treasure-chests-and-8-bit-heart-vector-726236617.jpg" id="2_r2jk4"]
+[ext_resource type="Script" uid="uid://x7xj5fom70mn" path="res://script/fisherman.gd" id="3_8kipn"]
+[ext_resource type="Texture2D" uid="uid://bsm3dmwnc43mi" path="res://fishing_game_assets/1 Fisherman/Fisherman_hook.png" id="4_xt500"]
+[ext_resource type="Texture2D" uid="uid://bnm6s508kntr3" path="res://fishing_game_assets/1 Fisherman/Fisherman_fish.png" id="5_vbr0i"]
+[ext_resource type="Texture2D" uid="uid://tnggekcjc7an" path="res://fishing_game_assets/1 Fisherman/Fisherman_idle.png" id="6_gdba6"]
+[ext_resource type="Texture2D" uid="uid://bxunarbtpdg0" path="res://fishing_game_assets/1 Fisherman/Fisherman_row.png" id="7_6s0si"]
+[ext_resource type="Texture2D" uid="uid://bnvnvtd5axrkp" path="res://fishing_game_assets/1 Fisherman/Fisherman_walk.png" id="8_lhrqb"]
+[ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/Fisherman/boat.tscn" id="9_q8vg4"]
+[ext_resource type="PackedScene" uid="uid://crqfajs2y3nfo" path="res://scenes/location/sleep_zone.tscn" id="10_bspsc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itksv"]
 size = Vector2(1153, 42)
@@ -19,99 +18,99 @@ size = Vector2(1153, 42)
 size = Vector2(1154, 40.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nr8wp"]
-atlas = ExtResource("3_itksv")
+atlas = ExtResource("4_xt500")
 region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2bti"]
-atlas = ExtResource("3_itksv")
+atlas = ExtResource("4_xt500")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ta5nu"]
-atlas = ExtResource("3_itksv")
+atlas = ExtResource("4_xt500")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flf07"]
-atlas = ExtResource("3_itksv")
+atlas = ExtResource("4_xt500")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k73cj"]
-atlas = ExtResource("3_itksv")
+atlas = ExtResource("4_xt500")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rjqkl"]
-atlas = ExtResource("3_itksv")
+atlas = ExtResource("4_xt500")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fs4d3"]
-atlas = ExtResource("4_j6l5m")
+atlas = ExtResource("5_vbr0i")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vxoj"]
-atlas = ExtResource("4_j6l5m")
+atlas = ExtResource("5_vbr0i")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ei405"]
-atlas = ExtResource("4_j6l5m")
+atlas = ExtResource("5_vbr0i")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e8dv2"]
-atlas = ExtResource("4_j6l5m")
+atlas = ExtResource("5_vbr0i")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
-atlas = ExtResource("5_hjpby")
+atlas = ExtResource("6_gdba6")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
-atlas = ExtResource("5_hjpby")
+atlas = ExtResource("6_gdba6")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
-atlas = ExtResource("5_hjpby")
+atlas = ExtResource("6_gdba6")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d21ai"]
-atlas = ExtResource("5_hjpby")
+atlas = ExtResource("6_gdba6")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hjpby"]
-atlas = ExtResource("7_j6l5m")
+atlas = ExtResource("7_6s0si")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_va6ck"]
-atlas = ExtResource("7_j6l5m")
+atlas = ExtResource("7_6s0si")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q55mb"]
-atlas = ExtResource("7_j6l5m")
+atlas = ExtResource("7_6s0si")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l5tke"]
-atlas = ExtResource("7_j6l5m")
+atlas = ExtResource("7_6s0si")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rj586"]
-atlas = ExtResource("6_va6ck")
+atlas = ExtResource("8_lhrqb")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4d7sh"]
-atlas = ExtResource("6_va6ck")
+atlas = ExtResource("8_lhrqb")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ir8iy"]
-atlas = ExtResource("6_va6ck")
+atlas = ExtResource("8_lhrqb")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqns4"]
-atlas = ExtResource("6_va6ck")
+atlas = ExtResource("8_lhrqb")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0ka3"]
-atlas = ExtResource("6_va6ck")
+atlas = ExtResource("8_lhrqb")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0h7mo"]
-atlas = ExtResource("6_va6ck")
+atlas = ExtResource("8_lhrqb")
 region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nr8wp"]
@@ -252,7 +251,7 @@ disable_mode = 1
 [node name="Sprite2D" type="Sprite2D" parent="Floor/Water" unique_id=1312158975]
 position = Vector2(362.99994, 48)
 scale = Vector2(48.150265, 3.802419)
-texture = ExtResource("1_12l7w")
+texture = ExtResource("1_ukknd")
 hframes = 4
 vframes = 3
 
@@ -273,14 +272,14 @@ metadata/_edit_lock_ = true
 [node name="Sprite2D" type="Sprite2D" parent="Floor/Floor" unique_id=1727189174]
 position = Vector2(365.00003, 49)
 scale = Vector2(0.6010417, 0.1465035)
-texture = ExtResource("1_oyeco")
+texture = ExtResource("2_r2jk4")
 metadata/_edit_lock_ = true
 
 [node name="Fisherman" type="CharacterBody2D" parent="." unique_id=883382534]
 unique_name_in_owner = true
 z_index = 10
 position = Vector2(920, 248)
-script = ExtResource("2_12l7w")
+script = ExtResource("3_8kipn")
 
 [node name="RodTip" type="Marker2D" parent="Fisherman" unique_id=1326956565]
 position = Vector2(50, 2)
@@ -301,11 +300,11 @@ metadata/_edit_lock_ = true
 position = Vector2(-13, 6)
 shape = SubResource("CapsuleShape2D_0hol4")
 
-[node name="Boat" parent="." unique_id=2115580054 instance=ExtResource("8_itksv")]
+[node name="Boat" parent="." unique_id=2115580054 instance=ExtResource("9_q8vg4")]
 position = Vector2(1075, 295)
 
-[node name="SleepZone" parent="." unique_id=34740492 instance=ExtResource("10_hjpby")]
+[node name="SleepZone" parent="." unique_id=34740492 instance=ExtResource("10_bspsc")]
 position = Vector2(520, 305)
 scale = Vector2(2, 2)
 
-[node name="HUD" parent="." unique_id=1622611448 instance=ExtResource("11_va6ck")]
+[node name="HUD" parent="." unique_id=1622611448]

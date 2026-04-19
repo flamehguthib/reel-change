@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
-@export var move_speed := 80.0
+@export var move_speed := 200.0
 @export var dismount_offset := Vector2(36, -8)
+@export var rider_offset_right := Vector2(0, 0)
+@export var rider_offset_left := Vector2(0, 0)
 
 @onready var interact_area: Area2D = get_node_or_null("Area2D") as Area2D
 @onready var mount_point: Marker2D = $MountPoint
-@onready var boat_sprite: Sprite2D = $Sprite2D
+@onready var boat_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var rider: CharacterBody2D = null
 
@@ -16,6 +18,10 @@ func _ready() -> void:
 	if interact_area != null:
 		interact_area.body_entered.connect(_on_interact_area_body_entered)
 		interact_area.body_exited.connect(_on_interact_area_body_exited)
+	if boat_sprite != null:
+		boat_sprite.play("default")
+		boat_sprite.stop()
+		boat_sprite.frame = 0
 
 func _physics_process(_delta: float) -> void:
 	if rider == null:
@@ -30,13 +36,24 @@ func _physics_process(_delta: float) -> void:
 			boat_sprite.flip_h = true
 		elif dir > 0.0:
 			boat_sprite.flip_h = false
+
+		if abs(dir) > 0.01:
+			if not boat_sprite.is_playing():
+				boat_sprite.play("default")
+		else:
+			if boat_sprite.is_playing():
+				boat_sprite.stop()
+			boat_sprite.frame = 0
 	move_and_slide()
 
 	if rider != null:
-		rider.global_position = mount_point.global_position
+		rider.global_position = get_mount_position()
 
 func get_mount_position() -> Vector2:
-	return mount_point.global_position
+	var offset := rider_offset_right
+	if boat_sprite != null and boat_sprite.flip_h:
+		offset = rider_offset_left
+	return mount_point.global_position + offset
 
 func mount_player(player: CharacterBody2D) -> void:
 	if rider != null or player == null:
