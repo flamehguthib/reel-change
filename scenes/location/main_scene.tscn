@@ -1,54 +1,54 @@
 [gd_scene format=3 uid="uid://bcr2bvdgil3mr"]
 
-[ext_resource type="Texture2D" uid="uid://sgcg1d4p6rm" path="res://assets/sceneries/FIRST SETTINGS CONCEPT (3) (4) (3) (2).png" id="1_ml5nv"]
+[ext_resource type="Texture2D" uid="uid://c2tdkwa24yo6p" path="res://assets/sceneries/EXTENDED VERSION.png" id="1_5von4"]
 [ext_resource type="Script" uid="uid://rk83fbji3h05" path="res://script/sceneries script/home_animation.gd" id="2_5von4"]
 [ext_resource type="Script" uid="uid://7tn3u7wcpgro" path="res://script/spawn.gd" id="3_srowd"]
 [ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/Fisherman/boat.tscn" id="4_5von4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2c62f"]
-atlas = ExtResource("1_ml5nv")
-region = Rect2(0, 0, 4760, 2520)
+[sub_resource type="AtlasTexture" id="AtlasTexture_srowd"]
+atlas = ExtResource("1_5von4")
+region = Rect2(0, 0, 6120, 3060)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gyfs4"]
-atlas = ExtResource("1_ml5nv")
-region = Rect2(4760, 0, 4760, 2520)
+[sub_resource type="AtlasTexture" id="AtlasTexture_odj5l"]
+atlas = ExtResource("1_5von4")
+region = Rect2(6120, 0, 6120, 3060)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d5x1h"]
-atlas = ExtResource("1_ml5nv")
-region = Rect2(9520, 0, 4760, 2520)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca88p"]
+atlas = ExtResource("1_5von4")
+region = Rect2(12240, 0, 6120, 3060)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8mm7a"]
-atlas = ExtResource("1_ml5nv")
-region = Rect2(0, 2520, 4760, 2520)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uquj6"]
+atlas = ExtResource("1_5von4")
+region = Rect2(0, 3060, 6120, 3060)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hq1ik"]
-atlas = ExtResource("1_ml5nv")
-region = Rect2(4760, 2520, 4760, 2520)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbixk"]
+atlas = ExtResource("1_5von4")
+region = Rect2(6120, 3060, 6120, 3060)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nfk4m"]
-atlas = ExtResource("1_ml5nv")
-region = Rect2(9520, 2520, 4760, 2520)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1igtx"]
+atlas = ExtResource("1_5von4")
+region = Rect2(12240, 3060, 6120, 3060)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_66tet"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2c62f")
+"texture": SubResource("AtlasTexture_srowd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gyfs4")
+"texture": SubResource("AtlasTexture_odj5l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d5x1h")
+"texture": SubResource("AtlasTexture_ca88p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8mm7a")
+"texture": SubResource("AtlasTexture_uquj6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hq1ik")
+"texture": SubResource("AtlasTexture_bbixk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nfk4m")
+"texture": SubResource("AtlasTexture_1igtx")
 }],
 "loop": true,
 "name": &"default",
@@ -56,23 +56,32 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gyfs4"]
-size = Vector2(2928, 452)
+size = Vector2(3657.157, 530.5166)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5x1h"]
-size = Vector2(2092.5, 85.5)
+size = Vector2(2726.209, 24.88086)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8mm7a"]
 normal = Vector2(-1, 0)
 distance = -56.0
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5von4"]
+a = Vector2(-1536.2089, -2.9951172)
+b = Vector2(1533.212, -2.9951172)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_srowd"]
+a = Vector2(90.88599, -31.511719)
+b = Vector2(-65.80469, 22.271362)
+
 [node name="Node2D" type="Node2D" unique_id=611043405]
 
 [node name="Home" type="AnimatedSprite2D" parent="." unique_id=347383004]
-position = Vector2(2381.9998, 1262)
+position = Vector2(3064.0002, 1534)
 scale = Vector2(1.0008403, 1.0015874)
 sprite_frames = SubResource("SpriteFrames_66tet")
 frame_progress = 0.01501746
 script = ExtResource("2_5von4")
+metadata/_edit_lock_ = true
 
 [node name="Water" type="Area2D" parent="Home" unique_id=2026378263]
 position = Vector2(-13, 870)
@@ -82,15 +91,15 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Water" unique_id=1310519976]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(926, 160)
+position = Vector2(1255.0713, 392.67456)
 shape = SubResource("RectangleShape2D_gyfs4")
 debug_color = Color(0.92156863, 0.2784314, 0, 0.41960785)
 
-[node name="Port" type="StaticBody2D" parent="Home" unique_id=458553647]
-position = Vector2(525, 388)
+[node name="Port" type="StaticBody2D" parent="Home" unique_id=458553647 groups=["Port"]]
+position = Vector2(1457.7748, 431.3153)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Port" unique_id=1792405206]
-position = Vector2(3, 2)
+position = Vector2(91.67285, 0.9984131)
 shape = SubResource("RectangleShape2D_d5x1h")
 debug_color = Color(0.9525327, 4.235506e-06, 0.5606254, 0.41960785)
 metadata/_edit_lock_ = true
@@ -106,9 +115,28 @@ metadata/_edit_lock_ = true
 
 [node name="Spawn" type="Marker2D" parent="Home" unique_id=1225093361]
 unique_name_in_owner = true
-position = Vector2(6, 15)
+position = Vector2(666.4397, 252.59906)
 script = ExtResource("3_srowd")
 
 [node name="Boat" parent="Home" unique_id=2115580054 instance=ExtResource("4_5von4")]
-position = Vector2(538.54767, 663.94617)
+position = Vector2(1375.8436, 924.5324)
 scale = Vector2(9, 9)
+
+[node name="Ground" type="StaticBody2D" parent="Home" unique_id=2095665060]
+position = Vector2(-2908.5562, 309.50864)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Ground" unique_id=1497127370]
+position = Vector2(1383.3373, 79.87305)
+shape = SubResource("SegmentShape2D_5von4")
+debug_color = Color(0.9525327, 4.235506e-06, 0.5606254, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Home/Ground" unique_id=739580935]
+position = Vector2(2990.4875, 91.85408)
+rotation = 0.5235988
+scale = Vector2(1.1, 1.1)
+shape = SubResource("SegmentShape2D_srowd")
+debug_color = Color(0.9525327, 4.235506e-06, 0.5606254, 0.41960785)
+
+[node name="DismountPosition" type="Marker2D" parent="." unique_id=310340425]
+position = Vector2(4568, 1782)

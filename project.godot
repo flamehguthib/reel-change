@@ -23,6 +23,7 @@ GameState="*res://script/global_script/game_state.gd"
 [global_group]
 
 water=""
+Player=""
 
 [input]
 

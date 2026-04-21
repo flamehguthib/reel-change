@@ -4,7 +4,7 @@ extends CharacterBody2D
 var bobber_global_pos : Vector2 = Vector2.ZERO
 
 #player stats
-var movement_speed = 167
+var movement_speed = 400
 const GRAVITY = 980
 var state = "idle"
 
@@ -43,8 +43,8 @@ const FISH_BAR_OFFSET_LEFT = Vector2(-96.0, 18.0)
 @onready var body_collision_shape: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
-	$Sprite2D.connect("animation_finished", Callable(self, "on_casting_finished"))
-
+	$Player.connect("animation_finished", Callable(self, "on_casting_finished"))
+	
 func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		if mounted_boat != null:
@@ -60,14 +60,14 @@ func _physics_process(delta):
 		global_position = mounted_boat.get_mount_position()
 		velocity = Vector2.ZERO
 		if mounted_boat.velocity.x < 0:
-			$Sprite2D.flip_h = true
+			$Player.flip_h = true
 		elif mounted_boat.velocity.x > 0:
-			$Sprite2D.flip_h = false
+			$Player.flip_h = false
 		if state != "cast" and state != "fish" and state != "hook" and state != "charge":
 			if state != "boat_cast_ready":
-				$Sprite2D.play("cast")
-				$Sprite2D.stop()
-				$Sprite2D.frame = 0
+				$Player.play("cast")
+				$Player.stop()
+				$Player.frame = 3
 				state = "boat_cast_ready"
 
 	#gravity typa shi
@@ -81,19 +81,21 @@ func _physics_process(delta):
 	
 	#invert
 	if velocity.x < 0:
-		$Sprite2D.flip_h = true
+		$Player.flip_h = true
 	elif velocity.x > 0: 
-		$Sprite2D.flip_h = false 
+		$Player.flip_h = false 
 	
 	#animation
 	if state == "fish" and fish_bar_instance == null and Input.is_action_just_pressed("fish_button"):
-		$Sprite2D.play("hook")
+		$Player.play("hook")
+		$AnimationPlayer.play("hook_pos")
+		$FishingRod.play("hook")
 		state = "hook"
 		start_reel()
 	
 	# Retract cast when moving
 	elif state == "fish" and velocity.x != 0:
-		$Sprite2D.play("hook")
+		$Player.play("hook")
 		state = "hook"
 		start_reel()
 		
@@ -109,11 +111,12 @@ func _physics_process(delta):
 	elif state != "cast" and state != "fish" and state != "hook" and state != "charge" and mounted_boat == null:	
 		if velocity.x == 0:
 			if state != "idle":
-				$Sprite2D.play("idle")
+				$Player.play("idle")
+				$FishingRod.visible = false
 				state = "idle"
 		elif velocity.x != 0:
 			if state != "walk":
-				$Sprite2D.play("walk")
+				$Player.play("walk")
 				state = "walk"
 
 	if fish_bar_instance != null:
@@ -214,25 +217,22 @@ func begin_charge_cast():
 	is_charging_cast = true
 	charge_time = 0.0
 	state = "charge"
-	if $Sprite2D.animation != "idle":
-		$Sprite2D.play("idle")
-	queue_redraw()
 
 func update_charge(delta):
 	charge_time = min(charge_time + delta, max_charge_time)
-	queue_redraw()
 
 func release_charge_cast():
 	is_charging_cast = false
 	var charge_ratio = get_charge_ratio()
 	cast_target_distance = lerp(min_cast_distance, max_cast_distance, charge_ratio)
 	arc_peak_height = lerp(min_arc_peak_height, max_arc_peak_height, charge_ratio)
-	$Sprite2D.play("cast")
+	$Player.play("cast")
+	$FishingRod.visible = true
+	$FishingRod.play("cast")
 	state = "cast"
 	start_cast()
 	# Spend energy on cast
 	GameState.spend_energy(GameState.fishing_energy_cost)
-	queue_redraw()
 
 func get_charge_ratio():
 	if max_charge_time <= 0.0:
@@ -242,9 +242,8 @@ func get_charge_ratio():
 func start_cast():
 	cast_visual_state = CAST_THROWING
 	cast_distance = 0.0
-	cast_direction = -1 if $Sprite2D.flip_h else 1
+	cast_direction = -1 if $Player.flip_h else 1
 	actual_cast_distance = calculate_cast_collision()
-	queue_redraw()
 	
 
 func start_reel():
@@ -264,8 +263,6 @@ func update_cast_visual(delta):
 		if is_zero_approx(cast_distance):
 			cast_visual_state = CAST_IDLE
 
-	queue_redraw()
-
 func get_cast_end_offset():
 	var target_distance = max(cast_target_distance, 1.0)
 	var t = clamp(cast_distance / target_distance, 0.0, 1.0)
@@ -273,10 +270,10 @@ func get_cast_end_offset():
 	return Vector2(cast_distance * cast_direction, cast_water_y_offset + arc_y)
 
 func get_cast_start_offset():
-	if not has_node("Sprite2D"):
+	if not has_node("Player"):
 		return cast_origin_offset
 
-	var sprite = $Sprite2D
+	var sprite = $Player
 	var facing = -1.0 if sprite.flip_h else 1.0
 	var sx = abs(sprite.scale.x)
 	var sy = abs(sprite.scale.y)
@@ -340,15 +337,17 @@ func _draw():
 	
 
 func on_casting_finished():
-	if $Sprite2D.animation == "cast":
-		$Sprite2D.play("fish")
+	if $Player.animation == "cast":
+		$Player.play("fish")
+		$FishingRod.play("fish")
 		state = "fish"
 		spawn_fishing_bob()
 		is_charging_cast = false
 		
 
-	if $Sprite2D.animation == "hook":
-		$Sprite2D.play("idle")
+	if $Player.animation == "hook":
+		$Player.play("idle")
+		$FishingRod.visible = false
 		state = "idle"
 		kill_fish_bar()
 		cast_visual_state = CAST_IDLE
@@ -369,7 +368,7 @@ func spawn_fishing_bob():
 		fishing_bob = fishing_bob_scene.instantiate()
 		fishing_bob.position = bobber_global_pos
 		add_child(fishing_bob)
-		var fish_detector = fishing_bob.get_node_or_null("Sprite2D")
+		var fish_detector = fishing_bob.get_node_or_null("Player")
 		if fish_detector != null and fish_detector.has_signal("fish_bite"):
 			fish_detector.fish_bite.connect(_on_fish_bite)
 		if fish_detector != null and fish_detector.has_signal("fish_missed"):
@@ -390,7 +389,7 @@ func update_fish_bar_position() -> void:
 	if fish_bar_instance == null or not is_instance_valid(fish_bar_instance):
 		return
 	# Left and right use slightly different offsets so they visually match.
-	if $Sprite2D.flip_h:
+	if $Player.flip_h:
 		fish_bar_instance.position = FISH_BAR_OFFSET_LEFT
 	else:
 		fish_bar_instance.position = FISH_BAR_OFFSET_RIGHT
@@ -405,7 +404,8 @@ func _on_fish_bar_finished(caught: bool) -> void:
 	if caught:
 		GameState.add_money(randi_range(80, 150))
 	if state == "fish":
-		$Sprite2D.play("hook")
+		$Player.play("hook")
+		$FishingRod.play("hook")
 		state = "hook"
 		start_reel()
 
@@ -417,7 +417,8 @@ func _on_fish_bite() -> void:
 func _on_fish_missed() -> void:
 	print("Fish escaped before minigame")
 	if state == "fish" and fish_bar_instance == null:
-		$Sprite2D.play("hook")
+		$Player.play("hook")
+		$FishingRod.play("hook")
 		state = "hook"
 		start_reel()
 
@@ -425,3 +426,7 @@ func kill_fishing_bob():
 	if fishing_bob != null:
 		fishing_bob.queue_free()
 		fishing_bob = null
+
+
+func _on_player_animation_finished() -> void:
+	$AnimationPlayer.play("default_pos")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctgxv74ts5miy" path="res://script/boat.gd" id="2_1f4x8"]
 [ext_resource type="Texture2D" uid="uid://ljdfuf665wks" path="res://assets/boat/boat_hi.png" id="2_uhw1y"]
+[ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="3_hffbi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hffbi"]
 atlas = ExtResource("2_uhw1y")
@@ -141,7 +142,7 @@ animations = [{
 size = Vector2(71, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyrje"]
-size = Vector2(132.5, 64.25)
+size = Vector2(136.25, 92.125)
 
 [node name="Boat" type="CharacterBody2D" unique_id=2115580054]
 scale = Vector2(2, 2)
@@ -164,5 +165,26 @@ position = Vector2(-11.5, -27)
 position = Vector2(-26, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=660792494]
-position = Vector2(14, -1)
+position = Vector2(15.875, -14.9375)
 shape = SubResource("RectangleShape2D_qyrje")
+
+[node name="E" type="Sprite2D" parent="." unique_id=12071532]
+position = Vector2(-19, -54)
+scale = Vector2(0.15390626, 0.1617187)
+texture = ExtResource("3_hffbi")
+
+[node name="Label" type="Label" parent="E" unique_id=317399598]
+offset_left = 64.99999
+offset_top = -24.999939
+offset_right = 224.99997
+offset_bottom = 30.000061
+scale = Vector2(2, 2)
+text = "to enter the boat"
+
+[node name="Label" type="Label" parent="E/Label" unique_id=743372857]
+layout_mode = 0
+offset_left = -107.49999
+offset_top = -5.722046e-05
+offset_right = -65.49999
+offset_bottom = 22.999943
+text = "Press"

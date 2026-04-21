@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var move_speed := 200.0
-@export var dismount_offset := Vector2(36, -8)
+@export var move_speed := 1000
+@export var dismount_offset := Vector2(100, -100)
 @export var rider_offset_right := Vector2(0, 0)
 @export var rider_offset_left := Vector2(0, 0)
 
@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var boat_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var rider: CharacterBody2D = null
+@onready var nearest_port = Vector2.ZERO
 
 func _ready() -> void:
 	add_to_group("boats")
@@ -73,12 +74,27 @@ func unmount_player(player: CharacterBody2D) -> void:
 
 	if mounted_player.has_method("set_mounted_boat"):
 		mounted_player.call("set_mounted_boat", null)
-	mounted_player.global_position = global_position + dismount_offset
+		mounted_player.global_position = nearest_port
+
+func find_nearest_port():
+	var ports = get_tree().get_nodes_in_group("Port")
+	if ports.size() > 0:
+		var target_port = ports[0]
+		nearest_port = target_port.global_position
 
 func _on_interact_area_body_entered(body: Node2D) -> void:
 	if body.has_method("set_nearby_boat"):
 		body.call("set_nearby_boat", self)
+	
+	if body.is_in_group("Player"):
+		$E.visible = true
+		
+	if body.is_in_group("Port"):
+		find_nearest_port()
+		
 
 func _on_interact_area_body_exited(body: Node2D) -> void:
 	if body.has_method("clear_nearby_boat"):
 		body.call("clear_nearby_boat", self)
+	$E.visible = false
+	
