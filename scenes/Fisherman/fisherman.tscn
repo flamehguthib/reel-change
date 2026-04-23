@@ -429,7 +429,8 @@ libraries/ = SubResource("AnimationLibrary_ufy8k")
 visible = false
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_hn2hl")
-animation = &"hook"
+animation = &"cast"
+frame_progress = 1.0
 script = ExtResource("3_oehl5")
 metadata/_edit_lock_ = true
 
@@ -446,7 +447,7 @@ script = ExtResource("2_47n1r")
 [node name="Player" type="AnimatedSprite2D" parent="Fisherman" unique_id=37638068]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ofheh")
-animation = &"idle"
+animation = &"cast"
 autoplay = "idle"
 metadata/_edit_lock_ = true
 

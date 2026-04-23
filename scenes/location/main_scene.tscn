@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c2tdkwa24yo6p" path="res://assets/sceneries/EXTENDED VERSION.png" id="1_5von4"]
 [ext_resource type="Script" uid="uid://rk83fbji3h05" path="res://script/sceneries script/home_animation.gd" id="2_5von4"]
 [ext_resource type="Script" uid="uid://7tn3u7wcpgro" path="res://script/spawn.gd" id="3_srowd"]
+[ext_resource type="Script" uid="uid://sir8qsldsspa" path="res://script/sleep_zone.gd" id="3_uquj6"]
 [ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/Fisherman/boat.tscn" id="4_5von4"]
 [ext_resource type="PackedScene" uid="uid://bsbcnsptji28" path="res://scenes/ui/hud.tscn" id="5_srowd"]
 [ext_resource type="Script" uid="uid://ckoih5dwcgjvq" path="res://script/sea_border.gd" id="6_border"]
@@ -58,6 +59,9 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbixk"]
+size = Vector2(324, 1022)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gyfs4"]
 size = Vector2(3657.157, 530.5166)
 
@@ -84,6 +88,18 @@ sprite_frames = SubResource("SpriteFrames_66tet")
 frame_progress = 0.01501746
 script = ExtResource("2_5von4")
 metadata/_edit_lock_ = true
+
+[node name="SleepZone" type="Node2D" parent="Home" unique_id=235074908]
+script = ExtResource("3_uquj6")
+
+[node name="InteractionArea" type="Area2D" parent="Home/SleepZone" unique_id=1772935218]
+position = Vector2(-3061.4277, -1531.5688)
+scale = Vector2(0.9991604, 0.9984152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/SleepZone/InteractionArea" unique_id=1882514298]
+position = Vector2(3407, 1449)
+shape = SubResource("RectangleShape2D_bbixk")
+debug_color = Color(0.9788502, 0, 0.39666367, 0.41960785)
 
 [node name="Water" type="Area2D" parent="Home" unique_id=2026378263]
 position = Vector2(-13, 870)

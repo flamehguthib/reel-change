@@ -146,6 +146,7 @@ size = Vector2(136.25, 92.125)
 
 [node name="Boat" type="CharacterBody2D" unique_id=2115580054]
 scale = Vector2(2, 2)
+collision_layer = 128
 script = ExtResource("2_1f4x8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1961976248]

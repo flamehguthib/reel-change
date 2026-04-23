@@ -163,7 +163,7 @@ func check_game_end() -> void:
 			get_tree().change_scene_to_file("res://scenes/victory.tscn") 
 		else:
 			print("=== GAME OVER - You earned ₱%d / ₱%d ===" % [current_money, money_goal])
-			get_tree().change_scene_to_file("res://scenes/defeat.tscn")
+			get_tree().change_scene_to_file("res://scenes/ui/defeat.tscn")
 
 func reset_game() -> void:
 	"""Reset to initial state for new game."""

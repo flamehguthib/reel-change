@@ -14,6 +14,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if player_in_range != null and Input.is_action_just_pressed("interact"):
+		Transition_Manager.transition_to_cutscene()
 		GameState.sleep_until_morning()
 		print("Slept until morning.")
 
