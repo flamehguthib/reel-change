@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://rk83fbji3h05" path="res://script/sceneries script/home_animation.gd" id="2_5von4"]
 [ext_resource type="Script" uid="uid://7tn3u7wcpgro" path="res://script/spawn.gd" id="3_srowd"]
 [ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/Fisherman/boat.tscn" id="4_5von4"]
+[ext_resource type="PackedScene" uid="uid://bsbcnsptji28" path="res://scenes/ui/hud.tscn" id="5_srowd"]
+[ext_resource type="Script" uid="uid://ckoih5dwcgjvq" path="res://script/sea_border.gd" id="6_border"]
+[ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="7_sail_prompt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_srowd"]
 atlas = ExtResource("1_5von4")
@@ -61,9 +64,8 @@ size = Vector2(3657.157, 530.5166)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5x1h"]
 size = Vector2(2726.209, 24.88086)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8mm7a"]
-normal = Vector2(-1, 0)
-distance = -56.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_seasborder"]
+size = Vector2(600, 1198.5735)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5von4"]
 a = Vector2(-1536.2089, -2.9951172)
@@ -106,12 +108,43 @@ metadata/_edit_lock_ = true
 
 [node name="OpenSea" type="Area2D" parent="Home" unique_id=1572867265]
 position = Vector2(2266, 218)
+script = ExtResource("6_border")
+target_scene_path = "res://scenes/location/OpenSea.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/OpenSea" unique_id=974110818]
-position = Vector2(2, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/OpenSea" unique_id=1728901234]
+position = Vector2(493.68066, 161.16016)
+shape = SubResource("RectangleShape2D_seasborder")
+
+[node name="SailPrompt" type="Sprite2D" parent="Home/OpenSea" unique_id=1728901235]
+position = Vector2(186.93863, 64.551506)
+scale = Vector2(1.6310816, 1.8034717)
+texture = ExtResource("7_sail_prompt")
+
+[node name="Label" type="Label" parent="Home/OpenSea/SailPrompt" unique_id=1735330547]
+anchors_preset = -1
+anchor_left = -0.84200007
+anchor_top = -1.465
+anchor_right = 2.332
+anchor_bottom = 11.869
+offset_left = -46.300713
+offset_top = 166.81815
+offset_right = -366.21484
+offset_bottom = -1470.0035
+theme_override_font_sizes/font_size = 32
+text = "Press"
+
+[node name="Label2" type="Label" parent="Home/OpenSea/SailPrompt" unique_id=1794228834]
+anchors_preset = -1
+anchor_left = 1.797
+anchor_top = 5.4690003
+anchor_right = 1.797
+anchor_bottom = 5.4690003
+offset_left = -158.66501
+offset_top = -720.18036
+offset_right = -26.664978
+offset_bottom = -697.18036
 scale = Vector2(2, 2)
-shape = SubResource("WorldBoundaryShape2D_8mm7a")
-metadata/_edit_lock_ = true
+text = "to travel to sea"
 
 [node name="Spawn" type="Marker2D" parent="Home" unique_id=1225093361]
 unique_name_in_owner = true
@@ -119,11 +152,11 @@ position = Vector2(666.4397, 252.59906)
 script = ExtResource("3_srowd")
 
 [node name="Boat" parent="Home" unique_id=2115580054 instance=ExtResource("4_5von4")]
-position = Vector2(1375.8436, 924.5324)
+position = Vector2(1380.8395, 818.7004)
 scale = Vector2(9, 9)
 
 [node name="Ground" type="StaticBody2D" parent="Home" unique_id=2095665060]
-position = Vector2(-2908.5562, 309.50864)
+position = Vector2(-2884.5764, 305.51498)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Ground" unique_id=1497127370]
 position = Vector2(1383.3373, 79.87305)
@@ -137,6 +170,8 @@ rotation = 0.5235988
 scale = Vector2(1.1, 1.1)
 shape = SubResource("SegmentShape2D_srowd")
 debug_color = Color(0.9525327, 4.235506e-06, 0.5606254, 0.41960785)
+
+[node name="HUD" parent="Home" unique_id=1622611448 instance=ExtResource("5_srowd")]
 
 [node name="DismountPosition" type="Marker2D" parent="." unique_id=310340425]
 position = Vector2(4568, 1782)

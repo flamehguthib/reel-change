@@ -28,6 +28,23 @@ layout_mode = 2
 [node name="EnergyLabel" type="Label" parent="TopBar/Stats" unique_id=1934863651]
 layout_mode = 2
 
+[node name="EnergyBar" type="ProgressBar" parent="TopBar/Stats" unique_id=628377115]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="GasLabel" type="Label" parent="TopBar/Stats" unique_id=1754389654]
+layout_mode = 2
+
+[node name="GasBar" type="ProgressBar" parent="TopBar/Stats" unique_id=381025951]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
 [node name="MoneyLabel" type="Label" parent="TopBar/Stats" unique_id=1666421492]
 layout_mode = 2
 

@@ -5,11 +5,18 @@ var current_day: int = 1
 var current_time: float = 0.0  # 0-24 represents full day cycle
 var max_energy: int = 100
 var current_energy: int = 100
+var max_gas: int = 100
+var current_gas: int = 100
 var current_money: int = 0
 var money_goal: int = 10000
 
 # Energy system
 var fishing_energy_cost: int = 4
+
+# Gas system
+var gas_cost_to_opensea: int = 30
+var gas_refuel_cost: int = 50  # Coins
+var gas_refuel_amount: int = 50  # Gas units
 
 # Time scaling - 1 real second = X in-game time units
 # For 15-minute demo: complete 1 full day (24 hours) in 5 real minutes (300 seconds)
@@ -25,6 +32,7 @@ func _ready() -> void:
 	current_day = 1
 	current_time = 6  # Start at 6 AM (morning)
 	current_energy = max_energy
+	current_gas = max_gas
 	current_money = 0
 
 func _process(delta: float) -> void:
@@ -69,8 +77,57 @@ func sleep_until_morning() -> void:
 	"""Sleep to next day and fully recover energy."""
 	current_time = 6.0  # Wake up at 6 AM
 	current_energy = max_energy
+	current_gas = max_gas
 	advance_day()
-	print("Slept - Day %d, Energy restored" % current_day)
+	print("Slept - Day %d, Energy and Gas restored" % current_day)
+
+func spend_gas(amount: int) -> bool:
+	"""Attempt to spend gas. Returns true if successful."""
+	if current_gas >= amount:
+		current_gas -= amount
+		return true
+	return false
+
+func refuel_gas(amount: int) -> void:
+	"""Restore gas (up to max)."""
+	current_gas = min(current_gas + amount, max_gas)
+
+func can_afford_refuel() -> bool:
+	"""Check if player has enough money to refuel."""
+	return current_money >= gas_refuel_cost
+
+func buy_gas() -> bool:
+	"""Attempt to refuel gas. Returns true if successful."""
+	if can_afford_refuel():
+		current_money -= gas_refuel_cost
+		refuel_gas(gas_refuel_amount)
+		return true
+	return false
+
+func can_travel_to_opensea() -> bool:
+	"""Check if player has enough gas to travel to OpenSea."""
+	return current_gas >= gas_cost_to_opensea
+
+func travel_to_opensea() -> bool:
+	"""Spend gas to travel to OpenSea. Returns true if successful."""
+	if can_travel_to_opensea():
+		current_gas -= gas_cost_to_opensea
+		return true
+	return false
+
+func recover_gas(amount: int) -> void:
+	"""Restore gas (up to max)."""
+	current_gas = min(current_gas + amount, max_gas)
+
+func can_drive_boat() -> bool:
+	"""Check if boat can keep moving."""
+	return current_gas > 0
+
+func get_gas_percent() -> float:
+	"""Get gas as percentage (0.0 to 1.0)."""
+	if max_gas <= 0:
+		return 0.0
+	return float(current_gas) / float(max_gas)
 
 func can_fish() -> bool:
 	"""Check if player has enough energy to attempt fishing."""
@@ -113,5 +170,6 @@ func reset_game() -> void:
 	current_day = 1
 	current_time = 6.0
 	current_energy = max_energy
+	current_gas = max_gas
 	current_money = 0
 	

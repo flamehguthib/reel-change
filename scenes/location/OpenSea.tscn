@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://dqe8hi1imn0bd"]
 
 [ext_resource type="Texture2D" uid="uid://b474x0lbj3dur" path="res://assets/sceneries/Settings Extension (3).png" id="1_itwo7"]
+[ext_resource type="PackedScene" uid="uid://c4nojc5cw6y6" path="res://scenes/Fisherman/fisherman.tscn" id="2_2yalk"]
+[ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/Fisherman/boat.tscn" id="3_06y86"]
+[ext_resource type="PackedScene" uid="uid://bsbcnsptji28" path="res://scenes/ui/hud.tscn" id="4_06y86"]
+[ext_resource type="Script" uid="uid://ckoih5dwcgjvq" path="res://script/sea_border.gd" id="5_border"]
+[ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="6_sail_prompt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hdu7"]
 atlas = ExtResource("1_itwo7")
@@ -53,17 +58,73 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5fkd"]
-size = Vector2(4065.5, 371)
+size = Vector2(6547.375, 382.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nleqy"]
+size = Vector2(600, 1198.5735)
 
 [node name="OpenSea" type="Node2D" unique_id=249379820]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1320343873]
+position = Vector2(525.5002, 0)
+scale = Vector2(1.609559, 0.9875001)
 sprite_frames = SubResource("SpriteFrames_uy2to")
-frame_progress = 0.90607864
+autoplay = "default"
+frame_progress = 0.030958913
 
 [node name="WaterArea" type="Area2D" parent="." unique_id=747912014]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea" unique_id=769710990]
-position = Vector2(4.25, 889.5)
+position = Vector2(520.3125, 868)
 shape = SubResource("RectangleShape2D_p5fkd")
 debug_color = Color(0.9230278, 0.27755997, 0, 0.41960785)
+
+[node name="fishermanbisakol" parent="." unique_id=252812419 instance=ExtResource("2_2yalk")]
+position = Vector2(-2201, 307)
+
+[node name="Boat" parent="." unique_id=2115580054 instance=ExtResource("3_06y86")]
+position = Vector2(-2067, 574)
+scale = Vector2(9, 9)
+
+[node name="HUD" parent="." unique_id=1622611448 instance=ExtResource("4_06y86")]
+
+[node name="OpenSea" type="Area2D" parent="." unique_id=1931512157]
+position = Vector2(-2966, -100)
+script = ExtResource("5_border")
+target_scene_path = "res://scenes/location/main_scene.tscn"
+require_gas_to_cross = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenSea" unique_id=1376499553]
+position = Vector2(493.68066, 161.16016)
+shape = SubResource("RectangleShape2D_nleqy")
+
+[node name="SailPrompt" type="Sprite2D" parent="OpenSea" unique_id=1131841614]
+position = Vector2(511.99994, 39.99999)
+scale = Vector2(1.6310816, 1.8034717)
+texture = ExtResource("6_sail_prompt")
+
+[node name="Label" type="Label" parent="OpenSea/SailPrompt" unique_id=1162825523]
+anchors_preset = -1
+anchor_left = -0.84200007
+anchor_top = -1.465
+anchor_right = 2.332
+anchor_bottom = 11.869
+offset_left = -46.300713
+offset_top = 166.81815
+offset_right = -366.21484
+offset_bottom = -1470.0035
+theme_override_font_sizes/font_size = 32
+text = "Press"
+
+[node name="Label2" type="Label" parent="OpenSea/SailPrompt" unique_id=1978092711]
+anchors_preset = -1
+anchor_left = 1.797
+anchor_top = 5.4690003
+anchor_right = 1.797
+anchor_bottom = 5.4690003
+offset_left = -158.66501
+offset_top = -720.18036
+offset_right = -26.664978
+offset_bottom = -697.18036
+scale = Vector2(2, 2)
+text = "to go back home"

@@ -30,6 +30,7 @@ func _physics_process(_delta: float) -> void:
 		return
 
 	var dir := Input.get_action_strength("right") - Input.get_action_strength("left")
+
 	velocity.x = dir * move_speed
 	velocity.y = 0.0
 	if boat_sprite != null:

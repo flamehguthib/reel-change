@@ -45,6 +45,13 @@ const FISH_BAR_OFFSET_LEFT = Vector2(-96.0, 18.0)
 func _ready() -> void:
 	$Player.connect("animation_finished", Callable(self, "on_casting_finished"))
 	
+	# Auto-mount on boat when in OpenSea scene
+	if get_tree().current_scene.name == "OpenSea":
+		await get_tree().process_frame  # Wait one frame for boat to initialize
+		var boats = get_tree().get_nodes_in_group("boats")
+		if boats.size() > 0:
+			mount_boat(boats[0])
+	
 func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		if mounted_boat != null:
