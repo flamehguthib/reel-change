@@ -21,10 +21,13 @@ func _physics_process(_delta: float) -> void:
 		_attempt_sail()
 
 func _on_body_entered(body: Node2D) -> void:
+	print(body.name)
 	if not body.is_in_group("boats"):
 		return
 	
 	boat_nearby = body
+	
+	
 	
 	# Show prompt
 	if sail_prompt != null:

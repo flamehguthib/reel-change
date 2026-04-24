@@ -144,10 +144,10 @@ size = Vector2(71, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyrje"]
 size = Vector2(136.25, 92.125)
 
-[node name="Boat" type="CharacterBody2D" unique_id=2115580054]
+[node name="Boat" type="CharacterBody2D" unique_id=2115580054 groups=["boats"]]
 z_index = 1
 scale = Vector2(2, 2)
-collision_layer = 128
+collision_layer = 129
 script = ExtResource("2_1f4x8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1961976248]
@@ -171,6 +171,7 @@ position = Vector2(15.875, -14.9375)
 shape = SubResource("RectangleShape2D_qyrje")
 
 [node name="E" type="Sprite2D" parent="." unique_id=12071532]
+visible = false
 position = Vector2(-19, -54)
 scale = Vector2(0.15390626, 0.1617187)
 texture = ExtResource("3_hffbi")
