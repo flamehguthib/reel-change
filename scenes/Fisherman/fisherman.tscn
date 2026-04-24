@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://x7xj5fom70mn" path="res://script/fisherman.gd" id="1_a5dt2"]
 [ext_resource type="Script" uid="uid://dh0ubhxr6xwkg" path="res://script/camera_2d.gd" id="2_47n1r"]
-[ext_resource type="Texture2D" uid="uid://4ukf0hwf4orc" path="res://assets/fisherman/long string casting/(fishing rod)casting long string.png" id="2_vnetq"]
-[ext_resource type="Texture2D" uid="uid://hj0my8qhbfun" path="res://assets/fisherman/HOOK/(FISHING ROD)hook.png" id="3_e7hpt"]
-[ext_resource type="Texture2D" uid="uid://dgg3g5vr3ayyi" path="res://assets/fisherman/long string casting/(fisher man)casting long string.png" id="3_nnsgk"]
 [ext_resource type="Script" uid="uid://c5gwjjdvdn6b4" path="res://script/fishing_rod.gd" id="3_oehl5"]
 [ext_resource type="Texture2D" uid="uid://i8f53csglnmf" path="res://assets/fisherman/idle fisherman.png" id="4_47n1r"]
 [ext_resource type="Texture2D" uid="uid://va386d0nke0x" path="res://assets/fisherman/walkING FISHERMAN.png" id="4_vnetq"]
 [ext_resource type="Texture2D" uid="uid://6ignq77uijgp" path="res://assets/fisherman/HOOK/(fisherman)hook.png" id="7_rhwrs"]
+[ext_resource type="Texture2D" uid="uid://cmdsexbts5j1f" path="res://assets/fisherman/long string casting/fisherman casting adjust string.png" id="7_ufy8k"]
+[ext_resource type="Texture2D" uid="uid://cxmf8xtglqc3e" path="res://assets/fisherman/HOOK/(FISHING ROD)hook(test).png" id="8_e7hpt"]
+[ext_resource type="Texture2D" uid="uid://bm2w8b6a17xcn" path="res://assets/fisherman/long string casting/long_fishing_rod (test).png" id="8_rhwrs"]
 
 [sub_resource type="Animation" id="Animation_e7hpt"]
 length = 0.001
@@ -23,6 +23,57 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fisherman/Player:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fisherman/FishingRod:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ugtqp"]
+resource_name = "cast_pos"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fisherman/Player:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fisherman/FishingRod:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 35)]
 }
 
 [sub_resource type="Animation" id="Animation_ufy8k"]
@@ -40,214 +91,152 @@ tracks/0/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_rhwrs"]
-resource_name = "hook"
+[sub_resource type="Animation" id="Animation_ptl4r"]
+resource_name = "fish_pos"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Fisherman/Player:position")
+tracks/0/path = NodePath("Fisherman/FishingRod:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-27, 77)]
+"update": 0,
+"values": [Vector2(30, 35)]
+}
+
+[sub_resource type="Animation" id="Animation_rhwrs"]
+resource_name = "hook"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fisherman/Player:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fisherman/FishingRod:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_xpf6s"]
+resource_name = "invert_cast_pos"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fisherman/Player:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-50, 35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fisherman/FishingRod:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-50, 35)]
+}
+
+[sub_resource type="Animation" id="Animation_g3ibt"]
+resource_name = "invert_hook_pos"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fisherman/FishingRod:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-80, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fisherman/Player:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-80, 40)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ufy8k"]
 _data = {
 &"RESET": SubResource("Animation_e7hpt"),
+&"cast_pos": SubResource("Animation_ugtqp"),
 &"default_pos": SubResource("Animation_ufy8k"),
-&"hook_pos": SubResource("Animation_rhwrs")
+&"fish_pos": SubResource("Animation_ptl4r"),
+&"hook_pos": SubResource("Animation_rhwrs"),
+&"invert_cast_pos": SubResource("Animation_xpf6s"),
+&"invert_hook_pos": SubResource("Animation_g3ibt")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e7hpt"]
-atlas = ExtResource("2_vnetq")
-region = Rect2(0, 0, 124, 124)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4upc6"]
+atlas = ExtResource("7_ufy8k")
+region = Rect2(0, 0, 164, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rhwrs"]
-atlas = ExtResource("2_vnetq")
-region = Rect2(124, 0, 124, 124)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8vbb"]
+atlas = ExtResource("7_ufy8k")
+region = Rect2(164, 0, 164, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ufy8k"]
-atlas = ExtResource("2_vnetq")
-region = Rect2(248, 0, 124, 124)
+[sub_resource type="AtlasTexture" id="AtlasTexture_132k1"]
+atlas = ExtResource("7_ufy8k")
+region = Rect2(328, 0, 164, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ugtqp"]
-atlas = ExtResource("2_vnetq")
-region = Rect2(0, 124, 124, 124)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsjnm"]
+atlas = ExtResource("7_ufy8k")
+region = Rect2(0, 164, 164, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ptl4r"]
-atlas = ExtResource("2_vnetq")
-region = Rect2(124, 124, 124, 124)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdb6r"]
+atlas = ExtResource("7_ufy8k")
+region = Rect2(164, 164, 164, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xpf6s"]
-atlas = ExtResource("2_vnetq")
-region = Rect2(248, 124, 124, 124)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sip61"]
+atlas = ExtResource("7_ufy8k")
+region = Rect2(328, 164, 164, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g3ibt"]
-atlas = ExtResource("2_vnetq")
-region = Rect2(0, 248, 124, 124)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn18u"]
+atlas = ExtResource("7_ufy8k")
+region = Rect2(0, 328, 164, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sn3s5"]
-atlas = ExtResource("2_vnetq")
-region = Rect2(124, 248, 124, 124)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3sqi"]
+atlas = ExtResource("7_ufy8k")
+region = Rect2(164, 328, 164, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q4jj6"]
-atlas = ExtResource("2_vnetq")
-region = Rect2(248, 248, 124, 124)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4y5w"]
+atlas = ExtResource("7_ufy8k")
+region = Rect2(328, 328, 164, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_642fh"]
-atlas = ExtResource("2_vnetq")
-region = Rect2(0, 372, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hn2hl"]
-atlas = ExtResource("3_e7hpt")
-region = Rect2(0, 0, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ll2d4"]
-atlas = ExtResource("3_e7hpt")
-region = Rect2(124, 0, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lrot5"]
-atlas = ExtResource("3_e7hpt")
-region = Rect2(248, 0, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p083l"]
-atlas = ExtResource("3_e7hpt")
-region = Rect2(0, 124, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_77qwy"]
-atlas = ExtResource("3_e7hpt")
-region = Rect2(124, 124, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_70r3a"]
-atlas = ExtResource("3_e7hpt")
-region = Rect2(248, 124, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1c8fj"]
-atlas = ExtResource("3_e7hpt")
-region = Rect2(0, 248, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0xqj1"]
-atlas = ExtResource("3_e7hpt")
-region = Rect2(124, 248, 124, 124)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hn2hl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e7hpt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rhwrs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ufy8k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ugtqp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ptl4r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xpf6s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g3ibt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sn3s5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q4jj6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_642fh")
-}],
-"loop": false,
-"name": &"cast",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_642fh")
-}],
-"loop": true,
-"name": &"fish",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hn2hl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ll2d4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lrot5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p083l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_77qwy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_70r3a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1c8fj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0xqj1")
-}],
-"loop": false,
-"name": &"hook",
-"speed": 8.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tabxy"]
-atlas = ExtResource("3_nnsgk")
-region = Rect2(0, 0, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g0lq0"]
-atlas = ExtResource("3_nnsgk")
-region = Rect2(124, 0, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hhr81"]
-atlas = ExtResource("3_nnsgk")
-region = Rect2(248, 0, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ttf3q"]
-atlas = ExtResource("3_nnsgk")
-region = Rect2(0, 124, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_76hk5"]
-atlas = ExtResource("3_nnsgk")
-region = Rect2(124, 124, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wkwq6"]
-atlas = ExtResource("3_nnsgk")
-region = Rect2(248, 124, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wca42"]
-atlas = ExtResource("3_nnsgk")
-region = Rect2(0, 248, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tpoid"]
-atlas = ExtResource("3_nnsgk")
-region = Rect2(124, 248, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jv5b3"]
-atlas = ExtResource("3_nnsgk")
-region = Rect2(248, 248, 124, 124)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uc807"]
-atlas = ExtResource("3_nnsgk")
-region = Rect2(0, 372, 124, 124)
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3v6y"]
+atlas = ExtResource("7_ufy8k")
+region = Rect2(0, 492, 164, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_va2tp"]
 atlas = ExtResource("7_rhwrs")
@@ -309,34 +298,34 @@ region = Rect2(124, 124, 124, 124)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tabxy")
+"texture": SubResource("AtlasTexture_4upc6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g0lq0")
+"texture": SubResource("AtlasTexture_q8vbb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hhr81")
+"texture": SubResource("AtlasTexture_132k1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ttf3q")
+"texture": SubResource("AtlasTexture_wsjnm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_76hk5")
+"texture": SubResource("AtlasTexture_cdb6r")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wkwq6")
+"texture": SubResource("AtlasTexture_sip61")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wca42")
+"texture": SubResource("AtlasTexture_jn18u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tpoid")
+"texture": SubResource("AtlasTexture_x3sqi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jv5b3")
+"texture": SubResource("AtlasTexture_c4y5w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uc807")
+"texture": SubResource("AtlasTexture_t3v6y")
 }],
 "loop": false,
 "name": &"cast",
@@ -344,10 +333,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uc807")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uc807")
+"texture": SubResource("AtlasTexture_t3v6y")
 }],
 "loop": false,
 "name": &"fish",
@@ -415,6 +401,157 @@ animations = [{
 radius = 34.5
 height = 142.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7hpt"]
+atlas = ExtResource("8_rhwrs")
+region = Rect2(0, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhwrs"]
+atlas = ExtResource("8_rhwrs")
+region = Rect2(164, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugtqp"]
+atlas = ExtResource("8_rhwrs")
+region = Rect2(328, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptl4r"]
+atlas = ExtResource("8_rhwrs")
+region = Rect2(0, 164, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpf6s"]
+atlas = ExtResource("8_rhwrs")
+region = Rect2(164, 164, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3ibt"]
+atlas = ExtResource("8_rhwrs")
+region = Rect2(328, 164, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn3s5"]
+atlas = ExtResource("8_rhwrs")
+region = Rect2(0, 328, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4jj6"]
+atlas = ExtResource("8_rhwrs")
+region = Rect2(164, 328, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_642fh"]
+atlas = ExtResource("8_rhwrs")
+region = Rect2(328, 328, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3siy4"]
+atlas = ExtResource("8_rhwrs")
+region = Rect2(0, 492, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufy8k"]
+atlas = ExtResource("8_rhwrs")
+region = Rect2(0, 492, 123, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hn2hl"]
+atlas = ExtResource("8_e7hpt")
+region = Rect2(0, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll2d4"]
+atlas = ExtResource("8_e7hpt")
+region = Rect2(124, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrot5"]
+atlas = ExtResource("8_e7hpt")
+region = Rect2(248, 0, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p083l"]
+atlas = ExtResource("8_e7hpt")
+region = Rect2(0, 124, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77qwy"]
+atlas = ExtResource("8_e7hpt")
+region = Rect2(124, 124, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70r3a"]
+atlas = ExtResource("8_e7hpt")
+region = Rect2(248, 124, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c8fj"]
+atlas = ExtResource("8_e7hpt")
+region = Rect2(0, 248, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xqj1"]
+atlas = ExtResource("8_e7hpt")
+region = Rect2(124, 248, 124, 124)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hn2hl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7hpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhwrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugtqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptl4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpf6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3ibt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn3s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4jj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_642fh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3siy4")
+}],
+"loop": false,
+"name": &"cast",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufy8k")
+}],
+"loop": true,
+"name": &"fish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hn2hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ll2d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrot5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p083l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77qwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70r3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c8fj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xqj1")
+}],
+"loop": false,
+"name": &"hook",
+"speed": 8.0
+}]
+
 [node name="fishermanbisakol" type="Node2D" unique_id=252812419]
 
 [node name="Fisherman" type="CharacterBody2D" parent="." unique_id=2120142873 groups=["Player"]]
@@ -425,17 +562,8 @@ script = ExtResource("1_a5dt2")
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_ufy8k")
 
-[node name="FishingRod" type="AnimatedSprite2D" parent="Fisherman" unique_id=2005310400]
-visible = false
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_hn2hl")
-animation = &"cast"
-frame_progress = 1.0
-script = ExtResource("3_oehl5")
-metadata/_edit_lock_ = true
-
 [node name="RodTip" type="Marker2D" parent="Fisherman" unique_id=2035858610]
-position = Vector2(-125, 125)
+position = Vector2(-333, 52)
 
 [node name="Camera2D" type="Camera2D" parent="Fisherman" unique_id=1226506113]
 position = Vector2(-16, -7)
@@ -447,7 +575,7 @@ script = ExtResource("2_47n1r")
 [node name="Player" type="AnimatedSprite2D" parent="Fisherman" unique_id=37638068]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ofheh")
-animation = &"cast"
+animation = &"hook"
 autoplay = "idle"
 metadata/_edit_lock_ = true
 
@@ -455,6 +583,18 @@ metadata/_edit_lock_ = true
 visible = false
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_ovuf2")
+
+[node name="FishingRod" type="AnimatedSprite2D" parent="Fisherman" unique_id=2005310400]
+visible = false
+clip_children = 2
+light_mask = 512
+z_index = 2
+texture_repeat = 2
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_hn2hl")
+animation = &"hook"
+script = ExtResource("3_oehl5")
+metadata/_edit_lock_ = true
 
 [connection signal="animation_finished" from="Fisherman/AnimationPlayer" to="Fisherman" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="Fisherman/Player" to="Fisherman" method="_on_player_animation_finished"]

@@ -101,6 +101,29 @@ position = Vector2(3407, 1449)
 shape = SubResource("RectangleShape2D_bbixk")
 debug_color = Color(0.9788502, 0, 0.39666367, 0.41960785)
 
+[node name="SleepLabel" type="Sprite2D" parent="Home/SleepZone/InteractionArea/CollisionShape2D" unique_id=33111415]
+visible = false
+position = Vector2(10.574951, -23.17498)
+scale = Vector2(1, 1.044)
+texture = ExtResource("7_sail_prompt")
+
+[node name="Label" type="Label" parent="Home/SleepZone/InteractionArea/CollisionShape2D/SleepLabel" unique_id=976116444]
+offset_left = 64.99999
+offset_top = -24.999939
+offset_right = 224.99997
+offset_bottom = 30.000061
+scale = Vector2(2, 2)
+text = "to sleep
+"
+
+[node name="Label" type="Label" parent="Home/SleepZone/InteractionArea/CollisionShape2D/SleepLabel/Label" unique_id=222706006]
+layout_mode = 0
+offset_left = -107.49999
+offset_top = -5.722046e-05
+offset_right = -65.49999
+offset_bottom = 22.999943
+text = "Press"
+
 [node name="Water" type="Area2D" parent="Home" unique_id=2026378263]
 position = Vector2(-13, 870)
 collision_layer = 2

@@ -3,6 +3,7 @@ extends Node2D
 var player_in_range: CharacterBody2D = null
 
 @onready var interaction_area: Area2D = $InteractionArea
+@onready var sleep_label = $InteractionArea/CollisionShape2D/SleepLabel
 
 func _ready() -> void:
 	if interaction_area == null:
@@ -21,8 +22,10 @@ func _physics_process(_delta: float) -> void:
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.name == "Fisherman":
 		player_in_range = body
+		sleep_label.visible = true
 		print("Press E to sleep")
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body == player_in_range:
 		player_in_range = null
+		sleep_label.visible = false

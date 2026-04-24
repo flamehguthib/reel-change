@@ -55,6 +55,7 @@ func _ready() -> void:
 func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		if mounted_boat != null:
+			$AnimationPlayer.play("RESET")
 			unmount_boat()
 		else:
 			var boat_to_mount: CharacterBody2D = nearby_boat
@@ -68,13 +69,20 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		if mounted_boat.velocity.x < 0:
 			$Player.flip_h = true
+			$FishingRod.flip_h = true
+			$AnimationPlayer.play("invert_cast_pos")
 		elif mounted_boat.velocity.x > 0:
 			$Player.flip_h = false
+			$FishingRod.flip_h = false
+			$AnimationPlayer.play("cast_pos")
 		if state != "cast" and state != "fish" and state != "hook" and state != "charge":
 			if state != "boat_cast_ready":
-				$Player.play("cast")
+				$Player.play("fish")
+				if $Player.flip_h == false:
+					$AnimationPlayer.play("cast_pos")
+				elif $Player.flip_h == true:
+					$AnimationPlayer.play("cast_pos")
 				$Player.stop()
-				$Player.frame = 3
 				state = "boat_cast_ready"
 
 	#gravity typa shi
@@ -95,8 +103,12 @@ func _physics_process(delta):
 	#animation
 	if state == "fish" and fish_bar_instance == null and Input.is_action_just_pressed("fish_button"):
 		$Player.play("hook")
-		$AnimationPlayer.play("hook_pos")
 		$FishingRod.play("hook")
+		if $Player.flip_h == false:
+			$AnimationPlayer.play("hook_pos")
+		elif $Player.flip_h == true:
+			$AnimationPlayer.play("invert_hook_pos")
+		
 		state = "hook"
 		start_reel()
 	
@@ -162,6 +174,10 @@ func mount_boat(boat: CharacterBody2D):
 		return
 	if boat.has_method("mount_player"):
 		boat.mount_player(self)
+	if boat.velocity.x > 0:
+		$AnimationPlayer.play("cast_pos")
+	elif boat.velocity.x < 0:
+		$AnimationPlayer.play("invert_cast_pos")
 
 func unmount_boat():
 	if mounted_boat == null:
@@ -236,6 +252,10 @@ func release_charge_cast():
 	$Player.play("cast")
 	$FishingRod.visible = true
 	$FishingRod.play("cast")
+	if $Player.flip_h == false:
+		$AnimationPlayer.play("cast_pos")
+	elif $Player.flip_h == true:
+		$AnimationPlayer.play("invert_cast_pos")
 	state = "cast"
 	start_cast()
 	# Spend energy on cast
@@ -347,6 +367,7 @@ func on_casting_finished():
 	if $Player.animation == "cast":
 		$Player.play("fish")
 		$FishingRod.play("fish")
+		$AnimationPlayer.play("fish_pos")
 		state = "fish"
 		spawn_fishing_bob()
 		is_charging_cast = false
@@ -436,4 +457,4 @@ func kill_fishing_bob():
 
 
 func _on_player_animation_finished() -> void:
-	$AnimationPlayer.play("default_pos")
+	pass
