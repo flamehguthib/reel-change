@@ -14,7 +14,7 @@ func _ready() -> void:
 	interaction_area.body_exited.connect(_on_interaction_area_body_exited)
 
 func _physics_process(_delta: float) -> void:
-	if player_in_range != null and Input.is_action_just_pressed("interact"):
+	if player_in_range != null and Input.is_action_just_pressed("refuel"):
 		if GameState.buy_gas():
 			print("Refueled! Gas: %d, Money: %d" % [GameState.current_gas, GameState.current_money])
 		else:
@@ -23,7 +23,7 @@ func _physics_process(_delta: float) -> void:
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.name == "Fisherman":
 		player_in_range = body
-		var cost_text = "E to refuel (%dP for +%d gas)" % [GameState.gas_refuel_cost, GameState.gas_refuel_amount]
+		var cost_text = "Press R to refuel (%dP for +%d gas)" % [GameState.gas_refuel_cost, GameState.gas_refuel_amount]
 		print(cost_text)
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:

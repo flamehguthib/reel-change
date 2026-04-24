@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://etmiyq6vn33t"]
+[gd_scene format=3 uid="uid://c8jg6bm7vwlcj"]
 
 [ext_resource type="Texture2D" uid="uid://sf1evdon10xj" path="res://fishing_game_assets/3 Objects/Water.png" id="1_ukknd"]
 [ext_resource type="Texture2D" uid="uid://bvteygqbwpsjq" path="res://temp asset/pixel-art-game-scene-with-ground-grass-trees-sky-clouds-character-coins-treasure-chests-and-8-bit-heart-vector-726236617.jpg" id="2_r2jk4"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bxunarbtpdg0" path="res://fishing_game_assets/1 Fisherman/Fisherman_row.png" id="7_6s0si"]
 [ext_resource type="Texture2D" uid="uid://bnvnvtd5axrkp" path="res://fishing_game_assets/1 Fisherman/Fisherman_walk.png" id="8_lhrqb"]
 [ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/Fisherman/boat.tscn" id="9_q8vg4"]
-[ext_resource type="PackedScene" uid="uid://crqfajs2y3nfo" path="res://scenes/location/sleep_zone.tscn" id="10_bspsc"]
+[ext_resource type="PackedScene" path="res://scenes/location/sleep_zone.tscn" id="10_bspsc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itksv"]
 size = Vector2(1153, 42)
@@ -306,5 +306,3 @@ position = Vector2(1075, 295)
 [node name="SleepZone" parent="." unique_id=34740492 instance=ExtResource("10_bspsc")]
 position = Vector2(520, 305)
 scale = Vector2(2, 2)
-
-[node name="HUD" parent="." unique_id=1622611448]

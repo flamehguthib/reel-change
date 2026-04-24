@@ -50,3 +50,6 @@ layout_mode = 2
 
 [node name="GoalLabel" type="Label" parent="TopBar/Stats" unique_id=1547926586]
 layout_mode = 2
+
+[node name="FishInventoryLabel" type="Label" parent="TopBar/Stats" unique_id=1023456789]
+layout_mode = 2

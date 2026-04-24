@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bsbcnsptji28" path="res://scenes/ui/hud.tscn" id="5_srowd"]
 [ext_resource type="Script" uid="uid://ckoih5dwcgjvq" path="res://script/sea_border.gd" id="6_border"]
 [ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="7_sail_prompt"]
+[ext_resource type="Script" uid="uid://cefgalhblxedd" path="res://script/talipapa.gd" id="8_talipapa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_srowd"]
 atlas = ExtResource("1_5von4")
@@ -69,7 +70,10 @@ size = Vector2(3657.157, 530.5166)
 size = Vector2(2726.209, 24.88086)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seasborder"]
-size = Vector2(600, 1198.5735)
+size = Vector2(400, 1164.1107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_talipapa"]
+size = Vector2(1182.1578, 793.9144)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5von4"]
 a = Vector2(-1536.2089, -2.9951172)
@@ -97,7 +101,7 @@ position = Vector2(-3061.4277, -1531.5688)
 scale = Vector2(0.9991604, 0.9984152)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Home/SleepZone/InteractionArea" unique_id=1882514298]
-position = Vector2(3407, 1449)
+position = Vector2(3556, 1448)
 shape = SubResource("RectangleShape2D_bbixk")
 debug_color = Color(0.9788502, 0, 0.39666367, 0.41960785)
 
@@ -147,15 +151,16 @@ metadata/_edit_lock_ = true
 
 [node name="OpenSea" type="Area2D" parent="Home" unique_id=1572867265]
 position = Vector2(2266, 218)
+collision_mask = 128
 script = ExtResource("6_border")
 target_scene_path = "res://scenes/location/OpenSea.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Home/OpenSea" unique_id=1728901234]
-position = Vector2(493.68066, 161.16016)
+position = Vector2(580.6079, 169.36438)
 shape = SubResource("RectangleShape2D_seasborder")
 
 [node name="SailPrompt" type="Sprite2D" parent="Home/OpenSea" unique_id=1728901235]
-position = Vector2(186.93863, 64.551506)
+position = Vector2(94.53922, -14.927803)
 scale = Vector2(1.6310816, 1.8034717)
 texture = ExtResource("7_sail_prompt")
 
@@ -183,7 +188,7 @@ offset_top = -720.18036
 offset_right = -26.664978
 offset_bottom = -697.18036
 scale = Vector2(2, 2)
-text = "to travel to sea"
+text = "to travek to sea"
 
 [node name="Spawn" type="Marker2D" parent="Home" unique_id=1225093361]
 unique_name_in_owner = true
@@ -193,6 +198,22 @@ script = ExtResource("3_srowd")
 [node name="Boat" parent="Home" unique_id=2115580054 instance=ExtResource("4_5von4")]
 position = Vector2(1380.8395, 818.7004)
 scale = Vector2(9, 9)
+
+[node name="Talipapa" type="Area2D" parent="Home" unique_id=1880011223]
+position = Vector2(868, 260)
+script = ExtResource("8_talipapa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Talipapa" unique_id=2000000001]
+position = Vector2(-3323.5122, -309.50867)
+shape = SubResource("RectangleShape2D_talipapa")
+
+[node name="Label" type="Label" parent="Home/Talipapa" unique_id=2000000003]
+offset_left = 118.17125
+offset_top = -506.6086
+offset_right = 262.17126
+offset_bottom = -483.6086
+text = "Talipapa"
+horizontal_alignment = 1
 
 [node name="Ground" type="StaticBody2D" parent="Home" unique_id=2095665060]
 position = Vector2(-2884.5764, 305.51498)

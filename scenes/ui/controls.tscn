@@ -117,6 +117,8 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ihl6s")
 text = "A - Move left
 D - Move right
 E - Interact
+Q - Sell all fish (Talipapa)
+R - Refuel gas (Talipapa)
 F - Cast/Reel
 <Space> - Fishing Bar"
 horizontal_alignment = 1

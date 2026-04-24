@@ -29,6 +29,20 @@ func _physics_process(_delta: float) -> void:
 		velocity = Vector2.ZERO
 		return
 
+	var rider_is_fishing := false
+	if rider.has_method("is_fishing_mode_active"):
+		rider_is_fishing = rider.call("is_fishing_mode_active")
+
+	if rider_is_fishing:
+		velocity = Vector2.ZERO
+		if boat_sprite != null:
+			if boat_sprite.is_playing():
+				boat_sprite.stop()
+			boat_sprite.frame = 0
+		move_and_slide()
+		rider.global_position = get_mount_position()
+		return
+
 	var dir := Input.get_action_strength("right") - Input.get_action_strength("left")
 
 	velocity.x = dir * move_speed

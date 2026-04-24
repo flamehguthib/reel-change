@@ -9,6 +9,9 @@ var max_gas: int = 100
 var current_gas: int = 100
 var current_money: int = 0
 var money_goal: int = 10000
+var fish_inventory_count: int = 0
+var fish_inventory_value: int = 0
+var debug_start_with_talipapa_test_state: bool = true
 
 # Energy system
 var fishing_energy_cost: int = 4
@@ -34,6 +37,13 @@ func _ready() -> void:
 	current_energy = max_energy
 	current_gas = max_gas
 	current_money = 0
+	fish_inventory_count = 0
+	fish_inventory_value = 0
+	if debug_start_with_talipapa_test_state:
+		current_gas = 0
+		fish_inventory_count = 3
+		fish_inventory_value = 300
+		print("Talipapa test state enabled: 0 gas, 3 fish, P300 value")
 
 func _process(delta: float) -> void:
 	# Auto-update time each frame
@@ -155,6 +165,27 @@ func add_money(amount: int) -> void:
 	if current_money >= money_goal:
 		check_game_end()
 
+func add_fish_to_inventory(value: int) -> void:
+	"""Store caught fish value until sold at the talipapa."""
+	if value <= 0:
+		return
+	fish_inventory_count += 1
+	fish_inventory_value += value
+
+func has_fish_inventory() -> bool:
+	return fish_inventory_count > 0 and fish_inventory_value > 0
+
+func sell_all_fish() -> int:
+	"""Sell all fish in inventory. Returns coins earned from the sale."""
+	if not has_fish_inventory():
+		return 0
+
+	var payout := fish_inventory_value
+	fish_inventory_count = 0
+	fish_inventory_value = 0
+	add_money(payout)
+	return payout
+
 func check_game_end() -> void:
 	"""Check win/lose conditions and trigger end state."""
 	if current_day >= max_days:
@@ -172,4 +203,6 @@ func reset_game() -> void:
 	current_energy = max_energy
 	current_gas = max_gas
 	current_money = 0
+	fish_inventory_count = 0
+	fish_inventory_value = 0
 	

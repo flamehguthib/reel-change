@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var gas_bar: ProgressBar = $TopBar/Stats/GasBar
 @onready var money_label: Label = $TopBar/Stats/MoneyLabel
 @onready var goal_label: Label = $TopBar/Stats/GoalLabel
+@onready var fish_inventory_label: Label = get_node_or_null("TopBar/Stats/FishInventoryLabel") as Label
 
 func _ready() -> void:
 	# Expand panel to fit all labels cleanly.
@@ -26,6 +27,8 @@ func _process(_delta: float) -> void:
 	gas_bar.value = GameState.current_gas
 	money_label.text = "Money: P%d" % GameState.current_money
 	goal_label.text = "Goal: P%d" % GameState.money_goal
+	if fish_inventory_label != null:
+		fish_inventory_label.text = "Fish Stock: %d fish (P%d)" % [GameState.fish_inventory_count, GameState.fish_inventory_value]
 	
 	# Color feedback
 	if GameState.current_energy < 20:

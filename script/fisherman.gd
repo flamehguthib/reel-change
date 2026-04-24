@@ -155,6 +155,9 @@ func movement():
 	move_and_slide()
 
 func can_start_charge():
+	if mounted_boat == null:
+		return false
+
 	# Check if valid state and if player has enough energy
 	if state != "cast" and state != "fish" and state != "hook":
 		return GameState.can_fish()
@@ -191,6 +194,10 @@ func unmount_boat():
 func set_mounted_boat(boat: CharacterBody2D):
 	mounted_boat = boat
 	velocity = Vector2.ZERO
+
+	if mounted_boat == null:
+		cancel_fishing_state()
+
 	cast_visual_state = CAST_IDLE
 	cast_distance = 0.0
 	actual_cast_distance = 0.0
@@ -200,6 +207,22 @@ func set_mounted_boat(boat: CharacterBody2D):
 
 	if body_collision_shape != null:
 		body_collision_shape.disabled = mounted_boat != null
+
+func cancel_fishing_state() -> void:
+	if state == "cast" or state == "fish" or state == "hook" or state == "charge":
+		state = "idle"
+		$Player.play("idle")
+		$FishingRod.visible = false
+
+	kill_fishing_bob()
+	kill_fish_bar()
+
+	cast_visual_state = CAST_IDLE
+	cast_distance = 0.0
+	actual_cast_distance = 0.0
+	is_charging_cast = false
+	charge_time = 0.0
+	queue_redraw()
 
 func get_nearest_boat_in_range() -> CharacterBody2D:
 	var nearest: CharacterBody2D = null
@@ -430,7 +453,7 @@ func kill_fish_bar():
 func _on_fish_bar_finished(caught: bool) -> void:
 	fish_bar_instance = null
 	if caught:
-		GameState.add_money(randi_range(80, 150))
+		GameState.add_fish_to_inventory(randi_range(80, 150))
 	if state == "fish":
 		$Player.play("hook")
 		$FishingRod.play("hook")
@@ -458,3 +481,6 @@ func kill_fishing_bob():
 
 func _on_player_animation_finished() -> void:
 	pass
+
+func is_fishing_mode_active() -> bool:
+	return state == "charge" or state == "cast" or state == "fish" or state == "hook"

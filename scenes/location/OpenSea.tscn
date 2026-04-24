@@ -90,6 +90,7 @@ scale = Vector2(9, 9)
 
 [node name="OpenSea" type="Area2D" parent="." unique_id=1931512157]
 position = Vector2(-2966, -100)
+collision_mask = 128
 script = ExtResource("5_border")
 target_scene_path = "res://scenes/location/main_scene.tscn"
 require_gas_to_cross = false
