@@ -13,11 +13,12 @@ visibility_layer = 2
 script = ExtResource("1_cv7u0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=526779523]
+scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_cv7u0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1652406520]
 visible = false
-scale = Vector2(0.10069448, 0.09652781)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_kpcy3")
 
 [node name="Timer" type="Timer" parent="Sprite2D" unique_id=942799576]

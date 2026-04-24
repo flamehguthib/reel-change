@@ -81,9 +81,12 @@ func _physics_process(delta):
 				if $Player.flip_h == false:
 					$AnimationPlayer.play("cast_pos")
 				elif $Player.flip_h == true:
-					$AnimationPlayer.play("cast_pos")
+					$AnimationPlayer.play("invert_cast_pos")
 				$Player.stop()
 				state = "boat_cast_ready"
+				
+				
+				
 
 	#gravity typa shi
 	if mounted_boat == null and not is_on_floor():
@@ -390,7 +393,10 @@ func on_casting_finished():
 	if $Player.animation == "cast":
 		$Player.play("fish")
 		$FishingRod.play("fish")
-		$AnimationPlayer.play("fish_pos")
+		if $Player.flip_h == false:
+			$AnimationPlayer.play("fish_pos")
+		elif $Player.flip_h == true:
+			$AnimationPlayer.play("invert_fish_pos")
 		state = "fish"
 		spawn_fishing_bob()
 		is_charging_cast = false
@@ -414,10 +420,10 @@ var fish_bar_scene = preload("res://scenes/Fisherman/fishing_mechanic.tscn")
 var fish_bar_instance = null
 
 func spawn_fishing_bob(): 
-	
 	if fishing_bob == null:
 		fishing_bob = fishing_bob_scene.instantiate()
-		fishing_bob.position = bobber_global_pos
+		fishing_bob.position.y = $FishingRod/FishingRodTip.position.y + 35
+		fishing_bob.position.x = $FishingRod/FishingRodTip.position.x + 70
 		add_child(fishing_bob)
 		var fish_detector = fishing_bob.get_node_or_null("Player")
 		if fish_detector != null and fish_detector.has_signal("fish_bite"):
@@ -478,9 +484,6 @@ func kill_fishing_bob():
 		fishing_bob.queue_free()
 		fishing_bob = null
 
-
-func _on_player_animation_finished() -> void:
-	pass
 
 func is_fishing_mode_active() -> bool:
 	return state == "charge" or state == "cast" or state == "fish" or state == "hook"

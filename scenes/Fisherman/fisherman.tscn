@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://x7xj5fom70mn" path="res://script/fisherman.gd" id="1_a5dt2"]
 [ext_resource type="Script" uid="uid://dh0ubhxr6xwkg" path="res://script/camera_2d.gd" id="2_47n1r"]
-[ext_resource type="Script" uid="uid://c5gwjjdvdn6b4" path="res://script/fishing_rod.gd" id="3_oehl5"]
 [ext_resource type="Texture2D" uid="uid://i8f53csglnmf" path="res://assets/fisherman/idle fisherman.png" id="4_47n1r"]
 [ext_resource type="Texture2D" uid="uid://va386d0nke0x" path="res://assets/fisherman/walkING FISHERMAN.png" id="4_vnetq"]
 [ext_resource type="Texture2D" uid="uid://6ignq77uijgp" path="res://assets/fisherman/HOOK/(fisherman)hook.png" id="7_rhwrs"]
@@ -157,7 +156,22 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-50, 35)]
+"values": [Vector2(-30, 35)]
+}
+
+[sub_resource type="Animation" id="Animation_sn3s5"]
+resource_name = "invert_fish_pos"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fisherman/FishingRod:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, 35)]
 }
 
 [sub_resource type="Animation" id="Animation_g3ibt"]
@@ -172,7 +186,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-80, 40)]
+"values": [Vector2(-20, 40)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -184,7 +198,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-80, 40)]
+"values": [Vector2(-20, 40)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ufy8k"]
@@ -195,6 +209,7 @@ _data = {
 &"fish_pos": SubResource("Animation_ptl4r"),
 &"hook_pos": SubResource("Animation_rhwrs"),
 &"invert_cast_pos": SubResource("Animation_xpf6s"),
+&"invert_fish_pos": SubResource("Animation_sn3s5"),
 &"invert_hook_pos": SubResource("Animation_g3ibt")
 }
 
@@ -323,9 +338,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c4y5w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t3v6y")
 }],
 "loop": false,
 "name": &"cast",
@@ -437,10 +449,6 @@ region = Rect2(164, 328, 164, 164)
 atlas = ExtResource("8_rhwrs")
 region = Rect2(328, 328, 164, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3siy4"]
-atlas = ExtResource("8_rhwrs")
-region = Rect2(0, 492, 164, 164)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ufy8k"]
 atlas = ExtResource("8_rhwrs")
 region = Rect2(0, 492, 123, 164)
@@ -506,9 +514,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_642fh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3siy4")
 }],
 "loop": false,
 "name": &"cast",
@@ -585,16 +590,18 @@ scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_ovuf2")
 
 [node name="FishingRod" type="AnimatedSprite2D" parent="Fisherman" unique_id=2005310400]
-visible = false
 clip_children = 2
 light_mask = 512
 z_index = 2
 texture_repeat = 2
-scale = Vector2(3, 3)
+position = Vector2(-24, -4.140251)
+scale = Vector2(3, 3.0182927)
 sprite_frames = SubResource("SpriteFrames_hn2hl")
-animation = &"hook"
-script = ExtResource("3_oehl5")
-metadata/_edit_lock_ = true
+animation = &"fish"
+
+[node name="FishingRodTip" type="Marker2D" parent="Fisherman/FishingRod" unique_id=1299054818]
+unique_name_in_owner = true
+position = Vector2(79.333336, 433.07275)
 
 [connection signal="animation_finished" from="Fisherman/AnimationPlayer" to="Fisherman" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="Fisherman/Player" to="Fisherman" method="_on_player_animation_finished"]

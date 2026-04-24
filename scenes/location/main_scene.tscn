@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bsbcnsptji28" path="res://scenes/ui/hud.tscn" id="5_srowd"]
 [ext_resource type="Script" uid="uid://ckoih5dwcgjvq" path="res://script/sea_border.gd" id="6_border"]
 [ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="7_sail_prompt"]
-[ext_resource type="Script" uid="uid://cefgalhblxedd" path="res://script/talipapa.gd" id="8_talipapa"]
+[ext_resource type="Script" path="res://script/talipapa.gd" id="8_talipapa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_srowd"]
 atlas = ExtResource("1_5von4")
@@ -83,6 +83,13 @@ b = Vector2(1533.212, -2.9951172)
 a = Vector2(90.88599, -31.511719)
 b = Vector2(-65.80469, 22.271362)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bbixk"]
+normal = Vector2(-1, 0)
+distance = 2.9975586
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1igtx"]
+normal = Vector2(1, 0)
+
 [node name="Node2D" type="Node2D" unique_id=611043405]
 
 [node name="Home" type="AnimatedSprite2D" parent="." unique_id=347383004]
@@ -128,12 +135,12 @@ offset_right = -65.49999
 offset_bottom = 22.999943
 text = "Press"
 
-[node name="Water" type="Area2D" parent="Home" unique_id=2026378263]
+[node name="Water" type="Area2D" parent="Home" unique_id=2026378263 groups=["water"]]
 position = Vector2(-13, 870)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Water" unique_id=1310519976]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Water" unique_id=1310519976 groups=["water"]]
 light_mask = 2
 visibility_layer = 2
 position = Vector2(1255.0713, 392.67456)
@@ -232,6 +239,20 @@ shape = SubResource("SegmentShape2D_srowd")
 debug_color = Color(0.9525327, 4.235506e-06, 0.5606254, 0.41960785)
 
 [node name="HUD" parent="Home" unique_id=1622611448 instance=ExtResource("5_srowd")]
+
+[node name="Boundary" type="StaticBody2D" parent="Home" unique_id=930139291]
+position = Vector2(3024.4585, 959.477)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Boundary" unique_id=1788019268]
+visible = false
+shape = SubResource("WorldBoundaryShape2D_bbixk")
+
+[node name="Boundary2" type="StaticBody2D" parent="Home" unique_id=2095117154]
+position = Vector2(-3006.4739, 1254.0094)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Boundary2" unique_id=2009296437]
+position = Vector2(1.9983208, -0.9984152)
+shape = SubResource("WorldBoundaryShape2D_1igtx")
 
 [node name="DismountPosition" type="Marker2D" parent="." unique_id=310340425]
 position = Vector2(4568, 1782)

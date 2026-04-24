@@ -7,6 +7,7 @@ var bite_triggered := false
 const BITE_CHANCE := 0.75
 
 func _ready() -> void:
+	print(get_path())	
 	randomize()
 	random_timer()
 

@@ -31,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 
 	var rider_is_fishing := false
 	if rider.has_method("is_fishing_mode_active"):
-		rider_is_fishing = rider.call("is_fishing_mode_active")
+			rider_is_fishing = rider.call("is_fishing_mode_active")
 
 	if rider_is_fishing:
 		velocity = Vector2.ZERO

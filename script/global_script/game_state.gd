@@ -40,10 +40,10 @@ func _ready() -> void:
 	fish_inventory_count = 0
 	fish_inventory_value = 0
 	if debug_start_with_talipapa_test_state:
-		current_gas = 0
+		current_gas = 100
 		fish_inventory_count = 3
 		fish_inventory_value = 300
-		print("Talipapa test state enabled: 0 gas, 3 fish, P300 value")
+		print("Talipapa test state enabled: 100 gas, 3 fish, P300 value")
 
 func _process(delta: float) -> void:
 	# Auto-update time each frame

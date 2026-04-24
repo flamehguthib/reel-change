@@ -72,9 +72,9 @@ sprite_frames = SubResource("SpriteFrames_uy2to")
 autoplay = "default"
 frame_progress = 0.030958913
 
-[node name="WaterArea" type="Area2D" parent="." unique_id=747912014]
+[node name="WaterArea" type="Area2D" parent="." unique_id=747912014 groups=["water"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea" unique_id=769710990]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea" unique_id=769710990 groups=["water"]]
 position = Vector2(520.3125, 868)
 shape = SubResource("RectangleShape2D_p5fkd")
 debug_color = Color(0.9230278, 0.27755997, 0, 0.41960785)
