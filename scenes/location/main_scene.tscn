@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bcr2bvdgil3mr"]
 
-[ext_resource type="Texture2D" uid="uid://c2tdkwa24yo6p" path="res://assets/sceneries/EXTENDED VERSION.png" id="1_5von4"]
+[ext_resource type="Texture2D" uid="uid://ccllmaf22jug7" path="res://assets/sceneries/Day Extended Version Spliced/33%.jpg" id="1_1igtx"]
 [ext_resource type="Script" uid="uid://rk83fbji3h05" path="res://script/sceneries script/home_animation.gd" id="2_5von4"]
+[ext_resource type="Texture2D" uid="uid://543wi1tvcl2i" path="res://assets/sceneries/Day Extended Version Spliced/66%.jpg" id="2_ht3qy"]
 [ext_resource type="Script" uid="uid://7tn3u7wcpgro" path="res://script/spawn.gd" id="3_srowd"]
 [ext_resource type="Script" uid="uid://sir8qsldsspa" path="res://script/sleep_zone.gd" id="3_uquj6"]
 [ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/Fisherman/boat.tscn" id="4_5von4"]
@@ -10,50 +11,50 @@
 [ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="7_sail_prompt"]
 [ext_resource type="Script" uid="uid://cefgalhblxedd" path="res://script/talipapa.gd" id="8_talipapa"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_srowd"]
-atlas = ExtResource("1_5von4")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1igtx"]
+atlas = ExtResource("1_1igtx")
 region = Rect2(0, 0, 6120, 3060)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_odj5l"]
-atlas = ExtResource("1_5von4")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht3qy"]
+atlas = ExtResource("2_ht3qy")
+region = Rect2(0, 0, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nuv4"]
+atlas = ExtResource("2_ht3qy")
 region = Rect2(6120, 0, 6120, 3060)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ca88p"]
-atlas = ExtResource("1_5von4")
-region = Rect2(12240, 0, 6120, 3060)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uquj6"]
-atlas = ExtResource("1_5von4")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sp5w"]
+atlas = ExtResource("1_1igtx")
 region = Rect2(0, 3060, 6120, 3060)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bbixk"]
-atlas = ExtResource("1_5von4")
-region = Rect2(6120, 3060, 6120, 3060)
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2oor"]
+atlas = ExtResource("2_ht3qy")
+region = Rect2(0, 3060, 6120, 3060)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1igtx"]
-atlas = ExtResource("1_5von4")
-region = Rect2(12240, 3060, 6120, 3060)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnrh2"]
+atlas = ExtResource("2_ht3qy")
+region = Rect2(6120, 3060, 6120, 3060)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_66tet"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_srowd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_odj5l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ca88p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uquj6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bbixk")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_1igtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht3qy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nuv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sp5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2oor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnrh2")
 }],
 "loop": true,
 "name": &"default",
@@ -96,7 +97,7 @@ normal = Vector2(1, 0)
 position = Vector2(3064.0002, 1534)
 scale = Vector2(1.0008403, 1.0015874)
 sprite_frames = SubResource("SpriteFrames_66tet")
-frame_progress = 0.01501746
+frame_progress = 0.2924467
 script = ExtResource("2_5von4")
 metadata/_edit_lock_ = true
 
@@ -203,7 +204,6 @@ position = Vector2(864.27344, 268.5737)
 script = ExtResource("3_srowd")
 
 [node name="Boat" parent="Home" unique_id=2115580054 instance=ExtResource("4_5von4")]
-visible = false
 position = Vector2(1380.8395, 818.7004)
 scale = Vector2(9, 9)
 
@@ -248,7 +248,6 @@ debug_color = Color(0.9525327, 4.235506e-06, 0.5606254, 0.41960785)
 position = Vector2(3024.4585, 959.477)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Boundary" unique_id=1788019268]
-visible = false
 shape = SubResource("WorldBoundaryShape2D_bbixk")
 
 [node name="Boundary2" type="StaticBody2D" parent="Home" unique_id=2095117154]
@@ -257,6 +256,12 @@ position = Vector2(-3006.4739, 1254.0094)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Boundary2" unique_id=2009296437]
 position = Vector2(1.9983208, -0.9984152)
 shape = SubResource("WorldBoundaryShape2D_1igtx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Home" unique_id=1709005183]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Home/StaticBody2D" unique_id=1498070467]
+position = Vector2(-409.656, 11.980982)
+polygon = PackedVector2Array(-196.83496, 955.4834, -207.82568, 610.03174, -897.2461, 540.1426, -1419.8071, 408.3518, -1382.8383, 918.542)
 
 [node name="DismountPosition" type="Marker2D" parent="." unique_id=310340425]
 position = Vector2(4568, 1782)

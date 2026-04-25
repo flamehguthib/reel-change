@@ -4,7 +4,7 @@ extends CharacterBody2D
 var bobber_global_pos : Vector2 = Vector2.ZERO
 
 #player stats
-var movement_speed = 400
+var movement_speed = 500
 const GRAVITY = 980
 var state = "idle"
 

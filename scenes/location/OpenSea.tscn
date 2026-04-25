@@ -71,6 +71,7 @@ scale = Vector2(1.609559, 0.9875001)
 sprite_frames = SubResource("SpriteFrames_uy2to")
 autoplay = "default"
 frame_progress = 0.030958913
+metadata/_edit_lock_ = true
 
 [node name="WaterArea" type="Area2D" parent="." unique_id=747912014 groups=["water"]]
 
