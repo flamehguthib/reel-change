@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bsbcnsptji28" path="res://scenes/ui/hud.tscn" id="5_srowd"]
 [ext_resource type="Script" uid="uid://ckoih5dwcgjvq" path="res://script/sea_border.gd" id="6_border"]
 [ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="7_sail_prompt"]
-[ext_resource type="Script" path="res://script/talipapa.gd" id="8_talipapa"]
+[ext_resource type="Script" uid="uid://cefgalhblxedd" path="res://script/talipapa.gd" id="8_talipapa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_srowd"]
 atlas = ExtResource("1_5von4")
@@ -195,14 +195,15 @@ offset_top = -720.18036
 offset_right = -26.664978
 offset_bottom = -697.18036
 scale = Vector2(2, 2)
-text = "to travek to sea"
+text = "to travel to sea"
 
 [node name="Spawn" type="Marker2D" parent="Home" unique_id=1225093361]
 unique_name_in_owner = true
-position = Vector2(666.4397, 252.59906)
+position = Vector2(864.27344, 268.5737)
 script = ExtResource("3_srowd")
 
 [node name="Boat" parent="Home" unique_id=2115580054 instance=ExtResource("4_5von4")]
+visible = false
 position = Vector2(1380.8395, 818.7004)
 scale = Vector2(9, 9)
 
@@ -215,11 +216,14 @@ position = Vector2(-3323.5122, -309.50867)
 shape = SubResource("RectangleShape2D_talipapa")
 
 [node name="Label" type="Label" parent="Home/Talipapa" unique_id=2000000003]
-offset_left = 118.17125
-offset_top = -506.6086
-offset_right = 262.17126
-offset_bottom = -483.6086
-text = "Talipapa"
+visible = false
+offset_left = -3154.079
+offset_top = -452.6942
+offset_right = -3027.079
+offset_bottom = -360.83997
+scale = Vector2(3, 3)
+text = "Press Q to sell
+Press R to refuel"
 horizontal_alignment = 1
 
 [node name="Ground" type="StaticBody2D" parent="Home" unique_id=2095665060]

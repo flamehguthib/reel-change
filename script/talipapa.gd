@@ -26,8 +26,9 @@ func _physics_process(_delta: float) -> void:
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.name == "Fisherman":
 		player_in_range = body
-		print("Press Q to sell fish or R to refuel at the talipapa")
+		$Label.visible = true
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body == player_in_range:
 		player_in_range = null
+		$Label.visible = false
