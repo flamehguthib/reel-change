@@ -44,7 +44,6 @@ const FISH_BAR_OFFSET_LEFT = Vector2(-96.0, 18.0)
 
 func _ready() -> void:
 	$Player.connect("animation_finished", Callable(self, "on_casting_finished"))
-	
 	# Auto-mount on boat when in OpenSea scene
 	if get_tree().current_scene.name == "OpenSea":
 		await get_tree().process_frame  # Wait one frame for boat to initialize
@@ -414,7 +413,7 @@ func on_casting_finished():
 		queue_redraw()
 
 #fishing bob func
-var fishing_bob_scene = preload("res://scenes/Fisherman/fishing_bob.tscn")
+var fishing_bob_scene = preload("res://scenes/Fisherman/fishingbob.tscn")
 var fishing_bob = null
 var fish_bar_scene = preload("res://scenes/Fisherman/fishing_mechanic.tscn")
 var fish_bar_instance = null
@@ -422,14 +421,13 @@ var fish_bar_instance = null
 func spawn_fishing_bob(): 
 	if fishing_bob == null:
 		fishing_bob = fishing_bob_scene.instantiate()
+		add_child(fishing_bob)
+		
 		fishing_bob.position.y = $FishingRod/FishingRodTip.position.y + 35
 		fishing_bob.position.x = $FishingRod/FishingRodTip.position.x + 70
-		add_child(fishing_bob)
-		var fish_detector = fishing_bob.get_node_or_null("Player")
-		if fish_detector != null and fish_detector.has_signal("fish_bite"):
-			fish_detector.fish_bite.connect(_on_fish_bite)
-		if fish_detector != null and fish_detector.has_signal("fish_missed"):
-			fish_detector.fish_missed.connect(_on_fish_missed)
+		
+		fishing_bob.fish_bite.connect(_on_fish_bite)
+		fishing_bob.fish_missed.connect(_on_fish_missed)
 
 func spawn_fish_bar():
 	if fish_bar_instance == null:
@@ -468,8 +466,7 @@ func _on_fish_bar_finished(caught: bool) -> void:
 
 func _on_fish_bite() -> void:
 	print("Fish bite triggered")
-	if state == "fish" and fish_bar_instance == null:
-		spawn_fish_bar()
+	spawn_fish_bar()
 
 func _on_fish_missed() -> void:
 	print("Fish escaped before minigame")

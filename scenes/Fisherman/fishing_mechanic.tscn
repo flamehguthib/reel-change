@@ -5,14 +5,14 @@
 
 [node name="FishUI" type="Node2D" unique_id=399001178]
 z_index = 50
+scale = Vector2(2, 2)
 
 [node name="Control" type="Control" parent="." unique_id=127233768]
-layout_mode = 0
+layout_mode = 3
 anchors_preset = 0
 offset_left = -100.0
 offset_top = -220.0
 offset_right = 100.0
-offset_bottom = 0.0
 script = ExtResource("1_dmaw5")
 
 [node name="ColorRect" type="ColorRect" parent="Control" unique_id=399027541]

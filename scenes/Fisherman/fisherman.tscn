@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c4nojc5cw6y6"]
 
 [ext_resource type="Script" uid="uid://x7xj5fom70mn" path="res://script/fisherman.gd" id="1_a5dt2"]
-[ext_resource type="Script" uid="uid://dh0ubhxr6xwkg" path="res://script/camera_2d.gd" id="2_47n1r"]
+[ext_resource type="Script" path="res://script/camera_2d.gd" id="2_47n1r"]
 [ext_resource type="Texture2D" uid="uid://i8f53csglnmf" path="res://assets/fisherman/idle fisherman.png" id="4_47n1r"]
 [ext_resource type="Texture2D" uid="uid://va386d0nke0x" path="res://assets/fisherman/walkING FISHERMAN.png" id="4_vnetq"]
 [ext_resource type="Texture2D" uid="uid://6ignq77uijgp" path="res://assets/fisherman/HOOK/(fisherman)hook.png" id="7_rhwrs"]
@@ -590,6 +590,7 @@ scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_ovuf2")
 
 [node name="FishingRod" type="AnimatedSprite2D" parent="Fisherman" unique_id=2005310400]
+visible = false
 clip_children = 2
 light_mask = 512
 z_index = 2
