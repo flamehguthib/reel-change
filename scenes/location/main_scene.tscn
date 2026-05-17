@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bcr2bvdgil3mr"]
 
 [ext_resource type="Texture2D" uid="uid://ccllmaf22jug7" path="res://assets/sceneries/Day Extended Version Spliced/33%.jpg" id="1_1igtx"]
+[ext_resource type="Script" uid="uid://bn5wuisa06wnf" path="res://script/sceneries script/main_scene.gd" id="1_ht3qy"]
 [ext_resource type="Script" uid="uid://rk83fbji3h05" path="res://script/sceneries script/home_animation.gd" id="2_5von4"]
 [ext_resource type="Texture2D" uid="uid://543wi1tvcl2i" path="res://assets/sceneries/Day Extended Version Spliced/66%.jpg" id="2_ht3qy"]
 [ext_resource type="Script" uid="uid://7tn3u7wcpgro" path="res://script/spawn.gd" id="3_srowd"]
@@ -92,6 +93,7 @@ distance = 2.9975586
 normal = Vector2(1, 0)
 
 [node name="Node2D" type="Node2D" unique_id=611043405]
+script = ExtResource("1_ht3qy")
 
 [node name="Home" type="AnimatedSprite2D" parent="." unique_id=347383004]
 position = Vector2(3064.0002, 1534)

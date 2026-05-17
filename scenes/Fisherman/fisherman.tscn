@@ -557,39 +557,37 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="fishermanbisakol" type="Node2D" unique_id=252812419]
-
-[node name="Fisherman" type="CharacterBody2D" parent="." unique_id=2120142873 groups=["Player"]]
-unique_name_in_owner = true
+[node name="Fisherman" type="CharacterBody2D" unique_id=2120142873 groups=["Player"]]
 script = ExtResource("1_a5dt2")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Fisherman" unique_id=485194656]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=485194656]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_ufy8k")
 
-[node name="RodTip" type="Marker2D" parent="Fisherman" unique_id=2035858610]
+[node name="RodTip" type="Marker2D" parent="." unique_id=2035858610]
 position = Vector2(-333, 52)
 
-[node name="Camera2D" type="Camera2D" parent="Fisherman" unique_id=1226506113]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1226506113]
+unique_name_in_owner = true
 position = Vector2(-16, -7)
 zoom = Vector2(0.5, 0.5)
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("2_47n1r")
 
-[node name="Player" type="AnimatedSprite2D" parent="Fisherman" unique_id=37638068]
+[node name="Player" type="AnimatedSprite2D" parent="." unique_id=37638068]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ofheh")
 animation = &"hook"
 autoplay = "idle"
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fisherman" unique_id=1835153346]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1835153346]
 visible = false
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_ovuf2")
 
-[node name="FishingRod" type="AnimatedSprite2D" parent="Fisherman" unique_id=2005310400]
+[node name="FishingRod" type="AnimatedSprite2D" parent="." unique_id=2005310400]
 visible = false
 clip_children = 2
 light_mask = 512
@@ -600,9 +598,9 @@ scale = Vector2(3, 3.0182927)
 sprite_frames = SubResource("SpriteFrames_hn2hl")
 animation = &"fish"
 
-[node name="FishingRodTip" type="Marker2D" parent="Fisherman/FishingRod" unique_id=1299054818]
+[node name="FishingRodTip" type="Marker2D" parent="FishingRod" unique_id=1299054818]
 unique_name_in_owner = true
 position = Vector2(79.333336, 433.07275)
 
-[connection signal="animation_finished" from="Fisherman/AnimationPlayer" to="Fisherman" method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="Fisherman/Player" to="Fisherman" method="_on_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Player" to="." method="_on_player_animation_finished"]

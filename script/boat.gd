@@ -28,7 +28,9 @@ func _physics_process(_delta: float) -> void:
 	if rider == null:
 		velocity = Vector2.ZERO
 		return
-
+	
+	
+		
 	var rider_is_fishing := false
 	if rider.has_method("is_fishing_mode_active"):
 			rider_is_fishing = rider.call("is_fishing_mode_active")
@@ -42,25 +44,26 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 		rider.global_position = get_mount_position()
 		return
+		
+	if GameState.current_gas > 0:
+		var dir := Input.get_action_strength("right") - Input.get_action_strength("left")
 
-	var dir := Input.get_action_strength("right") - Input.get_action_strength("left")
+		velocity.x = dir * move_speed
+		velocity.y = 0.0
+		if boat_sprite != null:
+			if dir < 0.0:
+				boat_sprite.flip_h = true
+			elif dir > 0.0:
+				boat_sprite.flip_h = false
 
-	velocity.x = dir * move_speed
-	velocity.y = 0.0
-	if boat_sprite != null:
-		if dir < 0.0:
-			boat_sprite.flip_h = true
-		elif dir > 0.0:
-			boat_sprite.flip_h = false
-
-		if abs(dir) > 0.01:
-			if not boat_sprite.is_playing():
-				boat_sprite.play("default")
-		else:
-			if boat_sprite.is_playing():
-				boat_sprite.stop()
-			boat_sprite.frame = 0
-	move_and_slide()
+			if abs(dir) > 0.01:
+				if not boat_sprite.is_playing():
+					boat_sprite.play("default")
+			else:
+				if boat_sprite.is_playing():
+					boat_sprite.stop()
+				boat_sprite.frame = 0
+		move_and_slide()
 
 	if rider != null:
 		rider.global_position = get_mount_position()
@@ -90,6 +93,7 @@ func unmount_player(player: CharacterBody2D) -> void:
 	if mounted_player.has_method("set_mounted_boat"):
 		mounted_player.call("set_mounted_boat", null)
 		mounted_player.global_position = nearest_port
+		
 
 func find_nearest_port():
 	var ports = get_tree().get_nodes_in_group("Port")
@@ -113,3 +117,13 @@ func _on_interact_area_body_exited(body: Node2D) -> void:
 		body.call("clear_nearby_boat", self)
 	$E.visible = false
 	
+func setup_boat_camera(zoom_setting: Vector2, limit: Rect2):
+	var cam = get_node("%Camera2D")
+		
+	cam.zoom = zoom_setting
+	cam.limit_left = limit.position.x
+	cam.limit_top = limit.position.y
+	cam.limit_bottom = limit.size.y
+	cam.limit_right = limit.size.x
+	cam.enabled = true 
+	cam.make_current()
