@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 		if fish_pos >= bar_pos and fish_pos <= (bar_pos + bar_size):
 			progress += delta * 30
 		else:
-			progress += delta * -22
+			progress += delta * -15
 		
 	progress = clamp(progress, 0, 100)
 	

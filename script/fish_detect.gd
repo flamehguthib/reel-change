@@ -4,7 +4,7 @@ signal fish_bite
 signal fish_missed
 
 var bite_triggered := false
-const BITE_CHANCE := 0.75
+const BITE_CHANCE := 0.60
 
 func _ready() -> void:
 	print(get_path())	

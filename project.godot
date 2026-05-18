@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*res://script/global_script/game_state.gd"
 Transition_Manager="*uid://bl5xi7n3mp0g7"
+SoundManager="*uid://cf5mpena4qqrx"
 
 [display]
 

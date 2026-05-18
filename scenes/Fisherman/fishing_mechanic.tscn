@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://cled5yjky8ogd"]
 
 [ext_resource type="Script" uid="uid://cl8mmk0ena0vw" path="res://script/fish_bar.gd" id="1_dmaw5"]
+[ext_resource type="Texture2D" uid="uid://3we0h4ot85du" path="res://assets/ui/fish_filelt-removebg-preview.png" id="3_5wbbv"]
 [ext_resource type="Texture2D" uid="uid://c53mbvypqdj6h" path="res://fishing_game_assets/4 Icons/Icons_04.png" id="3_sdupj"]
+
+[sub_resource type="Gradient" id="Gradient_ahjk1"]
+offsets = PackedFloat32Array(0.11448598, 0.34813085, 0.5864486, 0.98364484)
+colors = PackedColorArray(0.02745098, 0.09803922, 0.19607843, 1, 0.02745098, 0.07450981, 0.57254905, 1, 0.2903223, 0.57419336, 0.7022137, 1, 0, 0.4, 0.5803922, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5wbbv"]
+gradient = SubResource("Gradient_ahjk1")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
 
 [node name="FishUI" type="Node2D" unique_id=399001178]
 z_index = 50
@@ -15,11 +25,14 @@ offset_top = -220.0
 offset_right = 100.0
 script = ExtResource("1_dmaw5")
 
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=399027541]
+[node name="ColorRect" type="TextureRect" parent="Control" unique_id=1231248613]
+texture_filter = 2
 layout_mode = 0
-offset_right = 35.0
+offset_left = 6.0
+offset_right = 40.5
 offset_bottom = 200.0
-color = Color(0.43583372, 0.2755311, 4.813075e-08, 1)
+texture = SubResource("GradientTexture2D_5wbbv")
+expand_mode = 1
 
 [node name="Fish_icon" type="TextureRect" parent="Control/ColorRect" unique_id=230371027]
 unique_name_in_owner = true
@@ -32,16 +45,22 @@ texture = ExtResource("3_sdupj")
 [node name="PlayerBar" type="ColorRect" parent="Control/ColorRect" unique_id=168126968]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 1.0
-offset_top = 47.0
+offset_top = 46.5
 offset_right = 35.0
-offset_bottom = 100.0
-color = Color(0, 0.34425986, 0.23220602, 0.59607846)
+offset_bottom = 99.5
+color = Color(0, 0.2901961, 0, 0.59607846)
 
 [node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=672790883]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 67.0
-offset_top = 82.0
-offset_right = 90.0
-offset_bottom = 109.0
+offset_left = 43.5
+offset_top = -2.0
+offset_right = 76.0
+offset_bottom = 200.5
+fill_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=1233161542]
+z_index = 1
+position = Vector2(23, 94.99999)
+scale = Vector2(0.122507125, 0.31504923)
+texture = ExtResource("3_5wbbv")

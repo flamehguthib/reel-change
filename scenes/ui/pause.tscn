@@ -41,11 +41,6 @@ layout_mode = 2
 text = "Continue"
 metadata/_edit_lock_ = true
 
-[node name="Restart" type="Button" parent="VBoxContainer" unique_id=905531830]
-layout_mode = 2
-text = "Restart"
-metadata/_edit_lock_ = true
-
 [node name="Main Menu" type="Button" parent="VBoxContainer" unique_id=945565824]
 layout_mode = 2
 text = "Main Menu"

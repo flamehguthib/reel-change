@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+#if opensea
+var is_in_open_sea = false
+
+#if walking on the port
+var walk_on_port: bool = false
+
 #bobber position
 var bobber_global_pos : Vector2 = Vector2.ZERO
 
@@ -51,9 +57,11 @@ func _ready() -> void:
 		if boats.size() > 0:
 			mount_boat(boats[0])
 	
+	$warneng.visible = false
+	
 func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
-		if mounted_boat != null:
+		if mounted_boat != null and get_tree().get_nodes_in_group("Port").size() > 0:
 			$AnimationPlayer.play("RESET")
 			unmount_boat()
 		else:
@@ -110,7 +118,6 @@ func _physics_process(delta):
 			$AnimationPlayer.play("hook_pos")
 		elif $Player.flip_h == true:
 			$AnimationPlayer.play("invert_hook_pos")
-		
 		state = "hook"
 		start_reel()
 	
@@ -120,7 +127,7 @@ func _physics_process(delta):
 		state = "hook"
 		start_reel()
 		
-	elif can_start_charge() and Input.is_action_just_pressed("fish_button"):
+	elif can_start_charge() and Input.is_action_just_pressed("fish_button") and is_in_open_sea:
 		begin_charge_cast()
 
 	elif state == "charge":
@@ -132,6 +139,8 @@ func _physics_process(delta):
 	elif state != "cast" and state != "fish" and state != "hook" and state != "charge" and mounted_boat == null:	
 		if velocity.x == 0:
 			if state != "idle":
+				SoundManager.stop_sfx("walk")
+				SoundManager.stop_sfx("walk_on_port")
 				$Player.play("idle")
 				$FishingRod.visible = false
 				state = "idle"
@@ -139,6 +148,15 @@ func _physics_process(delta):
 			if state != "walk":
 				$Player.play("walk")
 				state = "walk"
+			if walk_on_port == false:
+				if not SoundManager.is_sfx_playing("walk"):
+					SoundManager.stop_sfx("walk_on_port")
+					SoundManager.play_sfx("walk")
+			if walk_on_port == true:
+				if not SoundManager.is_sfx_playing("walk_on_port"):
+					SoundManager.stop_sfx("walk")
+					SoundManager.play_sfx("walk_on_port")
+				
 
 	if fish_bar_instance != null:
 		update_fish_bar_position()
@@ -276,6 +294,7 @@ func release_charge_cast():
 	arc_peak_height = lerp(min_arc_peak_height, max_arc_peak_height, charge_ratio)
 	$Player.play("cast")
 	$FishingRod.visible = true
+	SoundManager.play_sfx("cast")
 	$FishingRod.play("cast")
 	if $Player.flip_h == false:
 		$AnimationPlayer.play("cast_pos")
@@ -459,20 +478,34 @@ func _on_fish_bar_finished(caught: bool) -> void:
 	if caught:
 		GameState.add_fish_to_inventory(randi_range(80, 150))
 	if state == "fish":
+		SoundManager.play_sfx("cast")
 		$Player.play("hook")
 		$FishingRod.play("hook")
+		if $Player.flip_h == false:
+			$AnimationPlayer.play("hook_pos")
+		elif $Player.flip_h == true:
+			$AnimationPlayer.play("invert_hook_pos")
 		state = "hook"
 		start_reel()
 
 func _on_fish_bite() -> void:
-	print("Fish bite triggered")
+	$warneng.visible = true
+	SoundManager.play_sfx("alert")
+	await get_tree().create_timer(1.5).timeout
+	$warneng.visible = false 
+	
 	spawn_fish_bar()
 
 func _on_fish_missed() -> void:
 	print("Fish escaped before minigame")
 	if state == "fish" and fish_bar_instance == null:
+		SoundManager.play_sfx("cast")
 		$Player.play("hook")
 		$FishingRod.play("hook")
+		if $Player.flip_h == false:
+			$AnimationPlayer.play("hook_pos")
+		elif $Player.flip_h == true:
+			$AnimationPlayer.play("invert_hook_pos")
 		state = "hook"
 		start_reel()
 
@@ -484,3 +517,20 @@ func kill_fishing_bob():
 
 func is_fishing_mode_active() -> bool:
 	return state == "charge" or state == "cast" or state == "fish" or state == "hook"
+
+
+
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Port"):
+		walk_on_port = false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Port"):
+		walk_on_port = true
+
+
+func _on_open_sea_tree_entered() -> void:
+	is_in_open_sea = true

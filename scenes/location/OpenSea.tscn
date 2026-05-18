@@ -157,3 +157,5 @@ position = Vector2(5915, 1803)
 position = Vector2(641, -29)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_5mlg0")
+
+[connection signal="tree_entered" from="." to="Fisherman" method="_on_open_sea_tree_entered"]

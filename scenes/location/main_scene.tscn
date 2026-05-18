@@ -69,7 +69,7 @@ size = Vector2(324, 1022)
 size = Vector2(3657.157, 530.5166)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5x1h"]
-size = Vector2(2726.209, 24.88086)
+size = Vector2(2564.8447, 24.88086)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seasborder"]
 size = Vector2(400, 1164.1107)
@@ -82,7 +82,7 @@ a = Vector2(-1536.2089, -2.9951172)
 b = Vector2(1533.212, -2.9951172)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_srowd"]
-a = Vector2(90.88599, -31.511719)
+a = Vector2(200.92432, -89.802)
 b = Vector2(-65.80469, 22.271362)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bbixk"]
@@ -138,12 +138,12 @@ offset_right = -65.49999
 offset_bottom = 22.999943
 text = "Press"
 
-[node name="Water" type="Area2D" parent="Home" unique_id=2026378263 groups=["water"]]
+[node name="Water" type="Area2D" parent="Home" unique_id=2026378263]
 position = Vector2(-13, 870)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Water" unique_id=1310519976 groups=["water"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Water" unique_id=1310519976]
 light_mask = 2
 visibility_layer = 2
 position = Vector2(1255.0713, 392.67456)
@@ -154,7 +154,7 @@ debug_color = Color(0.92156863, 0.2784314, 0, 0.41960785)
 position = Vector2(1457.7748, 431.3153)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Port" unique_id=1792405206]
-position = Vector2(91.67285, 0.9984131)
+position = Vector2(172.35498, 0.9984131)
 shape = SubResource("RectangleShape2D_d5x1h")
 debug_color = Color(0.9525327, 4.235506e-06, 0.5606254, 0.41960785)
 metadata/_edit_lock_ = true

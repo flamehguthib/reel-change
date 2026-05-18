@@ -58,9 +58,13 @@ func _physics_process(_delta: float) -> void:
 
 			if abs(dir) > 0.01:
 				if not boat_sprite.is_playing():
+					SoundManager.play_sfx("boat_move")
+					SoundManager.stop_sfx("boat_idle")
 					boat_sprite.play("default")
 			else:
 				if boat_sprite.is_playing():
+					SoundManager.stop_sfx("boat_move")
+					SoundManager.play_sfx("boat_idle")
 					boat_sprite.stop()
 				boat_sprite.frame = 0
 		move_and_slide()
@@ -75,6 +79,9 @@ func get_mount_position() -> Vector2:
 	return mount_point.global_position + offset
 
 func mount_player(player: CharacterBody2D) -> void:
+	SoundManager.play_sfx("boat_idle")
+	SoundManager.stop_sfx("walk")
+	SoundManager.stop_sfx("walk_on_port")
 	if rider != null or player == null:
 		return
 
@@ -84,6 +91,8 @@ func mount_player(player: CharacterBody2D) -> void:
 	rider.global_position = get_mount_position()
 
 func unmount_player(player: CharacterBody2D) -> void:
+	SoundManager.stop_sfx("boat_idle")
+	SoundManager.stop_sfx("boat_move")
 	if rider == null or player != rider:
 		return
 
