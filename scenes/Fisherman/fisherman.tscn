@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://x7xj5fom70mn" path="res://script/fisherman.gd" id="1_a5dt2"]
 [ext_resource type="Script" path="res://script/camera_2d.gd" id="2_47n1r"]
+[ext_resource type="PackedScene" uid="uid://bvhla3g00a2rq" path="res://scenes/ui/pause.tscn" id="2_e7hpt"]
 [ext_resource type="Texture2D" uid="uid://i8f53csglnmf" path="res://assets/fisherman/idle fisherman.png" id="4_47n1r"]
 [ext_resource type="Texture2D" uid="uid://va386d0nke0x" path="res://assets/fisherman/walkING FISHERMAN.png" id="4_vnetq"]
 [ext_resource type="Texture2D" uid="uid://6ignq77uijgp" path="res://assets/fisherman/HOOK/(fisherman)hook.png" id="7_rhwrs"]
 [ext_resource type="Texture2D" uid="uid://cmdsexbts5j1f" path="res://assets/fisherman/long string casting/fisherman casting adjust string.png" id="7_ufy8k"]
 [ext_resource type="Texture2D" uid="uid://cxmf8xtglqc3e" path="res://assets/fisherman/HOOK/(FISHING ROD)hook(test).png" id="8_e7hpt"]
 [ext_resource type="Texture2D" uid="uid://bm2w8b6a17xcn" path="res://assets/fisherman/long string casting/long_fishing_rod (test).png" id="8_rhwrs"]
+[ext_resource type="Texture2D" uid="uid://bknut2vyyx0qp" path="res://assets/ui/warneng.png" id="10_rhwrs"]
 
 [sub_resource type="Animation" id="Animation_e7hpt"]
 length = 0.001
@@ -201,6 +203,9 @@ tracks/1/keys = {
 "values": [Vector2(-20, 40)]
 }
 
+[sub_resource type="Animation" id="Animation_q4jj6"]
+resource_name = "warneng"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ufy8k"]
 _data = {
 &"RESET": SubResource("Animation_e7hpt"),
@@ -210,7 +215,8 @@ _data = {
 &"hook_pos": SubResource("Animation_rhwrs"),
 &"invert_cast_pos": SubResource("Animation_xpf6s"),
 &"invert_fish_pos": SubResource("Animation_sn3s5"),
-&"invert_hook_pos": SubResource("Animation_g3ibt")
+&"invert_hook_pos": SubResource("Animation_g3ibt"),
+&"warneng": SubResource("Animation_q4jj6")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4upc6"]
@@ -557,39 +563,40 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="fishermanbisakol" type="Node2D" unique_id=252812419]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufy8k"]
+size = Vector2(72, 12)
 
-[node name="Fisherman" type="CharacterBody2D" parent="." unique_id=2120142873 groups=["Player"]]
-unique_name_in_owner = true
+[node name="Fisherman" type="CharacterBody2D" unique_id=2120142873 groups=["Player"]]
 script = ExtResource("1_a5dt2")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Fisherman" unique_id=485194656]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=485194656]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_ufy8k")
 
-[node name="RodTip" type="Marker2D" parent="Fisherman" unique_id=2035858610]
+[node name="RodTip" type="Marker2D" parent="." unique_id=2035858610]
 position = Vector2(-333, 52)
 
-[node name="Camera2D" type="Camera2D" parent="Fisherman" unique_id=1226506113]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1226506113]
+unique_name_in_owner = true
 position = Vector2(-16, -7)
 zoom = Vector2(0.5, 0.5)
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("2_47n1r")
 
-[node name="Player" type="AnimatedSprite2D" parent="Fisherman" unique_id=37638068]
+[node name="Player" type="AnimatedSprite2D" parent="." unique_id=37638068]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ofheh")
-animation = &"hook"
+animation = &"walk"
 autoplay = "idle"
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fisherman" unique_id=1835153346]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1835153346]
 visible = false
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_ovuf2")
 
-[node name="FishingRod" type="AnimatedSprite2D" parent="Fisherman" unique_id=2005310400]
+[node name="FishingRod" type="AnimatedSprite2D" parent="." unique_id=2005310400]
 visible = false
 clip_children = 2
 light_mask = 512
@@ -600,9 +607,37 @@ scale = Vector2(3, 3.0182927)
 sprite_frames = SubResource("SpriteFrames_hn2hl")
 animation = &"fish"
 
-[node name="FishingRodTip" type="Marker2D" parent="Fisherman/FishingRod" unique_id=1299054818]
+[node name="FishingRodTip" type="Marker2D" parent="FishingRod" unique_id=1299054818]
 unique_name_in_owner = true
 position = Vector2(79.333336, 433.07275)
 
-[connection signal="animation_finished" from="Fisherman/AnimationPlayer" to="Fisherman" method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="Fisherman/Player" to="Fisherman" method="_on_player_animation_finished"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1953319369]
+
+[node name="Pause" parent="CanvasLayer" unique_id=1789781790 instance=ExtResource("2_e7hpt")]
+visible = false
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1526013981]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1044181893]
+position = Vector2(1, 144)
+shape = SubResource("RectangleShape2D_ufy8k")
+
+[node name="warneng" type="Sprite2D" parent="." unique_id=1398721261]
+visible = false
+position = Vector2(-9, -365)
+texture = ExtResource("10_rhwrs")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Player" to="." method="_on_player_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

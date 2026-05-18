@@ -54,6 +54,7 @@ func _attempt_sail() -> void:
 
 	# Spend gas and transition
 	if require_gas_to_cross:
+		SoundManager.stop_sfx("boat_move")
 		GameState.travel_to_opensea()
 	
 	get_tree().change_scene_to_file(target_scene_path)

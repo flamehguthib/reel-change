@@ -5,21 +5,21 @@ var current_day: int = 1
 var current_time: float = 0.0  # 0-24 represents full day cycle
 var max_energy: int = 100
 var current_energy: int = 100
-var max_gas: int = 100
-var current_gas: int = 100
+var max_gas: int = 25
+var current_gas: int = 15
 var current_money: int = 0
-var money_goal: int = 10000
+var money_goal: int = 1000
 var fish_inventory_count: int = 0
 var fish_inventory_value: int = 0
-var debug_start_with_talipapa_test_state: bool = true
+var debug_start_with_talipapa_test_state: bool = false
 
 # Energy system
-var fishing_energy_cost: int = 4
+var fishing_energy_cost: int = 7
 
 # Gas system
-var gas_cost_to_opensea: int = 30
-var gas_refuel_cost: int = 50  # Coins
-var gas_refuel_amount: int = 50  # Gas units
+var gas_cost_to_opensea: int = 11
+var gas_refuel_cost: int = 95  # Coins
+var gas_refuel_amount: int = 1  # Gas units
 
 # Time scaling - 1 real second = X in-game time units
 # For 15-minute demo: complete 1 full day (24 hours) in 5 real minutes (300 seconds)
@@ -35,12 +35,12 @@ func _ready() -> void:
 	current_day = 1
 	current_time = 6  # Start at 6 AM (morning)
 	current_energy = max_energy
-	current_gas = max_gas
+	current_gas = max_gas 
 	current_money = 0
 	fish_inventory_count = 0
 	fish_inventory_value = 0
 	if debug_start_with_talipapa_test_state:
-		current_gas = 0
+		current_gas = 100
 		fish_inventory_count = 3
 		fish_inventory_value = 300
 		print("Talipapa test state enabled: 0 gas, 3 fish, P300 value")
@@ -191,8 +191,10 @@ func check_game_end() -> void:
 	if current_day >= max_days:
 		if current_money >= money_goal:
 			print("=== VICTORY! You reached ₱%d! ===" % money_goal)
+			reset_game()
 			get_tree().change_scene_to_file("res://scenes/victory.tscn") 
 		else:
+			reset_game()
 			print("=== GAME OVER - You earned ₱%d / ₱%d ===" % [current_money, money_goal])
 			get_tree().change_scene_to_file("res://scenes/ui/defeat.tscn")
 
