@@ -127,7 +127,7 @@ func _physics_process(delta):
 		state = "hook"
 		start_reel()
 		
-	elif can_start_charge() and Input.is_action_just_pressed("fish_button") and is_in_open_sea:
+	elif can_start_charge() and Input.is_action_just_pressed("fish_button") and is_in_open_sea	:
 		begin_charge_cast()
 
 	elif state == "charge":

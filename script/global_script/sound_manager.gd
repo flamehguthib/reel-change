@@ -30,6 +30,8 @@ func play_sfx(sound_name):
 		sfx_player.volume_db = -15.0
 	if sound_name == "beach":
 		sfx_player.volume_db = -15
+	if sound_name == "main_menu":
+		sfx_player.volume_db = -15
 		
 	sfx_player.stream = SFX[sound_name]
 	add_child(sfx_player)

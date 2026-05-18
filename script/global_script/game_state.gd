@@ -35,10 +35,10 @@ func _ready() -> void:
 	current_day = 1
 	current_time = 6  # Start at 6 AM (morning)
 	current_energy = max_energy
-	current_gas = max_gas 
+	current_gas = 13 
 	current_money = 0
-	fish_inventory_count = 0
-	fish_inventory_value = 0
+	fish_inventory_count = 3
+	fish_inventory_value = 167
 	if debug_start_with_talipapa_test_state:
 		current_gas = 100
 		fish_inventory_count = 3

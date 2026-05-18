@@ -11,3 +11,6 @@ func play_anim( animation_name ) -> void:
 	
 func stop_anim() -> void:
 	anim.stop()
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	get_tree().change_scene_to_file("res://scenes/location/main_scene.tscn")

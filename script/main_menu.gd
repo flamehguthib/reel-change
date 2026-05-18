@@ -7,7 +7,7 @@ func _ready():
 func _on_play_pressed() -> void:
 	SoundManager.play_sfx("select")
 	tree_exiting.connect(on_scene_left)
-	get_tree().change_scene_to_file("res://scenes/location/main_scene.tscn"	)
+	get_tree().change_scene_to_file("res://scenes/ui/opening_cutscene.tscn"	)
 
 func _on_exit_pressed() -> void:
 	SoundManager.play_sfx("select")
