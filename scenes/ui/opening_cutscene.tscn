@@ -1,0 +1,319 @@
+[gd_scene format=3 uid="uid://duv04kceajgth"]
+
+[ext_resource type="Texture2D" uid="uid://i8f53csglnmf" path="res://assets/fisherman/idle fisherman.png" id="1_2yaq3"]
+[ext_resource type="AudioStream" uid="uid://g3tivj46mu2j" path="res://assets/audiomass-output.mp3" id="1_hbltp"]
+[ext_resource type="Texture2D" uid="uid://c2tdkwa24yo6p" path="res://assets/sceneries/EXTENDED VERSION.png" id="1_memw1"]
+[ext_resource type="Script" uid="uid://dtayrdvrnlc03" path="res://scenes/ui/character_body_2d.gd" id="1_yfgbm"]
+[ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="5_hbltp"]
+
+[sub_resource type="Animation" id="Animation_b1k3a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-401, 165)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Label:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Uriel
+
+Another day, another chance to earn money. "]
+}
+
+[sub_resource type="Animation" id="Animation_8y2nn"]
+resource_name = "opening_cutscene"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/fisherman:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-445, 8), Vector2(-300, 8)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D/fisherman")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["walk"],
+"method": &"play_anim"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Label:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.26, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(700, 680), Vector2(700, 680)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Label:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2, 4.9, 5.9, 10.066667, 11.033334, 15.066667, 16.133333, 22.266666, 23.433332, 29),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.2333333, 3.5, 4.9, 5.9, 8.5, 10.066667, 11.033334, 13.666667, 15.066667, 16.133333, 19.933332, 22.266666, 23.433332, 27.033333, 29),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0.054030217), Color(1, 1, 1, 1), Color(1, 1, 1, 0.054030217), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Label:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5.9, 11.033334, 16.133333, 23.433332),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Uriel
+
+Oh no! I almost forgot!", "Uriel
+
+My son's graduation is in three days!", "Uriel
+
+I need to hurry and gather a thousand 
+pesos to buy something he'll enjoy.", "Uriel
+
+First I'll sell my catch from yesterday
+to buy fuel for my boat."]
+}
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.26,
+"start_offset": 0.0,
+"stream": ExtResource("1_hbltp")
+}, {
+"end_offset": 0.23,
+"start_offset": 0.0,
+"stream": ExtResource("1_hbltp")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_hbltp")
+}, {
+"end_offset": 0.22,
+"start_offset": 0.0,
+"stream": ExtResource("1_hbltp")
+}, {
+"end_offset": 1.2599996,
+"start_offset": 0.0,
+"stream": ExtResource("1_hbltp")
+}, {
+"end_offset": 0.71999985,
+"start_offset": 0.38000008,
+"stream": ExtResource("1_hbltp")
+}, {
+"end_offset": 1.01,
+"start_offset": 0.0,
+"stream": ExtResource("1_hbltp")
+}],
+"times": PackedFloat32Array(1.4666667, 6.266667, 11.266666, 16.366667, 19.766666, 23.813334, 26.266666)
+}
+tracks/6/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yfgbm"]
+_data = {
+&"RESET": SubResource("Animation_b1k3a"),
+&"opening_cutscene": SubResource("Animation_8y2nn")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7o7k"]
+atlas = ExtResource("1_2yaq3")
+region = Rect2(0, 0, 124, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gew3r"]
+atlas = ExtResource("1_2yaq3")
+region = Rect2(0, 0, 124, 83)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yfgbm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7o7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gew3r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y2nn"]
+atlas = ExtResource("1_memw1")
+region = Rect2(0, 0, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfgbm"]
+atlas = ExtResource("1_memw1")
+region = Rect2(6120, 0, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbltp"]
+atlas = ExtResource("1_memw1")
+region = Rect2(12240, 0, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1k3a"]
+atlas = ExtResource("1_memw1")
+region = Rect2(0, 3060, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixxvg"]
+atlas = ExtResource("1_memw1")
+region = Rect2(6120, 3060, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlvox"]
+atlas = ExtResource("1_memw1")
+region = Rect2(12240, 3060, 6120, 3060)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7o7k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y2nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfgbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbltp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1k3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixxvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlvox")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Theme" id="Theme_ixxvg"]
+default_font = ExtResource("5_hbltp")
+default_font_size = 28
+
+[node name="OpeningCutscene" type="Node2D" unique_id=1594730359]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1441985767]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2110608332]
+libraries/ = SubResource("AnimationLibrary_yfgbm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=774071662]
+top_level = true
+offset_left = -575.0
+offset_top = 111.0
+offset_right = 584.0
+offset_bottom = 323.0
+color = Color(0.12086894, 0.11734293, 0.12086887, 0.7294118)
+metadata/_edit_use_anchors_ = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2096107542]
+position = Vector2(-400, 0)
+script = ExtResource("1_yfgbm")
+
+[node name="fisherman" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=345593565]
+show_behind_parent = true
+top_level = true
+position = Vector2(-300, 8)
+scale = Vector2(3.115471, 2.8727136)
+sprite_frames = SubResource("SpriteFrames_yfgbm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=65679270]
+modulate = Color(0.44415107, 0.44415107, 0.44415107, 1)
+position = Vector2(0, -1.0000002)
+scale = Vector2(0.18848038, 0.21274509)
+sprite_frames = SubResource("SpriteFrames_s7o7k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1383134897]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=113618036]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = -401.0
+offset_top = 165.0
+offset_right = 512.0
+offset_bottom = 290.0
+theme = SubResource("Theme_ixxvg")
+text = "Uriel
+
+Another day, another chance to earn money. "
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1466380919]
+volume_db = -10.116
