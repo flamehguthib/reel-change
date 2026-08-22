@@ -3,7 +3,7 @@ extends Node2D
 var player_in_range: CharacterBody2D = null
 var refuel_label: Label = null
 
-@onready var interaction_area: Area2D = $InteractionArea
+@onready var interaction_area: Area2D = get_node_or_null("InteractionArea")
 
 func _ready() -> void:
 	if interaction_area == null:
@@ -21,8 +21,8 @@ func _physics_process(_delta: float) -> void:
 			print("Not enough money! Need: %d, Have: %d" % [GameState.gas_refuel_cost, GameState.current_money])
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D and body.name == "Fisherman":
-		player_in_range = body
+	if body.is_in_group("Player") or body.name.to_lower() == "fisherman":
+		player_in_range = body as CharacterBody2D
 		var cost_text = "Press R to refuel (%dP for +%d gas)" % [GameState.gas_refuel_cost, GameState.gas_refuel_amount]
 		print(cost_text)
 

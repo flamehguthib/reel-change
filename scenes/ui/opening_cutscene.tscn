@@ -138,10 +138,10 @@ tracks/5/keys = {
 
 Oh no! I almost forgot!", "Uriel
 
-My son's graduation is in three days!", "Uriel
+My daughter's graduation is in seven days!", "Uriel
 
-I need to hurry and gather a thousand 
-pesos to buy something he'll enjoy.", "Uriel
+I need to hurry and gather two thousand five 
+hundred pesos to buy something she'll enjoy.", "Uriel
 
 First I'll sell my catch from yesterday
 to buy fuel for my boat."]
@@ -314,6 +314,18 @@ text = "Uriel
 
 Another day, another chance to earn money. "
 
+[node name="SkipButton" type="Button" parent="CanvasLayer" unique_id=1849204859]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 74.0
+grow_horizontal = 0
+theme = SubResource("Theme_ixxvg")
+text = "Skip Cutscene >>"
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1466380919]
 volume_db = -10.116
 
@@ -321,3 +333,4 @@ volume_db = -10.116
 zoom = Vector2(1.7, 1.7)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="CharacterBody2D" method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/SkipButton" to="CharacterBody2D" method="_on_skip_button_pressed"]

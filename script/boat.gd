@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var move_speed := 1000
+@export var move_speed := 380
 @export var dismount_offset := Vector2(100, -100)
 @export var rider_offset_right := Vector2(0, 0)
 @export var rider_offset_left := Vector2(0, 0)
@@ -11,6 +11,12 @@ extends CharacterBody2D
 
 var rider: CharacterBody2D = null
 @onready var nearest_port = Vector2.ZERO
+var gas_drain_timer := 0.0
+const GAS_DRAIN_INTERVAL := 6.0  # 1 gas unit every 6 seconds of driving
+const GAS_DRAIN_AMOUNT := 1
+
+var row_energy_drain_timer := 0.0
+const ROW_ENERGY_DRAIN_INTERVAL := 2.5 # 1 energy point per 2.5s of rowing
 
 func _ready() -> void:
 	add_to_group("boats")
@@ -28,12 +34,10 @@ func _physics_process(_delta: float) -> void:
 	if rider == null:
 		velocity = Vector2.ZERO
 		return
-	
-	
-		
+
 	var rider_is_fishing := false
 	if rider.has_method("is_fishing_mode_active"):
-			rider_is_fishing = rider.call("is_fishing_mode_active")
+		rider_is_fishing = rider.call("is_fishing_mode_active")
 
 	if rider_is_fishing:
 		velocity = Vector2.ZERO
@@ -44,31 +48,78 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 		rider.global_position = get_mount_position()
 		return
-		
-	if GameState.current_gas > 0:
-		var dir := Input.get_action_strength("right") - Input.get_action_strength("left")
 
-		velocity.x = dir * move_speed
-		velocity.y = 0.0
-		if boat_sprite != null:
-			if dir < 0.0:
-				boat_sprite.flip_h = true
-			elif dir > 0.0:
-				boat_sprite.flip_h = false
+	var is_out_of_gas := GameState.current_gas <= 0
+	var is_exhausted := GameState.current_energy <= 0
+	var dir := Input.get_action_strength("right") - Input.get_action_strength("left")
 
-			if abs(dir) > 0.01:
-				if not boat_sprite.is_playing():
-					SoundManager.play_sfx("boat_move")
-					SoundManager.stop_sfx("boat_idle")
-					boat_sprite.play("default")
+	# Tow rescue shortcut (Press T when out of gas)
+	if is_out_of_gas and Input.is_action_just_pressed("ui_cancel") == false and Input.is_key_pressed(KEY_T):
+		attempt_tow_rescue()
+		return
+
+	# Calculate dynamic speed based on boat level (Emergency Rowing mode if out of gas)
+	var base_speed := move_speed + ((GameState.boat_level - 1) * 90)
+	var current_speed: float = base_speed * 0.22 if is_out_of_gas else float(base_speed)
+
+	# If out of gas and exhausted, cannot row!
+	if is_out_of_gas and is_exhausted:
+		current_speed = 0.0
+
+	velocity.x = dir * current_speed
+	velocity.y = 0.0
+
+	if boat_sprite != null:
+		if dir < 0.0:
+			boat_sprite.flip_h = true
+		elif dir > 0.0:
+			boat_sprite.flip_h = false
+
+		if abs(dir) > 0.01 and current_speed > 0.0:
+			if not boat_sprite.is_playing():
+				SoundManager.play_sfx("boat_move")
+				SoundManager.stop_sfx("boat_idle")
+				boat_sprite.play("default")
+			if not is_out_of_gas:
+				gas_drain_timer += _delta
+				if gas_drain_timer >= GAS_DRAIN_INTERVAL:
+					gas_drain_timer = 0.0
+					GameState.spend_gas(GAS_DRAIN_AMOUNT)
 			else:
-				if boat_sprite.is_playing():
-					SoundManager.stop_sfx("boat_move")
-					SoundManager.play_sfx("boat_idle")
-					boat_sprite.stop()
-				boat_sprite.frame = 0
-		move_and_slide()
+				# Sagwan (rowing) consumes stamina/energy continuously
+				row_energy_drain_timer += _delta
+				if row_energy_drain_timer >= ROW_ENERGY_DRAIN_INTERVAL:
+					row_energy_drain_timer = 0.0
+					GameState.spend_energy(1)
+		else:
+			gas_drain_timer = 0.0
+			row_energy_drain_timer = 0.0
+			if boat_sprite.is_playing():
+				SoundManager.stop_sfx("boat_move")
+				SoundManager.play_sfx("boat_idle")
+				boat_sprite.stop()
+			boat_sprite.frame = 0
 
+	move_and_slide()
+
+	if rider != null:
+		rider.global_position = get_mount_position()
+
+func attempt_tow_rescue() -> void:
+	# Friendly fisherman towing service
+	var cost := 30
+	if GameState.current_money >= cost:
+		GameState.current_money -= cost
+		GameState.refuel_gas(5)
+		if rider != null and rider.has_method("show_message"):
+			rider.call("show_message", "Coast Guard Tow: Returned to port (-₱30, +5 Gas)! 🚤", Color(0.4, 0.9, 0.4))
+	else:
+		GameState.current_money = 0
+		GameState.refuel_gas(3)
+		if rider != null and rider.has_method("show_message"):
+			rider.call("show_message", "Friendly Tow: Returned to port (Emergency +3 Gas)! 🚤", Color(0.4, 0.9, 0.4))
+
+	global_position.x = 200.0  # Reset position back toward shore/port
 	if rider != null:
 		rider.global_position = get_mount_position()
 

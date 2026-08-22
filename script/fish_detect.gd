@@ -4,16 +4,22 @@ signal fish_bite
 signal fish_missed
 
 var bite_triggered := false
-const BITE_CHANCE := 0.60
+const BASE_BITE_CHANCE := 0.60
 
 func _ready() -> void:
-	print(get_path())	
 	randomize()
 	random_timer()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func get_bite_chance() -> float:
+	var chance := BASE_BITE_CHANCE
+	if GameState.active_bait == "hipon":
+		chance += 0.25
+	elif GameState.active_bait == "tahong":
+		chance += 0.35
+	elif GameState.has_bait:
+		chance += 0.20
+	chance *= GameState.get_weather_bite_multiplier()
+	return clamp(chance, 0.05, 0.95)
 
 func lose_fish():
 	var label = %FishStatus
@@ -43,7 +49,7 @@ func _on_timer_timeout() -> void:
 	if bite_triggered:
 		return
 	bite_triggered = true
-	if randf() <= BITE_CHANCE:
+	if randf() <= get_bite_chance():
 		print("Fish bite now")
 		emit_signal("fish_bite")
 	else:

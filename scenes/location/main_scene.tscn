@@ -224,8 +224,7 @@ offset_top = -452.6942
 offset_right = -3027.079
 offset_bottom = -360.83997
 scale = Vector2(3, 3)
-text = "Press Q to sell
-Press R to refuel"
+text = "Press Q to open the Talipapa shop"
 horizontal_alignment = 1
 
 [node name="Ground" type="StaticBody2D" parent="Home" unique_id=2095665060]

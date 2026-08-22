@@ -9,11 +9,13 @@ const SFX = {
 	"boat_idle": preload("res://assets/sfx/boat_idle.mp3"),
 	"select": preload("res://assets/sfx/select.mp3"),
 	"alert": preload("res://assets/sfx/alert.wav"),
+	"bait": preload("res://assets/sfx/fish_bait.mp3"),
 	#background
 	"sea": preload("res://assets/sfx/sea_waves.mp3"),
 	"beach": preload("res://assets/sfx/beach.mp3"),
 	#music
 	"main_menu": preload("res://assets/sfx/main_menu.mp3"),
+	"game_theme": preload("res://assets/sfx/game_theme.mp3"),
 }
 
 var active_sfx: Dictionary = {}

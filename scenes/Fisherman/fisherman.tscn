@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cxmf8xtglqc3e" path="res://assets/fisherman/HOOK/(FISHING ROD)hook(test).png" id="8_e7hpt"]
 [ext_resource type="Texture2D" uid="uid://bm2w8b6a17xcn" path="res://assets/fisherman/long string casting/long_fishing_rod (test).png" id="8_rhwrs"]
 [ext_resource type="Texture2D" uid="uid://bknut2vyyx0qp" path="res://assets/ui/warneng.png" id="10_rhwrs"]
+[ext_resource type="Script" uid="uid://qteud7dilq55" path="res://script/player_script/area_2d.gd" id="11_area2d"]
 
 [sub_resource type="Animation" id="Animation_e7hpt"]
 length = 0.001
@@ -625,6 +626,7 @@ scale = Vector2(2, 2)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1526013981]
 visible = false
+script = ExtResource("11_area2d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1044181893]
 position = Vector2(1, 144)

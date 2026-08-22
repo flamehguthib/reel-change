@@ -34,6 +34,7 @@ var cast_water_y_offset = 92.0
 var arc_peak_height = 46.0
 var min_arc_peak_height = 28.0
 var max_arc_peak_height = 62.0
+var current_fish_species: Dictionary = {}
 var is_charging_cast = false
 var charge_time = 0.0
 var max_charge_time = 0.9
@@ -57,7 +58,24 @@ func _ready() -> void:
 		if boats.size() > 0:
 			mount_boat(boats[0])
 	
-	$warneng.visible = false
+	if has_node("warneng"):
+		$warneng.visible = false
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_1:
+			if GameState.switch_bait("kawil"):
+				show_message("Active Bait: Kawil (Standard Hook)", Color(0.9, 0.9, 0.9))
+		elif event.keycode == KEY_2:
+			if GameState.switch_bait("hipon"):
+				show_message("Active Bait: Paong Hipon (%d left)" % GameState.hipon_bait_count, Color(1.0, 0.8, 0.4))
+			else:
+				show_message("No Paong Hipon left! Buy at Talipapa", Color(0.95, 0.3, 0.3))
+		elif event.keycode == KEY_3:
+			if GameState.switch_bait("tahong"):
+				show_message("Active Bait: Paong Tahong (%d left)" % GameState.tahong_bait_count, Color(0.4, 0.8, 1.0))
+			else:
+				show_message("No Paong Tahong left! Buy at Talipapa", Color(0.95, 0.3, 0.3))
 	
 func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
@@ -129,7 +147,9 @@ func _physics_process(delta):
 		
 	elif can_start_charge() and Input.is_action_just_pressed("fish_button") and is_in_open_sea	:
 		begin_charge_cast()
-
+	elif mounted_boat != null and is_in_open_sea and not GameState.can_fish() and Input.is_action_just_pressed("fish_button") and (state == "idle" or state == "boat_cast_ready"):
+		show_message("Too tired to fish! Sleep to recover energy.", Color(0.95, 0.3, 0.3))
+	
 	elif state == "charge":
 		if Input.is_action_pressed("fish_button"):
 			update_charge(delta)
@@ -292,6 +312,8 @@ func release_charge_cast():
 	var charge_ratio = get_charge_ratio()
 	cast_target_distance = lerp(min_cast_distance, max_cast_distance, charge_ratio)
 	arc_peak_height = lerp(min_arc_peak_height, max_arc_peak_height, charge_ratio)
+	cast_target_distance *= GameState.get_cast_power_multiplier()
+	arc_peak_height *= GameState.get_cast_power_multiplier()
 	$Player.play("cast")
 	$FishingRod.visible = true
 	SoundManager.play_sfx("cast")
@@ -442,8 +464,12 @@ func spawn_fishing_bob():
 		fishing_bob = fishing_bob_scene.instantiate()
 		add_child(fishing_bob)
 		
-		fishing_bob.position.y = $FishingRod/FishingRodTip.position.y + 35
-		fishing_bob.position.x = $FishingRod/FishingRodTip.position.x + 70
+		# Place the bobber where the cast line actually lands
+		if bobber_global_pos != Vector2.ZERO:
+			fishing_bob.global_position = bobber_global_pos
+		else:
+			fishing_bob.position.y = $FishingRod/FishingRodTip.position.y + 35
+			fishing_bob.position.x = $FishingRod/FishingRodTip.position.x + 70
 		
 		fishing_bob.fish_bite.connect(_on_fish_bite)
 		fishing_bob.fish_missed.connect(_on_fish_missed)
@@ -458,6 +484,12 @@ func spawn_fish_bar():
 		var fish_ui = fish_bar_instance.get_node_or_null("Control")
 		if fish_ui != null and fish_ui.has_signal("finished"):
 			fish_ui.finished.connect(_on_fish_bar_finished)
+		# Apply species-based difficulty
+		if not current_fish_species.is_empty() and fish_ui != null and fish_ui.has_method("set_difficulty"):
+			fish_ui.set_difficulty(
+				current_fish_species.get("speed", 1.0),
+				current_fish_species.get("grace", 0.35)
+			)
 
 func update_fish_bar_position() -> void:
 	if fish_bar_instance == null or not is_instance_valid(fish_bar_instance):
@@ -475,8 +507,13 @@ func kill_fish_bar():
 
 func _on_fish_bar_finished(caught: bool) -> void:
 	fish_bar_instance = null
-	if caught:
-		GameState.add_fish_to_inventory(randi_range(80, 150))
+	if caught and not current_fish_species.is_empty():
+		var fish_id: String = current_fish_species.get("id", "")
+		if not fish_id.is_empty():
+			GameState.add_fish_to_inventory(fish_id)
+		var species_name: String = current_fish_species.get("name", "Fish")
+		show_message("Caught %s!" % species_name, Color(0.4, 1.0, 0.5))
+	current_fish_species = {}
 	if state == "fish":
 		SoundManager.play_sfx("cast")
 		$Player.play("hook")
@@ -489,15 +526,23 @@ func _on_fish_bar_finished(caught: bool) -> void:
 		start_reel()
 
 func _on_fish_bite() -> void:
-	$warneng.visible = true
+	current_fish_species = GameState.roll_species_for_zone(global_position.x)
+	if has_node("warneng"):
+		$warneng.visible = true
 	SoundManager.play_sfx("alert")
-	await get_tree().create_timer(1.5).timeout
-	$warneng.visible = false 
+	var timer = get_tree().create_timer(1.5)
+	if timer != null:
+		await timer.timeout
+	if not is_instance_valid(self) or not is_inside_tree():
+		return
+	if has_node("warneng"):
+		$warneng.visible = false 
 	
 	spawn_fish_bar()
 
 func _on_fish_missed() -> void:
 	print("Fish escaped before minigame")
+	current_fish_species = {}
 	if state == "fish" and fish_bar_instance == null:
 		SoundManager.play_sfx("cast")
 		$Player.play("hook")
@@ -517,6 +562,27 @@ func kill_fishing_bob():
 
 func is_fishing_mode_active() -> bool:
 	return state == "charge" or state == "cast" or state == "fish" or state == "hook"
+
+var message_scene = preload("res://scenes/ui/DisplayMessage.tscn")
+var message_instance = null
+
+func show_message(text: String, color: Color = Color(1, 1, 1)) -> void:
+	if message_instance == null or not is_instance_valid(message_instance):
+		message_instance = message_scene.instantiate()
+		add_child(message_instance)
+		message_instance.z_as_relative = false
+		message_instance.z_index = 200
+		message_instance.position = Vector2(-100, -260)
+	var label = message_instance.get_node_or_null("Label")
+	if label == null:
+		return
+	label.text = text
+	label.add_theme_color_override("font_color", color)
+	label.modulate = Color(1, 1, 1, 0)
+	var tween = create_tween()
+	tween.tween_property(label, "modulate:a", 1.0, 0.15)
+	tween.tween_interval(1.4)
+	tween.tween_property(label, "modulate:a", 0.0, 0.4)
 
 
 

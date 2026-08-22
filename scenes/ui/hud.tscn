@@ -8,8 +8,8 @@ script = ExtResource("1_hud")
 [node name="TopBar" type="Panel" parent="." unique_id=177970924]
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 56.0
-offset_bottom = 56.0
+offset_right = 516.0
+offset_bottom = 416.0
 
 [node name="Stats" type="VBoxContainer" parent="TopBar" unique_id=1102285176]
 layout_mode = 0
@@ -52,4 +52,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="FishInventoryLabel" type="Label" parent="TopBar/Stats" unique_id=1023456789]
+layout_mode = 2
+
+[node name="WeatherLabel" type="Label" parent="TopBar/Stats" unique_id=1023456790]
 layout_mode = 2
