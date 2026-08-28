@@ -2,7 +2,6 @@ extends Node
 
 # Game progression tracking
 var current_day: int = 1
-var current_time: float = 0.0  # 0-24 represents full day cycle
 var max_energy: int = 100
 var current_energy: int = 100
 var max_gas: int = 25
@@ -10,8 +9,21 @@ var current_gas: int = 15
 var current_money: int = 0
 var money_goal: int = 2500 # Daughter's Graduation Gift & Family Debt Goal
 var fish_inventory: Array = []  # Array of species ids
-var debug_start_with_talipapa_test_state: bool = false
+var debug_start_with_talipapa_test_state: bool = true
 
+#Day Tracking System
+enum TIME_PERIOD {Morning, Afternoon, Night}
+var current_time_index: int = 0
+
+const TIME_SEQUENCE: Array[TIME_PERIOD] = [
+	TIME_PERIOD.Morning,
+	TIME_PERIOD.Afternoon,
+	TIME_PERIOD.Night
+]
+
+func get_current_period() -> TIME_PERIOD:
+	return TIME_SEQUENCE[current_time_index]
+	
 # Daily family living expenses (food, rice, utilities)
 const DAILY_FAMILY_EXPENSE: int = 35
 
@@ -32,9 +44,6 @@ var fishing_energy_cost: int = 7
 var gas_cost_to_opensea: int = 11
 var gas_refuel_cost: int = 45  # Coins per refuel purchase
 var gas_refuel_amount: int = 5  # Gas units per refuel
-
-# Time scaling - 1 real second = X in-game time units
-var time_scale: float = 0.08  # Completes full day (24 hours) in 5 real minutes
 
 # Game length
 var max_days: int = 7
@@ -121,7 +130,6 @@ const WEATHER_BITE_MULTIPLIER: Dictionary = {
 func _ready() -> void:
 	# Initialize game state
 	current_day = 1
-	current_time = 6  # Start at 6 AM (morning)
 	current_energy = max_energy
 	current_gas = 13
 	current_money = 0
@@ -136,22 +144,17 @@ func _ready() -> void:
 		fish_inventory = ["tilapia", "galunggong", "bangus"]
 		print("Talipapa test state enabled: 3 fish on hand")
 
-func _process(delta: float) -> void:
-	# Auto-update time each frame
-	update_time(delta)
+func update_time() -> void:
+	current_time_index += 1
 
-func update_time(delta: float) -> void:
-	"""Advance in-game time. Full day cycle is 24 hours."""
-	current_time += delta * time_scale
-
-	# Day complete - roll new weather and advance to next day
-	if current_time >= 24.0:
-		current_time = 0.0
+	if current_time_index >= TIME_SEQUENCE.size():
+		current_time_index = 0
 		advance_day()
 
 func advance_day() -> void:
 	"""Move to next day. If max days reached, trigger end condition."""
 	if current_day < max_days:
+		current_time_index = 0
 		current_day += 1
 		weather = roll_weather()
 		generate_daily_contract()
@@ -262,8 +265,8 @@ func switch_bait(bait_type: String) -> bool:
 
 func sleep_until_morning() -> void:
 	"""Sleep to next day, deduct daily family expense, and fully recover energy."""
-	current_time = 6.0  # Wake up at 6 AM
-	current_energy = max_energy
+	current_energy += 45
+	update_time()
 
 	# Deduct family daily expenses (rice, food, electricity)
 	var expense := DAILY_FAMILY_EXPENSE
@@ -341,15 +344,7 @@ func get_energy_percent() -> float:
 	return float(current_energy) / float(max_energy)
 
 func get_time_of_day() -> String:
-	"""Return formatted time string (6:00 AM - 11:59 PM)."""
-	var hours = int(current_time) % 24
-	var minutes = int((current_time - int(current_time)) * 60)
-	var period = "AM" if hours < 12 else "PM"
-	if hours == 0:
-		hours = 12
-	elif hours > 12:
-		hours -= 12
-	return "%02d:%02d %s" % [hours, minutes, period]
+	return "%s" % [TIME_SEQUENCE[current_time_index]]
 
 func add_money(amount: int) -> void:
 	"""Add money."""
@@ -396,7 +391,7 @@ func get_fish_inventory_value() -> int:
 	for species_id in fish_inventory:
 		var s = get_species(species_id)
 		if s != null:
-			var base_val := randi_range(int(s.min_value), int(s.max_value))
+			var base_val := int(s.min_value)
 			total += int(base_val * mult)
 	return total
 
@@ -561,7 +556,7 @@ func check_game_end() -> void:
 func reset_game() -> void:
 	"""Reset to initial state for new game."""
 	current_day = 1
-	current_time = 6.0
+	current_time_index = 0
 	current_energy = max_energy
 	current_gas = 13
 	current_money = 0

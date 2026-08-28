@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://543wi1tvcl2i" path="res://assets/sceneries/Day Extended Version Spliced/66%.jpg" id="2_ht3qy"]
 [ext_resource type="Script" uid="uid://7tn3u7wcpgro" path="res://script/spawn.gd" id="3_srowd"]
 [ext_resource type="Script" uid="uid://sir8qsldsspa" path="res://script/sleep_zone.gd" id="3_uquj6"]
+[ext_resource type="Texture2D" uid="uid://o74e6igij8u6" path="res://assets/Night /night_1.png" id="4_5nuv4"]
 [ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/Fisherman/boat.tscn" id="4_5von4"]
 [ext_resource type="PackedScene" uid="uid://bsbcnsptji28" path="res://scenes/ui/hud.tscn" id="5_srowd"]
 [ext_resource type="Script" uid="uid://ckoih5dwcgjvq" path="res://script/sea_border.gd" id="6_border"]
@@ -36,6 +37,10 @@ region = Rect2(0, 3060, 6120, 3060)
 atlas = ExtResource("2_ht3qy")
 region = Rect2(6120, 3060, 6120, 3060)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_elevr"]
+atlas = ExtResource("4_5nuv4")
+region = Rect2(0, 0, 6120, 3054)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_66tet"]
 animations = [{
 "frames": [{
@@ -60,6 +65,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elevr")
+}],
+"loop": true,
+"name": &"night",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbixk"]
@@ -99,7 +112,7 @@ script = ExtResource("1_ht3qy")
 position = Vector2(3064.0002, 1534)
 scale = Vector2(1.0008403, 1.0015874)
 sprite_frames = SubResource("SpriteFrames_66tet")
-frame_progress = 0.2924467
+animation = &"night"
 script = ExtResource("2_5von4")
 metadata/_edit_lock_ = true
 

@@ -2,9 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://i8f53csglnmf" path="res://assets/fisherman/idle fisherman.png" id="1_2yaq3"]
 [ext_resource type="AudioStream" uid="uid://g3tivj46mu2j" path="res://assets/audiomass-output.mp3" id="1_hbltp"]
-[ext_resource type="Texture2D" uid="uid://c2tdkwa24yo6p" path="res://assets/sceneries/EXTENDED VERSION.png" id="1_memw1"]
 [ext_resource type="Script" uid="uid://dtayrdvrnlc03" path="res://scenes/ui/character_body_2d.gd" id="1_yfgbm"]
+[ext_resource type="Texture2D" uid="uid://ccllmaf22jug7" path="res://assets/sceneries/Day Extended Version Spliced/33%.jpg" id="4_b1k3a"]
 [ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="5_hbltp"]
+[ext_resource type="Texture2D" uid="uid://543wi1tvcl2i" path="res://assets/sceneries/Day Extended Version Spliced/66%.jpg" id="5_ixxvg"]
 
 [sub_resource type="Animation" id="Animation_b1k3a"]
 length = 0.001
@@ -214,50 +215,50 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8y2nn"]
-atlas = ExtResource("1_memw1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlvox"]
+atlas = ExtResource("4_b1k3a")
 region = Rect2(0, 0, 6120, 3060)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yfgbm"]
-atlas = ExtResource("1_memw1")
-region = Rect2(6120, 0, 6120, 3060)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hbltp"]
-atlas = ExtResource("1_memw1")
-region = Rect2(12240, 0, 6120, 3060)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b1k3a"]
-atlas = ExtResource("1_memw1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_crhel"]
+atlas = ExtResource("4_b1k3a")
 region = Rect2(0, 3060, 6120, 3060)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ixxvg"]
-atlas = ExtResource("1_memw1")
-region = Rect2(6120, 3060, 6120, 3060)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkyfq"]
+atlas = ExtResource("5_ixxvg")
+region = Rect2(0, 0, 6120, 3060)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wlvox"]
-atlas = ExtResource("1_memw1")
-region = Rect2(12240, 3060, 6120, 3060)
+[sub_resource type="AtlasTexture" id="AtlasTexture_oufx7"]
+atlas = ExtResource("5_ixxvg")
+region = Rect2(6120, 0, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pww2l"]
+atlas = ExtResource("5_ixxvg")
+region = Rect2(0, 3060, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjfoo"]
+atlas = ExtResource("5_ixxvg")
+region = Rect2(6120, 3060, 6120, 3060)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s7o7k"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8y2nn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yfgbm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hbltp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b1k3a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ixxvg")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_wlvox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crhel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkyfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oufx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pww2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjfoo")
 }],
 "loop": true,
 "name": &"default",

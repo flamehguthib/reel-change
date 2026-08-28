@@ -56,6 +56,7 @@ func _attempt_sail() -> void:
 	else:
 		SoundManager.stop_sfx("boat_move")
 	
+	GameState.current_time_index += 1
 	get_tree().change_scene_to_file(target_scene_path)
 
 func _show_hint(text: String) -> void:
