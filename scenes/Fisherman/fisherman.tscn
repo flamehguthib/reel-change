@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c4nojc5cw6y6"]
 
 [ext_resource type="Script" uid="uid://x7xj5fom70mn" path="res://script/fisherman.gd" id="1_a5dt2"]
-[ext_resource type="Script" path="res://script/camera_2d.gd" id="2_47n1r"]
+[ext_resource type="Script" uid="uid://dh0ubhxr6xwkg" path="res://script/camera_2d.gd" id="2_47n1r"]
 [ext_resource type="PackedScene" uid="uid://bvhla3g00a2rq" path="res://scenes/ui/pause.tscn" id="2_e7hpt"]
 [ext_resource type="Texture2D" uid="uid://i8f53csglnmf" path="res://assets/fisherman/idle fisherman.png" id="4_47n1r"]
 [ext_resource type="Texture2D" uid="uid://va386d0nke0x" path="res://assets/fisherman/walkING FISHERMAN.png" id="4_vnetq"]
@@ -568,6 +568,7 @@ animations = [{
 size = Vector2(72, 12)
 
 [node name="Fisherman" type="CharacterBody2D" unique_id=2120142873 groups=["Player"]]
+scale = Vector2(1.6, 1.6)
 script = ExtResource("1_a5dt2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=485194656]
