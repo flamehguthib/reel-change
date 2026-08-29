@@ -130,7 +130,7 @@ const WEATHER_BITE_MULTIPLIER: Dictionary = {
 func _ready() -> void:
 	# Initialize game state
 	current_day = 1
-	current_time_index = 2
+	current_time_index = 0
 	current_energy = max_energy
 	current_gas = 13
 	current_money = 0
@@ -345,7 +345,8 @@ func get_energy_percent() -> float:
 	return float(current_energy) / float(max_energy)
 
 func get_time_of_day() -> String:
-	return "%s" % [TIME_SEQUENCE[current_time_index]]
+	var current_time = TIME_SEQUENCE[current_time_index]
+	return TIME_PERIOD.keys()[current_time]
 
 func add_money(amount: int) -> void:
 	"""Add money."""
