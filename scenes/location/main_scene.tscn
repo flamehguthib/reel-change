@@ -8,10 +8,17 @@
 [ext_resource type="Script" uid="uid://sir8qsldsspa" path="res://script/sleep_zone.gd" id="3_uquj6"]
 [ext_resource type="Texture2D" uid="uid://o74e6igij8u6" path="res://assets/Night /night_1.png" id="4_5nuv4"]
 [ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/Fisherman/boat.tscn" id="4_5von4"]
+[ext_resource type="Texture2D" uid="uid://c7p6yg3ngofg6" path="res://assets/Night /night_2_bop.png" id="5_5sp5w"]
 [ext_resource type="PackedScene" uid="uid://bsbcnsptji28" path="res://scenes/ui/hud.tscn" id="5_srowd"]
 [ext_resource type="Script" uid="uid://ckoih5dwcgjvq" path="res://script/sea_border.gd" id="6_border"]
+[ext_resource type="Texture2D" uid="uid://dxu18aq33cw3p" path="res://assets/Night /night_3.png" id="6_o2oor"]
+[ext_resource type="Texture2D" uid="uid://w66n8vavl2dg" path="res://assets/Night /night_4.png" id="7_elevr"]
 [ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="7_sail_prompt"]
+[ext_resource type="Texture2D" uid="uid://4ptkpn0cvm8y" path="res://assets/Night /night_5.png" id="8_sdcnn"]
 [ext_resource type="Script" uid="uid://cefgalhblxedd" path="res://script/talipapa.gd" id="8_talipapa"]
+[ext_resource type="Texture2D" uid="uid://bsud8dfcywf3a" path="res://assets/Night /night_6.png" id="9_numgj"]
+[ext_resource type="Texture2D" uid="uid://dwepws2hv5va1" path="res://assets/Night /night_7.png" id="10_cv7ly"]
+[ext_resource type="Texture2D" uid="uid://en5uttrvft4w" path="res://assets/Night /night_8.png" id="11_4idfg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1igtx"]
 atlas = ExtResource("1_1igtx")
@@ -39,6 +46,34 @@ region = Rect2(6120, 3060, 6120, 3060)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_elevr"]
 atlas = ExtResource("4_5nuv4")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdcnn"]
+atlas = ExtResource("5_5sp5w")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy4oj"]
+atlas = ExtResource("6_o2oor")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_numgj"]
+atlas = ExtResource("7_elevr")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv7ly"]
+atlas = ExtResource("8_sdcnn")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpe7x"]
+atlas = ExtResource("9_numgj")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwj1x"]
+atlas = ExtResource("10_cv7ly")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2my61"]
+atlas = ExtResource("11_4idfg")
 region = Rect2(0, 0, 6120, 3054)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_66tet"]
@@ -69,10 +104,31 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_elevr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdcnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy4oj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_numgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv7ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpe7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwj1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2my61")
 }],
 "loop": true,
 "name": &"night",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbixk"]
@@ -113,6 +169,7 @@ position = Vector2(3064.0002, 1534)
 scale = Vector2(1.0008403, 1.0015874)
 sprite_frames = SubResource("SpriteFrames_66tet")
 animation = &"night"
+frame_progress = 0.6759857
 script = ExtResource("2_5von4")
 metadata/_edit_lock_ = true
 

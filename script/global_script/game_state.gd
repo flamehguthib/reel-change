@@ -130,6 +130,7 @@ const WEATHER_BITE_MULTIPLIER: Dictionary = {
 func _ready() -> void:
 	# Initialize game state
 	current_day = 1
+	current_time_index = 2
 	current_energy = max_energy
 	current_gas = 13
 	current_money = 0
