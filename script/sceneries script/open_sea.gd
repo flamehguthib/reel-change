@@ -144,14 +144,14 @@ func update_weather_overlay() -> void:
 
 
 	# Weather modifier (Multiply further for stormy/rainy darkness)
-	var weather_mod := Color(1.0, 1.0, 1.0, 1.0)
+	var _weather_mod := Color(1.0, 1.0, 1.0, 1.0)
 	match GameState.weather:
 		GameState.WEATHER_CLOUDY:
-			weather_mod = Color(0.8, 0.82, 0.88, 1.0)
+			_weather_mod = Color(0.8, 0.82, 0.88, 1.0)
 		GameState.WEATHER_RAIN:
-			weather_mod = Color(0.55, 0.6, 0.75, 1.0)
+			_weather_mod = Color(0.55, 0.6, 0.75, 1.0)
 		GameState.WEATHER_STORM:
-			weather_mod = Color(0.3, 0.32, 0.45, 1.0)
+			_weather_mod = Color(0.3, 0.32, 0.45, 1.0)
 
 
 func on_scene_left():

@@ -17,7 +17,7 @@ func _ready() -> void:
 	if panel:
 		panel.visible = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not shop_open:
 		return
 	if Input.is_action_just_pressed("ESC"):
