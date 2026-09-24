@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://dqe8hi1imn0bd"]
+
+[ext_resource type="Script" uid="uid://bldcqe2lh3r" path="res://script/sceneries script/open_sea.gd" id="1_45unr"]
+[ext_resource type="Texture2D" uid="uid://b474x0lbj3dur" path="res://assets/sceneries/Settings Extension (3).png" id="1_itwo7"]
+[ext_resource type="PackedScene" uid="uid://c4nojc5cw6y6" path="res://scenes/Fisherman/fisherman.tscn" id="2_2yalk"]
+[ext_resource type="Texture2D" uid="uid://cr3wnspm7t0ym" path="res://assets/Afternoon/Afternoon_Sea/afternoon_1_sea.png" id="2_gb1a4"]
+[ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/Fisherman/boat.tscn" id="3_06y86"]
+[ext_resource type="Texture2D" uid="uid://b7k6rua1krntj" path="res://assets/Afternoon/Afternoon_Sea/afternoon_2_sea.png" id="3_v5jyr"]
+[ext_resource type="PackedScene" uid="uid://bsbcnsptji28" path="res://scenes/ui/hud.tscn" id="4_06y86"]
+[ext_resource type="Texture2D" uid="uid://cvjeuqbu73to" path="res://assets/Afternoon/Afternoon_Sea/afternoon_3_sea.png" id="4_mqonh"]
+[ext_resource type="Script" uid="uid://ckoih5dwcgjvq" path="res://script/sea_border.gd" id="5_border"]
+[ext_resource type="Texture2D" uid="uid://dbwx7fk7mkobe" path="res://assets/Afternoon/Afternoon_Sea/afternoon_4_sea.png" id="5_tj4g1"]
+[ext_resource type="Texture2D" uid="uid://1kx4sjpff03i" path="res://assets/Afternoon/Afternoon_Sea/afternoon_5_sea.png" id="6_f61wx"]
+[ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="6_sail_prompt"]
+[ext_resource type="Texture2D" uid="uid://dt5ydhmlbpbr1" path="res://assets/Afternoon/Afternoon_Sea/afternoon_6_sea.png" id="7_fa02j"]
+[ext_resource type="Script" uid="uid://cx6me1v503cyy" path="res://script/sceneries script/open_sea_anim.gd" id="9_v5jyr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hdu7"]
+atlas = ExtResource("1_itwo7")
+region = Rect2(0, 0, 4080, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jusdd"]
+atlas = ExtResource("1_itwo7")
+region = Rect2(4080, 0, 4080, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg5tr"]
+atlas = ExtResource("1_itwo7")
+region = Rect2(8160, 0, 4080, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35oo4"]
+atlas = ExtResource("1_itwo7")
+region = Rect2(0, 2160, 4080, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_km5pp"]
+atlas = ExtResource("1_itwo7")
+region = Rect2(4080, 2160, 4080, 2160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjc7p"]
+atlas = ExtResource("1_itwo7")
+region = Rect2(8160, 2160, 4080, 2160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uy2to"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gb1a4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_v5jyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mqonh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tj4g1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f61wx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fa02j")
+}],
+"loop": 1,
+"name": &"afternoon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hdu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jusdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg5tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35oo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_km5pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjc7p")
+}],
+"loop": 1,
+"name": &"morning",
+"speed": 1.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"night",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5fkd"]
+size = Vector2(6547.375, 382.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nleqy"]
+size = Vector2(600, 1198.5735)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_45unr"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5mlg0"]
+distance = 47.0
+
+[node name="OpenSea" type="Node2D" unique_id=249379820]
+script = ExtResource("1_45unr")
+metadata/_edit_vertical_guides_ = [6585.0, -4168.0]
+metadata/_edit_horizontal_guides_ = [2120.0]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1320343873]
+position = Vector2(3284, 1067.0001)
+scale = Vector2(1.609559, 0.9875001)
+sprite_frames = SubResource("SpriteFrames_uy2to")
+animation = &"afternoon"
+autoplay = "morning"
+script = ExtResource("9_v5jyr")
+
+[node name="Dim_Effect" type="ColorRect" parent="AnimatedSprite2D" unique_id=1597866434]
+visible = false
+offset_left = -3043.4426
+offset_top = -1536.5609
+offset_right = 3075.4158
+offset_bottom = 1532.5675
+color = Color(0, 0, 0, 0.2627451)
+
+[node name="WaterArea" type="Area2D" parent="." unique_id=747912014 groups=["water"]]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea" unique_id=769710990 groups=["water"]]
+position = Vector2(3270, 1933)
+shape = SubResource("RectangleShape2D_p5fkd")
+debug_color = Color(0.9230278, 0.27755997, 0, 0.41960785)
+
+[node name="Fisherman" parent="." unique_id=252812419 instance=ExtResource("2_2yalk")]
+unique_name_in_owner = true
+position = Vector2(1448, 1281)
+
+[node name="Boat" parent="." unique_id=2115580054 instance=ExtResource("3_06y86")]
+unique_name_in_owner = true
+position = Vector2(1563, 1391)
+scale = Vector2(9, 9)
+
+[node name="HUD" parent="." unique_id=1622611448 instance=ExtResource("4_06y86")]
+
+[node name="WeatherOverlay" type="ColorRect" parent="." unique_id=1622611450]
+visible = false
+offset_left = -5000.0
+offset_top = -3000.0
+offset_right = 12000.0
+offset_bottom = 8000.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="OpenSea" type="Area2D" parent="." unique_id=1931512157]
+position = Vector2(404, 882)
+collision_mask = 128
+script = ExtResource("5_border")
+target_scene_path = "res://scenes/location/main_scene.tscn"
+require_gas_to_cross = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenSea" unique_id=1376499553]
+position = Vector2(269, 328)
+shape = SubResource("RectangleShape2D_nleqy")
+
+[node name="SailPrompt" type="Sprite2D" parent="OpenSea" unique_id=1131841614]
+position = Vector2(229.99927, 31.999878)
+scale = Vector2(1.6310816, 1.8034717)
+texture = ExtResource("6_sail_prompt")
+
+[node name="Label" type="Label" parent="OpenSea/SailPrompt" unique_id=1162825523]
+anchors_preset = -1
+anchor_left = -0.84200007
+anchor_top = -1.465
+anchor_right = 2.332
+anchor_bottom = 11.869
+offset_left = -46.300713
+offset_top = 166.81815
+offset_right = -366.21484
+offset_bottom = -1470.0035
+theme_override_font_sizes/font_size = 32
+text = "Press"
+
+[node name="Label2" type="Label" parent="OpenSea/SailPrompt" unique_id=1978092711]
+anchors_preset = -1
+anchor_left = 1.797
+anchor_top = 5.4690003
+anchor_right = 1.797
+anchor_bottom = 5.4690003
+offset_left = -158.66501
+offset_top = -720.18036
+offset_right = -26.664978
+offset_bottom = -697.18036
+scale = Vector2(2, 2)
+text = "to go back home"
+
+[node name="Boundary1" type="StaticBody2D" parent="." unique_id=1210049299]
+position = Vector2(79, 1606)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary1" unique_id=744738858]
+shape = SubResource("WorldBoundaryShape2D_45unr")
+
+[node name="Boundary2" type="StaticBody2D" parent="." unique_id=1711585729]
+position = Vector2(5915, 1803)
+
+[node name="shoutout kay dom" type="CollisionShape2D" parent="Boundary2" unique_id=1564551063]
+position = Vector2(641, -29)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_5mlg0")
+
+[connection signal="tree_entered" from="." to="Fisherman" method="_on_open_sea_tree_entered"]

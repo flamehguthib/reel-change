@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://cshopsn1aaaa"]
+
+[ext_resource type="Script" uid="uid://b3tpshop1aaaa" path="res://script/ui_scripts/talipapa_shop.gd" id="1_shop"]
+
+[node name="TalipapaShop" type="CanvasLayer"]
+layer = 10
+process_mode = 3
+script = ExtResource("1_shop")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = 600.0
+offset_top = 200.0
+offset_right = 1280.0
+offset_bottom = 800.0
+
+[node name="Title" type="Label" parent="Panel"]
+offset_left = 20.0
+offset_top = 12.0
+offset_right = 300.0
+offset_bottom = 52.0
+text = "TALIPAPA"
+theme_override_font_sizes/font_size = 28
+
+[node name="StockLabel" type="Label" parent="Panel"]
+offset_left = 20.0
+offset_top = 56.0
+offset_right = 640.0
+offset_bottom = 88.0
+
+[node name="SellAll" type="Button" parent="Panel"]
+offset_left = 20.0
+offset_top = 100.0
+offset_right = 640.0
+offset_bottom = 140.0
+text = "Sell All Fish (Q)"
+
+[node name="BuyFuel" type="Button" parent="Panel"]
+offset_left = 20.0
+offset_top = 150.0
+offset_right = 640.0
+offset_bottom = 190.0
+text = "Buy Fuel (R)"
+
+[node name="BuyBait" type="Button" parent="Panel"]
+offset_left = 20.0
+offset_top = 200.0
+offset_right = 640.0
+offset_bottom = 240.0
+text = "Buy Bait"
+
+[node name="UpgradeRod" type="Button" parent="Panel"]
+offset_left = 20.0
+offset_top = 250.0
+offset_right = 640.0
+offset_bottom = 290.0
+text = "Upgrade Rod"
+
+[node name="UpgradeBoat" type="Button" parent="Panel"]
+offset_left = 20.0
+offset_top = 300.0
+offset_right = 640.0
+offset_bottom = 340.0
+text = "Upgrade Boat"
+
+[node name="Close" type="Button" parent="Panel"]
+offset_left = 20.0
+offset_top = 350.0
+offset_right = 640.0
+offset_bottom = 390.0
+text = "Close (ESC)"
+
+[node name="MoneyLabel" type="Label" parent="Panel"]
+offset_left = 20.0
+offset_top = 400.0
+offset_right = 640.0
+offset_bottom = 432.0
+
+[node name="MessageLabel" type="Label" parent="Panel"]
+offset_left = 20.0
+offset_top = 440.0
+offset_right = 640.0
+offset_bottom = 480.0
+text = ""
+
+[connection signal="pressed" from="Panel/SellAll" to="." method="_on_sell_all_pressed"]
+[connection signal="pressed" from="Panel/BuyFuel" to="." method="_on_buy_fuel_pressed"]
+[connection signal="pressed" from="Panel/BuyBait" to="." method="_on_buy_bait_pressed"]
+[connection signal="pressed" from="Panel/UpgradeRod" to="." method="_on_upgrade_rod_pressed"]
+[connection signal="pressed" from="Panel/UpgradeBoat" to="." method="_on_upgrade_boat_pressed"]
+[connection signal="pressed" from="Panel/Close" to="." method="_on_close_pressed"]

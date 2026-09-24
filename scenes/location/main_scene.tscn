@@ -1,0 +1,387 @@
+[gd_scene format=3 uid="uid://bcr2bvdgil3mr"]
+
+[ext_resource type="Texture2D" uid="uid://ccllmaf22jug7" path="res://assets/sceneries/Day Extended Version Spliced/33%.jpg" id="1_1igtx"]
+[ext_resource type="Script" uid="uid://bn5wuisa06wnf" path="res://script/sceneries script/main_scene.gd" id="1_ht3qy"]
+[ext_resource type="Script" uid="uid://rk83fbji3h05" path="res://script/sceneries script/home_animation.gd" id="2_5von4"]
+[ext_resource type="Texture2D" uid="uid://f665dkpdo4o1" path="res://assets/Afternoon/afternoon_1.png" id="2_8uco6"]
+[ext_resource type="Texture2D" uid="uid://543wi1tvcl2i" path="res://assets/sceneries/Day Extended Version Spliced/66%.jpg" id="2_ht3qy"]
+[ext_resource type="Texture2D" uid="uid://cnb1y0ckjx3js" path="res://assets/Afternoon/afternoon_2.png" id="3_kow8g"]
+[ext_resource type="Script" uid="uid://7tn3u7wcpgro" path="res://script/spawn.gd" id="3_srowd"]
+[ext_resource type="Script" uid="uid://sir8qsldsspa" path="res://script/sleep_zone.gd" id="3_uquj6"]
+[ext_resource type="Texture2D" uid="uid://o74e6igij8u6" path="res://assets/Night /night_1.png" id="4_5nuv4"]
+[ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/Fisherman/boat.tscn" id="4_5von4"]
+[ext_resource type="Texture2D" uid="uid://bj4jxknn3ouec" path="res://assets/Afternoon/afternoon_3.png" id="4_mmd04"]
+[ext_resource type="Texture2D" uid="uid://c7p6yg3ngofg6" path="res://assets/Night /night_2_bop.png" id="5_5sp5w"]
+[ext_resource type="Texture2D" uid="uid://cxgxwnd0fadow" path="res://assets/Afternoon/afternoon_4.png" id="5_p3wmw"]
+[ext_resource type="PackedScene" uid="uid://bsbcnsptji28" path="res://scenes/ui/hud.tscn" id="5_srowd"]
+[ext_resource type="Texture2D" uid="uid://b6by8vo4xqqgj" path="res://assets/Afternoon/afternoon_5.png" id="6_3b1di"]
+[ext_resource type="Script" uid="uid://ckoih5dwcgjvq" path="res://script/sea_border.gd" id="6_border"]
+[ext_resource type="Texture2D" uid="uid://dxu18aq33cw3p" path="res://assets/Night /night_3.png" id="6_o2oor"]
+[ext_resource type="Texture2D" uid="uid://dp3egokfw7d8c" path="res://assets/Afternoon/afternoon_6.png" id="7_bbu8h"]
+[ext_resource type="Texture2D" uid="uid://w66n8vavl2dg" path="res://assets/Night /night_4.png" id="7_elevr"]
+[ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="7_sail_prompt"]
+[ext_resource type="Texture2D" uid="uid://4ptkpn0cvm8y" path="res://assets/Night /night_5.png" id="8_sdcnn"]
+[ext_resource type="Script" uid="uid://cefgalhblxedd" path="res://script/talipapa.gd" id="8_talipapa"]
+[ext_resource type="Texture2D" uid="uid://c3v3rs67m36fa" path="res://assets/Afternoon/afternoon_7.png" id="8_ub87e"]
+[ext_resource type="Texture2D" uid="uid://bsud8dfcywf3a" path="res://assets/Night /night_6.png" id="9_numgj"]
+[ext_resource type="Texture2D" uid="uid://dwepws2hv5va1" path="res://assets/Night /night_7.png" id="10_cv7ly"]
+[ext_resource type="Texture2D" uid="uid://en5uttrvft4w" path="res://assets/Night /night_8.png" id="11_4idfg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62e20"]
+atlas = ExtResource("2_8uco6")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yyih"]
+atlas = ExtResource("3_kow8g")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1igtx"]
+atlas = ExtResource("1_1igtx")
+region = Rect2(0, 0, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht3qy"]
+atlas = ExtResource("2_ht3qy")
+region = Rect2(0, 0, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nuv4"]
+atlas = ExtResource("2_ht3qy")
+region = Rect2(6120, 0, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sp5w"]
+atlas = ExtResource("1_1igtx")
+region = Rect2(0, 3060, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2oor"]
+atlas = ExtResource("2_ht3qy")
+region = Rect2(0, 3060, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnrh2"]
+atlas = ExtResource("2_ht3qy")
+region = Rect2(6120, 3060, 6120, 3060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elevr"]
+atlas = ExtResource("4_5nuv4")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdcnn"]
+atlas = ExtResource("5_5sp5w")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy4oj"]
+atlas = ExtResource("6_o2oor")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_numgj"]
+atlas = ExtResource("7_elevr")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv7ly"]
+atlas = ExtResource("8_sdcnn")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpe7x"]
+atlas = ExtResource("9_numgj")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwj1x"]
+atlas = ExtResource("10_cv7ly")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2my61"]
+atlas = ExtResource("11_4idfg")
+region = Rect2(0, 0, 6120, 3054)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_66tet"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62e20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yyih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mmd04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p3wmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3b1di")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bbu8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ub87e")
+}],
+"loop": 1,
+"name": &"afternoon",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1igtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht3qy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nuv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sp5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2oor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnrh2")
+}],
+"loop": 1,
+"name": &"morning",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elevr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdcnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy4oj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_numgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv7ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpe7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwj1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2my61")
+}],
+"loop": 1,
+"name": &"night",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbixk"]
+size = Vector2(324, 1022)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyfs4"]
+size = Vector2(3657.157, 530.5166)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5x1h"]
+size = Vector2(2564.8447, 24.88086)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_seasborder"]
+size = Vector2(400, 1164.1107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_talipapa"]
+size = Vector2(1182.1578, 793.9144)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5von4"]
+a = Vector2(-1536.2089, -2.9951172)
+b = Vector2(1533.212, -2.9951172)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_srowd"]
+a = Vector2(200.92432, -89.802)
+b = Vector2(-65.80469, 22.271362)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bbixk"]
+normal = Vector2(-1, 0)
+distance = 2.9975586
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1igtx"]
+normal = Vector2(1, 0)
+
+[node name="Node2D" type="Node2D" unique_id=611043405]
+script = ExtResource("1_ht3qy")
+
+[node name="Home" type="AnimatedSprite2D" parent="." unique_id=347383004]
+position = Vector2(3064.0002, 1534)
+scale = Vector2(1.0008403, 1.0015874)
+sprite_frames = SubResource("SpriteFrames_66tet")
+animation = &"afternoon"
+frame_progress = 0.028292773
+script = ExtResource("2_5von4")
+metadata/_edit_lock_ = true
+
+[node name="SleepZone" type="Node2D" parent="Home" unique_id=235074908]
+script = ExtResource("3_uquj6")
+
+[node name="InteractionArea" type="Area2D" parent="Home/SleepZone" unique_id=1772935218]
+position = Vector2(-3061.4277, -1531.5688)
+scale = Vector2(0.9991604, 0.9984152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/SleepZone/InteractionArea" unique_id=1882514298]
+position = Vector2(3556, 1448)
+shape = SubResource("RectangleShape2D_bbixk")
+debug_color = Color(0.9788502, 0, 0.39666367, 0.41960785)
+
+[node name="SleepLabel" type="Sprite2D" parent="Home/SleepZone/InteractionArea/CollisionShape2D" unique_id=33111415]
+visible = false
+position = Vector2(10.574951, -23.17498)
+scale = Vector2(1, 1.044)
+texture = ExtResource("7_sail_prompt")
+
+[node name="Label" type="Label" parent="Home/SleepZone/InteractionArea/CollisionShape2D/SleepLabel" unique_id=976116444]
+offset_left = 64.99999
+offset_top = -24.999939
+offset_right = 224.99997
+offset_bottom = 30.000061
+scale = Vector2(2, 2)
+text = "to sleep
+"
+
+[node name="Label" type="Label" parent="Home/SleepZone/InteractionArea/CollisionShape2D/SleepLabel/Label" unique_id=222706006]
+layout_mode = 0
+offset_left = -107.49999
+offset_top = -5.722046e-05
+offset_right = -65.49999
+offset_bottom = 22.999943
+text = "Press"
+
+[node name="Water" type="Area2D" parent="Home" unique_id=2026378263]
+position = Vector2(-13, 870)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Water" unique_id=1310519976]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(1255.0713, 392.67456)
+shape = SubResource("RectangleShape2D_gyfs4")
+debug_color = Color(0.92156863, 0.2784314, 0, 0.41960785)
+
+[node name="Port" type="StaticBody2D" parent="Home" unique_id=458553647 groups=["Port"]]
+position = Vector2(1457.7748, 431.3153)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Port" unique_id=1792405206]
+position = Vector2(172.35498, 0.9984131)
+shape = SubResource("RectangleShape2D_d5x1h")
+debug_color = Color(0.9525327, 4.235506e-06, 0.5606254, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="OpenSea" type="Area2D" parent="Home" unique_id=1572867265]
+position = Vector2(2266, 218)
+collision_mask = 128
+script = ExtResource("6_border")
+target_scene_path = "res://scenes/location/OpenSea.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/OpenSea" unique_id=1728901234]
+position = Vector2(580.6079, 169.36438)
+shape = SubResource("RectangleShape2D_seasborder")
+
+[node name="SailPrompt" type="Sprite2D" parent="Home/OpenSea" unique_id=1728901235]
+position = Vector2(94.53922, -14.927803)
+scale = Vector2(1.6310816, 1.8034717)
+texture = ExtResource("7_sail_prompt")
+
+[node name="Label" type="Label" parent="Home/OpenSea/SailPrompt" unique_id=1735330547]
+anchors_preset = -1
+anchor_left = -0.84200007
+anchor_top = -1.465
+anchor_right = 2.332
+anchor_bottom = 11.869
+offset_left = -46.300713
+offset_top = 166.81815
+offset_right = -366.21484
+offset_bottom = -1470.0035
+theme_override_font_sizes/font_size = 32
+text = "Press"
+
+[node name="Label2" type="Label" parent="Home/OpenSea/SailPrompt" unique_id=1794228834]
+anchors_preset = -1
+anchor_left = 1.797
+anchor_top = 5.4690003
+anchor_right = 1.797
+anchor_bottom = 5.4690003
+offset_left = -158.66501
+offset_top = -720.18036
+offset_right = -26.664978
+offset_bottom = -697.18036
+scale = Vector2(2, 2)
+text = "to travel to sea"
+
+[node name="Spawn" type="Marker2D" parent="Home" unique_id=1225093361]
+unique_name_in_owner = true
+position = Vector2(864.27344, 268.5737)
+script = ExtResource("3_srowd")
+
+[node name="Boat" parent="Home" unique_id=2115580054 instance=ExtResource("4_5von4")]
+position = Vector2(1380.8395, 818.7004)
+scale = Vector2(9, 9)
+
+[node name="Talipapa" type="Area2D" parent="Home" unique_id=1880011223]
+position = Vector2(868, 260)
+script = ExtResource("8_talipapa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Talipapa" unique_id=2000000001]
+position = Vector2(-3323.5122, -309.50867)
+shape = SubResource("RectangleShape2D_talipapa")
+
+[node name="Label" type="Label" parent="Home/Talipapa" unique_id=2000000003]
+visible = false
+offset_left = -3154.079
+offset_top = -452.6942
+offset_right = -3027.079
+offset_bottom = -360.83997
+scale = Vector2(3, 3)
+text = "Press Q to open the Talipapa shop"
+horizontal_alignment = 1
+
+[node name="Ground" type="StaticBody2D" parent="Home" unique_id=2095665060]
+position = Vector2(-2884.5764, 305.51498)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Ground" unique_id=1497127370]
+position = Vector2(1383.3373, 79.87305)
+shape = SubResource("SegmentShape2D_5von4")
+debug_color = Color(0.9525327, 4.235506e-06, 0.5606254, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Home/Ground" unique_id=739580935]
+position = Vector2(2990.4875, 91.85408)
+rotation = 0.5235988
+scale = Vector2(1.1, 1.1)
+shape = SubResource("SegmentShape2D_srowd")
+debug_color = Color(0.9525327, 4.235506e-06, 0.5606254, 0.41960785)
+
+[node name="HUD" parent="Home" unique_id=1622611448 instance=ExtResource("5_srowd")]
+
+[node name="Boundary" type="StaticBody2D" parent="Home" unique_id=930139291]
+position = Vector2(3024.4585, 959.477)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Boundary" unique_id=1788019268]
+shape = SubResource("WorldBoundaryShape2D_bbixk")
+
+[node name="Boundary2" type="StaticBody2D" parent="Home" unique_id=2095117154]
+position = Vector2(-3006.4739, 1254.0094)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Boundary2" unique_id=2009296437]
+position = Vector2(1.9983208, -0.9984152)
+shape = SubResource("WorldBoundaryShape2D_1igtx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Home" unique_id=1709005183]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Home/StaticBody2D" unique_id=1498070467]
+position = Vector2(-409.656, 11.980982)
+polygon = PackedVector2Array(-196.83496, 955.4834, -207.82568, 610.03174, -897.2461, 540.1426, -1419.8071, 408.3518, -1382.8383, 918.542)
+
+[node name="Dim_Effect" type="ColorRect" parent="Home" unique_id=1981378439]
+visible = false
+offset_left = -3043.4426
+offset_top = -1536.5609
+offset_right = 3075.4158
+offset_bottom = 1532.5675
+color = Color(0, 0, 0, 0.2627451)
+
+[node name="DismountPosition" type="Marker2D" parent="." unique_id=310340425]
+position = Vector2(4568, 1782)
