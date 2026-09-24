@@ -56,3 +56,32 @@ layout_mode = 2
 
 [node name="WeatherLabel" type="Label" parent="TopBar/Stats" unique_id=1023456790]
 layout_mode = 2
+
+[node name="TimeVBox" type="VBoxContainer" parent="." unique_id=1735902134]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -268.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 292.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 4
+
+[node name="TimeCycleIcon" type="TextureRect" parent="TimeVBox" unique_id=1735902135]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TimeCycleLabel" type="Label" parent="TimeVBox" unique_id=1735902136]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+vertical_alignment = 1
