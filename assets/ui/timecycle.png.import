@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbcdhet0wklgh"
-path="res://.godot/imported/night_1.jpg-03fb8794a05f7f0313bbab79469be4ae.ctex"
+uid="uid://djra1vek4r2op"
+path="res://.godot/imported/timecycle.png-bd3cc2407b1380f52a7ea343425cb20c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/night/night_1.jpg"
-dest_files=["res://.godot/imported/night_1.jpg-03fb8794a05f7f0313bbab79469be4ae.ctex"]
+source_file="res://assets/ui/timecycle.png"
+dest_files=["res://.godot/imported/timecycle.png-bd3cc2407b1380f52a7ea343425cb20c.ctex"]
 
 [params]
 

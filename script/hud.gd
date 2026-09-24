@@ -1,5 +1,14 @@
 extends CanvasLayer
 
+# ── Time Cycle Sprite Sheet ──────────────────────────────────────────
+const TIMECYCLE_SHEET: CompressedTexture2D = preload("res://assets/ui/timecycle.png")
+const TIMECYCLE_FRAME_W: float = 128.0
+const TIMECYCLE_FRAME_H: float = 128.0
+
+var _timecycle_atlases: Array[AtlasTexture] = []
+var _last_time_index: int = -1
+
+# ── Node References ──────────────────────────────────────────────────
 @onready var day_label: Label = get_node_or_null("TopBar/Stats/DayLabel") as Label
 @onready var time_label: Label = get_node_or_null("TopBar/Stats/TimeLabel") as Label
 @onready var energy_label: Label = get_node_or_null("TopBar/Stats/EnergyLabel") as Label
@@ -10,11 +19,27 @@ extends CanvasLayer
 @onready var goal_label: Label = get_node_or_null("TopBar/Stats/GoalLabel") as Label
 @onready var fish_inventory_label: Label = get_node_or_null("TopBar/Stats/FishInventoryLabel") as Label
 @onready var weather_label: Label = get_node_or_null("TopBar/Stats/WeatherLabel") as Label
+@onready var time_cycle_icon: TextureRect = get_node_or_null("TimeVBox/TimeCycleIcon") as TextureRect
+@onready var time_cycle_label: Label = get_node_or_null("TimeVBox/TimeCycleLabel") as Label
 
 func _ready() -> void:
 	var panel := get_node_or_null("TopBar") as Panel
 	if panel != null:
 		panel.size = Vector2(480, 360)
+	_build_timecycle_atlases()
+
+func _build_timecycle_atlases() -> void:
+	_timecycle_atlases.clear()
+	for frame in range(3):
+		var atlas := AtlasTexture.new()
+		atlas.atlas = TIMECYCLE_SHEET
+		atlas.region = Rect2(
+			frame * TIMECYCLE_FRAME_W, 0.0,
+			TIMECYCLE_FRAME_W, TIMECYCLE_FRAME_H
+		)
+		_timecycle_atlases.append(atlas)
+	# Force initial display so we don't have to wait for _process
+	_apply_timecycle_display()
 
 func _process(_delta: float) -> void:
 	if day_label != null:
@@ -30,6 +55,9 @@ func _process(_delta: float) -> void:
 			weather_icon, 
 			GameState.weather
 		]
+
+	# ── Time Cycle Sprite ─────────────────────────────────────────────
+	_apply_timecycle_display()
 
 	if time_label != null:
 		var player_node: Node2D = get_tree().get_first_node_in_group("Player") as Node2D
@@ -119,3 +147,18 @@ func _process(_delta: float) -> void:
 	if gas_bar != null:
 		gas_bar.max_value = GameState.max_gas
 		gas_bar.value = GameState.current_gas
+
+# ── Time Cycle Helpers ───────────────────────────────────────────────
+
+func _apply_timecycle_display() -> void:
+	if _timecycle_atlases.is_empty():
+		return
+	var time_idx: int = clampi(GameState.current_time_index, 0, _timecycle_atlases.size() - 1)
+
+	# Only swap texture when the period actually changed
+	if time_cycle_icon != null and time_idx != _last_time_index:
+		time_cycle_icon.texture = _timecycle_atlases[time_idx]
+		_last_time_index = time_idx
+
+	if time_cycle_label != null:
+		time_cycle_label.text = GameState.get_time_of_day()

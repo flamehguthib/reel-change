@@ -1,156 +1,147 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1790283098
-icon.svg::CompressedTexture2D::7035748302501140234::1790281773::1790283098::1::::<><><>0<>0<>e24970e3d095c7f15b3d2e8290ac8b24<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-README.md::TextFile::-1::1790281773::0::1::::<><><>0<>0<><>::
-::res://assets/::1790283092
-audiomass-output.mp3::AudioStreamMP3::480104666408812191::1790281773::1790283092::1::::<><><>0<>0<>1ef6dd29ec1fc8e69579b262c98ddcc6<>res://.godot/imported/audiomass-output.mp3-9a7b80fcba27cc7fa6b28088fbf1ae6d.mp3str::
-::res://assets/Afternoon/::1790283121
-afternoon_1.png::CompressedTexture2D::416875902863141482::1790281773::1790283121::1::::<><><>0<>0<>b12298d04b6ca2778f395287d3fabf35<>res://.godot/imported/afternoon_1.png-b5dd92a3a446f9b3b251345aceb00319.ctex::
-afternoon_2.png::CompressedTexture2D::5688983529941008828::1790281773::1790283114::1::::<><><>0<>0<>7144610edfb1607d36b7933ef5672199<>res://.godot/imported/afternoon_2.png-b105356c818d14c4271bc53148eec5bc.ctex::
-afternoon_3.png::CompressedTexture2D::3078575303442447082::1790281773::1790283114::1::::<><><>0<>0<>873462f3e90e9a3ff4d1dc5d751e0d42<>res://.godot/imported/afternoon_3.png-c994fa7cc0955434d25530a4adc9ce9a.ctex::
-afternoon_4.png::CompressedTexture2D::6401007504465378350::1790281773::1790283114::1::::<><><>0<>0<>362e4135042de3802ea7457b651f00e1<>res://.godot/imported/afternoon_4.png-d5a44588ac705fac285be06ea1a297f2.ctex::
-afternoon_5.png::CompressedTexture2D::4565856479218046885::1790281773::1790283113::1::::<><><>0<>0<>d676caa3e45b2fcb5f86225806b7947b<>res://.godot/imported/afternoon_5.png-4929bf2a80e2fb135c319131bb4ad01c.ctex::
-afternoon_6.png::CompressedTexture2D::8270151616530742896::1790281773::1790283114::1::::<><><>0<>0<>1f3405be6592094062d91ea3424ecd1b<>res://.godot/imported/afternoon_6.png-616bdd886c4d4a311a83f447488d0c83.ctex::
-afternoon_7.png::CompressedTexture2D::6783212351160553990::1790281773::1790283113::1::::<><><>0<>0<>5e583ac0a8d6bbc2cc2a7d5dd57c0288<>res://.godot/imported/afternoon_7.png-40de8b7dc10709e47984f0ac54aa46cc.ctex::
-::res://assets/Afternoon/Afternoon_Sea/::1790283118
-afternoon_1_sea.png::CompressedTexture2D::6025214244689185400::1790282729::1790283118::1::::<><><>0<>0<>004b30415e1878f4c278f3f3732d60b8<>res://.godot/imported/afternoon_1_sea.png-2b8348460c4f7d56a9a75f4db7e4e781.ctex::
-afternoon_2_sea.png::CompressedTexture2D::4655021094585249835::1790282845::1790283118::1::::<><><>0<>0<>4249463d54e0eaf64e32c6f18d2ce658<>res://.godot/imported/afternoon_2_sea.png-fd171d77fb26a8a30358b2e1dfb29d53.ctex::
-afternoon_3_sea.png::CompressedTexture2D::184284291479164260::1790282902::1790283118::1::::<><><>0<>0<>c58d85cc4da804d9f5a4894efd52dfff<>res://.godot/imported/afternoon_3_sea.png-98fd0a3cf4ed10d6522cd35d163f8b0d.ctex::
-afternoon_4_sea.png::CompressedTexture2D::7276321121080409710::1790282942::1790283117::1::::<><><>0<>0<>5ef04a716319b0b27ff8c7ffcb0046f6<>res://.godot/imported/afternoon_4_sea.png-caf93d0a6581684eefcfa56b1008dd1c.ctex::
-afternoon_5_sea.png::CompressedTexture2D::1847002950998292156::1790282998::1790283116::1::::<><><>0<>0<>7d7053a0c650ffbbd2c9f80c84b1e48b<>res://.godot/imported/afternoon_5_sea.png-bd5242f86f2952d8bda895e9364e3d93.ctex::
-afternoon_6_sea.png::CompressedTexture2D::8556244364734642888::1790283071::1790283116::1::::<><><>0<>0<>b1eb4d5c255e7674cc22902716150e88<>res://.godot/imported/afternoon_6_sea.png-076e63fd1fb74317c6ea9fab0eb28dc5.ctex::
-::res://assets/boat/::1790283134
+::res://::1790289102
+icon.svg::CompressedTexture2D::7035748302501140234::1790281773::1790288514::1::::<><><>0<>0<>e24970e3d095c7f15b3d2e8290ac8b24<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+README.md::TextFile::-1::1790288514::0::1::::<><><>0<>0<><>::
+::res://assets/::1790288581
+audiomass-output.mp3::AudioStreamMP3::480104666408812191::1790281773::1790288514::1::::<><><>0<>0<>1ef6dd29ec1fc8e69579b262c98ddcc6<>res://.godot/imported/audiomass-output.mp3-9a7b80fcba27cc7fa6b28088fbf1ae6d.mp3str::
+::res://assets/Afternoon/::1790288514
+afternoon_1.png::CompressedTexture2D::416875902863141482::1790288514::1790288514::1::::<><><>0<>0<>b12298d04b6ca2778f395287d3fabf35<>res://.godot/imported/afternoon_1.png-b5dd92a3a446f9b3b251345aceb00319.ctex::
+afternoon_2.png::CompressedTexture2D::5688983529941008828::1790288514::1790288514::1::::<><><>0<>0<>7144610edfb1607d36b7933ef5672199<>res://.godot/imported/afternoon_2.png-b105356c818d14c4271bc53148eec5bc.ctex::
+afternoon_3.png::CompressedTexture2D::3078575303442447082::1790288514::1790288514::1::::<><><>0<>0<>873462f3e90e9a3ff4d1dc5d751e0d42<>res://.godot/imported/afternoon_3.png-c994fa7cc0955434d25530a4adc9ce9a.ctex::
+afternoon_4.png::CompressedTexture2D::6401007504465378350::1790288514::1790288514::1::::<><><>0<>0<>362e4135042de3802ea7457b651f00e1<>res://.godot/imported/afternoon_4.png-d5a44588ac705fac285be06ea1a297f2.ctex::
+afternoon_5.png::CompressedTexture2D::4565856479218046885::1790288514::1790288514::1::::<><><>0<>0<>d676caa3e45b2fcb5f86225806b7947b<>res://.godot/imported/afternoon_5.png-4929bf2a80e2fb135c319131bb4ad01c.ctex::
+afternoon_6.png::CompressedTexture2D::8270151616530742896::1790288514::1790288514::1::::<><><>0<>0<>1f3405be6592094062d91ea3424ecd1b<>res://.godot/imported/afternoon_6.png-616bdd886c4d4a311a83f447488d0c83.ctex::
+afternoon_7.png::CompressedTexture2D::6783212351160553990::1790288514::1790288514::1::::<><><>0<>0<>5e583ac0a8d6bbc2cc2a7d5dd57c0288<>res://.godot/imported/afternoon_7.png-40de8b7dc10709e47984f0ac54aa46cc.ctex::
+::res://assets/Afternoon/Afternoon_Sea/::1790288514
+afternoon_1_sea.png::CompressedTexture2D::6025214244689185400::1790288514::1790288514::1::::<><><>0<>0<>004b30415e1878f4c278f3f3732d60b8<>res://.godot/imported/afternoon_1_sea.png-2b8348460c4f7d56a9a75f4db7e4e781.ctex::
+afternoon_2_sea.png::CompressedTexture2D::4655021094585249835::1790288514::1790288514::1::::<><><>0<>0<>4249463d54e0eaf64e32c6f18d2ce658<>res://.godot/imported/afternoon_2_sea.png-fd171d77fb26a8a30358b2e1dfb29d53.ctex::
+afternoon_3_sea.png::CompressedTexture2D::184284291479164260::1790288514::1790288514::1::::<><><>0<>0<>c58d85cc4da804d9f5a4894efd52dfff<>res://.godot/imported/afternoon_3_sea.png-98fd0a3cf4ed10d6522cd35d163f8b0d.ctex::
+afternoon_4_sea.png::CompressedTexture2D::7276321121080409710::1790288514::1790288514::1::::<><><>0<>0<>5ef04a716319b0b27ff8c7ffcb0046f6<>res://.godot/imported/afternoon_4_sea.png-caf93d0a6581684eefcfa56b1008dd1c.ctex::
+afternoon_5_sea.png::CompressedTexture2D::1847002950998292156::1790288514::1790288514::1::::<><><>0<>0<>7d7053a0c650ffbbd2c9f80c84b1e48b<>res://.godot/imported/afternoon_5_sea.png-bd5242f86f2952d8bda895e9364e3d93.ctex::
+afternoon_6_sea.png::CompressedTexture2D::8556244364734642888::1790288514::1790288514::1::::<><><>0<>0<>b1eb4d5c255e7674cc22902716150e88<>res://.godot/imported/afternoon_6_sea.png-076e63fd1fb74317c6ea9fab0eb28dc5.ctex::
+::res://assets/boat/::1790288514
 BOAT remaked.jpg::::-1::1790281773::1790281773::0::::<><><>0<>0<>0604452b04e286ad7e0fc7973adc2c00<>::
-boat_hi.png::CompressedTexture2D::790848819394872510::1790281773::1790283134::1::::<><><>0<>0<>216761a18dc2bc8a6ed230a49caa6cd5<>res://.godot/imported/boat_hi.png-1d48bc475f2400df7b8c6daf94128cfb.ctex::
-::res://assets/fish/::1790283100
-alimango.png::CompressedTexture2D::6786348485796636892::1790281773::1790283100::1::::<><><>0<>0<>78f1166a9b6bc9bd8c867879e3a077f1<>res://.godot/imported/alimango.png-c1bf627b3ffc2cd9f3d5046e0f6e986e.ctex::
-bangus.png::CompressedTexture2D::4794748978767851939::1790281773::1790283099::1::::<><><>0<>0<>e2f540a8480e36dba295daa64ac49bf3<>res://.godot/imported/bangus.png-15df45e7c6561c82f6eb98632d096156.ctex::
-galunggong.png::CompressedTexture2D::2520401379902039677::1790281773::1790283099::1::::<><><>0<>0<>34640f59a9969e1aaafcb088379bde78<>res://.godot/imported/galunggong.png-1d7b68be89b9037a9918f819362e2114.ctex::
-lapulapu.png::CompressedTexture2D::9068802851888391989::1790281773::1790283099::1::::<><><>0<>0<>682697d001cce3910a46bab9980645a6<>res://.godot/imported/lapulapu.png-662867a136c328e01f090ca311fc4352.ctex::
-tilapia.png::CompressedTexture2D::8859358228892328050::1790281773::1790283099::1::::<><><>0<>0<>569733e35bfe74708c7a64608e5c8fc8<>res://.godot/imported/tilapia.png-b9b96f470154d5c1d1260ec878f17f7d.ctex::
-::res://assets/fisherman/::1790283128
-casting adjust string.png::CompressedTexture2D::58159701234442612::1790281773::1790283128::1::::<><><>0<>0<>7ed9d70f8472d543aa15044ba8d032ac<>res://.godot/imported/casting adjust string.png-48a50fedcf7262b5f8b7ace5e6b37a34.ctex::
-idle fisherman.png::CompressedTexture2D::629993848338927177::1790281773::1790283128::1::::<><><>0<>0<>6832b49d1b46ea58f5474cdb5d86e007<>res://.godot/imported/idle fisherman.png-ea27c9e7dc2644a0afddcbcce88b806e.ctex::
-long_fishing_rod (test).png::CompressedTexture2D::4352511734754375370::1790281773::1790283128::1::::<><><>0<>0<>c55c492cdd7c9b72cb4bcd45fda13c3a<>res://.godot/imported/long_fishing_rod (test).png-2ca8daaedefd16da15b1080ddf560907.ctex::
-walkING FISHERMAN.png::CompressedTexture2D::1475726357406926841::1790281773::1790283127::1::::<><><>0<>0<>87dfc94308c83011be11a318a02b9e6c<>res://.godot/imported/walkING FISHERMAN.png-521ac037aa3caa00a5e87ea688aeca43.ctex::
-::res://assets/fisherman/HOOK/::1790283099
-(fisherman)hook.png::CompressedTexture2D::2192757583377173503::1790281773::1790283099::1::::<><><>0<>0<>cfea2909108c68ebd8338cd728d36849<>res://.godot/imported/(fisherman)hook.png-c23880ca5e6f1ca550f642fcd3880a36.ctex::
-(FISHING ROD)hook(test).png::CompressedTexture2D::6412321057948639732::1790281773::1790283099::1::::<><><>0<>0<>05d355ef08ee6e155f6f395f95d1966b<>res://.godot/imported/(FISHING ROD)hook(test).png-e2cc98b0ccc429529ef092da086f95a9.ctex::
-(FISHING ROD)hook.png::CompressedTexture2D::511441971874101121::1790281773::1790283099::1::::<><><>0<>0<>d69bcf3bbee9bb9f4fd0649ce5392fb7<>res://.godot/imported/(FISHING ROD)hook.png-c7fd8849440b011b2e42a0fa3094d806.ctex::
-::res://assets/fisherman/long string casting/::1790283128
-(fisher man)casting long string.png::CompressedTexture2D::7594493778943991736::1790281773::1790283128::1::::<><><>0<>0<>c8133ea0807d5b1266c6393e3cd43262<>res://.godot/imported/(fisher man)casting long string.png-fb529f23bc94030c8c4bf00369dab450.ctex::
-(fishing rod)casting long string.png::CompressedTexture2D::2077381444386125876::1790281773::1790283128::1::::<><><>0<>0<>1f32eb7d53e462d41e75ebd56211f772<>res://.godot/imported/(fishing rod)casting long string.png-9e9029e6d7f7546c8bbc6caf390b5822.ctex::
-fisherman casting adjust string.png::CompressedTexture2D::5622401883820561229::1790281773::1790283128::1::::<><><>0<>0<>f042bd21b12ff7194701136d2fa0dd80<>res://.godot/imported/fisherman casting adjust string.png-a42da629628aee3027de26c6e6dd01b1.ctex::
-long_fishing_rod (test).png::CompressedTexture2D::3285819812197143565::1790281773::1790283128::1::::<><><>0<>0<>a27d23eefc94782947d85471ff5899dc<>res://.godot/imported/long_fishing_rod (test).png-10b738a21dd23d927e27536db1c31bee.ctex::
-::res://assets/fisherman/short string casting/::1790283128
-(fishing man)casting short string.png::CompressedTexture2D::7130661211905970993::1790281773::1790283128::1::::<><><>0<>0<>efb89550029deadae161747a4fb43b1b<>res://.godot/imported/(fishing man)casting short string.png-03a1337e1629139822a3cf082a0d2a39.ctex::
-(fishing rod)casting short string.png::CompressedTexture2D::6391830870943854319::1790281773::1790283128::1::::<><><>0<>0<>5a1318bfe78f173d934dcdcdc5f464b7<>res://.godot/imported/(fishing rod)casting short string.png-fdac7065ee4954583a3f2c4e4e71a647.ctex::
-::res://assets/Night/::1790283841
-night_1.jpg::CompressedTexture2D::7233774542371464207::1790281773::1790283133::1::::<><><>0<>0<>94816bafd7f96f5fd7519bfd28609be5<>res://.godot/imported/night_1.jpg-8a36b42057e2cedc582ea9100e9e0855.ctex::
-night_1.png::CompressedTexture2D::1050473475894198867::1790281773::1790283135::1::::<><><>0<>0<>d1e7c20a99eacafabb94bc7ebe331824<>res://.godot/imported/night_1.png-654d7d32b577de223f642fd96a62e5b4.ctex::
-night_2.png::CompressedTexture2D::5295073413514612256::1790281773::1790283133::1::::<><><>0<>0<>bad32dff2291708981b29c8e406138a5<>res://.godot/imported/night_2.png-2deed8c8c7b0ef28cd6579944c762ef2.ctex::
-night_2_bop.png::CompressedTexture2D::7051775474937472239::1790281773::1790283131::1::::<><><>0<>0<>cdc242eb41132d8024067ef57d953dfc<>res://.godot/imported/night_2_bop.png-382ae33b2caf569755a5d35fd95bc452.ctex::
-night_3.png::CompressedTexture2D::8816530608872618095::1790281773::1790283131::1::::<><><>0<>0<>cef3dec60e00970c034f383012faf581<>res://.godot/imported/night_3.png-acb1278a3dcad562a38b33fbe41eaacb.ctex::
-night_4.png::CompressedTexture2D::1610057478249063744::1790281773::1790283128::1::::<><><>0<>0<>6d72845f7d627ffc58c1a7865d8dc09f<>res://.godot/imported/night_4.png-9ae701b88165d19722cdbba3257745bf.ctex::
-night_5.png::CompressedTexture2D::2067614421687555794::1790281773::1790283128::1::::<><><>0<>0<>74f1cb7cf952b038f8d05ace1977fda8<>res://.godot/imported/night_5.png-d9d3b2f19c2f4daf7ee166d9251aa338.ctex::
-night_6.png::CompressedTexture2D::3691348671853927292::1790281773::1790283127::1::::<><><>0<>0<>9f0ac40986f7ace6111e53a551f79f98<>res://.godot/imported/night_6.png-96a50c7e3bd2f0b3e284f9eb443f5804.ctex::
-night_7.png::CompressedTexture2D::8712625151966995662::1790281773::1790283126::1::::<><><>0<>0<>f054e19a33b6a6954e039beda77c13a0<>res://.godot/imported/night_7.png-525e1aa95db9e34685c5701952d2cccf.ctex::
-night_8.png::CompressedTexture2D::309450539111619860::1790281773::1790283125::1::::<><><>0<>0<>8a5ce5993ebaa2251b823f201ac5a5dc<>res://.godot/imported/night_8.png-87eff5493946b48119c4f1bcc1050cf4.ctex::
-::res://assets/Night/Night_Sea/::1790285599
-night_sea_1.png::CompressedTexture2D::8711919859980238450::1790285366::1790285599::1::::<><><>0<>0<>63d16b75a350a7f41a5c3ff1f96aa7cd<>res://.godot/imported/night_sea_1.png-3b39b1dfa4614fb5374d3f94d2a55e80.ctex::
-night_sea_2.png::CompressedTexture2D::7897911914007786302::1790285411::1790285599::1::::<><><>0<>0<>276e00eba3b647c0cab423b136d7961f<>res://.godot/imported/night_sea_2.png-9b12c4aeafbe820de4feaff8227ef62f.ctex::
-night_sea_3.png::CompressedTexture2D::7090495676456988344::1790285444::1790285599::1::::<><><>0<>0<>0726511e2c5ed3a6c5dd2d9b594007cc<>res://.godot/imported/night_sea_3.png-630b7753c839c541596908a68377a3bb.ctex::
-night_sea_4.png::CompressedTexture2D::5268485634682619742::1790285530::1790285599::1::::<><><>0<>0<>060cd8e3632644c1e723e4f5f4c0ed0d<>res://.godot/imported/night_sea_4.png-26315e66920baffb06c159d959001a32.ctex::
-night_sea_5.png::CompressedTexture2D::5244627281739938753::1790285563::1790285599::1::::<><><>0<>0<>74ef91c4fbe68ebb0cc5b4606b83d371<>res://.godot/imported/night_sea_5.png-1888718676a90f3099543cf4e96c686b.ctex::
-night_sea_6.png::CompressedTexture2D::4131245271042692399::1790285598::1790285601::1::::<><><>0<>0<>c9a9db082da1f5196a7d22724f897b2f<>res://.godot/imported/night_sea_6.png-ddd29f3db9d5ecdf344c536417f98e02.ctex::
-::res://assets/night/::1790283127
-night_1.jpg::CompressedTexture2D::7233774542371464207::1790281773::1790283126::1::::<><><>0<>0<>dc9cc931a82b7efab82ade2c2a02c968<>res://.godot/imported/night_1.jpg-03fb8794a05f7f0313bbab79469be4ae.ctex::
-night_1.png::CompressedTexture2D::1050473475894198867::1790281773::1790283127::1::::<><><>0<>0<>d6a729de9c45558ea8f24d0fbf41cd86<>res://.godot/imported/night_1.png-f0d2eda042697225ffc5c0c5039abd6e.ctex::
-night_2.png::CompressedTexture2D::5295073413514612256::1790281773::1790283124::1::::<><><>0<>0<>4a904ebd1a4a6c3d6b07ec83b815a9fc<>res://.godot/imported/night_2.png-2043a4962b089d4e73a16cd41d9c4744.ctex::
-night_2_bop.png::CompressedTexture2D::7051775474937472239::1790281773::1790283103::1::::<><><>0<>0<>e4efba93d77f11498ca2673ddb0fdf2d<>res://.godot/imported/night_2_bop.png-a38ce3fcf2481fb185c2ca3c8f0dc57d.ctex::
-night_3.png::CompressedTexture2D::8816530608872618095::1790281773::1790283105::1::::<><><>0<>0<>5b1c2fbb5bbb364c0bdfb78b1dac9ca0<>res://.godot/imported/night_3.png-ef5ddf4280df04a44e3fc3b2193e55e1.ctex::
-night_4.png::CompressedTexture2D::1610057478249063744::1790281773::1790283105::1::::<><><>0<>0<>d49b1d7a71ddafa9972c95d8a538d82e<>res://.godot/imported/night_4.png-f5863491ab9f724c2ec562536f144586.ctex::
-night_5.png::CompressedTexture2D::2067614421687555794::1790281773::1790283103::1::::<><><>0<>0<>4600ebbbb7e77cfe6e084b470cc81af3<>res://.godot/imported/night_5.png-3f3b72176ba1c9b3c3a295ce16ca509c.ctex::
-night_6.png::CompressedTexture2D::3691348671853927292::1790281773::1790283098::1::::<><><>0<>0<>cf53f33ba4d1c4b5d084ddc05a56a56a<>res://.godot/imported/night_6.png-ec1774f7eab380fa7d074540dbb2b02c.ctex::
-night_7.png::CompressedTexture2D::8712625151966995662::1790281773::1790283098::1::::<><><>0<>0<>36c4b4588d667a4c3021b179e217cefc<>res://.godot/imported/night_7.png-6c54ec521852f55ed18a84b0730532b0.ctex::
-night_8.png::CompressedTexture2D::309450539111619860::1790281773::1790283098::1::::<><><>0<>0<>c2204512997bca5f5e9356927ce8ddc1<>res://.godot/imported/night_8.png-1b13b0c211eab8a46324a0560d445de7.ctex::
-::res://assets/sceneries/::1790285010
-BOAT SEQUENCE.jpg::CompressedTexture2D::2451180717166600902::1790281773::1790283115::1::::<><><>0<>0<>a242e2ffc1e0fbdd09ccba78c4fcd0c3<>res://.godot/imported/BOAT SEQUENCE.jpg-b07abb4bc3482ab9c215b5a1da30f4d1.ctex::
-EXTENDED VERSION.png::CompressedTexture2D::6707364488637734485::1790281773::1790283102::1::::<><><>0<>0<>7858ab844630a615554aa3a5f189fdb7<>res://.godot/imported/EXTENDED VERSION.png-a5d1617c2d6b948f0dc74d81db08802a.ctex::
-FIRST SETTINGS CONCEPT (3) (4) (3) (2).png::CompressedTexture2D::37527028598186226::1790281773::1790283098::1::::<><><>0<>0<>b70b9c7a3c7cc147b3bbf9ec5ed21995<>res://.godot/imported/FIRST SETTINGS CONCEPT (3) (4) (3) (2).png-4b6ca13f1b1237727120e81c3ef2f526.ctex::
-Settings Extension (3).png::CompressedTexture2D::4489760433511162389::1790281773::1790283097::1::::<><><>0<>0<>feab7a0eba1a2f1ce984dbf1a43b1c2a<>res://.godot/imported/Settings Extension (3).png-5d2b3bba1ff6f46cd08ed835be344a1d.ctex::
-::res://assets/sceneries/Day Extended Version Spliced/::1790283120
-33%.jpg::CompressedTexture2D::4936616535391450964::1790281773::1790283106::1::::<><><>0<>0<>b472225c7b3c13debddd604c0df2874e<>res://.godot/imported/33%.jpg-4c26bd544ddc2d67cbb6a3e3980a6246.ctex::
-66%.jpg::CompressedTexture2D::2167272088515218058::1790281773::1790283120::1::::<><><>0<>0<>478f0af3384e042c6fffe4f9a8013d39<>res://.godot/imported/66%.jpg-7f9e04f77b9b2dcac6cea75abfdb98a5.ctex::
-::res://assets/sfx/::1790283092
-alert.wav::AudioStreamWAV::6777654331379717058::1790281773::1790283092::1::::<><><>0<>0<>cb1af620ad4911381e1578bd9c933110<>res://.godot/imported/alert.wav-3dd697df27fe09f6592f29b818e2bebf.sample::
-beach.mp3::AudioStreamMP3::2177360521510491584::1790281773::1790283092::1::::<><><>0<>0<>1d006b6060db3816072a6452cbcf6490<>res://.godot/imported/beach.mp3-13c7241ff026231abb4783a8765bb6f4.mp3str::
-boat_idle.mp3::AudioStreamMP3::784933635237080738::1790281773::1790283092::1::::<><><>0<>0<>1a427041e581b57c6114d071726dc41d<>res://.godot/imported/boat_idle.mp3-d57640198dab611f776d371bf30ce51a.mp3str::
-boat_moving.mp3::AudioStreamMP3::1760497594963115509::1790281773::1790283092::1::::<><><>0<>0<>d0a6c8a4e75785b750636e319ddf5620<>res://.godot/imported/boat_moving.mp3-f72e459e320bc81fe9cfb602f0cf26f7.mp3str::
-cast.mp3::AudioStreamMP3::5048373794059230335::1790281773::1790283092::1::::<><><>0<>0<>bd81cb05eb2a5a8a33cf753d2ef63862<>res://.godot/imported/cast.mp3-5dd317d8e24f8193b6dc8c5570fe3b30.mp3str::
-fishing_mechanic_reel.mp3::AudioStreamMP3::2592657139138640640::1790281773::1790283092::1::::<><><>0<>0<>6ac63c94a2e40929c154ece437548744<>res://.godot/imported/fishing_mechanic_reel.mp3-42728aff4a310379ce9cfca16a32f674.mp3str::
-fish_bait.mp3::AudioStreamMP3::2038988914707741344::1790281773::1790283092::1::::<><><>0<>0<>49ab481858a2815de722c9d9a648f945<>res://.godot/imported/fish_bait.mp3-905ac3acf8fe7a9bad8dbf0276fcd0a1.mp3str::
-game_theme.mp3::AudioStreamMP3::4403855890236388951::1790281773::1790283092::1::::<><><>0<>0<>24b750d0c9d0117ba8266c94e013d403<>res://.godot/imported/game_theme.mp3-6c27a1b8605c00fbfb87e8596b83d5ba.mp3str::
-main_menu.mp3::AudioStreamMP3::6833257020732541903::1790281773::1790283092::1::::<><><>0<>0<>68d289f583d8fa8de6d6b803d5b31522<>res://.godot/imported/main_menu.mp3-3d4fbce31c7e15596a84613333879aea.mp3str::
-sea_waves.mp3::AudioStreamMP3::8556743770491247170::1790281773::1790283092::1::::<><><>0<>0<>605d26f30db97e478764d8461bbdaac2<>res://.godot/imported/sea_waves.mp3-a1f66fa838250956ae490efe6551fa14.mp3str::
-select.mp3::AudioStreamMP3::1107651567017775470::1790281773::1790283092::1::::<><><>0<>0<>4a41703ddc5f9f4099d0b9e083452e34<>res://.godot/imported/select.mp3-ed3a3213d0851b25b11cdde9cfd5959d.mp3str::
-walk.mp3::AudioStreamMP3::197708812443805643::1790281773::1790283092::1::::<><><>0<>0<>00bddc8342a69673602994809a4cd398<>res://.godot/imported/walk.mp3-2325816e2fb5a2ecb2e5a62f8fbbfefd.mp3str::
-walking_on_port.mp3::AudioStreamMP3::7771735099783859125::1790281773::1790283092::1::::<><><>0<>0<>aca8e36c378d33ce661a760622c79ae3<>res://.godot/imported/walking_on_port.mp3-c27732511b8f901a456908fa885f76e8.mp3str::
-::res://assets/ui/::1790283092
-button.png::CompressedTexture2D::1980060533131901622::1790281773::1790283092::1::::<><><>0<>0<>f801d32d3cb3185c1e50d112f510792a<>res://.godot/imported/button.png-473760ec7449fb30c95f607492aecb17.ctex::
-E.png::CompressedTexture2D::5967117396623192797::1790281773::1790283092::1::::<><><>0<>0<>e90034858fd9b8e283b74fa633054e36<>res://.godot/imported/E.png-8267d04f6e99024839105abde34685de.ctex::
-fish_filelt-removebg-preview.png::CompressedTexture2D::2010991858398507306::1790281773::1790283092::1::::<><><>0<>0<>f7b3e5d445c8100f023c20f485b9e3a6<>res://.godot/imported/fish_filelt-removebg-preview.png-0c24124ebc9662d0f8a65925e65f7117.ctex::
-fish_filelt.jpg::CompressedTexture2D::5224644915570762752::1790281773::1790283092::1::::<><><>0<>0<>5203b9aaaa7b3192f9cb01a792e58097<>res://.godot/imported/fish_filelt.jpg-135682c2fe433bf43ad205925d7f45eb.ctex::
-warneng.png::CompressedTexture2D::3116395752510526603::1790281773::1790283092::1::::<><><>0<>0<>18ddf01048062deed35954f50f20ed7c<>res://.godot/imported/warneng.png-e70eaafb05c896d6acc76cde19ce7cf5.ctex::
-::res://fishing_game_assets/::1790283099
-ari-w9500-condensed-bold.ttf::FontFile::1519409601816983343::1790281773::1790283092::1::::<><><>0<>0<>443afb845b360513073f9810bd4fd7fc<>res://.godot/imported/ari-w9500-condensed-bold.ttf-54a9cb3fab2c5b23a2674c92eeb9ef97.fontdata::
+boat_hi.png::CompressedTexture2D::790848819394872510::1790281773::1790288514::1::::<><><>0<>0<>216761a18dc2bc8a6ed230a49caa6cd5<>res://.godot/imported/boat_hi.png-1d48bc475f2400df7b8c6daf94128cfb.ctex::
+::res://assets/fish/::1790288514
+alimango.png::CompressedTexture2D::6786348485796636892::1790288514::1790288514::1::::<><><>0<>0<>78f1166a9b6bc9bd8c867879e3a077f1<>res://.godot/imported/alimango.png-c1bf627b3ffc2cd9f3d5046e0f6e986e.ctex::
+bangus.png::CompressedTexture2D::4794748978767851939::1790288514::1790288514::1::::<><><>0<>0<>e2f540a8480e36dba295daa64ac49bf3<>res://.godot/imported/bangus.png-15df45e7c6561c82f6eb98632d096156.ctex::
+galunggong.png::CompressedTexture2D::2520401379902039677::1790288514::1790288514::1::::<><><>0<>0<>34640f59a9969e1aaafcb088379bde78<>res://.godot/imported/galunggong.png-1d7b68be89b9037a9918f819362e2114.ctex::
+lapulapu.png::CompressedTexture2D::9068802851888391989::1790288514::1790288514::1::::<><><>0<>0<>682697d001cce3910a46bab9980645a6<>res://.godot/imported/lapulapu.png-662867a136c328e01f090ca311fc4352.ctex::
+tilapia.png::CompressedTexture2D::8859358228892328050::1790288514::1790288514::1::::<><><>0<>0<>569733e35bfe74708c7a64608e5c8fc8<>res://.godot/imported/tilapia.png-b9b96f470154d5c1d1260ec878f17f7d.ctex::
+::res://assets/fisherman/::1790288514
+casting adjust string.png::CompressedTexture2D::58159701234442612::1790281773::1790288514::1::::<><><>0<>0<>7ed9d70f8472d543aa15044ba8d032ac<>res://.godot/imported/casting adjust string.png-48a50fedcf7262b5f8b7ace5e6b37a34.ctex::
+idle fisherman.png::CompressedTexture2D::629993848338927177::1790281773::1790288514::1::::<><><>0<>0<>6832b49d1b46ea58f5474cdb5d86e007<>res://.godot/imported/idle fisherman.png-ea27c9e7dc2644a0afddcbcce88b806e.ctex::
+long_fishing_rod (test).png::CompressedTexture2D::4352511734754375370::1790281773::1790288514::1::::<><><>0<>0<>c55c492cdd7c9b72cb4bcd45fda13c3a<>res://.godot/imported/long_fishing_rod (test).png-2ca8daaedefd16da15b1080ddf560907.ctex::
+walkING FISHERMAN.png::CompressedTexture2D::1475726357406926841::1790281773::1790288514::1::::<><><>0<>0<>87dfc94308c83011be11a318a02b9e6c<>res://.godot/imported/walkING FISHERMAN.png-521ac037aa3caa00a5e87ea688aeca43.ctex::
+::res://assets/fisherman/HOOK/::1790288514
+(fisherman)hook.png::CompressedTexture2D::2192757583377173503::1790281773::1790288514::1::::<><><>0<>0<>cfea2909108c68ebd8338cd728d36849<>res://.godot/imported/(fisherman)hook.png-c23880ca5e6f1ca550f642fcd3880a36.ctex::
+(FISHING ROD)hook(test).png::CompressedTexture2D::6412321057948639732::1790281773::1790288514::1::::<><><>0<>0<>05d355ef08ee6e155f6f395f95d1966b<>res://.godot/imported/(FISHING ROD)hook(test).png-e2cc98b0ccc429529ef092da086f95a9.ctex::
+(FISHING ROD)hook.png::CompressedTexture2D::511441971874101121::1790281773::1790288514::1::::<><><>0<>0<>d69bcf3bbee9bb9f4fd0649ce5392fb7<>res://.godot/imported/(FISHING ROD)hook.png-c7fd8849440b011b2e42a0fa3094d806.ctex::
+::res://assets/fisherman/long string casting/::1790288514
+(fisher man)casting long string.png::CompressedTexture2D::7594493778943991736::1790281773::1790288514::1::::<><><>0<>0<>c8133ea0807d5b1266c6393e3cd43262<>res://.godot/imported/(fisher man)casting long string.png-fb529f23bc94030c8c4bf00369dab450.ctex::
+(fishing rod)casting long string.png::CompressedTexture2D::2077381444386125876::1790281773::1790288514::1::::<><><>0<>0<>1f32eb7d53e462d41e75ebd56211f772<>res://.godot/imported/(fishing rod)casting long string.png-9e9029e6d7f7546c8bbc6caf390b5822.ctex::
+fisherman casting adjust string.png::CompressedTexture2D::5622401883820561229::1790281773::1790288514::1::::<><><>0<>0<>f042bd21b12ff7194701136d2fa0dd80<>res://.godot/imported/fisherman casting adjust string.png-a42da629628aee3027de26c6e6dd01b1.ctex::
+long_fishing_rod (test).png::CompressedTexture2D::3285819812197143565::1790281773::1790288514::1::::<><><>0<>0<>a27d23eefc94782947d85471ff5899dc<>res://.godot/imported/long_fishing_rod (test).png-10b738a21dd23d927e27536db1c31bee.ctex::
+::res://assets/fisherman/short string casting/::1790288514
+(fishing man)casting short string.png::CompressedTexture2D::7130661211905970993::1790281773::1790288514::1::::<><><>0<>0<>efb89550029deadae161747a4fb43b1b<>res://.godot/imported/(fishing man)casting short string.png-03a1337e1629139822a3cf082a0d2a39.ctex::
+(fishing rod)casting short string.png::CompressedTexture2D::6391830870943854319::1790281773::1790288514::1::::<><><>0<>0<>5a1318bfe78f173d934dcdcdc5f464b7<>res://.godot/imported/(fishing rod)casting short string.png-fdac7065ee4954583a3f2c4e4e71a647.ctex::
+::res://assets/Night/::1790288514
+night_1.jpg::CompressedTexture2D::7233774542371464207::1790288514::1790288514::1::::<><><>0<>0<>94816bafd7f96f5fd7519bfd28609be5<>res://.godot/imported/night_1.jpg-8a36b42057e2cedc582ea9100e9e0855.ctex::
+night_1.png::CompressedTexture2D::1050473475894198867::1790288514::1790288514::1::::<><><>0<>0<>d1e7c20a99eacafabb94bc7ebe331824<>res://.godot/imported/night_1.png-654d7d32b577de223f642fd96a62e5b4.ctex::
+night_2.png::CompressedTexture2D::5295073413514612256::1790288514::1790288514::1::::<><><>0<>0<>bad32dff2291708981b29c8e406138a5<>res://.godot/imported/night_2.png-2deed8c8c7b0ef28cd6579944c762ef2.ctex::
+night_2_bop.png::CompressedTexture2D::7051775474937472239::1790288514::1790288514::1::::<><><>0<>0<>cdc242eb41132d8024067ef57d953dfc<>res://.godot/imported/night_2_bop.png-382ae33b2caf569755a5d35fd95bc452.ctex::
+night_3.png::CompressedTexture2D::8816530608872618095::1790288514::1790288514::1::::<><><>0<>0<>cef3dec60e00970c034f383012faf581<>res://.godot/imported/night_3.png-acb1278a3dcad562a38b33fbe41eaacb.ctex::
+night_4.png::CompressedTexture2D::1610057478249063744::1790288514::1790288514::1::::<><><>0<>0<>6d72845f7d627ffc58c1a7865d8dc09f<>res://.godot/imported/night_4.png-9ae701b88165d19722cdbba3257745bf.ctex::
+night_5.png::CompressedTexture2D::2067614421687555794::1790288514::1790288514::1::::<><><>0<>0<>74f1cb7cf952b038f8d05ace1977fda8<>res://.godot/imported/night_5.png-d9d3b2f19c2f4daf7ee166d9251aa338.ctex::
+night_6.png::CompressedTexture2D::3691348671853927292::1790288514::1790288514::1::::<><><>0<>0<>9f0ac40986f7ace6111e53a551f79f98<>res://.godot/imported/night_6.png-96a50c7e3bd2f0b3e284f9eb443f5804.ctex::
+night_7.png::CompressedTexture2D::8712625151966995662::1790288514::1790288514::1::::<><><>0<>0<>f054e19a33b6a6954e039beda77c13a0<>res://.godot/imported/night_7.png-525e1aa95db9e34685c5701952d2cccf.ctex::
+night_8.png::CompressedTexture2D::309450539111619860::1790288514::1790288514::1::::<><><>0<>0<>8a5ce5993ebaa2251b823f201ac5a5dc<>res://.godot/imported/night_8.png-87eff5493946b48119c4f1bcc1050cf4.ctex::
+::res://assets/Night/Night_Sea/::1790288514
+night_sea_1.png::CompressedTexture2D::8711919859980238450::1790288514::1790288514::1::::<><><>0<>0<>63d16b75a350a7f41a5c3ff1f96aa7cd<>res://.godot/imported/night_sea_1.png-3b39b1dfa4614fb5374d3f94d2a55e80.ctex::
+night_sea_2.png::CompressedTexture2D::7897911914007786302::1790288514::1790288514::1::::<><><>0<>0<>276e00eba3b647c0cab423b136d7961f<>res://.godot/imported/night_sea_2.png-9b12c4aeafbe820de4feaff8227ef62f.ctex::
+night_sea_3.png::CompressedTexture2D::7090495676456988344::1790288514::1790288514::1::::<><><>0<>0<>0726511e2c5ed3a6c5dd2d9b594007cc<>res://.godot/imported/night_sea_3.png-630b7753c839c541596908a68377a3bb.ctex::
+night_sea_4.png::CompressedTexture2D::5268485634682619742::1790288514::1790288514::1::::<><><>0<>0<>060cd8e3632644c1e723e4f5f4c0ed0d<>res://.godot/imported/night_sea_4.png-26315e66920baffb06c159d959001a32.ctex::
+night_sea_5.png::CompressedTexture2D::5244627281739938753::1790288514::1790288514::1::::<><><>0<>0<>74ef91c4fbe68ebb0cc5b4606b83d371<>res://.godot/imported/night_sea_5.png-1888718676a90f3099543cf4e96c686b.ctex::
+night_sea_6.png::CompressedTexture2D::4131245271042692399::1790288514::1790288514::1::::<><><>0<>0<>c9a9db082da1f5196a7d22724f897b2f<>res://.godot/imported/night_sea_6.png-ddd29f3db9d5ecdf344c536417f98e02.ctex::
+::res://assets/sceneries/::1790288514
+BOAT SEQUENCE.jpg::CompressedTexture2D::2451180717166600902::1790281773::1790288514::1::::<><><>0<>0<>a242e2ffc1e0fbdd09ccba78c4fcd0c3<>res://.godot/imported/BOAT SEQUENCE.jpg-b07abb4bc3482ab9c215b5a1da30f4d1.ctex::
+EXTENDED VERSION.png::CompressedTexture2D::6707364488637734485::1790281773::1790288514::1::::<><><>0<>0<>7858ab844630a615554aa3a5f189fdb7<>res://.godot/imported/EXTENDED VERSION.png-a5d1617c2d6b948f0dc74d81db08802a.ctex::
+FIRST SETTINGS CONCEPT (3) (4) (3) (2).png::CompressedTexture2D::37527028598186226::1790281773::1790288514::1::::<><><>0<>0<>b70b9c7a3c7cc147b3bbf9ec5ed21995<>res://.godot/imported/FIRST SETTINGS CONCEPT (3) (4) (3) (2).png-4b6ca13f1b1237727120e81c3ef2f526.ctex::
+Settings Extension (3).png::CompressedTexture2D::4489760433511162389::1790281773::1790288514::1::::<><><>0<>0<>feab7a0eba1a2f1ce984dbf1a43b1c2a<>res://.godot/imported/Settings Extension (3).png-5d2b3bba1ff6f46cd08ed835be344a1d.ctex::
+::res://assets/sceneries/Day Extended Version Spliced/::1790288514
+33%.jpg::CompressedTexture2D::4936616535391450964::1790281773::1790288514::1::::<><><>0<>0<>b472225c7b3c13debddd604c0df2874e<>res://.godot/imported/33%.jpg-4c26bd544ddc2d67cbb6a3e3980a6246.ctex::
+66%.jpg::CompressedTexture2D::2167272088515218058::1790281773::1790288514::1::::<><><>0<>0<>478f0af3384e042c6fffe4f9a8013d39<>res://.godot/imported/66%.jpg-7f9e04f77b9b2dcac6cea75abfdb98a5.ctex::
+::res://assets/sfx/::1790288514
+alert.wav::AudioStreamWAV::6777654331379717058::1790281773::1790288514::1::::<><><>0<>0<>cb1af620ad4911381e1578bd9c933110<>res://.godot/imported/alert.wav-3dd697df27fe09f6592f29b818e2bebf.sample::
+beach.mp3::AudioStreamMP3::2177360521510491584::1790281773::1790288514::1::::<><><>0<>0<>1d006b6060db3816072a6452cbcf6490<>res://.godot/imported/beach.mp3-13c7241ff026231abb4783a8765bb6f4.mp3str::
+boat_idle.mp3::AudioStreamMP3::784933635237080738::1790281773::1790288514::1::::<><><>0<>0<>1a427041e581b57c6114d071726dc41d<>res://.godot/imported/boat_idle.mp3-d57640198dab611f776d371bf30ce51a.mp3str::
+boat_moving.mp3::AudioStreamMP3::1760497594963115509::1790281773::1790288514::1::::<><><>0<>0<>d0a6c8a4e75785b750636e319ddf5620<>res://.godot/imported/boat_moving.mp3-f72e459e320bc81fe9cfb602f0cf26f7.mp3str::
+cast.mp3::AudioStreamMP3::5048373794059230335::1790281773::1790288514::1::::<><><>0<>0<>bd81cb05eb2a5a8a33cf753d2ef63862<>res://.godot/imported/cast.mp3-5dd317d8e24f8193b6dc8c5570fe3b30.mp3str::
+fishing_mechanic_reel.mp3::AudioStreamMP3::2592657139138640640::1790281773::1790288514::1::::<><><>0<>0<>6ac63c94a2e40929c154ece437548744<>res://.godot/imported/fishing_mechanic_reel.mp3-42728aff4a310379ce9cfca16a32f674.mp3str::
+fish_bait.mp3::AudioStreamMP3::2038988914707741344::1790281773::1790288514::1::::<><><>0<>0<>49ab481858a2815de722c9d9a648f945<>res://.godot/imported/fish_bait.mp3-905ac3acf8fe7a9bad8dbf0276fcd0a1.mp3str::
+game_theme.mp3::AudioStreamMP3::4403855890236388951::1790281773::1790288514::1::::<><><>0<>0<>24b750d0c9d0117ba8266c94e013d403<>res://.godot/imported/game_theme.mp3-6c27a1b8605c00fbfb87e8596b83d5ba.mp3str::
+main_menu.mp3::AudioStreamMP3::6833257020732541903::1790281773::1790288514::1::::<><><>0<>0<>68d289f583d8fa8de6d6b803d5b31522<>res://.godot/imported/main_menu.mp3-3d4fbce31c7e15596a84613333879aea.mp3str::
+sea_waves.mp3::AudioStreamMP3::8556743770491247170::1790281773::1790288514::1::::<><><>0<>0<>605d26f30db97e478764d8461bbdaac2<>res://.godot/imported/sea_waves.mp3-a1f66fa838250956ae490efe6551fa14.mp3str::
+select.mp3::AudioStreamMP3::1107651567017775470::1790281773::1790288514::1::::<><><>0<>0<>4a41703ddc5f9f4099d0b9e083452e34<>res://.godot/imported/select.mp3-ed3a3213d0851b25b11cdde9cfd5959d.mp3str::
+walk.mp3::AudioStreamMP3::197708812443805643::1790281773::1790288514::1::::<><><>0<>0<>00bddc8342a69673602994809a4cd398<>res://.godot/imported/walk.mp3-2325816e2fb5a2ecb2e5a62f8fbbfefd.mp3str::
+walking_on_port.mp3::AudioStreamMP3::7771735099783859125::1790281773::1790288514::1::::<><><>0<>0<>aca8e36c378d33ce661a760622c79ae3<>res://.godot/imported/walking_on_port.mp3-c27732511b8f901a456908fa885f76e8.mp3str::
+::res://assets/ui/::1790288678
+button.png::CompressedTexture2D::1980060533131901622::1790281773::1790288514::1::::<><><>0<>0<>f801d32d3cb3185c1e50d112f510792a<>res://.godot/imported/button.png-473760ec7449fb30c95f607492aecb17.ctex::
+E.png::CompressedTexture2D::5967117396623192797::1790281773::1790288514::1::::<><><>0<>0<>e90034858fd9b8e283b74fa633054e36<>res://.godot/imported/E.png-8267d04f6e99024839105abde34685de.ctex::
+fish_filelt-removebg-preview.png::CompressedTexture2D::2010991858398507306::1790281773::1790288514::1::::<><><>0<>0<>f7b3e5d445c8100f023c20f485b9e3a6<>res://.godot/imported/fish_filelt-removebg-preview.png-0c24124ebc9662d0f8a65925e65f7117.ctex::
+fish_filelt.jpg::CompressedTexture2D::5224644915570762752::1790281773::1790288514::1::::<><><>0<>0<>5203b9aaaa7b3192f9cb01a792e58097<>res://.godot/imported/fish_filelt.jpg-135682c2fe433bf43ad205925d7f45eb.ctex::
+timecycle.png::CompressedTexture2D::7826103605945516655::1790288090::1790288678::1::::<><><>0<>0<>b8fc365cd1ca7f3cbf6b16ca1ac7816c<>res://.godot/imported/timecycle.png-bd3cc2407b1380f52a7ea343425cb20c.ctex::
+warneng.png::CompressedTexture2D::3116395752510526603::1790281773::1790288514::1::::<><><>0<>0<>18ddf01048062deed35954f50f20ed7c<>res://.godot/imported/warneng.png-e70eaafb05c896d6acc76cde19ce7cf5.ctex::
+::res://fishing_game_assets/::1790288514
+ari-w9500-condensed-bold.ttf::FontFile::1519409601816983343::1790281773::1790288514::1::::<><><>0<>0<>443afb845b360513073f9810bd4fd7fc<>res://.godot/imported/ari-w9500-condensed-bold.ttf-54a9cb3fab2c5b23a2674c92eeb9ef97.fontdata::
 Font.txt::TextFile::-1::1790281773::0::1::::<><><>0<>0<><>::
-Parallax Layer 2_ Foreground Foliage.png::CompressedTexture2D::8697545143352952293::1790281773::1790283099::1::::<><><>0<>0<>257b0123ba4992f2ab3f27ea1854d1ef<>res://.godot/imported/Parallax Layer 2_ Foreground Foliage.png-1051ede454e81564f50207d6197e3a45.ctex::
-Warm Sunset Over the Sea Mood.png::CompressedTexture2D::8351427961611905084::1790281773::1790283098::1::::<><><>0<>0<>11acff1d1caf976c9a1398d6dcf98836<>res://.godot/imported/Warm Sunset Over the Sea Mood.png-bba8982af6011e16005516f4e1cd3283.ctex::
-Weathered Wooden Dock Tiles.png::CompressedTexture2D::2282218517772558867::1790281773::1790283098::1::::<><><>0<>0<>d09cde07cd65a293eaabb9d965b68862<>res://.godot/imported/Weathered Wooden Dock Tiles.png-8507e6e8e4f5519eb92fe41027409eaf.ctex::
-::res://fishing_game_assets/4 Icons/::1790283099
-Icons_01.png::CompressedTexture2D::213322785855832837::1790281773::1790283092::1::::<><><>0<>0<>1f05f28fac9a7dede0565c31d90a5ebc<>res://.godot/imported/Icons_01.png-9545488394a948d3ee8f5dda401da7f2.ctex::
-Icons_02.png::CompressedTexture2D::5516399862508469860::1790281773::1790283092::1::::<><><>0<>0<>d6dbff1b72f9850b4be7bc3594475ff6<>res://.godot/imported/Icons_02.png-9a8b606f7da699ab17eff9b0e03aa8a7.ctex::
-Icons_03.png::CompressedTexture2D::5280082397210434218::1790281773::1790283099::1::::<><><>0<>0<>2f88de20cdff617eab1d9dfeae7c276e<>res://.godot/imported/Icons_03.png-7a04ad9bef7aebef6761414c89dbbb04.ctex::
-Icons_04.png::CompressedTexture2D::6937040784116650945::1790281773::1790283099::1::::<><><>0<>0<>d7425162e0ea4f72ae07616f6044919f<>res://.godot/imported/Icons_04.png-2ebe4a77bc3e1fc47ff6cf49f65e679c.ctex::
-Icons_05.png::CompressedTexture2D::3763145110800272340::1790281773::1790283099::1::::<><><>0<>0<>c40cd95c65cc5858ac2de3ffb7a2cd04<>res://.godot/imported/Icons_05.png-18c9d5f70e0078a3c7aef22ae531670c.ctex::
-Icons_06.png::CompressedTexture2D::5378235883985133080::1790281773::1790283099::1::::<><><>0<>0<>93d274debfa56da12ba3f6e46a2bfee3<>res://.godot/imported/Icons_06.png-ce14a7750eace6c174967517c924d0ab.ctex::
-Icons_07.png::CompressedTexture2D::2548645182135488896::1790281773::1790283099::1::::<><><>0<>0<>e88324daca2e7dd99c23cd5584a43ff3<>res://.godot/imported/Icons_07.png-e93036f1c6a11fe7cba7f4a8f917e7b3.ctex::
-Icons_08.png::CompressedTexture2D::7261967811984362571::1790281773::1790283099::1::::<><><>0<>0<>5b936eb1656dddf70751edfaa23bf477<>res://.godot/imported/Icons_08.png-7eb51190b6f8fb3dee9978d5b679464c.ctex::
-Icons_09.png::CompressedTexture2D::1303051608267258355::1790281773::1790283099::1::::<><><>0<>0<>fa3dfaa6fb30d747f39b78aace8498b9<>res://.godot/imported/Icons_09.png-77decfdbd20a53b2fad02c2f056430b6.ctex::
-Icons_10.png::CompressedTexture2D::3120585899659145370::1790281773::1790283099::1::::<><><>0<>0<>79c5761b504627fad24a4c1c9a705029<>res://.godot/imported/Icons_10.png-27ce8337a4d81e6097d5a9f100cb252a.ctex::
-Icons_11.png::CompressedTexture2D::4761809304986408238::1790281773::1790283099::1::::<><><>0<>0<>d281ecebc2a41b85001eb7f2e6a06a72<>res://.godot/imported/Icons_11.png-66dd61cde768860335c705c53cc64b8b.ctex::
-Icons_12.png::CompressedTexture2D::1480050699802927950::1790281773::1790283099::1::::<><><>0<>0<>aca8ad9bcc5ad64a0ec7ce90afd15446<>res://.godot/imported/Icons_12.png-d4a59a7a891893eda3fa347d187ad3bf.ctex::
-Icons_13.png::CompressedTexture2D::7825484193969237899::1790281773::1790283099::1::::<><><>0<>0<>fd54d19419fb06143a3ff5e5c8dd5b2a<>res://.godot/imported/Icons_13.png-f7b32c0e62be9b7482355152092f3955.ctex::
-Icons_14.png::CompressedTexture2D::5275301337496783887::1790281773::1790283099::1::::<><><>0<>0<>f12de27059d4617d37594eb5b2e37753<>res://.godot/imported/Icons_14.png-b9ebda9dd1ac9fe9392da40c3d70067a.ctex::
-Icons_15.png::CompressedTexture2D::7083362174130970992::1790281773::1790283099::1::::<><><>0<>0<>060c31acd2cc5637553f61c94e9507b2<>res://.godot/imported/Icons_15.png-6f9d562a9d0b64458f578eeef3867cd1.ctex::
-Icons_16.png::CompressedTexture2D::6652579233659792844::1790281773::1790283099::1::::<><><>0<>0<>d45f4771fb8e6df385a9c5708019a863<>res://.godot/imported/Icons_16.png-548a64277df9b2b6c428313eacd5bc96.ctex::
-Icons_17.png::CompressedTexture2D::8258524801275036920::1790281773::1790283099::1::::<><><>0<>0<>4db5f356dede3ed185503d72c4c7f498<>res://.godot/imported/Icons_17.png-b83f272f3155849a413e6ee11a37d598.ctex::
-Icons_18.png::CompressedTexture2D::4041578522579604341::1790281773::1790283099::1::::<><><>0<>0<>b5c86a59745a49f7cb5be06434102ff9<>res://.godot/imported/Icons_18.png-a20c290634bb502757300975cfa827ba.ctex::
-Icons_19.png::CompressedTexture2D::877636011560535932::1790281773::1790283099::1::::<><><>0<>0<>474115367678335fa2d3501f69ec8838<>res://.godot/imported/Icons_19.png-35ddff09a6dedda52f0dff85ac6e638f.ctex::
-Icons_20.png::CompressedTexture2D::751494455902371331::1790281773::1790283099::1::::<><><>0<>0<>f4c1a2cd9197211aa55e5f5d4352f496<>res://.godot/imported/Icons_20.png-fb485b2030c25abfbfe22c207caa29ab.ctex::
+Parallax Layer 2_ Foreground Foliage.png::CompressedTexture2D::8697545143352952293::1790281773::1790288514::1::::<><><>0<>0<>257b0123ba4992f2ab3f27ea1854d1ef<>res://.godot/imported/Parallax Layer 2_ Foreground Foliage.png-1051ede454e81564f50207d6197e3a45.ctex::
+Warm Sunset Over the Sea Mood.png::CompressedTexture2D::8351427961611905084::1790281773::1790288514::1::::<><><>0<>0<>11acff1d1caf976c9a1398d6dcf98836<>res://.godot/imported/Warm Sunset Over the Sea Mood.png-bba8982af6011e16005516f4e1cd3283.ctex::
+Weathered Wooden Dock Tiles.png::CompressedTexture2D::2282218517772558867::1790281773::1790288514::1::::<><><>0<>0<>d09cde07cd65a293eaabb9d965b68862<>res://.godot/imported/Weathered Wooden Dock Tiles.png-8507e6e8e4f5519eb92fe41027409eaf.ctex::
+::res://fishing_game_assets/4 Icons/::1790288514
+Icons_01.png::CompressedTexture2D::213322785855832837::1790281773::1790288514::1::::<><><>0<>0<>1f05f28fac9a7dede0565c31d90a5ebc<>res://.godot/imported/Icons_01.png-9545488394a948d3ee8f5dda401da7f2.ctex::
+Icons_02.png::CompressedTexture2D::5516399862508469860::1790281773::1790288514::1::::<><><>0<>0<>d6dbff1b72f9850b4be7bc3594475ff6<>res://.godot/imported/Icons_02.png-9a8b606f7da699ab17eff9b0e03aa8a7.ctex::
+Icons_03.png::CompressedTexture2D::5280082397210434218::1790281773::1790288514::1::::<><><>0<>0<>2f88de20cdff617eab1d9dfeae7c276e<>res://.godot/imported/Icons_03.png-7a04ad9bef7aebef6761414c89dbbb04.ctex::
+Icons_04.png::CompressedTexture2D::6937040784116650945::1790281773::1790288514::1::::<><><>0<>0<>d7425162e0ea4f72ae07616f6044919f<>res://.godot/imported/Icons_04.png-2ebe4a77bc3e1fc47ff6cf49f65e679c.ctex::
+Icons_05.png::CompressedTexture2D::3763145110800272340::1790281773::1790288514::1::::<><><>0<>0<>c40cd95c65cc5858ac2de3ffb7a2cd04<>res://.godot/imported/Icons_05.png-18c9d5f70e0078a3c7aef22ae531670c.ctex::
+Icons_06.png::CompressedTexture2D::5378235883985133080::1790281773::1790288514::1::::<><><>0<>0<>93d274debfa56da12ba3f6e46a2bfee3<>res://.godot/imported/Icons_06.png-ce14a7750eace6c174967517c924d0ab.ctex::
+Icons_07.png::CompressedTexture2D::2548645182135488896::1790281773::1790288514::1::::<><><>0<>0<>e88324daca2e7dd99c23cd5584a43ff3<>res://.godot/imported/Icons_07.png-e93036f1c6a11fe7cba7f4a8f917e7b3.ctex::
+Icons_08.png::CompressedTexture2D::7261967811984362571::1790281773::1790288514::1::::<><><>0<>0<>5b936eb1656dddf70751edfaa23bf477<>res://.godot/imported/Icons_08.png-7eb51190b6f8fb3dee9978d5b679464c.ctex::
+Icons_09.png::CompressedTexture2D::1303051608267258355::1790281773::1790288514::1::::<><><>0<>0<>fa3dfaa6fb30d747f39b78aace8498b9<>res://.godot/imported/Icons_09.png-77decfdbd20a53b2fad02c2f056430b6.ctex::
+Icons_10.png::CompressedTexture2D::3120585899659145370::1790281773::1790288514::1::::<><><>0<>0<>79c5761b504627fad24a4c1c9a705029<>res://.godot/imported/Icons_10.png-27ce8337a4d81e6097d5a9f100cb252a.ctex::
+Icons_11.png::CompressedTexture2D::4761809304986408238::1790281773::1790288514::1::::<><><>0<>0<>d281ecebc2a41b85001eb7f2e6a06a72<>res://.godot/imported/Icons_11.png-66dd61cde768860335c705c53cc64b8b.ctex::
+Icons_12.png::CompressedTexture2D::1480050699802927950::1790281773::1790288514::1::::<><><>0<>0<>aca8ad9bcc5ad64a0ec7ce90afd15446<>res://.godot/imported/Icons_12.png-d4a59a7a891893eda3fa347d187ad3bf.ctex::
+Icons_13.png::CompressedTexture2D::7825484193969237899::1790281773::1790288514::1::::<><><>0<>0<>fd54d19419fb06143a3ff5e5c8dd5b2a<>res://.godot/imported/Icons_13.png-f7b32c0e62be9b7482355152092f3955.ctex::
+Icons_14.png::CompressedTexture2D::5275301337496783887::1790281773::1790288514::1::::<><><>0<>0<>f12de27059d4617d37594eb5b2e37753<>res://.godot/imported/Icons_14.png-b9ebda9dd1ac9fe9392da40c3d70067a.ctex::
+Icons_15.png::CompressedTexture2D::7083362174130970992::1790281773::1790288514::1::::<><><>0<>0<>060c31acd2cc5637553f61c94e9507b2<>res://.godot/imported/Icons_15.png-6f9d562a9d0b64458f578eeef3867cd1.ctex::
+Icons_16.png::CompressedTexture2D::6652579233659792844::1790281773::1790288514::1::::<><><>0<>0<>d45f4771fb8e6df385a9c5708019a863<>res://.godot/imported/Icons_16.png-548a64277df9b2b6c428313eacd5bc96.ctex::
+Icons_17.png::CompressedTexture2D::8258524801275036920::1790281773::1790288514::1::::<><><>0<>0<>4db5f356dede3ed185503d72c4c7f498<>res://.godot/imported/Icons_17.png-b83f272f3155849a413e6ee11a37d598.ctex::
+Icons_18.png::CompressedTexture2D::4041578522579604341::1790281773::1790288514::1::::<><><>0<>0<>b5c86a59745a49f7cb5be06434102ff9<>res://.godot/imported/Icons_18.png-a20c290634bb502757300975cfa827ba.ctex::
+Icons_19.png::CompressedTexture2D::877636011560535932::1790281773::1790288514::1::::<><><>0<>0<>474115367678335fa2d3501f69ec8838<>res://.godot/imported/Icons_19.png-35ddff09a6dedda52f0dff85ac6e638f.ctex::
+Icons_20.png::CompressedTexture2D::751494455902371331::1790281773::1790288514::1::::<><><>0<>0<>f4c1a2cd9197211aa55e5f5d4352f496<>res://.godot/imported/Icons_20.png-fb485b2030c25abfbfe22c207caa29ab.ctex::
+::res://reel-change/::1790287620
 ::res://scenes/::1790281773
-::res://scenes/Fisherman/::1790281773
-boat.tscn::PackedScene::3064417712394739500::1790281773::0::1::::<><><>0<>0<><>::uid://ctgxv74ts5miy::::res://script/boat.gd<>uid://ljdfuf665wks::::res://assets/boat/boat_hi.png<>uid://crars01vpg0bx::::res://assets/ui/E.png
+::res://scenes/Fisherman/::1790288514
+boat.tscn::PackedScene::3064417712394739500::1790288514::0::1::::<><><>0<>0<><>::uid://ctgxv74ts5miy::::res://script/boat.gd<>uid://ljdfuf665wks::::res://assets/boat/boat_hi.png<>uid://crars01vpg0bx::::res://assets/ui/E.png
 fisherman.tscn::PackedScene::201059441330827739::1790281773::0::1::::<><><>0<>0<><>::uid://x7xj5fom70mn::::res://script/fisherman.gd<>uid://dh0ubhxr6xwkg::::res://script/camera_2d.gd<>uid://bvhla3g00a2rq::::res://scenes/ui/pause.tscn<>uid://i8f53csglnmf::::res://assets/fisherman/idle fisherman.png<>uid://va386d0nke0x::::res://assets/fisherman/walkING FISHERMAN.png<>uid://6ignq77uijgp::::res://assets/fisherman/HOOK/(fisherman)hook.png<>uid://cmdsexbts5j1f::::res://assets/fisherman/long string casting/fisherman casting adjust string.png<>uid://cxmf8xtglqc3e::::res://assets/fisherman/HOOK/(FISHING ROD)hook(test).png<>uid://bm2w8b6a17xcn::::res://assets/fisherman/long string casting/long_fishing_rod (test).png<>uid://bknut2vyyx0qp::::res://assets/ui/warneng.png<>uid://qteud7dilq55::::res://script/player_script/area_2d.gd
-fishingbob.tscn::PackedScene::254099507392442007::1790281773::0::1::::<><><>0<>0<><>::uid://i4whp5vlrkuy::::res://script/fish_detect.gd
+fishingbob.tscn::PackedScene::254099507392442007::1790288514::0::1::::<><><>0<>0<><>::uid://i4whp5vlrkuy::::res://script/fish_detect.gd
 fishing_mechanic.tscn::PackedScene::5553413158167626639::1790281773::0::1::::<><><>0<>0<><>::uid://cl8mmk0ena0vw::::res://script/fish_bar.gd<>uid://3we0h4ot85du::::res://assets/ui/fish_filelt-removebg-preview.png<>uid://c53mbvypqdj6h::::res://fishing_game_assets/4 Icons/Icons_04.png
-::res://scenes/location/::1790283554
-main_scene.tscn::PackedScene::2563535045295316081::1790281773::0::1::::<><><>0<>0<><>::uid://ccllmaf22jug7::::res://assets/sceneries/Day Extended Version Spliced/33%.jpg<>uid://bn5wuisa06wnf::::res://script/sceneries script/main_scene.gd<>uid://rk83fbji3h05::::res://script/sceneries script/home_animation.gd<>uid://f665dkpdo4o1::::res://assets/Afternoon/afternoon_1.png<>uid://543wi1tvcl2i::::res://assets/sceneries/Day Extended Version Spliced/66%.jpg<>uid://cnb1y0ckjx3js::::res://assets/Afternoon/afternoon_2.png<>uid://7tn3u7wcpgro::::res://script/spawn.gd<>uid://sir8qsldsspa::::res://script/sleep_zone.gd<>uid://o74e6igij8u6::::res://assets/Night /night_1.png<>uid://bjworn45gymki::::res://scenes/Fisherman/boat.tscn<>uid://bj4jxknn3ouec::::res://assets/Afternoon/afternoon_3.png<>uid://c7p6yg3ngofg6::::res://assets/Night /night_2_bop.png<>uid://cxgxwnd0fadow::::res://assets/Afternoon/afternoon_4.png<>uid://bsbcnsptji28::::res://scenes/ui/hud.tscn<>uid://b6by8vo4xqqgj::::res://assets/Afternoon/afternoon_5.png<>uid://ckoih5dwcgjvq::::res://script/sea_border.gd<>uid://dxu18aq33cw3p::::res://assets/Night /night_3.png<>uid://dp3egokfw7d8c::::res://assets/Afternoon/afternoon_6.png<>uid://w66n8vavl2dg::::res://assets/Night /night_4.png<>uid://crars01vpg0bx::::res://assets/ui/E.png<>uid://4ptkpn0cvm8y::::res://assets/Night /night_5.png<>uid://cefgalhblxedd::::res://script/talipapa.gd<>uid://c3v3rs67m36fa::::res://assets/Afternoon/afternoon_7.png<>uid://bsud8dfcywf3a::::res://assets/Night /night_6.png<>uid://dwepws2hv5va1::::res://assets/Night /night_7.png<>uid://en5uttrvft4w::::res://assets/Night /night_8.png
-OpenSea.tscn::PackedScene::8292557682354463281::1790283554::0::1::::<><><>0<>0<><>::uid://bldcqe2lh3r::::res://script/sceneries script/open_sea.gd<>uid://b474x0lbj3dur::::res://assets/sceneries/Settings Extension (3).png<>uid://c4nojc5cw6y6::::res://scenes/Fisherman/fisherman.tscn<>uid://cr3wnspm7t0ym::::res://assets/Afternoon/Afternoon_Sea/afternoon_1_sea.png<>uid://bjworn45gymki::::res://scenes/Fisherman/boat.tscn<>uid://b7k6rua1krntj::::res://assets/Afternoon/Afternoon_Sea/afternoon_2_sea.png<>uid://bsbcnsptji28::::res://scenes/ui/hud.tscn<>uid://cvjeuqbu73to::::res://assets/Afternoon/Afternoon_Sea/afternoon_3_sea.png<>uid://ckoih5dwcgjvq::::res://script/sea_border.gd<>uid://dbwx7fk7mkobe::::res://assets/Afternoon/Afternoon_Sea/afternoon_4_sea.png<>uid://1kx4sjpff03i::::res://assets/Afternoon/Afternoon_Sea/afternoon_5_sea.png<>uid://crars01vpg0bx::::res://assets/ui/E.png<>uid://dt5ydhmlbpbr1::::res://assets/Afternoon/Afternoon_Sea/afternoon_6_sea.png<>uid://cx6me1v503cyy::::res://script/sceneries script/open_sea_anim.gd
-::res://scenes/ui/::1790281773
+::res://scenes/location/::1790288514
+main_scene.tscn::PackedScene::2563535045295316081::1790288514::0::1::::<><><>0<>0<><>::uid://ccllmaf22jug7::::res://assets/sceneries/Day Extended Version Spliced/33%.jpg<>uid://bn5wuisa06wnf::::res://script/sceneries script/main_scene.gd<>uid://rk83fbji3h05::::res://script/sceneries script/home_animation.gd<>uid://543wi1tvcl2i::::res://assets/sceneries/Day Extended Version Spliced/66%.jpg<>uid://7tn3u7wcpgro::::res://script/spawn.gd<>uid://sir8qsldsspa::::res://script/sleep_zone.gd<>uid://o74e6igij8u6::::res://assets/night/night_1.png<>uid://bjworn45gymki::::res://scenes/Fisherman/boat.tscn<>uid://c7p6yg3ngofg6::::res://assets/night/night_2_bop.png<>uid://bsbcnsptji28::::res://scenes/ui/hud.tscn<>uid://ckoih5dwcgjvq::::res://script/sea_border.gd<>uid://dxu18aq33cw3p::::res://assets/night/night_3.png<>uid://w66n8vavl2dg::::res://assets/night/night_4.png<>uid://crars01vpg0bx::::res://assets/ui/E.png<>uid://4ptkpn0cvm8y::::res://assets/night/night_5.png<>uid://cefgalhblxedd::::res://script/talipapa.gd<>uid://bsud8dfcywf3a::::res://assets/night/night_6.png<>uid://dwepws2hv5va1::::res://assets/night/night_7.png<>uid://en5uttrvft4w::::res://assets/night/night_8.png
+OpenSea.tscn::PackedScene::8292557682354463281::1790288514::0::1::::<><><>0<>0<><>::uid://bldcqe2lh3r::::res://script/sceneries script/open_sea.gd<>uid://b474x0lbj3dur::::res://assets/sceneries/Settings Extension (3).png<>uid://c4nojc5cw6y6::::res://scenes/Fisherman/fisherman.tscn<>uid://bjworn45gymki::::res://scenes/Fisherman/boat.tscn<>uid://bsbcnsptji28::::res://scenes/ui/hud.tscn<>uid://ckoih5dwcgjvq::::res://script/sea_border.gd<>uid://crars01vpg0bx::::res://assets/ui/E.png
+::res://scenes/ui/::1790288514
 character_body_2d.gd::GDScript::8494337837325850110::1790281773::0::1::::<>CharacterBody2D<><>0<>0<><>::
 controls.tscn::PackedScene::649668182521058586::1790281773::0::1::::<><><>0<>0<><>::uid://dv6fkeidgb5qf::::res://fishing_game_assets/Parallax Layer 2_ Foreground Foliage.png<>uid://blgljijux8lqm::::res://script/controls.gd<>uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf
 defeat.tscn::PackedScene::3671611880456929835::1790281773::0::1::::<><><>0<>0<><>::uid://beuvr2ltl25j0::::res://script/defeat.gd<>uid://7rr2nhnmegyl::::res://fishing_game_assets/Weathered Wooden Dock Tiles.png<>uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf
 DisplayMessage.tscn::PackedScene::3193932726507231483::1790281773::0::1::::<><><>0<>0<><>::
-hud.tscn::PackedScene::107412643109001647::1790281773::0::1::::<><><>0<>0<><>::uid://cr5qk6bx3g2gu::::res://script/hud.gd
+hud.tscn::PackedScene::107412643109001647::1790288514::0::1::::<><><>0<>0<><>::uid://cr5qk6bx3g2gu::::res://script/hud.gd
 main_menu.tscn::PackedScene::554248962741255714::1790281773::0::1::::<><><>0<>0<><>::uid://dv6fkeidgb5qf::::res://fishing_game_assets/Parallax Layer 2_ Foreground Foliage.png<>uid://cdy6lfpkwn4kh::::res://script/main_menu.gd<>uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf
 opening_cutscene.tscn::PackedScene::6860145180087659849::1790281773::0::1::::<><><>0<>0<><>::uid://i8f53csglnmf::::res://assets/fisherman/idle fisherman.png<>uid://g3tivj46mu2j::::res://assets/audiomass-output.mp3<>uid://dtayrdvrnlc03::::res://scenes/ui/character_body_2d.gd<>uid://ccllmaf22jug7::::res://assets/sceneries/Day Extended Version Spliced/33%.jpg<>uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf<>uid://543wi1tvcl2i::::res://assets/sceneries/Day Extended Version Spliced/66%.jpg
 pause.tscn::PackedScene::3875506412382586990::1790281773::0::1::::<><><>0<>0<><>::uid://b35nvcdjt14y::::res://script/ui_scripts/pause.gd
 talipapa_shop.tscn::PackedScene::177987323195311424::1790281773::0::1::::<><><>0<>0<><>::uid://b3tpshop1aaaa::::res://script/ui_scripts/talipapa_shop.gd
 transition_layer.tscn::PackedScene::3221841775636627016::1790281773::0::1::::<><><>0<>0<><>::uid://c61fgx33wirqd::::res://script/ui_scripts/transition_layer.gd
 victory.tscn::PackedScene::8043208421819432047::1790281773::0::1::::<><><>0<>0<><>::uid://byxg35gotbut0::::res://script/victory.gd<>uid://dq8q2e6dblcx5::::res://fishing_game_assets/Warm Sunset Over the Sea Mood.png<>uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf
-::res://script/::1790281773
+::res://script/::1790288784
 boat.gd::GDScript::6120251381973860616::1790281773::0::1::::<>CharacterBody2D<><>0<>0<><>::
 camera_2d.gd::GDScript::7703409930054969402::1790281773::0::1::::<>Camera2D<><>0<>0<><>::
 controls.gd::GDScript::3171568624332186512::1790281773::0::1::::<>Control<><>0<>0<><>::
@@ -160,9 +151,9 @@ fish_bar.gd::GDScript::5613793710781342804::1790281773::0::1::::<>Control<><>0<>
 fish_detect.gd::GDScript::622726813534097728::1790281773::0::1::::<>Area2D<><>0<>0<><>::
 forage_area.gd::GDScript::3233373388556738705::1790281773::0::1::::<>Area2D<><>0<>0<><>::
 fuel_station.gd::GDScript::6373226406110926324::1790281773::0::1::::<>Node2D<><>0<>0<><>::
-hud.gd::GDScript::6028974002529216604::1790281773::0::1::::<>CanvasLayer<><>0<>0<><>::
+hud.gd::GDScript::6028974002529216604::1790288784::0::1::::<>CanvasLayer<><>0<>0<><>::
 main_menu.gd::GDScript::5034855121179563543::1790281773::0::1::::<>Control<><>0<>0<><>::
-sea_border.gd::GDScript::5504130910160245326::1790281773::0::1::::<>Area2D<><>0<>0<><>::
+sea_border.gd::GDScript::5504130910160245326::1790288514::0::1::::<>Area2D<><>0<>0<><>::
 sleep_zone.gd::GDScript::1281006196277561830::1790281773::0::1::::<>Node2D<><>0<>0<><>::
 spawn.gd::GDScript::2286106597783066432::1790281773::0::1::::<>Marker2D<><>0<>0<><>::
 talipapa.gd::GDScript::5064283521296755649::1790281773::0::1::::<>Area2D<><>0<>0<><>::
@@ -173,12 +164,12 @@ game_state.gd::GDScript::7903041953554177962::1790281773::0::1::::<>Node<><>0<>0
 sound_manager.gd::GDScript::5186472539235188009::1790281773::0::1::::<>Node<><>0<>0<><>::
 ::res://script/player_script/::1790281773
 area_2d.gd::GDScript::1162523466536058258::1790281773::0::1::::<>Area2D<><>0<>0<><>::
-::res://script/sceneries script/::1790283442
-home_animation.gd::GDScript::1215908046960052812::1790281773::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
+::res://script/sceneries script/::1790288514
+home_animation.gd::GDScript::1215908046960052812::1790288514::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
 main_scene.gd::GDScript::3362178921356208799::1790281773::0::1::::<>Node2D<><>0<>0<><>::
-open_sea.gd::GDScript::2737752038040685::1790283442::0::1::::<>Node2D<><>0<>0<><>::
-open_sea_anim.gd::GDScript::6451917627971188416::1790283442::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
-::res://script/ui_scripts/::1790281773
+open_sea.gd::GDScript::2737752038040685::1790288514::0::1::::<>Node2D<><>0<>0<><>::
+open_sea_anim.gd::GDScript::6451917627971188416::1790288514::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
+::res://script/ui_scripts/::1790288514
 pause.gd::GDScript::129837252084536674::1790281773::0::1::::<>Control<><>0<>0<><>::
-talipapa_shop.gd::GDScript::4391874772073917568::1790281773::0::1::::<>CanvasLayer<><>0<>0<><>::
+talipapa_shop.gd::GDScript::4391874772073917568::1790288514::0::1::::<>CanvasLayer<><>0<>0<><>::
 transition_layer.gd::GDScript::7002684894091524743::1790281773::0::1::::<>CanvasLayer<><>0<>0<><>::

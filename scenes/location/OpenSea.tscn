@@ -13,7 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://1kx4sjpff03i" path="res://assets/Afternoon/Afternoon_Sea/afternoon_5_sea.png" id="6_f61wx"]
 [ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="6_sail_prompt"]
 [ext_resource type="Texture2D" uid="uid://dt5ydhmlbpbr1" path="res://assets/Afternoon/Afternoon_Sea/afternoon_6_sea.png" id="7_fa02j"]
+[ext_resource type="Texture2D" uid="uid://dweebuv04mfrm" path="res://assets/Night/Night_Sea/night_sea_1.png" id="9_oorhp"]
 [ext_resource type="Script" uid="uid://cx6me1v503cyy" path="res://script/sceneries script/open_sea_anim.gd" id="9_v5jyr"]
+[ext_resource type="Texture2D" uid="uid://dkr2pqmckj2uc" path="res://assets/Night/Night_Sea/night_sea_2.png" id="10_c2cbj"]
+[ext_resource type="Texture2D" uid="uid://c8axosuqsaho7" path="res://assets/Night/Night_Sea/night_sea_3.png" id="11_k1j21"]
+[ext_resource type="Texture2D" uid="uid://chcdgodnvhy2a" path="res://assets/Night/Night_Sea/night_sea_4.png" id="12_xmf87"]
+[ext_resource type="Texture2D" uid="uid://cgysilkwb7cv6" path="res://assets/Night/Night_Sea/night_sea_5.png" id="13_8tcwm"]
+[ext_resource type="Texture2D" uid="uid://by4hag8chvp0j" path="res://assets/Night/Night_Sea/night_sea_6.png" id="14_ak11i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hdu7"]
 atlas = ExtResource("1_itwo7")
@@ -87,7 +93,25 @@ animations = [{
 "name": &"morning",
 "speed": 1.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_oorhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c2cbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_k1j21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xmf87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8tcwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ak11i")
+}],
 "loop": 1,
 "name": &"night",
 "speed": 5.0
@@ -114,7 +138,7 @@ metadata/_edit_horizontal_guides_ = [2120.0]
 position = Vector2(3284, 1067.0001)
 scale = Vector2(1.609559, 0.9875001)
 sprite_frames = SubResource("SpriteFrames_uy2to")
-animation = &"afternoon"
+animation = &"night"
 autoplay = "morning"
 script = ExtResource("9_v5jyr")
 

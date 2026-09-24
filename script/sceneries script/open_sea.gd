@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var camera_zoom: Vector2 = Vector2(0.80, 0.8000)
+@export var camera_zoom: Vector2 = Vector2(0.70, 0.7000)
 
 
 
