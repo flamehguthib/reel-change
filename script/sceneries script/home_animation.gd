@@ -8,10 +8,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if GameState.TIME_PERIOD.Morning == GameState.current_time_index:
-		play("default")
+		play("morning")
 		$Dim_Effect.visible = false
 	elif GameState.TIME_PERIOD.Afternoon == GameState.current_time_index:
-		play("default")
+		play("afternoon")
 		$Dim_Effect.visible = false
 	elif GameState.TIME_PERIOD.Night == GameState.current_time_index:
 		play("night")
