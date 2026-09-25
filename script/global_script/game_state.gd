@@ -9,7 +9,7 @@ var current_gas: int = 15
 var current_money: int = 0
 var money_goal: int = 2500 # Daughter's Graduation Gift & Family Debt Goal
 var fish_inventory: Array = []  # Array of species ids
-var debug_start_with_talipapa_test_state: bool = true
+var debug_start_with_talipapa_test_state: bool = false
 
 #Day Tracking System
 enum TIME_PERIOD {Morning, Afternoon, Night}

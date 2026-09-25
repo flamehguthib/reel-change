@@ -8,24 +8,24 @@
 [ext_resource type="Texture2D" uid="uid://cnb1y0ckjx3js" path="res://assets/Afternoon/afternoon_2.png" id="3_kow8g"]
 [ext_resource type="Script" uid="uid://7tn3u7wcpgro" path="res://script/spawn.gd" id="3_srowd"]
 [ext_resource type="Script" uid="uid://sir8qsldsspa" path="res://script/sleep_zone.gd" id="3_uquj6"]
-[ext_resource type="Texture2D" uid="uid://o74e6igij8u6" path="res://assets/Night /night_1.png" id="4_5nuv4"]
+[ext_resource type="Texture2D" uid="uid://o74e6igij8u6" path="res://assets/Night/night_1.png" id="4_5nuv4"]
 [ext_resource type="PackedScene" uid="uid://bjworn45gymki" path="res://scenes/Fisherman/boat.tscn" id="4_5von4"]
 [ext_resource type="Texture2D" uid="uid://bj4jxknn3ouec" path="res://assets/Afternoon/afternoon_3.png" id="4_mmd04"]
-[ext_resource type="Texture2D" uid="uid://c7p6yg3ngofg6" path="res://assets/Night /night_2_bop.png" id="5_5sp5w"]
+[ext_resource type="Texture2D" uid="uid://c7p6yg3ngofg6" path="res://assets/Night/night_2_bop.png" id="5_5sp5w"]
 [ext_resource type="Texture2D" uid="uid://cxgxwnd0fadow" path="res://assets/Afternoon/afternoon_4.png" id="5_p3wmw"]
 [ext_resource type="PackedScene" uid="uid://bsbcnsptji28" path="res://scenes/ui/hud.tscn" id="5_srowd"]
 [ext_resource type="Texture2D" uid="uid://b6by8vo4xqqgj" path="res://assets/Afternoon/afternoon_5.png" id="6_3b1di"]
 [ext_resource type="Script" uid="uid://ckoih5dwcgjvq" path="res://script/sea_border.gd" id="6_border"]
-[ext_resource type="Texture2D" uid="uid://dxu18aq33cw3p" path="res://assets/Night /night_3.png" id="6_o2oor"]
+[ext_resource type="Texture2D" uid="uid://dxu18aq33cw3p" path="res://assets/Night/night_3.png" id="6_o2oor"]
 [ext_resource type="Texture2D" uid="uid://dp3egokfw7d8c" path="res://assets/Afternoon/afternoon_6.png" id="7_bbu8h"]
-[ext_resource type="Texture2D" uid="uid://w66n8vavl2dg" path="res://assets/Night /night_4.png" id="7_elevr"]
+[ext_resource type="Texture2D" uid="uid://w66n8vavl2dg" path="res://assets/Night/night_4.png" id="7_elevr"]
 [ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="7_sail_prompt"]
-[ext_resource type="Texture2D" uid="uid://4ptkpn0cvm8y" path="res://assets/Night /night_5.png" id="8_sdcnn"]
+[ext_resource type="Texture2D" uid="uid://4ptkpn0cvm8y" path="res://assets/Night/night_5.png" id="8_sdcnn"]
 [ext_resource type="Script" uid="uid://cefgalhblxedd" path="res://script/talipapa.gd" id="8_talipapa"]
 [ext_resource type="Texture2D" uid="uid://c3v3rs67m36fa" path="res://assets/Afternoon/afternoon_7.png" id="8_ub87e"]
-[ext_resource type="Texture2D" uid="uid://bsud8dfcywf3a" path="res://assets/Night /night_6.png" id="9_numgj"]
-[ext_resource type="Texture2D" uid="uid://dwepws2hv5va1" path="res://assets/Night /night_7.png" id="10_cv7ly"]
-[ext_resource type="Texture2D" uid="uid://en5uttrvft4w" path="res://assets/Night /night_8.png" id="11_4idfg"]
+[ext_resource type="Texture2D" uid="uid://bsud8dfcywf3a" path="res://assets/Night/night_6.png" id="9_numgj"]
+[ext_resource type="Texture2D" uid="uid://dwepws2hv5va1" path="res://assets/Night/night_7.png" id="10_cv7ly"]
+[ext_resource type="Texture2D" uid="uid://en5uttrvft4w" path="res://assets/Night/night_8.png" id="11_4idfg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_62e20"]
 atlas = ExtResource("2_8uco6")
@@ -117,7 +117,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"afternoon",
-"speed": 4.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -169,7 +169,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"night",
-"speed": 4.0
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbixk"]
@@ -209,10 +209,9 @@ script = ExtResource("1_ht3qy")
 position = Vector2(3064.0002, 1534)
 scale = Vector2(1.0008403, 1.0015874)
 sprite_frames = SubResource("SpriteFrames_66tet")
-animation = &"afternoon"
-frame_progress = 0.028292773
+animation = &"night"
+frame_progress = 0.8384594
 script = ExtResource("2_5von4")
-metadata/_edit_lock_ = true
 
 [node name="SleepZone" type="Node2D" parent="Home" unique_id=235074908]
 script = ExtResource("3_uquj6")
