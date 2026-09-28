@@ -140,7 +140,7 @@ scale = Vector2(1.609559, 0.9875001)
 sprite_frames = SubResource("SpriteFrames_uy2to")
 animation = &"afternoon"
 autoplay = "morning"
-frame_progress = 0.090815246
+frame_progress = 0.6374866
 script = ExtResource("9_v5jyr")
 
 [node name="Dim_Effect" type="ColorRect" parent="AnimatedSprite2D" unique_id=1597866434]
@@ -183,7 +183,6 @@ color = Color(0, 0, 0, 0)
 position = Vector2(404, 882)
 collision_mask = 128
 script = ExtResource("5_border")
-target_scene_path = "res://scenes/location/main_scene.tscn"
 require_gas_to_cross = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OpenSea" unique_id=1376499553]
