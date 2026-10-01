@@ -4,8 +4,8 @@ extends Node
 var current_day: int = 1
 var max_energy: int = 100
 var current_energy: int = 100
-var max_gas: int = 25
-var current_gas: int = 15
+var max_gas: int = 3
+var current_gas: int = 3
 var current_money: int = 0
 var money_goal: int = 2500 # Daughter's Graduation Gift & Family Debt Goal
 var fish_inventory: Array = []  # Array of species ids
@@ -41,9 +41,9 @@ var active_contract: Dictionary = {}
 var fishing_energy_cost: int = 7
 
 # Gas system
-var gas_cost_to_opensea: int = 11
+var gas_cost_to_opensea: int = 1
 var gas_refuel_cost: int = 45  # Coins per refuel purchase
-var gas_refuel_amount: int = 5  # Gas units per refuel
+var gas_refuel_amount: int = 1  # Gas units per refuel
 
 # Game length
 var max_days: int = 7
@@ -132,7 +132,7 @@ func _ready() -> void:
 	current_day = 1
 	current_time_index = 0
 	current_energy = max_energy
-	current_gas = 13
+	current_gas = max_gas
 	current_money = 0
 	fish_inventory = ["tilapia", "tilapia", "bangus"]
 	active_bait = "kawil"
@@ -533,7 +533,7 @@ func upgrade_boat() -> bool:
 	if can_upgrade_boat():
 		current_money -= BOAT_UPGRADE_COST
 		boat_level += 1
-		max_gas += 15
+		max_gas += 1
 		return true
 	return false
 
@@ -560,7 +560,7 @@ func reset_game() -> void:
 	current_day = 1
 	current_time_index = 0
 	current_energy = max_energy
-	current_gas = 13
+	current_gas = max_gas
 	current_money = 0
 	total_caught = 0
 	fish_inventory = ["tilapia", "tilapia", "bangus"]
@@ -570,7 +570,7 @@ func reset_game() -> void:
 	tahong_bait_count = 0
 	rod_level = 1
 	boat_level = 1
-	max_gas = 25
+	max_gas = 3
 	weather = roll_weather()
 	active_contract = {}
 	generate_daily_contract()

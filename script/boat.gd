@@ -12,7 +12,7 @@ extends CharacterBody2D
 var rider: CharacterBody2D = null
 @onready var nearest_port = Vector2.ZERO
 var gas_drain_timer := 0.0
-const GAS_DRAIN_INTERVAL := 6.0  # 1 gas unit every 6 seconds of driving
+const GAS_DRAIN_INTERVAL := 45.0  # 1 gas unit per 45 seconds of continuous driving
 const GAS_DRAIN_AMOUNT := 1
 
 var row_energy_drain_timer := 0.0
@@ -80,19 +80,13 @@ func _physics_process(_delta: float) -> void:
 				SoundManager.play_sfx("boat_move")
 				SoundManager.stop_sfx("boat_idle")
 				boat_sprite.play("default")
-			if not is_out_of_gas:
-				gas_drain_timer += _delta
-				if gas_drain_timer >= GAS_DRAIN_INTERVAL:
-					gas_drain_timer = 0.0
-					GameState.spend_gas(GAS_DRAIN_AMOUNT)
-			else:
-				# Sagwan (rowing) consumes stamina/energy continuously
+			if is_out_of_gas:
+				# Sagwan (rowing) consumes stamina/energy continuously when out of gas
 				row_energy_drain_timer += _delta
 				if row_energy_drain_timer >= ROW_ENERGY_DRAIN_INTERVAL:
 					row_energy_drain_timer = 0.0
 					GameState.spend_energy(1)
 		else:
-			gas_drain_timer = 0.0
 			row_energy_drain_timer = 0.0
 			if boat_sprite.is_playing():
 				SoundManager.stop_sfx("boat_move")
@@ -110,14 +104,14 @@ func attempt_tow_rescue() -> void:
 	var cost := 30
 	if GameState.current_money >= cost:
 		GameState.current_money -= cost
-		GameState.refuel_gas(5)
+		GameState.refuel_gas(GameState.max_gas)
 		if rider != null and rider.has_method("show_message"):
-			rider.call("show_message", "Coast Guard Tow: Returned to port (-₱30, +5 Gas)! 🚤", Color(0.4, 0.9, 0.4))
+			rider.call("show_message", "Coast Guard Tow: Returned to port (-₱30, Full Gas Tank)! 🚤", Color(0.4, 0.9, 0.4))
 	else:
 		GameState.current_money = 0
-		GameState.refuel_gas(3)
+		GameState.refuel_gas(1)
 		if rider != null and rider.has_method("show_message"):
-			rider.call("show_message", "Friendly Tow: Returned to port (Emergency +3 Gas)! 🚤", Color(0.4, 0.9, 0.4))
+			rider.call("show_message", "Friendly Tow: Returned to port (Emergency +1 Gas)! 🚤", Color(0.4, 0.9, 0.4))
 
 	global_position.x = 200.0  # Reset position back toward shore/port
 	if rider != null:

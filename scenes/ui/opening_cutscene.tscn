@@ -243,6 +243,9 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbsvx"]
+radius = 10.770329
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wlvox"]
 atlas = ExtResource("4_b1k3a")
 region = Rect2(0, 0, 6120, 3060)
@@ -321,6 +324,9 @@ top_level = true
 position = Vector2(-445, 8)
 scale = Vector2(3.115471, 2.8727136)
 sprite_frames = SubResource("SpriteFrames_yfgbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=138256296]
+shape = SubResource("CircleShape2D_lbsvx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=65679270]
 modulate = Color(0.44415107, 0.44415107, 0.44415107, 1)
