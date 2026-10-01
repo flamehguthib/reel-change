@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var mount_point: Marker2D = $MountPoint
 @onready var boat_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var cam = get_node("%Camera2D")
 var rider: CharacterBody2D = null
 @onready var nearest_port = Vector2.ZERO
 var gas_drain_timer := 0.0
@@ -31,6 +32,7 @@ func _ready() -> void:
 		
 
 func _physics_process(_delta: float) -> void:
+	
 	if rider == null:
 		velocity = Vector2.ZERO
 		return
@@ -61,7 +63,6 @@ func _physics_process(_delta: float) -> void:
 	# Calculate dynamic speed based on boat level (Emergency Rowing mode if out of gas)
 	var base_speed := move_speed + ((GameState.boat_level - 1) * 90)
 	var current_speed: float = base_speed * 0.22 if is_out_of_gas else float(base_speed)
-
 	# If out of gas and exhausted, cannot row!
 	if is_out_of_gas and is_exhausted:
 		current_speed = 0.0
@@ -76,7 +77,7 @@ func _physics_process(_delta: float) -> void:
 		elif dir > 0.0:
 			boat_sprite.flip_h = false
 		# 2. Check if boat is fully stopped vs moving
-		if is_zero_approx(current_speed):
+		if dir == 0:
 			# --- IDLE STATE ---
 			gas_drain_timer = 0.0
 			row_energy_drain_timer = 0.0
@@ -93,20 +94,19 @@ func _physics_process(_delta: float) -> void:
 				boat_sprite.play("default")
 				SoundManager.play_sfx("boat_move")
 				SoundManager.stop_sfx("boat_idle")
-				boat_sprite.play("default")
+	
 			if is_out_of_gas:
 				# Sagwan (rowing) consumes stamina/energy continuously when out of gas
 				row_energy_drain_timer += _delta
 				if row_energy_drain_timer >= ROW_ENERGY_DRAIN_INTERVAL:
 					row_energy_drain_timer = 0.0
 					GameState.spend_energy(1)
-		else:
-			row_energy_drain_timer = 0.0
-			if boat_sprite.is_playing():
-				SoundManager.stop_sfx("boat_move")
-				SoundManager.play_sfx("boat_idle")
-				boat_sprite.stop()
-			boat_sprite.frame = 0
+			else:
+				row_energy_drain_timer = 0.0
+				if boat_sprite.is_playing():
+					SoundManager.stop_sfx("boat_move")
+					SoundManager.play_sfx("boat_idle")
+					
 
 	move_and_slide()
 
@@ -148,6 +148,8 @@ func mount_player(player: CharacterBody2D) -> void:
 	if rider.has_method("set_mounted_boat"):
 		rider.call("set_mounted_boat", self)
 	rider.global_position = get_mount_position()
+	cam.enabled = true 
+	cam.make_current()
 
 func unmount_player(player: CharacterBody2D) -> void:
 	SoundManager.stop_sfx("boat_idle")
@@ -161,6 +163,8 @@ func unmount_player(player: CharacterBody2D) -> void:
 	if mounted_player.has_method("set_mounted_boat"):
 		mounted_player.call("set_mounted_boat", null)
 		mounted_player.global_position = nearest_port
+		
+	cam.enabled = false
 		
 
 func find_nearest_port():
@@ -185,13 +189,9 @@ func _on_interact_area_body_exited(body: Node2D) -> void:
 		body.call("clear_nearby_boat", self)
 	$E.visible = false
 	
-func setup_boat_camera(zoom_setting: Vector2, limit: Rect2):
-	var cam = get_node("%Camera2D")
-		
-	cam.zoom = zoom_setting
+func setup_boat_camera(camera_zoom: Vector2, limit: Rect2):
+	cam.zoom = camera_zoom
 	cam.limit_left = limit.position.x
 	cam.limit_top = limit.position.y
 	cam.limit_bottom = limit.size.y
 	cam.limit_right = limit.size.x
-	cam.enabled = true 
-	cam.make_current()

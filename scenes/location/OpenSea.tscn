@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://chcdgodnvhy2a" path="res://assets/Night/Night_Sea/night_sea_4.png" id="12_xmf87"]
 [ext_resource type="Texture2D" uid="uid://cgysilkwb7cv6" path="res://assets/Night/Night_Sea/night_sea_5.png" id="13_8tcwm"]
 [ext_resource type="Texture2D" uid="uid://by4hag8chvp0j" path="res://assets/Night/Night_Sea/night_sea_6.png" id="14_ak11i"]
-[ext_resource type="Script" uid="uid://dqx8kdlcjqkpg" path="res://script/sceneries script/rain.gd" id="21_c2cbj"]
+[ext_resource type="Script" path="res://script/sceneries script/rain.gd" id="21_c2cbj"]
 [ext_resource type="Texture2D" uid="uid://b8neosp7w4sws" path="res://assets/sceneries/rain.png" id="21_k1j21"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hdu7"]
@@ -199,6 +199,7 @@ color = Color(0, 0, 0, 0)
 position = Vector2(404, 882)
 collision_mask = 128
 script = ExtResource("5_border")
+target_scene_path = "uid://bcr2bvdgil3mr"
 require_gas_to_cross = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OpenSea" unique_id=1376499553]

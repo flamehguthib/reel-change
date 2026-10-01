@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctgxv74ts5miy" path="res://script/boat.gd" id="2_1f4x8"]
 [ext_resource type="Texture2D" uid="uid://ljdfuf665wks" path="res://assets/boat/boat_hi.png" id="2_uhw1y"]
+[ext_resource type="Texture2D" uid="uid://qgf5jjlj3xun" path="res://assets/boat/idle_boat_dark.png" id="3_caegn"]
 [ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="3_hffbi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_caegn"]
@@ -72,9 +73,21 @@ region = Rect2(8192, 4096, 2048, 2048)
 atlas = ExtResource("2_uhw1y")
 region = Rect2(10240, 4096, 2048, 2048)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hffbi"]
-atlas = ExtResource("2_uhw1y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_eklwj"]
+atlas = ExtResource("3_caegn")
 region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sqvu"]
+atlas = ExtResource("3_caegn")
+region = Rect2(2048, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhw8y"]
+atlas = ExtResource("3_caegn")
+region = Rect2(4096, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c40m"]
+atlas = ExtResource("3_caegn")
+region = Rect2(6144, 0, 2048, 2048)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eklwj"]
 animations = [{
@@ -136,7 +149,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hffbi")
+"texture": SubResource("AtlasTexture_eklwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sqvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhw8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c40m")
 }],
 "loop": 1,
 "name": &"idle",
@@ -160,8 +182,10 @@ position = Vector2(-8.5, -8.5)
 scale = Vector2(0.07788086, 0.07525635)
 sprite_frames = SubResource("SpriteFrames_eklwj")
 animation = &"idle"
+frame_progress = 0.37185127
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1183787065]
+visible = false
 position = Vector2(-4.5, 3)
 shape = SubResource("RectangleShape2D_0063d")
 
@@ -172,6 +196,7 @@ position = Vector2(-11.5, -27)
 position = Vector2(-26, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=660792494]
+visible = false
 position = Vector2(15.875, -14.9375)
 shape = SubResource("RectangleShape2D_qyrje")
 

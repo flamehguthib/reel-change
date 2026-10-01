@@ -5,12 +5,12 @@ func _ready():
 	
 func on_weather_change(weather):
 	if weather == "Rain":
-		amount = 1000
+		amount = 300
 		emitting = true
 		visible = true
 		
 	elif weather == "Storm":
-		amount = 10000
+		amount = 1000
 		emitting = true
 		visible = true
 		

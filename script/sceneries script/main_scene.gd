@@ -6,6 +6,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%Spawn.setup_player_camera(camera_zoom, map_limits)
+	%Boat.setup_boat_camera(Vector2(0.8, 0.8), map_limits)
 	SoundManager.play_sfx("beach")
 	SoundManager.play_sfx("game_theme")
 	tree_exiting.connect(on_scene_left)

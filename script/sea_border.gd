@@ -1,6 +1,6 @@
 extends Area2D
 
-var target_scene_path: String = "res://scenes/location/main_scene.tscn"
+@export_file("*.tscn") var target_scene_path: String = ""
 @export var require_gas_to_cross: bool = true
 
 @onready var sail_prompt: Sprite2D = $SailPrompt if has_node("SailPrompt") else $ReturnPrompt if has_node("ReturnPrompt") else null
@@ -40,11 +40,11 @@ func _on_body_exited(body: Node2D) -> void:
 		sail_prompt.visible = false
 
 func _attempt_sail() -> void:
-	if target_scene_path.is_empty():
+	if target_scene_path == null:
 		return
 
 	# Only require gas when sailing OUT to open sea (returning to town is always free)
-	var is_returning_to_town: bool = target_scene_path.contains("main_scene")
+	var is_returning_to_town: bool = target_scene_path.is_empty()
 	if require_gas_to_cross and not is_returning_to_town and not GameState.can_travel_to_opensea():
 		_show_hint("Not enough gas to sail out! Need %d gas." % GameState.gas_cost_to_opensea)
 		return
