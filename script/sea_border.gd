@@ -1,6 +1,6 @@
 extends Area2D
 
-@export_file("*.tscn") var target_scene_path: String = ""
+var target_scene_path: String = "res://scenes/location/main_scene.tscn"
 @export var require_gas_to_cross: bool = true
 
 @onready var sail_prompt: Sprite2D = $SailPrompt if has_node("SailPrompt") else $ReturnPrompt if has_node("ReturnPrompt") else null
@@ -17,7 +17,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	# Check for E key input when boat is nearby and prompt is visible
 	if sail_prompt != null and sail_prompt.visible and Input.is_action_just_pressed("interact"):
-		_attempt_sail()
+		_attempt_sail()	
 
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("boats"):
