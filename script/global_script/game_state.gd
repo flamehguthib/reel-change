@@ -1,5 +1,7 @@
 extends Node
 
+var next_scene_path: String = ""
+
 # Game progression tracking
 var current_day: int = 1
 var max_energy: int = 100

@@ -1,6 +1,6 @@
 extends Area2D
 
-var target_scene_path: String = "res://scenes/location/main_scene.tscn"
+@export_file("*.tscn") var target_scene_path: String = ""
 @export var require_gas_to_cross: bool = true
 
 @onready var sail_prompt: Sprite2D = $SailPrompt if has_node("SailPrompt") else $ReturnPrompt if has_node("ReturnPrompt") else null
@@ -57,7 +57,9 @@ func _attempt_sail() -> void:
 		SoundManager.stop_sfx("boat_move")
 	
 	GameState.update_time()
-	get_tree().change_scene_to_file(target_scene_path)
+
+	GameState.next_scene_path = target_scene_path
+	get_tree().change_scene_to_file("res://scenes/ui/loading_screen.tscn")
 
 func _show_hint(text: String) -> void:
 	var rider = get_tree().get_first_node_in_group("Player")
