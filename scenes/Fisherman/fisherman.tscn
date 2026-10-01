@@ -5,10 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://bvhla3g00a2rq" path="res://scenes/ui/pause.tscn" id="2_e7hpt"]
 [ext_resource type="Texture2D" uid="uid://i8f53csglnmf" path="res://assets/fisherman/idle fisherman.png" id="4_47n1r"]
 [ext_resource type="Texture2D" uid="uid://va386d0nke0x" path="res://assets/fisherman/walkING FISHERMAN.png" id="4_vnetq"]
+[ext_resource type="Texture2D" uid="uid://b8neosp7w4sws" path="res://assets/sceneries/rain.png" id="7_ptl4r"]
 [ext_resource type="Texture2D" uid="uid://6ignq77uijgp" path="res://assets/fisherman/HOOK/(fisherman)hook.png" id="7_rhwrs"]
 [ext_resource type="Texture2D" uid="uid://cmdsexbts5j1f" path="res://assets/fisherman/long string casting/fisherman casting adjust string.png" id="7_ufy8k"]
 [ext_resource type="Texture2D" uid="uid://cxmf8xtglqc3e" path="res://assets/fisherman/HOOK/(FISHING ROD)hook(test).png" id="8_e7hpt"]
 [ext_resource type="Texture2D" uid="uid://bm2w8b6a17xcn" path="res://assets/fisherman/long string casting/long_fishing_rod (test).png" id="8_rhwrs"]
+[ext_resource type="Script" uid="uid://cnrb4f0gohhdh" path="res://script/sceneries script/rain.gd" id="8_xpf6s"]
 [ext_resource type="Texture2D" uid="uid://bknut2vyyx0qp" path="res://assets/ui/warneng.png" id="10_rhwrs"]
 [ext_resource type="Script" uid="uid://qteud7dilq55" path="res://script/player_script/area_2d.gd" id="11_area2d"]
 
@@ -220,6 +222,20 @@ _data = {
 &"warneng": SubResource("Animation_q4jj6")
 }
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g3ibt"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(700, 10, 1)
+emission_shape = 3
+emission_box_extents = Vector3(5, 1, 1)
+direction = Vector3(-0.15, 1, 0)
+spread = 2.0
+initial_velocity_min = 700.0
+initial_velocity_max = 800.0
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 4.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4upc6"]
 atlas = ExtResource("7_ufy8k")
 region = Rect2(0, 0, 164, 164)
@@ -346,7 +362,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c4y5w")
 }],
-"loop": false,
+"loop": 0,
 "name": &"cast",
 "speed": 8.0
 }, {
@@ -354,7 +370,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t3v6y")
 }],
-"loop": false,
+"loop": 0,
 "name": &"fish",
 "speed": 3.0
 }, {
@@ -383,7 +399,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0qv3k")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hook",
 "speed": 8.0
 }, {
@@ -394,7 +410,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vnetq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -411,7 +427,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4redl")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 5.0
 }]
@@ -522,7 +538,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_642fh")
 }],
-"loop": false,
+"loop": 0,
 "name": &"cast",
 "speed": 8.0
 }, {
@@ -530,7 +546,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ufy8k")
 }],
-"loop": true,
+"loop": 1,
 "name": &"fish",
 "speed": 5.0
 }, {
@@ -559,7 +575,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0xqj1")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hook",
 "speed": 8.0
 }]
@@ -585,6 +601,18 @@ zoom = Vector2(0.5, 0.5)
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("2_47n1r")
+
+[node name="Rain" type="GPUParticles2D" parent="Camera2D" unique_id=1235069120]
+z_index = 100
+position = Vector2(-42.75006, -811.74994)
+scale = Vector2(0.6666667, 2)
+emitting = false
+amount = 10000
+texture = ExtResource("7_ptl4r")
+lifetime = 44.9
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+process_material = SubResource("ParticleProcessMaterial_g3ibt")
+script = ExtResource("8_xpf6s")
 
 [node name="Player" type="AnimatedSprite2D" parent="." unique_id=37638068]
 scale = Vector2(3, 3)

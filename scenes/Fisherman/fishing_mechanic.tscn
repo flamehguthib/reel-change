@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cl8mmk0ena0vw" path="res://script/fish_bar.gd" id="1_dmaw5"]
 [ext_resource type="Texture2D" uid="uid://3we0h4ot85du" path="res://assets/ui/fish_filelt-removebg-preview.png" id="3_5wbbv"]
 [ext_resource type="Texture2D" uid="uid://c53mbvypqdj6h" path="res://fishing_game_assets/4 Icons/Icons_04.png" id="3_sdupj"]
+[ext_resource type="Texture2D" uid="uid://bu0e7crcroof0" path="res://fishing_game_assets/tarub.jpeg" id="4_c2wj3"]
 
 [sub_resource type="Gradient" id="Gradient_ahjk1"]
 offsets = PackedFloat32Array(0.11448598, 0.34813085, 0.5864486, 0.98364484)
@@ -21,16 +22,24 @@ scale = Vector2(2, 2)
 layout_mode = 3
 anchors_preset = 0
 offset_left = -100.0
-offset_top = -220.0
+offset_top = -308.0
 offset_right = 100.0
+offset_bottom = -88.0
 script = ExtResource("1_dmaw5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control" unique_id=1573870680]
+z_index = -7
+position = Vector2(101.49999, 220)
+scale = Vector2(0.25331563, 0.17240466)
+texture = ExtResource("4_c2wj3")
 
 [node name="ColorRect" type="TextureRect" parent="Control" unique_id=1231248613]
 texture_filter = 2
 layout_mode = 0
-offset_left = 6.0
-offset_right = 40.5
-offset_bottom = 200.0
+offset_left = 83.0
+offset_top = 105.0
+offset_right = 117.5
+offset_bottom = 305.0
 texture = SubResource("GradientTexture2D_5wbbv")
 expand_mode = 1
 
@@ -53,14 +62,14 @@ color = Color(0, 0.2901961, 0, 0.59607846)
 [node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=672790883]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 43.5
-offset_top = -2.0
-offset_right = 76.0
-offset_bottom = 200.5
+offset_left = 119.0
+offset_top = 102.0
+offset_right = 157.5
+offset_bottom = 304.0
 fill_mode = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=1233161542]
 z_index = 1
-position = Vector2(23, 94.99999)
+position = Vector2(100, 202)
 scale = Vector2(0.122507125, 0.31504923)
 texture = ExtResource("3_5wbbv")

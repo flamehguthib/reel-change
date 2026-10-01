@@ -34,3 +34,13 @@ func _on_main_menu_pressed() -> void:
 func _on_exit_pressed() -> void:
 	SoundManager.play_sfx("select")
 	get_tree().quit()
+	
+func _on_fucking_mute_pressed() -> void:
+	var master_bus := AudioServer.get_bus_index("Master")
+	# Toggle mute (useful for Mute Buttons)
+	var is_muted := AudioServer.is_bus_mute(master_bus)
+# Mute all audio
+	if not is_muted:
+		AudioServer.set_bus_mute(master_bus, true)
+	if is_muted:
+		AudioServer.set_bus_mute(master_bus, false) 

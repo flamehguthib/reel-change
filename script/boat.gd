@@ -26,15 +26,15 @@ func _ready() -> void:
 		interact_area.body_entered.connect(_on_interact_area_body_entered)
 		interact_area.body_exited.connect(_on_interact_area_body_exited)
 	if boat_sprite != null:
-		boat_sprite.play("default")
 		boat_sprite.stop()
-		boat_sprite.frame = 0
+		boat_sprite.play("idle")
+		
 
 func _physics_process(_delta: float) -> void:
 	if rider == null:
 		velocity = Vector2.ZERO
 		return
-
+	
 	var rider_is_fishing := false
 	if rider.has_method("is_fishing_mode_active"):
 		rider_is_fishing = rider.call("is_fishing_mode_active")
@@ -70,13 +70,27 @@ func _physics_process(_delta: float) -> void:
 	velocity.y = 0.0
 
 	if boat_sprite != null:
+		# 1. Flip sprite based on input direction
 		if dir < 0.0:
 			boat_sprite.flip_h = true
 		elif dir > 0.0:
 			boat_sprite.flip_h = false
+		# 2. Check if boat is fully stopped vs moving
+		if is_zero_approx(current_speed):
+			# --- IDLE STATE ---
+			gas_drain_timer = 0.0
+			row_energy_drain_timer = 0.0
+			
+			if boat_sprite.animation != "idle":
+				boat_sprite.play("idle")
+				SoundManager.stop_sfx("boat_move")
+				SoundManager.play_sfx("boat_idle")
 
-		if abs(dir) > 0.01 and current_speed > 0.0:
-			if not boat_sprite.is_playing():
+		else:
+			# --- MOVING / COASTING STATE ---
+			# Guard: Only trigger animation & sound ONCE when entering movement
+			if boat_sprite.animation != "default":
+				boat_sprite.play("default")
 				SoundManager.play_sfx("boat_move")
 				SoundManager.stop_sfx("boat_idle")
 				boat_sprite.play("default")

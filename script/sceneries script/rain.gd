@@ -1,1 +1,19 @@
 extends GPUParticles2D
+
+func _ready():
+	GameState.weather_change.connect(on_weather_change)
+	
+func on_weather_change(weather):
+	if weather == "Rain":
+		amount = 1000
+		emitting = true
+		visible = true
+		
+	elif weather == "Storm":
+		amount = 10000
+		emitting = true
+		visible = true
+		
+	elif weather == "Sunny":
+		emitting = false
+		visible = false

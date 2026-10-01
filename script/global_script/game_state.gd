@@ -1,5 +1,7 @@
 extends Node
 
+#signals
+signal weather_change (new_weather: String)
 # Game progression tracking
 var current_day: int = 1
 var max_energy: int = 100
@@ -158,6 +160,7 @@ func advance_day() -> void:
 		current_time_index = 0
 		current_day += 1
 		weather = roll_weather()
+		weather_change.emit(weather)
 		generate_daily_contract()
 		print("Day %d started (weather: %s)" % [current_day, weather])
 	else:
