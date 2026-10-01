@@ -31,13 +31,17 @@ func skip_cutscene() -> void:
 	if is_skipping:
 		return
 	is_skipping = true
-	anim.stop(true)
-	
-	ResourceLoader.load_threaded_request(MAIN_SCENE_PATH)
-	set_process(true)
 
-func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
-	if not is_skipping:
-		get_tree().change_scene_to_file("res://scenes/location/main_scene.tscn")
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "fade_out":
+		get_tree().change_scene_to_file("res://scenes/ui/loading_screen.tscn")
+		return
+
+	if is_skipping:
+		return
+
+	if anim_name == "opening_cutscene":
+		anim.play("fade_out")
+
 func _on_skip_button_pressed() -> void:
 	skip_cutscene()

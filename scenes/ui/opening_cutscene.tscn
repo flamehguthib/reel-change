@@ -59,6 +59,33 @@ tracks/3/keys = {
 
 Another day, another chance to earn money. "]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/FadeOverlay:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.09019608, 0.09019608, 0.09019608, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ixxvg"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/FadeOverlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_8y2nn"]
 resource_name = "opening_cutscene"
@@ -190,6 +217,7 @@ tracks/6/use_blend = true
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yfgbm"]
 _data = {
 &"RESET": SubResource("Animation_b1k3a"),
+&"fade_out": SubResource("Animation_ixxvg"),
 &"opening_cutscene": SubResource("Animation_8y2nn")
 }
 
@@ -308,18 +336,35 @@ sprite_frames = SubResource("SpriteFrames_s7o7k")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1383134897]
 
+[node name="FadeOverlay" type="ColorRect" parent="CanvasLayer" unique_id=576780727]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09019608, 0.09019608, 0.09019608, 0)
+
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=113618036]
 visible = false
 modulate = Color(1, 1, 1, 0)
-offset_left = -401.0
-offset_top = 165.0
-offset_right = 512.0
-offset_bottom = 290.0
+anchors_preset = -1
+anchor_left = 0.32900003
+anchor_top = 0.448
+anchor_right = 0.32900003
+anchor_bottom = 0.448
+offset_left = -780.00806
+offset_top = -125.304016
+offset_right = 132.99197
+offset_bottom = -0.3040161
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(2, 2)
+size_flags_horizontal = 4
 theme = SubResource("Theme_ixxvg")
 text = "Uriel
 
 Another day, another chance to earn money. "
+metadata/_edit_use_anchors_ = true
 
 [node name="SkipButton" type="Button" parent="CanvasLayer" unique_id=1849204859]
 anchors_preset = 1
