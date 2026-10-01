@@ -1,5 +1,12 @@
-res://script/global_script/game_state.gd
-res://script/hud.gd
-res://scenes/ui/hud.tscn
+res://scenes/Fisherman/fishing_mechanic.tscn
+res://scenes/ui/character_body_2d.gd
+res://scenes/ui/pause.tscn
 res://script/boat.gd
+res://script/fisherman.gd
+res://script/hud.gd
+res://script/main_menu.gd
+res://script/sea_border.gd
+res://script/global_script/game_state.gd
+res://script/sceneries script/open_sea.gd
+res://script/ui_scripts/pause.gd
 res://script/ui_scripts/talipapa_shop.gd
