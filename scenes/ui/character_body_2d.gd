@@ -21,9 +21,9 @@ func skip_cutscene() -> void:
 	anim.stop()
 	anim.play("fade_out")
 
-func play_anim( animation_name ) -> void:
+func play_anim(animation_name) -> void:
 	if not is_skipping:
-		anim.play( animation_name )
+		anim.play(animation_name)
 
 func stop_anim() -> void:
 	anim.stop()
