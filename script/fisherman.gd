@@ -478,6 +478,12 @@ func spawn_fish_bar():
 	if fish_bar_instance == null:
 		fish_bar_instance = fish_bar_scene.instantiate()
 		add_child(fish_bar_instance)
+		var camera := get_viewport().get_camera_2d()
+		if camera:
+		# Centers directly on what the camera sees in the world
+			fish_bar_instance.global_position = camera.get_screen_center_position()
+		else:
+			fish_bar_instance.global_position = get_viewport_rect().size / 2.0
 		fish_bar_instance.z_as_relative = false
 		fish_bar_instance.z_index = 100
 		update_fish_bar_position()

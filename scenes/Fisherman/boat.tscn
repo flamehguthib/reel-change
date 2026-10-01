@@ -4,10 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://ljdfuf665wks" path="res://assets/boat/boat_hi.png" id="2_uhw1y"]
 [ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="3_hffbi"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hffbi"]
-atlas = ExtResource("2_uhw1y")
-region = Rect2(0, 0, 2048, 2048)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_caegn"]
 atlas = ExtResource("2_uhw1y")
 region = Rect2(2048, 0, 2048, 2048)
@@ -76,12 +72,13 @@ region = Rect2(8192, 4096, 2048, 2048)
 atlas = ExtResource("2_uhw1y")
 region = Rect2(10240, 4096, 2048, 2048)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hffbi"]
+atlas = ExtResource("2_uhw1y")
+region = Rect2(0, 0, 2048, 2048)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_eklwj"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hffbi")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_caegn")
 }, {
@@ -133,8 +130,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d5rtw")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hffbi")
+}],
+"loop": 1,
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -154,7 +159,7 @@ script = ExtResource("2_1f4x8")
 position = Vector2(-8.5, -8.5)
 scale = Vector2(0.07788086, 0.07525635)
 sprite_frames = SubResource("SpriteFrames_eklwj")
-frame_progress = 0.5171262
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1183787065]
 position = Vector2(-4.5, 3)
