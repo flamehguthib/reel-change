@@ -19,7 +19,7 @@ func skip_cutscene() -> void:
 		return
 	is_skipping = true
 	anim.stop()
-	get_tree().change_scene_to_file("res://scenes/location/main_scene.tscn")
+	anim.play("fade_out")
 
 func play_anim( animation_name ) -> void:
 	if not is_skipping:
@@ -28,8 +28,16 @@ func play_anim( animation_name ) -> void:
 func stop_anim() -> void:
 	anim.stop()
 
-func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
-	if not is_skipping:
-		get_tree().change_scene_to_file("res://scenes/location/main_scene.tscn")
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "fade_out":
+		get_tree().change_scene_to_file("res://scenes/ui/loading_screen.tscn")
+		return
+
+	if is_skipping:
+		return
+
+	if anim_name == "opening_cutscene":
+		anim.play("fade_out")
+
 func _on_skip_button_pressed() -> void:
 	skip_cutscene()
