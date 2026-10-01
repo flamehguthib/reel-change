@@ -74,7 +74,7 @@ func update_labels() -> void:
 		upgrade_rod_button.disabled = not GameState.can_upgrade_rod()
 
 	if upgrade_boat_button:
-		upgrade_boat_button.text = "Upgrade Boat: P%d (+Speed & +15 Gas) [Lv %d/%d]" % [GameState.BOAT_UPGRADE_COST, GameState.boat_level, GameState.MAX_BOAT_LEVEL]
+		upgrade_boat_button.text = "Upgrade Boat: P%d (+Speed & +1 Gas) [Lv %d/%d]" % [GameState.BOAT_UPGRADE_COST, GameState.boat_level, GameState.MAX_BOAT_LEVEL]
 		upgrade_boat_button.disabled = not GameState.can_upgrade_boat()
 
 func _show_message(text: String) -> void:

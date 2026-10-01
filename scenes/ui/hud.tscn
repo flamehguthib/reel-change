@@ -1,68 +1,363 @@
 [gd_scene format=3 uid="uid://bsbcnsptji28"]
 
 [ext_resource type="Script" uid="uid://cr5qk6bx3g2gu" path="res://script/hud.gd" id="1_hud"]
+[ext_resource type="Texture2D" uid="uid://dn67yu0wwweo5" path="res://assets/ui/Coin_panel.png" id="2_coin_panel"]
+[ext_resource type="Texture2D" uid="uid://dkuw0gpo5ndy2" path="res://assets/ui/Peso_coin.png" id="3_peso_coin"]
+[ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="4_font"]
+[ext_resource type="Texture2D" uid="uid://c0yuf4gtvj4yp" path="res://assets/ui/energyicon.png" id="5_energy_icon"]
+[ext_resource type="Texture2D" uid="uid://bvmwyvs4kkyb5" path="res://assets/ui/box.png" id="6_box"]
+[ext_resource type="Texture2D" uid="uid://dxsw84wwgsqeg" path="res://assets/ui/hook_icon.png" id="7_hook_icon"]
+[ext_resource type="Texture2D" uid="uid://b1ddxshbwqt0m" path="res://assets/ui/shirmp.png" id="8_shrimp"]
+[ext_resource type="Texture2D" uid="uid://dj874a83ivhe4" path="res://assets/ui/mussels.png" id="9_mussels"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_energy_bg"]
+bg_color = Color(0.08, 0.08, 0.1, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.75, 0.58, 0.28, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_energy_fill"]
+bg_color = Color(0.2, 0.88, 0.45, 1)
+border_width_top = 2
+border_color = Color(0.55, 0.98, 0.7, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gas_bg"]
+bg_color = Color(0.08, 0.08, 0.1, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.75, 0.58, 0.28, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gas_fill"]
+bg_color = Color(0.95, 0.55, 0.15, 1)
+border_width_top = 2
+border_color = Color(1, 0.75, 0.35, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="HUD" type="CanvasLayer" unique_id=1622611448]
 script = ExtResource("1_hud")
 
-[node name="TopBar" type="Panel" parent="." unique_id=177970924]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 516.0
-offset_bottom = 416.0
-
-[node name="Stats" type="VBoxContainer" parent="TopBar" unique_id=1102285176]
-layout_mode = 0
+[node name="MoneyPanel" type="TextureRect" parent="." unique_id=1000000001]
 offset_left = 4.0
 offset_top = 8.0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 484.0
+offset_bottom = 117.0
+texture = ExtResource("2_coin_panel")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="DayLabel" type="Label" parent="TopBar/Stats" unique_id=1350615213]
-layout_mode = 2
-theme_override_font_sizes/font_size = 21
+[node name="CoinIcon" type="TextureRect" parent="MoneyPanel" unique_id=1000000002]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 12.0
+offset_right = 141.0
+offset_bottom = 87.0
+texture = ExtResource("3_peso_coin")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="TimeLabel" type="Label" parent="TopBar/Stats" unique_id=492147045]
-layout_mode = 2
+[node name="MoneyLabel" type="Label" parent="MoneyPanel" unique_id=1000000003]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 32.0
+offset_right = 359.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(1, 0.9, 0.3, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 44
+text = "₱0 / ₱2,500"
+vertical_alignment = 1
 
-[node name="EnergyLabel" type="Label" parent="TopBar/Stats" unique_id=1934863651]
-layout_mode = 2
+[node name="EnergyPanel" type="NinePatchRect" parent="." unique_id=1000000004]
+offset_left = 24.0
+offset_top = 125.0
+offset_right = 360.0
+offset_bottom = 185.0
+texture = ExtResource("6_box")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
 
-[node name="EnergyBar" type="ProgressBar" parent="TopBar/Stats" unique_id=628377115]
-custom_minimum_size = Vector2(300, 20)
-layout_mode = 2
-max_value = 100.0
+[node name="EnergyIcon" type="TextureRect" parent="EnergyPanel" unique_id=1000000005]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 58.0
+offset_bottom = 54.0
+texture = ExtResource("5_energy_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EnergyBar" type="ProgressBar" parent="EnergyPanel" unique_id=1000000006]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 14.0
+offset_right = 316.0
+offset_bottom = 46.0
+theme_override_styles/background = SubResource("StyleBoxFlat_energy_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_energy_fill")
 value = 100.0
 show_percentage = false
 
-[node name="GasLabel" type="Label" parent="TopBar/Stats" unique_id=1754389654]
-layout_mode = 2
+[node name="EnergyLabel" type="Label" parent="EnergyPanel" unique_id=1000000007]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 14.0
+offset_right = 316.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 22
+text = "100 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="GasBar" type="ProgressBar" parent="TopBar/Stats" unique_id=381025951]
-custom_minimum_size = Vector2(300, 20)
-layout_mode = 2
-max_value = 100.0
-value = 100.0
+[node name="GasPanel" type="NinePatchRect" parent="." unique_id=1000000008]
+offset_left = 24.0
+offset_top = 195.0
+offset_right = 360.0
+offset_bottom = 255.0
+texture = ExtResource("6_box")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="GasIcon" type="Label" parent="GasPanel" unique_id=1000000009]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 58.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 32
+text = "⛽"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GasBar" type="ProgressBar" parent="GasPanel" unique_id=1000000010]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 14.0
+offset_right = 316.0
+offset_bottom = 46.0
+theme_override_styles/background = SubResource("StyleBoxFlat_gas_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gas_fill")
+max_value = 3.0
+value = 3.0
 show_percentage = false
 
-[node name="MoneyLabel" type="Label" parent="TopBar/Stats" unique_id=1666421492]
-layout_mode = 2
+[node name="GasLabel" type="Label" parent="GasPanel" unique_id=1000000011]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 14.0
+offset_right = 316.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 22
+text = "3 / 3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="GoalLabel" type="Label" parent="TopBar/Stats" unique_id=1547926586]
-layout_mode = 2
+[node name="BaitHotbar" type="HBoxContainer" parent="." unique_id=1000000012]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -124.0
+offset_right = 450.0
+offset_bottom = -20.0
+grow_vertical = 0
+theme_override_constants/separation = 16
 
-[node name="FishInventoryLabel" type="Label" parent="TopBar/Stats" unique_id=1023456789]
+[node name="SlotKawil" type="TextureButton" parent="BaitHotbar" unique_id=1000000013]
+custom_minimum_size = Vector2(130, 96)
 layout_mode = 2
+texture_normal = ExtResource("6_box")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="WeatherLabel" type="Label" parent="TopBar/Stats" unique_id=1023456790]
+[node name="Icon" type="TextureRect" parent="BaitHotbar/SlotKawil" unique_id=1000000014]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 18.0
+offset_right = 95.0
+offset_bottom = 78.0
+texture = ExtResource("7_hook_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Badge" type="Label" parent="BaitHotbar/SlotKawil" unique_id=1000000015]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 36.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(1, 0.9, 0.3, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 18
+text = "[1]"
+
+[node name="Count" type="Label" parent="BaitHotbar/SlotKawil" unique_id=1000000016]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 56.0
+offset_right = 120.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 26
+text = "∞"
+horizontal_alignment = 2
+
+[node name="Highlight" type="ReferenceRect" parent="BaitHotbar/SlotKawil" unique_id=1000000017]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(1, 0.85, 0.2, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="SlotHipon" type="TextureButton" parent="BaitHotbar" unique_id=1000000018]
+custom_minimum_size = Vector2(130, 96)
 layout_mode = 2
+texture_normal = ExtResource("6_box")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Icon" type="TextureRect" parent="BaitHotbar/SlotHipon" unique_id=1000000019]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 18.0
+offset_right = 95.0
+offset_bottom = 78.0
+texture = ExtResource("8_shrimp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Badge" type="Label" parent="BaitHotbar/SlotHipon" unique_id=1000000020]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 36.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(1, 0.9, 0.3, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 18
+text = "[2]"
+
+[node name="Count" type="Label" parent="BaitHotbar/SlotHipon" unique_id=1000000021]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 56.0
+offset_right = 120.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 26
+text = "0"
+horizontal_alignment = 2
+
+[node name="Highlight" type="ReferenceRect" parent="BaitHotbar/SlotHipon" unique_id=1000000022]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(1, 0.85, 0.2, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="SlotTahong" type="TextureButton" parent="BaitHotbar" unique_id=1000000023]
+custom_minimum_size = Vector2(130, 96)
+layout_mode = 2
+texture_normal = ExtResource("6_box")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Icon" type="TextureRect" parent="BaitHotbar/SlotTahong" unique_id=1000000024]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 18.0
+offset_right = 97.0
+offset_bottom = 78.0
+texture = ExtResource("9_mussels")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Badge" type="Label" parent="BaitHotbar/SlotTahong" unique_id=1000000025]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 36.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(1, 0.9, 0.3, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 18
+text = "[3]"
+
+[node name="Count" type="Label" parent="BaitHotbar/SlotTahong" unique_id=1000000026]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 56.0
+offset_right = 120.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 26
+text = "0"
+horizontal_alignment = 2
+
+[node name="Highlight" type="ReferenceRect" parent="BaitHotbar/SlotTahong" unique_id=1000000027]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(1, 0.85, 0.2, 1)
+border_width = 4.0
+editor_only = false
 
 [node name="TimeVBox" type="VBoxContainer" parent="." unique_id=1735902134]
 anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 0.0
 anchor_right = 1.0
-anchor_bottom = 0.0
 offset_left = -268.0
 offset_top = 8.0
 offset_right = -8.0

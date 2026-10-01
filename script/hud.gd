@@ -11,22 +11,42 @@ var _last_time_index: int = -1
 # ── Node References ──────────────────────────────────────────────────
 @onready var day_label: Label = get_node_or_null("TopBar/Stats/DayLabel") as Label
 @onready var time_label: Label = get_node_or_null("TopBar/Stats/TimeLabel") as Label
-@onready var energy_label: Label = get_node_or_null("TopBar/Stats/EnergyLabel") as Label
-@onready var energy_bar: ProgressBar = get_node_or_null("TopBar/Stats/EnergyBar") as ProgressBar
-@onready var gas_label: Label = get_node_or_null("TopBar/Stats/GasLabel") as Label
-@onready var gas_bar: ProgressBar = get_node_or_null("TopBar/Stats/GasBar") as ProgressBar
-@onready var money_label: Label = get_node_or_null("TopBar/Stats/MoneyLabel") as Label
+@onready var energy_label: Label = (get_node_or_null("EnergyPanel/EnergyLabel") if get_node_or_null("EnergyPanel/EnergyLabel") != null else get_node_or_null("TopBar/Stats/EnergyLabel")) as Label
+@onready var energy_bar: ProgressBar = (get_node_or_null("EnergyPanel/EnergyBar") if get_node_or_null("EnergyPanel/EnergyBar") != null else get_node_or_null("TopBar/Stats/EnergyBar")) as ProgressBar
+@onready var gas_label: Label = (get_node_or_null("GasPanel/GasLabel") if get_node_or_null("GasPanel/GasLabel") != null else get_node_or_null("TopBar/Stats/GasLabel")) as Label
+@onready var gas_bar: ProgressBar = (get_node_or_null("GasPanel/GasBar") if get_node_or_null("GasPanel/GasBar") != null else get_node_or_null("TopBar/Stats/GasBar")) as ProgressBar
+@onready var money_label: Label = (get_node_or_null("MoneyPanel/MoneyLabel") if get_node_or_null("MoneyPanel/MoneyLabel") != null else get_node_or_null("TopBar/Stats/MoneyLabel")) as Label
 @onready var goal_label: Label = get_node_or_null("TopBar/Stats/GoalLabel") as Label
 @onready var fish_inventory_label: Label = get_node_or_null("TopBar/Stats/FishInventoryLabel") as Label
 @onready var weather_label: Label = get_node_or_null("TopBar/Stats/WeatherLabel") as Label
 @onready var time_cycle_icon: TextureRect = get_node_or_null("TimeVBox/TimeCycleIcon") as TextureRect
 @onready var time_cycle_label: Label = get_node_or_null("TimeVBox/TimeCycleLabel") as Label
 
+# ── Bait Hotbar References ───────────────────────────────────────────
+@onready var slot_kawil: TextureButton = get_node_or_null("BaitHotbar/SlotKawil") as TextureButton
+@onready var count_kawil: Label = get_node_or_null("BaitHotbar/SlotKawil/Count") as Label
+@onready var hl_kawil: ReferenceRect = get_node_or_null("BaitHotbar/SlotKawil/Highlight") as ReferenceRect
+
+@onready var slot_hipon: TextureButton = get_node_or_null("BaitHotbar/SlotHipon") as TextureButton
+@onready var count_hipon: Label = get_node_or_null("BaitHotbar/SlotHipon/Count") as Label
+@onready var hl_hipon: ReferenceRect = get_node_or_null("BaitHotbar/SlotHipon/Highlight") as ReferenceRect
+
+@onready var slot_tahong: TextureButton = get_node_or_null("BaitHotbar/SlotTahong") as TextureButton
+@onready var count_tahong: Label = get_node_or_null("BaitHotbar/SlotTahong/Count") as Label
+@onready var hl_tahong: ReferenceRect = get_node_or_null("BaitHotbar/SlotTahong/Highlight") as ReferenceRect
+
 func _ready() -> void:
 	var panel := get_node_or_null("TopBar") as Panel
 	if panel != null:
 		panel.size = Vector2(480, 360)
 	_build_timecycle_atlases()
+
+	if slot_kawil != null:
+		slot_kawil.pressed.connect(func(): GameState.set_active_bait("kawil"))
+	if slot_hipon != null:
+		slot_hipon.pressed.connect(func(): GameState.set_active_bait("hipon"))
+	if slot_tahong != null:
+		slot_tahong.pressed.connect(func(): GameState.set_active_bait("tahong"))
 
 func _build_timecycle_atlases() -> void:
 	_timecycle_atlases.clear()
@@ -67,24 +87,29 @@ func _process(_delta: float) -> void:
 		time_label.text = "Location: %s" % zone_str
 
 	if money_label != null:
-		var pct := int((float(GameState.current_money) / float(GameState.money_goal)) * 100.0)
-		money_label.text = "IPON: ₱%d / ₱%d (%d%% - Graduation Gift 🎓)" % [
+		money_label.text = "₱%d / ₱%d" % [
 			GameState.current_money, 
-			GameState.money_goal,
-			pct
+			GameState.money_goal
 		]
 		if GameState.current_money >= GameState.money_goal:
 			money_label.add_theme_color_override("font_color", Color.GREEN)
 		else:
-			money_label.add_theme_color_override("font_color", Color.YELLOW)
+			money_label.add_theme_color_override("font_color", Color(1.0, 0.9, 0.3))
 
-	if goal_label != null:
-		var bait_str := "Kawil [1]"
-		if GameState.active_bait == "hipon":
-			bait_str = "Paong Hipon (%d left) [2]" % GameState.hipon_bait_count
-		elif GameState.active_bait == "tahong":
-			bait_str = "Paong Tahong (%d left) [3]" % GameState.tahong_bait_count
-		goal_label.text = "Active Paon: %s  (Hotkeys: [1] Kawil  [2] Hipon  [3] Tahong)" % bait_str
+	# ── Bait Hotbar Display Updates ───────────────────────────────────────
+	if count_kawil != null:
+		count_kawil.text = "∞"
+	if count_hipon != null:
+		count_hipon.text = str(GameState.hipon_bait_count)
+	if count_tahong != null:
+		count_tahong.text = str(GameState.tahong_bait_count)
+
+	if hl_kawil != null:
+		hl_kawil.visible = (GameState.active_bait == "kawil")
+	if hl_hipon != null:
+		hl_hipon.visible = (GameState.active_bait == "hipon")
+	if hl_tahong != null:
+		hl_tahong.visible = (GameState.active_bait == "tahong")
 
 	if fish_inventory_label != null:
 		var prog := GameState.get_contract_progress()
@@ -127,9 +152,9 @@ func _process(_delta: float) -> void:
 		weather_label.text = "Bag: %d fish (₱%d value)%s" % [GameState.get_fish_inventory_count(), GameState.get_fish_inventory_value(), nav_hint]
 
 	if energy_label != null:
-		energy_label.text = "Lakas (Energy): %d / %d" % [GameState.current_energy, GameState.max_energy]
+		energy_label.text = "%d / %d" % [GameState.current_energy, GameState.max_energy]
 		if GameState.current_energy < 20:
-			energy_label.add_theme_color_override("font_color", Color.RED)
+			energy_label.add_theme_color_override("font_color", Color(1.0, 0.3, 0.3))
 		else:
 			energy_label.add_theme_color_override("font_color", Color.WHITE)
 
@@ -138,9 +163,9 @@ func _process(_delta: float) -> void:
 		energy_bar.value = GameState.current_energy
 
 	if gas_label != null:
-		gas_label.text = "Kargang Krudo (Gas): %d / %d" % [GameState.current_gas, GameState.max_gas]
-		if GameState.current_gas < 20:
-			gas_label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		gas_label.text = "%d / %d" % [GameState.current_gas, GameState.max_gas]
+		if GameState.current_gas <= 0:
+			gas_label.add_theme_color_override("font_color", Color(1.0, 0.3, 0.3))
 		else:
 			gas_label.add_theme_color_override("font_color", Color.WHITE)
 
