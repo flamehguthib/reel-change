@@ -20,7 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://chcdgodnvhy2a" path="res://assets/Night/Night_Sea/night_sea_4.png" id="12_xmf87"]
 [ext_resource type="Texture2D" uid="uid://cgysilkwb7cv6" path="res://assets/Night/Night_Sea/night_sea_5.png" id="13_8tcwm"]
 [ext_resource type="Texture2D" uid="uid://by4hag8chvp0j" path="res://assets/Night/Night_Sea/night_sea_6.png" id="14_ak11i"]
-[ext_resource type="Script" uid="uid://cnrb4f0gohhdh" path="res://script/sceneries script/rain.gd" id="21_c2cbj"]
+[ext_resource type="Script" uid="uid://dqx8kdlcjqkpg" path="res://script/sceneries script/rain.gd" id="21_c2cbj"]
+[ext_resource type="Texture2D" uid="uid://b8neosp7w4sws" path="res://assets/sceneries/rain.png" id="21_k1j21"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hdu7"]
 atlas = ExtResource("1_itwo7")
@@ -131,11 +132,18 @@ normal = Vector2(1, 0)
 distance = 47.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lbsvx"]
+particle_flag_align_y = true
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(700, 10, 1)
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(-0.15, 1, 0)
+spread = 2.0
+initial_velocity_min = 700.0
+initial_velocity_max = 800.0
 gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 4.0
 
 [node name="OpenSea" type="Node2D" unique_id=249379820]
 script = ExtResource("1_45unr")
@@ -244,9 +252,12 @@ rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_5mlg0")
 
 [node name="Rain" type="GPUParticles2D" parent="." unique_id=1512863002]
+visible = false
 z_index = 100
 position = Vector2(2762, 1052)
+scale = Vector2(2, 6)
 amount = 500
+texture = ExtResource("21_k1j21")
 lifetime = 44.9
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 process_material = SubResource("ParticleProcessMaterial_lbsvx")

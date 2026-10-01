@@ -273,7 +273,6 @@ metadata/_edit_lock_ = true
 position = Vector2(2266, 218)
 collision_mask = 128
 script = ExtResource("6_border")
-target_scene_path = "res://scenes/location/OpenSea.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Home/OpenSea" unique_id=1728901234]
 position = Vector2(580.6079, 169.36438)
