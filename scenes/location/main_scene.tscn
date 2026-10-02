@@ -209,8 +209,7 @@ script = ExtResource("1_ht3qy")
 position = Vector2(3064.0002, 1534)
 scale = Vector2(1.0008403, 1.0015874)
 sprite_frames = SubResource("SpriteFrames_66tet")
-animation = &"night"
-frame_progress = 0.8384594
+animation = &"morning"
 script = ExtResource("2_5von4")
 
 [node name="SleepZone" type="Node2D" parent="Home" unique_id=235074908]
@@ -382,6 +381,22 @@ offset_top = -1536.5609
 offset_right = 3075.4158
 offset_bottom = 1532.5675
 color = Color(0, 0, 0, 0.2627451)
+
+[node name="Rain_Dim" type="ColorRect" parent="Home" unique_id=436789180]
+visible = false
+offset_left = -3043.4426
+offset_top = -1536.5609
+offset_right = 3075.4158
+offset_bottom = 1532.5675
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="Storm_Dim" type="ColorRect" parent="Home" unique_id=599755820]
+visible = false
+offset_left = -3043.4426
+offset_top = -1536.5609
+offset_right = 3075.4158
+offset_bottom = 1532.5675
+color = Color(0, 0, 0, 0.5882353)
 
 [node name="DismountPosition" type="Marker2D" parent="." unique_id=310340425]
 position = Vector2(4568, 1782)

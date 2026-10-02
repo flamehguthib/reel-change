@@ -2,6 +2,8 @@ extends Node
 
 #signals
 signal weather_change (new_weather: String)
+#scene load
+var next_scene_path: String = ""
 # Game progression tracking
 var current_day: int = 1
 var max_energy: int = 100
@@ -269,8 +271,9 @@ func switch_bait(bait_type: String) -> bool:
 
 func sleep_until_morning() -> void:
 	"""Sleep to next day, deduct daily family expense, and fully recover energy."""
-	current_energy += 45
-	update_time()
+	if not current_energy >= 100: 
+		current_energy += 45
+	update_time()	
 
 	# Deduct family daily expenses (rice, food, electricity)
 	var expense := DAILY_FAMILY_EXPENSE

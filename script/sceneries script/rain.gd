@@ -14,6 +14,6 @@ func on_weather_change(weather):
 		emitting = true
 		visible = true
 		
-	elif weather == "Sunny":
+	else:
 		emitting = false
 		visible = false

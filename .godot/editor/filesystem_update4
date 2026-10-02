@@ -1,1 +1,10 @@
 res://scenes/Fisherman/boat.tscn
+res://scenes/location/OpenSea.tscn
+res://script/sceneries script/home_animation.gd
+res://script/sceneries script/open_sea_anim.gd
+res://scenes/location/main_scene.tscn
+res://script/global_script/game_state.gd
+res://script/sceneries script/rain.gd
+res://script/ui_scripts/loading_screen.gd
+res://script/sea_border.gd
+res://scenes/ui/main_menu.tscn

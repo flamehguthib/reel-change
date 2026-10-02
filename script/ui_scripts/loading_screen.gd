@@ -1,11 +1,17 @@
 extends Control
 
-var scene_path := "res://scenes/location/main_scene.tscn"
+var scene_path := ""
 
 var dots := 0
 var timer := 0.0
 
 func _ready():
+	if GameState.next_scene_path.is_empty():
+		scene_path = "res://scenes/location/main_scene.tscn"
+	else:
+		scene_path = GameState.next_scene_path
+	
+	GameState.next_scene_path = ""
 	ResourceLoader.load_threaded_request(scene_path)
 
 func _process(delta):

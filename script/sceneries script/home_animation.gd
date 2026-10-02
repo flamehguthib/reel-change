@@ -16,3 +16,11 @@ func _process(_delta: float) -> void:
 	elif GameState.TIME_PERIOD.Night == GameState.current_time_index:
 		play("night")
 		$Dim_Effect.visible = true 
+		
+	if GameState.weather == "Rain":
+		$Rain_Dim.visible = true
+	elif GameState.weather == "Storm":
+		$Storm_Dim.visible = true
+	elif GameState.weather == "Cloudy" or "Sunny":	
+		$Rain_Dim.visible = false
+		$Storm_Dim.visible = false

@@ -57,7 +57,8 @@ func _attempt_sail() -> void:
 		SoundManager.stop_sfx("boat_move")
 	
 	GameState.update_time()
-	get_tree().change_scene_to_file(target_scene_path)
+	GameState.next_scene_path = target_scene_path
+	get_tree().change_scene_to_file("res://scenes/ui/loading_screen.tscn")
 
 func _show_hint(text: String) -> void:
 	var rider = get_tree().get_first_node_in_group("Player")
