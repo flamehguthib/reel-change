@@ -158,3 +158,10 @@ func on_scene_left():
 	SoundManager.stop_sfx("game_theme")
 	SoundManager.stop_sfx("boat_idle")
 	SoundManager.stop_sfx("boat_move")
+	# Cleanly disable all weather overlays before this scene unloads
+	if has_node("Rain_Dim"):
+		$Rain_Dim.visible = false
+	if has_node("Storm_Dim"):
+		$Storm_Dim.visible = false
+	if has_node("LightningFlash"):
+		$LightningFlash.stop_lightning() # Kills ongoing tweens

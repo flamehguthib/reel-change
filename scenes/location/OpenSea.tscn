@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://chcdgodnvhy2a" path="res://assets/Night/Night_Sea/night_sea_4.png" id="12_xmf87"]
 [ext_resource type="Texture2D" uid="uid://cgysilkwb7cv6" path="res://assets/Night/Night_Sea/night_sea_5.png" id="13_8tcwm"]
 [ext_resource type="Texture2D" uid="uid://by4hag8chvp0j" path="res://assets/Night/Night_Sea/night_sea_6.png" id="14_ak11i"]
+[ext_resource type="Script" uid="uid://bryylrgduv1kx" path="res://script/sceneries script/lightning_flash.gd" id="16_c2cbj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hdu7"]
 atlas = ExtResource("1_itwo7")
@@ -145,27 +146,44 @@ script = ExtResource("9_v5jyr")
 
 [node name="Dim_Effect" type="ColorRect" parent="AnimatedSprite2D" unique_id=1597866434]
 visible = false
+z_index = 50
 offset_left = -3043.4426
 offset_top = -1536.5609
 offset_right = 3075.4158
 offset_bottom = 1532.5675
+mouse_filter = 2
 color = Color(0, 0, 0, 0.2627451)
 
 [node name="Rain_Dim" type="ColorRect" parent="AnimatedSprite2D" unique_id=1939453270]
 visible = false
+z_index = 50
 offset_left = -3043.4426
 offset_top = -1536.5609
 offset_right = 3075.4158
 offset_bottom = 1532.5675
+mouse_filter = 2
 color = Color(0, 0, 0, 0.39215687)
 
 [node name="Storm_Dim" type="ColorRect" parent="AnimatedSprite2D" unique_id=456939749]
 visible = false
+z_index = 50
 offset_left = -3043.4426
 offset_top = -1536.5609
 offset_right = 3075.4158
 offset_bottom = 1532.5675
+mouse_filter = 2
 color = Color(0, 0, 0, 0.5882353)
+
+[node name="LightningFlash" type="ColorRect" parent="AnimatedSprite2D" unique_id=2142252158]
+visible = false
+z_index = 50
+offset_left = -3043.4426
+offset_top = -1536.5609
+offset_right = 3075.4158
+offset_bottom = 1532.5675
+mouse_filter = 2
+color = Color(9.102, 9.102, 9.102, 0.588)
+script = ExtResource("16_c2cbj")
 
 [node name="WaterArea" type="Area2D" parent="." unique_id=747912014 groups=["water"]]
 metadata/_edit_lock_ = true
@@ -253,3 +271,4 @@ rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_5mlg0")
 
 [connection signal="tree_entered" from="." to="Fisherman" method="_on_open_sea_tree_entered"]
+[connection signal="tree_exiting" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_tree_exiting"]

@@ -42,7 +42,7 @@ const TAHONG_BAIT_COST: int = 35 # Pack of 3
 var active_contract: Dictionary = {}
 
 # Energy system
-var fishing_energy_cost: int = 7
+var fishing_energy_cost: int = 10
 
 # Gas system
 var gas_cost_to_opensea: int = 1
@@ -142,7 +142,7 @@ func _ready() -> void:
 	active_bait = "kawil"
 	hipon_bait_count = 0
 	tahong_bait_count = 0
-	weather = roll_weather()
+	weather = WEATHER_SUNNY
 	generate_daily_contract()
 	if debug_start_with_talipapa_test_state:
 		current_gas = 100

@@ -606,7 +606,6 @@ script = ExtResource("2_47n1r")
 z_index = 100
 position = Vector2(-42.75006, -811.74994)
 scale = Vector2(0.6666667, 2)
-emitting = false
 amount = 1000
 texture = ExtResource("7_ptl4r")
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
@@ -616,7 +615,7 @@ script = ExtResource("8_xpf6s")
 [node name="Player" type="AnimatedSprite2D" parent="." unique_id=37638068]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ofheh")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
 metadata/_edit_lock_ = true
 
