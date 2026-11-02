@@ -44,7 +44,9 @@ func _physics_process(_delta: float) -> void:
 	if rider_is_fishing:
 		velocity = Vector2.ZERO
 		move_and_slide()
-		rider.global_position = get_mount_position()
+		if rider != null:
+			rider.global_position = get_mount_position()
+			rider.velocity = Vector2.ZERO
 		return
 
 	var is_out_of_gas := GameState.current_gas <= 0
@@ -108,6 +110,7 @@ func _physics_process(_delta: float) -> void:
 
 	if rider != null:
 		rider.global_position = get_mount_position()
+		rider.velocity = Vector2.ZERO
 
 func attempt_tow_rescue() -> void:
 	# Friendly fisherman towing service

@@ -1,12 +1,59 @@
 [gd_scene format=3 uid="uid://h5qnt0tp3xkc"]
 
-[ext_resource type="Texture2D" uid="uid://dv6fkeidgb5qf" path="res://fishing_game_assets/Parallax Layer 2_ Foreground Foliage.png" id="1_7vrkn"]
 [ext_resource type="Script" uid="uid://cdy6lfpkwn4kh" path="res://script/main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://csxafiqr2nwnf" path="res://assets/sceneries/EXTENDED VERSION - Copy.png" id="2_1g8jr"]
 [ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="2_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://gjfrsyug55d1" path="res://assets/ui/title card.png" id="4_m1kxf"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jix8l"]
-texture = ExtResource("1_7vrkn")
-modulate_color = Color(0.59717613, 0.59717613, 0.5971761, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1kxf"]
+atlas = ExtResource("2_1g8jr")
+region = Rect2(0, 0, 6120, 3059)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2yvf"]
+atlas = ExtResource("2_1g8jr")
+region = Rect2(6120, 0, 6120, 3059)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhagc"]
+atlas = ExtResource("2_1g8jr")
+region = Rect2(12240, 0, 6120, 3059)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btxxm"]
+atlas = ExtResource("2_1g8jr")
+region = Rect2(0, 3060, 6120, 3059)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb0q5"]
+atlas = ExtResource("2_1g8jr")
+region = Rect2(6120, 3060, 6120, 3059)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q85j6"]
+atlas = ExtResource("2_1g8jr")
+region = Rect2(12240, 3060, 6120, 3059)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_an23v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1kxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2yvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhagc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btxxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb0q5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q85j6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(0.8751118, 0.9595291, 0.9988827, 1)
@@ -65,22 +112,22 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_fu7sn")
 
-[node name="Panel" type="Panel" parent="." unique_id=738939897]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_jix8l")
+[node name="Node2D" type="Node2D" parent="." unique_id=942774950]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=440279573]
+position = Vector2(639.5, 421.52493)
+scale = Vector2(0.20833333, 0.27948675)
+sprite_frames = SubResource("SpriteFrames_an23v")
+autoplay = "default"
+frame_progress = 0.89394826
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1672290659]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.46015626
-anchor_top = 0.55393517
-anchor_right = 0.5778646
-anchor_bottom = 0.76890415
+anchor_left = 0.7121094
+anchor_top = 0.45590279
+anchor_right = 0.82981765
+anchor_bottom = 0.7946374
 offset_left = -182.5
 offset_top = -86.25
 offset_right = 182.5
@@ -155,29 +202,19 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7vrkn")
 text = "Exit"
 
-[node name="Label" type="Label" parent="." unique_id=907449066]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.55512154
-anchor_top = 0.263
-anchor_right = 0.55512154
-anchor_bottom = 0.27700618
-offset_left = -600.5
-offset_top = -114.42401
-offset_right = 600.5
-offset_bottom = 63.5
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1166896678]
+
+[node name="TitleCard" type="TextureRect" parent="CanvasLayer" unique_id=1075887446]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 274.0
+offset_top = 16.0
+offset_right = 640.0
+offset_bottom = 208.0
 grow_horizontal = 2
-grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-theme_override_colors/font_color = Color(0.47335416, 0.9548002, 0.8769623, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.62352943)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 16
-theme_override_fonts/font = ExtResource("2_fu7sn")
-theme_override_font_sizes/font_size = 186
-text = "REEL CHANGE"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
+texture = ExtResource("4_m1kxf")
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]

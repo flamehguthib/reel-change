@@ -90,7 +90,6 @@ func _physics_process(delta):
 				mount_boat(boat_to_mount)
 
 	if mounted_boat != null:
-		global_position = mounted_boat.get_mount_position()
 		velocity = Vector2.ZERO
 		if mounted_boat.velocity.x < 0:
 			$Player.flip_h = true
