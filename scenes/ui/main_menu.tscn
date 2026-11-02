@@ -115,8 +115,8 @@ script = ExtResource("1_fu7sn")
 [node name="Node2D" type="Node2D" parent="." unique_id=942774950]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=440279573]
-position = Vector2(639.5, 421.52493)
-scale = Vector2(0.20833333, 0.27948675)
+position = Vector2(640, 422.99994)
+scale = Vector2(0.20915033, 0.27852234)
 sprite_frames = SubResource("SpriteFrames_an23v")
 autoplay = "default"
 frame_progress = 0.89394826
