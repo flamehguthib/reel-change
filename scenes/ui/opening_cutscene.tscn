@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://i8f53csglnmf" path="res://assets/fisherman/idle fisherman.png" id="1_2yaq3"]
 [ext_resource type="AudioStream" uid="uid://g3tivj46mu2j" path="res://assets/audiomass-output.mp3" id="1_hbltp"]
+[ext_resource type="Script" uid="uid://b7uyf8ahy5wuj" path="res://script/ui_scripts/opening_cutscene.gd" id="1_ixxvg"]
 [ext_resource type="Script" uid="uid://dtayrdvrnlc03" path="res://scenes/ui/character_body_2d.gd" id="1_yfgbm"]
 [ext_resource type="Texture2D" uid="uid://ccllmaf22jug7" path="res://assets/sceneries/Day Extended Version Spliced/33%.jpg" id="4_b1k3a"]
 [ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="5_hbltp"]
@@ -301,6 +302,7 @@ default_font = ExtResource("5_hbltp")
 default_font_size = 28
 
 [node name="OpeningCutscene" type="Node2D" unique_id=1594730359]
+script = ExtResource("1_ixxvg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2110608332]
 libraries/ = SubResource("AnimationLibrary_yfgbm")
@@ -352,10 +354,10 @@ anchor_left = 0.32900003
 anchor_top = 0.448
 anchor_right = 0.32900003
 anchor_bottom = 0.448
-offset_left = -780.00806
-offset_top = -125.304016
-offset_right = 132.99197
-offset_bottom = -0.3040161
+offset_left = -822.12
+offset_top = -318.84003
+offset_right = 90.879974
+offset_bottom = -193.84003
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)

@@ -132,9 +132,9 @@ func _physics_process(delta):
 		$Player.play("hook")
 		$FishingRod.play("hook")
 		if $Player.flip_h == false:
-			$AnimationPlayer.play("hook_pos")
+			$AnimationPlayer.play("cast_pos")
 		elif $Player.flip_h == true:
-			$AnimationPlayer.play("invert_hook_pos")
+			$AnimationPlayer.play("invert_cast_pos")
 		state = "hook"
 		start_reel()
 	
@@ -442,7 +442,7 @@ func on_casting_finished():
 		
 
 	if $Player.animation == "hook":
-		$Player.play("idle")
+		$Player.play("fish")
 		$FishingRod.visible = false
 		state = "idle"
 		kill_fish_bar()
@@ -524,9 +524,9 @@ func _on_fish_bar_finished(caught: bool) -> void:
 		$Player.play("hook")
 		$FishingRod.play("hook")
 		if $Player.flip_h == false:
-			$AnimationPlayer.play("hook_pos")
+			$AnimationPlayer.play("cast_pos")
 		elif $Player.flip_h == true:
-			$AnimationPlayer.play("invert_hook_pos")
+			$AnimationPlayer.play("invert_cast_pos")
 		state = "hook"
 		start_reel()
 
@@ -553,9 +553,9 @@ func _on_fish_missed() -> void:
 		$Player.play("hook")
 		$FishingRod.play("hook")
 		if $Player.flip_h == false:
-			$AnimationPlayer.play("hook_pos")
+			$AnimationPlayer.play("cast_pos")
 		elif $Player.flip_h == true:
-			$AnimationPlayer.play("invert_hook_pos")
+			$AnimationPlayer.play("invert_cast_pos")
 		state = "hook"
 		start_reel()
 
