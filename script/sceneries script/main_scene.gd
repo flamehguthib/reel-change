@@ -10,6 +10,7 @@ func _ready() -> void:
 	SoundManager.play_sfx("beach")
 	SoundManager.play_sfx("game_theme")
 	tree_exiting.connect(on_scene_left)
+	get_window().content_scale_size = Vector2i(1280, 1080)
 	
 func on_scene_left():
 	SoundManager.stop_sfx("beach")

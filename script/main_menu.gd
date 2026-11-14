@@ -3,6 +3,8 @@ extends Control
 func _ready():
 	SoundManager.play_sfx("main_menu")
 	
+	get_window().content_scale_size = Vector2i(1280, 720)
+	
 	# Intro animation
 	$VBoxContainer.modulate.a = 0
 	$VBoxContainer.position.y += 50
