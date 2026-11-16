@@ -116,12 +116,12 @@ func attempt_tow_rescue() -> void:
 	# Friendly fisherman towing service
 	var cost := 30
 	if GameState.current_money >= cost:
-		GameState.current_money -= cost
+		GameState.spend_money(cost)
 		GameState.refuel_gas(GameState.max_gas)
 		if rider != null and rider.has_method("show_message"):
 			rider.call("show_message", "Coast Guard Tow: Returned to port (-₱30, Full Gas Tank)! 🚤", Color(0.4, 0.9, 0.4))
 	else:
-		GameState.current_money = 0
+		GameState.spend_money(GameState.current_money)
 		GameState.refuel_gas(1)
 		if rider != null and rider.has_method("show_message"):
 			rider.call("show_message", "Friendly Tow: Returned to port (Emergency +1 Gas)! 🚤", Color(0.4, 0.9, 0.4))
