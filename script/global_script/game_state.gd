@@ -489,7 +489,7 @@ func can_afford_paon_hipon() -> bool:
 
 func buy_paon_hipon() -> bool:
 	if can_afford_paon_hipon():
-		current_money -= HIPON_BAIT_COST
+		spend_money(HIPON_BAIT_COST)
 		hipon_bait_count += 5
 		active_bait = "hipon"
 		return true
@@ -500,7 +500,7 @@ func can_afford_paon_tahong() -> bool:
 
 func buy_paon_tahong() -> bool:
 	if can_afford_paon_tahong():
-		current_money -= TAHONG_BAIT_COST
+		spend_money(TAHONG_BAIT_COST)
 		tahong_bait_count += 3
 		active_bait = "tahong"
 		return true
@@ -517,7 +517,7 @@ func can_afford_bait() -> bool:
 
 func buy_bait() -> bool:
 	if can_afford_bait():
-		current_money -= BAIT_COST
+		spend_money(BAIT_COST)
 		has_bait = true
 		return true
 	return false
@@ -527,7 +527,7 @@ func can_upgrade_rod() -> bool:
 
 func upgrade_rod() -> bool:
 	if can_upgrade_rod():
-		current_money -= ROD_UPGRADE_COST
+		spend_money(ROD_UPGRADE_COST)
 		rod_level += 1
 		return true
 	return false
@@ -537,7 +537,7 @@ func can_upgrade_boat() -> bool:
 
 func upgrade_boat() -> bool:
 	if can_upgrade_boat():
-		current_money -= BOAT_UPGRADE_COST
+		spend_money(BOAT_UPGRADE_COST)
 		boat_level += 1
 		max_gas += 1
 		return true
