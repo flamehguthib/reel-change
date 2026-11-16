@@ -4,9 +4,12 @@ signal summary_closed
 
 @onready var day_label = $Control/Panel/VBoxContainer/DayLabel
 @onready var earnings_label = $Control/Panel/VBoxContainer/EarningsLabel
-@onready var expenses_label = $Control/Panel/VBoxContainer/ExpensesLabel
+@onready var family_expenses_label = $Control/Panel/VBoxContainer/FamilyExpensesLabel
+@onready var fishing_expenses_label = $Control/Panel/VBoxContainer/FishingExpensesLabel
 @onready var net_label = $Control/Panel/VBoxContainer/NetLabel
 @onready var continue_button = $Control/Panel/VBoxContainer/ContinueButton
+@onready var separator1 = $Control/Panel/VBoxContainer/Separator1
+@onready var separator2 = $Control/Panel/VBoxContainer/Separator2
 
 func _ready() -> void:
 	# Populate labels from GameState
@@ -14,13 +17,15 @@ func _ready() -> void:
 	if summary.is_empty():
 		# Fallback for testing
 		day_label.text = "Day Summary"
-		earnings_label.text = "Earnings: ₱0"
-		expenses_label.text = "Expenses: -₱0"
+		earnings_label.text = "Earnings: +₱0"
+		family_expenses_label.text = "  Family: -₱0"
+		fishing_expenses_label.text = "  Fishing: -₱0"
 		net_label.text = "Net: ₱0"
 	else:
 		day_label.text = "Summary of Day %d" % summary.get("day", 1)
 		earnings_label.text = "Earnings: +₱%d" % summary.get("earnings", 0)
-		expenses_label.text = "Expenses: -₱%d" % summary.get("expenses", 0)
+		family_expenses_label.text = "  Family Expenses: -₱%d" % summary.get("family_expenses", 0)
+		fishing_expenses_label.text = "  Fishing Costs: -₱%d" % summary.get("fishing_expenses", 0)
 		
 		var net = summary.get("net", 0)
 		net_label.text = "Net Profit: ₱%d" % net

@@ -58,16 +58,23 @@ theme_override_font_sizes/font_size = 24
 text = "Summary of Day 1"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Control/Panel/VBoxContainer"]
+[node name="Separator1" type="HSeparator" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
 
 [node name="EarningsLabel" type="Label" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Earnings: +₱0"
 
-[node name="ExpensesLabel" type="Label" parent="Control/Panel/VBoxContainer"]
+[node name="FamilyExpensesLabel" type="Label" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
-text = "Expenses: -₱0"
+text = "  Family Expenses: -₱0"
+
+[node name="FishingExpensesLabel" type="Label" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+text = "  Fishing Costs: -₱0"
+
+[node name="Separator2" type="HSeparator" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
 
 [node name="NetLabel" type="Label" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2

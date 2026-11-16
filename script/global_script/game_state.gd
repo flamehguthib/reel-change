@@ -18,6 +18,8 @@ var debug_start_with_talipapa_test_state: bool = false
 # Daily tracking for summary
 var daily_earnings: int = 0
 var daily_expenses: int = 0
+var daily_family_expenses: int = 0
+var daily_fishing_expenses: int = 0
 var last_day_summary: Dictionary = {}
 
 #Day Tracking System
@@ -283,10 +285,10 @@ func sleep_until_morning() -> void:
 	# Deduct family daily expenses (rice, food, electricity)
 	var expense := DAILY_FAMILY_EXPENSE
 	if current_money >= expense:
-		spend_money(expense)
+		spend_money(expense, "family")
 		print("Deducted P%d for family daily expenses" % expense)
 	else:
-		spend_money(current_money) # Spend everything
+		spend_money(current_money, "family") # Spend everything
 		print("Money ran out paying family expenses!")
 		
 	# Store summary
@@ -294,11 +296,15 @@ func sleep_until_morning() -> void:
 		"day": current_day,
 		"earnings": daily_earnings,
 		"expenses": daily_expenses,
+		"family_expenses": daily_family_expenses,
+		"fishing_expenses": daily_fishing_expenses,
 		"net": daily_earnings - daily_expenses
 	}
 	# Reset for next day
 	daily_earnings = 0
 	daily_expenses = 0
+	daily_family_expenses = 0
+	daily_fishing_expenses = 0
 
 	advance_day()
 	print("Slept - Day %d, Energy restored" % current_day)
@@ -321,7 +327,7 @@ func can_afford_refuel() -> bool:
 func buy_gas() -> bool:
 	"""Attempt to refuel gas. Returns true if successful."""
 	if can_afford_refuel():
-		spend_money(gas_refuel_cost)
+		spend_money(gas_refuel_cost, "fishing")
 		refuel_gas(gas_refuel_amount)
 		return true
 	return false
@@ -376,12 +382,17 @@ func add_money(amount: int) -> void:
 	daily_earnings += amount
 	print("Money: ₱%d / ₱%d" % [current_money, money_goal])
 
-func spend_money(amount: int) -> void:
-	"""Deduct money and track daily expenses."""
+func spend_money(amount: int, category: String = "fishing") -> void:
+	"""Deduct money and track daily expenses by category."""
 	if amount <= 0:
 		return
 	current_money -= amount
 	daily_expenses += amount
+	match category:
+		"family":
+			daily_family_expenses += amount
+		"fishing":
+			daily_fishing_expenses += amount
 	if current_money < 0:
 		current_money = 0
 
@@ -515,7 +526,7 @@ func can_afford_paon_hipon() -> bool:
 
 func buy_paon_hipon() -> bool:
 	if can_afford_paon_hipon():
-		spend_money(HIPON_BAIT_COST)
+		spend_money(HIPON_BAIT_COST, "fishing")
 		hipon_bait_count += 5
 		active_bait = "hipon"
 		return true
@@ -526,7 +537,7 @@ func can_afford_paon_tahong() -> bool:
 
 func buy_paon_tahong() -> bool:
 	if can_afford_paon_tahong():
-		spend_money(TAHONG_BAIT_COST)
+		spend_money(TAHONG_BAIT_COST, "fishing")
 		tahong_bait_count += 3
 		active_bait = "tahong"
 		return true
@@ -543,7 +554,7 @@ func can_afford_bait() -> bool:
 
 func buy_bait() -> bool:
 	if can_afford_bait():
-		spend_money(BAIT_COST)
+		spend_money(BAIT_COST, "fishing")
 		has_bait = true
 		return true
 	return false
@@ -553,7 +564,7 @@ func can_upgrade_rod() -> bool:
 
 func upgrade_rod() -> bool:
 	if can_upgrade_rod():
-		spend_money(ROD_UPGRADE_COST)
+		spend_money(ROD_UPGRADE_COST, "fishing")
 		rod_level += 1
 		return true
 	return false
@@ -563,7 +574,7 @@ func can_upgrade_boat() -> bool:
 
 func upgrade_boat() -> bool:
 	if can_upgrade_boat():
-		spend_money(BOAT_UPGRADE_COST)
+		spend_money(BOAT_UPGRADE_COST, "fishing")
 		boat_level += 1
 		max_gas += 1
 		return true
