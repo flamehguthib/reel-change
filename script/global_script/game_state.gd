@@ -15,6 +15,11 @@ var money_goal: int = 2500 # Daughter's Graduation Gift & Family Debt Goal
 var fish_inventory: Array = []  # Array of species ids
 var debug_start_with_talipapa_test_state: bool = false
 
+# Daily tracking for summary
+var daily_earnings: int = 0
+var daily_expenses: int = 0
+var last_day_summary: Dictionary = {}
+
 #Day Tracking System
 enum TIME_PERIOD {Morning, Afternoon, Night}
 var current_time_index: int = 0
@@ -278,11 +283,22 @@ func sleep_until_morning() -> void:
 	# Deduct family daily expenses (rice, food, electricity)
 	var expense := DAILY_FAMILY_EXPENSE
 	if current_money >= expense:
-		current_money -= expense
+		spend_money(expense)
 		print("Deducted P%d for family daily expenses" % expense)
 	else:
-		current_money = 0
+		spend_money(current_money) # Spend everything
 		print("Money ran out paying family expenses!")
+		
+	# Store summary
+	last_day_summary = {
+		"day": current_day,
+		"earnings": daily_earnings,
+		"expenses": daily_expenses,
+		"net": daily_earnings - daily_expenses
+	}
+	# Reset for next day
+	daily_earnings = 0
+	daily_expenses = 0
 
 	advance_day()
 	print("Slept - Day %d, Energy restored" % current_day)
@@ -305,7 +321,7 @@ func can_afford_refuel() -> bool:
 func buy_gas() -> bool:
 	"""Attempt to refuel gas. Returns true if successful."""
 	if can_afford_refuel():
-		current_money -= gas_refuel_cost
+		spend_money(gas_refuel_cost)
 		refuel_gas(gas_refuel_amount)
 		return true
 	return false
@@ -355,9 +371,19 @@ func get_time_of_day() -> String:
 	return TIME_PERIOD.keys()[current_time]
 
 func add_money(amount: int) -> void:
-	"""Add money."""
+	"""Add money and track daily earnings."""
 	current_money += amount
+	daily_earnings += amount
 	print("Money: ₱%d / ₱%d" % [current_money, money_goal])
+
+func spend_money(amount: int) -> void:
+	"""Deduct money and track daily expenses."""
+	if amount <= 0:
+		return
+	current_money -= amount
+	daily_expenses += amount
+	if current_money < 0:
+		current_money = 0
 
 func add_fish_to_inventory(species_id: String) -> void:
 	"""Store caught fish until sold at the talipapa and consume active bait."""
