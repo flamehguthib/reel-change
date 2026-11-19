@@ -192,7 +192,7 @@ position = Vector2(-4.5, 3)
 shape = SubResource("RectangleShape2D_0063d")
 
 [node name="MountPoint" type="Marker2D" parent="." unique_id=1588901923]
-position = Vector2(-11.5, -35.5)
+position = Vector2(-11.5, -34)
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=415937869]
 position = Vector2(-26, -15)
