@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 func _process(_delta):
 	if not Input.is_action_just_pressed("ESC"):

@@ -1,5 +1,5 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1794985648
+::res://::1795112037
 ARCHITECTURE.md::TextFile::-1::1793637262::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::7035748302501140234::1790281773::1790288514::1::::<><><>0<>0<>e24970e3d095c7f15b3d2e8290ac8b24<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1790288514::0::1::::<><><>0<>0<><>::
@@ -26,8 +26,13 @@ BOAT remaked.jpg::::-1::1790281773::1790281773::0::::<><><>0<>0<>0604452b04e286a
 boat_hi.png::CompressedTexture2D::790848819394872510::1790281773::1790288514::1::::<><><>0<>0<>216761a18dc2bc8a6ed230a49caa6cd5<>res://.godot/imported/boat_hi.png-1d48bc475f2400df7b8c6daf94128cfb.ctex::
 idle_boat.png::CompressedTexture2D::155816313803274189::1790897889::1790897955::1::::<><><>0<>0<>0247cc04f64b58477dcf0fc25aa99c2d<>res://.godot/imported/idle_boat.png-244ba1a7c59de79e8d777dc66d142136.ctex::
 idle_boat_dark.png::CompressedTexture2D::1135765410640191521::1790898576::1790898591::1::::<><><>0<>0<>395b3a0904e896879da4b4ea090420f8<>res://.godot/imported/idle_boat_dark.png-c08b0426d5ddd27d368ac35681e0f215.ctex::
-::res://assets/boat_minigame/::1794988134
-::res://assets/boat_minigame/background/::1794988254
+::res://assets/boat_minigame/::1795115625
+::res://assets/boat_minigame/assets/::1795117326
+click.svg::CompressedTexture2D::6488496723789967325::1795115609::1795115638::1::::<><><>0<>0<>97d166c6e5cc5ee65613686f32975259<>res://.godot/imported/click.svg-170287eb5882f9f8b8e6044c442ed96e.ctex::
+mousecleck.png::CompressedTexture2D::4731322215700819320::1795117321::1795117330::1::::<><><>0<>0<>722cc7f376cb341bbc1fe6f91401ec07<>res://.godot/imported/mousecleck.png-de671ac261d8828a7ef596f50843cd60.ctex::
+::res://assets/boat_minigame/background/::1795115460
+engine_background.png::CompressedTexture2D::5750032364487131023::1795113730::1795113758::1::::<><><>0<>0<>fcedc653d7f3ce0ea227210e722f1c6c<>res://.godot/imported/engine_background.png-195c64fcaf59275cf8f3b4d639897380.ctex::
+engine_background_no_border.png::CompressedTexture2D::843034324731742856::1795115448::1795115460::1::::<><><>0<>0<>6cf034605e6faafa8d5ca89a0bf57b25<>res://.godot/imported/engine_background_no_border.png-e184460e67f9f8ef422acb00148c93f3.ctex::
 giminayeyay.jpg::CompressedTexture2D::8398419747943075508::1794988119::1794988214::1::::<><><>0<>0<>3e08724245244caaa63f2c2a60364085<>res://.godot/imported/giminayeyay.jpg-47ce0f133671466101a400acb238c040.ctex::
 ihategiminayeyay.jpeg::CompressedTexture2D::4903660362895035068::1794988245::1794988255::1::::<><><>0<>0<>906e96b8fff71e9f2e82329bde8d39a3<>res://.godot/imported/ihategiminayeyay.jpeg-0ffe3b20f52593cff3b1af52c0d4319c.ctex::
 ::res://assets/boat_minigame/cogs/::1794981248
@@ -266,8 +271,8 @@ fishing_mechanic.tscn::PackedScene::5553413158167626639::1790918649::0::1::::<><
 ::res://scenes/location/::1794693245
 main_scene.tscn::PackedScene::2563535045295316081::1790920838::0::1::::<><><>0<>0<><>::uid://ccllmaf22jug7::::res://assets/sceneries/Day Extended Version Spliced/33%.jpg<>uid://bn5wuisa06wnf::::res://script/sceneries script/main_scene.gd<>uid://rk83fbji3h05::::res://script/sceneries script/home_animation.gd<>uid://f665dkpdo4o1::::res://assets/Afternoon/afternoon_1.png<>uid://543wi1tvcl2i::::res://assets/sceneries/Day Extended Version Spliced/66%.jpg<>uid://cnb1y0ckjx3js::::res://assets/Afternoon/afternoon_2.png<>uid://7tn3u7wcpgro::::res://script/spawn.gd<>uid://sir8qsldsspa::::res://script/sleep_zone.gd<>uid://o74e6igij8u6::::res://assets/Night/night_1.png<>uid://bjworn45gymki::::res://scenes/Fisherman/boat.tscn<>uid://bj4jxknn3ouec::::res://assets/Afternoon/afternoon_3.png<>uid://c7p6yg3ngofg6::::res://assets/Night/night_2_bop.png<>uid://cxgxwnd0fadow::::res://assets/Afternoon/afternoon_4.png<>uid://bsbcnsptji28::::res://scenes/ui/hud.tscn<>uid://b6by8vo4xqqgj::::res://assets/Afternoon/afternoon_5.png<>uid://ckoih5dwcgjvq::::res://script/sea_border.gd<>uid://dxu18aq33cw3p::::res://assets/Night/night_3.png<>uid://dp3egokfw7d8c::::res://assets/Afternoon/afternoon_6.png<>uid://w66n8vavl2dg::::res://assets/Night/night_4.png<>uid://crars01vpg0bx::::res://assets/ui/E.png<>uid://4ptkpn0cvm8y::::res://assets/Night/night_5.png<>uid://cefgalhblxedd::::res://script/talipapa.gd<>uid://c3v3rs67m36fa::::res://assets/Afternoon/afternoon_7.png<>uid://bsud8dfcywf3a::::res://assets/Night/night_6.png<>uid://dwepws2hv5va1::::res://assets/Night/night_7.png<>uid://en5uttrvft4w::::res://assets/Night/night_8.png<>uid://bryylrgduv1kx::::res://script/sceneries script/lightning_flash.gd
 OpenSea.tscn::PackedScene::8292557682354463281::1794693245::0::1::::<><><>0<>0<><>::uid://bldcqe2lh3r::::res://script/sceneries script/open_sea.gd<>uid://b474x0lbj3dur::::res://assets/sceneries/Settings Extension (3).png<>uid://c4nojc5cw6y6::::res://scenes/Fisherman/fisherman.tscn<>uid://cr3wnspm7t0ym::::res://assets/Afternoon/Afternoon_Sea/afternoon_1_sea.png<>uid://bjworn45gymki::::res://scenes/Fisherman/boat.tscn<>uid://b7k6rua1krntj::::res://assets/Afternoon/Afternoon_Sea/afternoon_2_sea.png<>uid://bsbcnsptji28::::res://scenes/ui/hud.tscn<>uid://cvjeuqbu73to::::res://assets/Afternoon/Afternoon_Sea/afternoon_3_sea.png<>uid://ckoih5dwcgjvq::::res://script/sea_border.gd<>uid://dbwx7fk7mkobe::::res://assets/Afternoon/Afternoon_Sea/afternoon_4_sea.png<>uid://1kx4sjpff03i::::res://assets/Afternoon/Afternoon_Sea/afternoon_5_sea.png<>uid://crars01vpg0bx::::res://assets/ui/E.png<>uid://dt5ydhmlbpbr1::::res://assets/Afternoon/Afternoon_Sea/afternoon_6_sea.png<>uid://dweebuv04mfrm::::res://assets/Night/Night_Sea/night_sea_1.png<>uid://cx6me1v503cyy::::res://script/sceneries script/open_sea_anim.gd<>uid://dkr2pqmckj2uc::::res://assets/Night/Night_Sea/night_sea_2.png<>uid://c8axosuqsaho7::::res://assets/Night/Night_Sea/night_sea_3.png<>uid://chcdgodnvhy2a::::res://assets/Night/Night_Sea/night_sea_4.png<>uid://cgysilkwb7cv6::::res://assets/Night/Night_Sea/night_sea_5.png<>uid://by4hag8chvp0j::::res://assets/Night/Night_Sea/night_sea_6.png<>uid://bryylrgduv1kx::::res://script/sceneries script/lightning_flash.gd
-::res://scenes/minigames/::1794987763
-boat_minigame.tscn::PackedScene::6940726257513047695::1794987763::0::1::::<><><>0<>0<><>::uid://daldox8dnifhx::::res://script/minigame_scripts/boat_minigame/grid_container.gd<>uid://bwbtfor2xnme4::::res://assets/boat_minigame/cogs/SpriteSheets/Bronze Gear Wheels/Gear 2 - Bronze_spritesheet.png
+::res://scenes/minigames/::1795115707
+boat_minigame.tscn::PackedScene::6940726257513047695::1795115707::0::1::::<><><>0<>0<><>::uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf<>uid://daldox8dnifhx::::res://script/minigame_scripts/boat_minigame/grid_container.gd<>uid://bwbtfor2xnme4::::res://assets/boat_minigame/cogs/SpriteSheets/Bronze Gear Wheels/Gear 2 - Bronze_spritesheet.png<>uid://mamwf5qgjxs7::::res://assets/boat_minigame/background/engine_background_no_border.png
 ::res://scenes/ui/::1794842834
 character_body_2d.gd::GDScript::8494337837325850110::1790887664::0::1::::<>CharacterBody2D<><>0<>0<><>::
 controls.tscn::PackedScene::649668182521058586::1794692549::0::1::::<><><>0<>0<><>::uid://dv6fkeidgb5qf::::res://fishing_game_assets/Parallax Layer 2_ Foreground Foliage.png<>uid://blgljijux8lqm::::res://script/controls.gd<>uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf
@@ -305,9 +310,9 @@ events.gd::GDScript::2889311995677608553::1790281773::0::1::::<>Node<><>0<>0<><>
 game_state.gd::GDScript::7903041953554177962::1794842834::0::1::::<>Node<><>0<>0<><>::
 sound_manager.gd::GDScript::5186472539235188009::1790281773::0::1::::<>Node<><>0<>0<><>::
 ::res://script/minigame_scripts/::1794984774
-::res://script/minigame_scripts/boat_minigame/::1794987359
-grid_container.gd::GDScript::7182178617636526793::1794987359::0::1::::<>GridContainer<><>0<>0<><>::
+::res://script/minigame_scripts/boat_minigame/::1795116647
 cog_ui.gd::GDScript::4238121769522516237::1794986420::0::1::::CogUI<>TextureRect<><>0<>0<><>::
+grid_container.gd::GDScript::7182178617636526793::1795116647::0::1::::<>GridContainer<><>0<>0<><>::
 ::res://script/player_script/::1790281773
 area_2d.gd::GDScript::1162523466536058258::1790281773::0::1::::<>Area2D<><>0<>0<><>::
 ::res://script/sceneries script/::1794694937

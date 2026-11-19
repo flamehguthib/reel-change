@@ -1,33 +1,62 @@
 [gd_scene format=3 uid="uid://c55e0oae2q8vr"]
 
+[ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="1_e0pqp"]
+[ext_resource type="Script" uid="uid://du6jt4olflrn5" path="res://script/minigame_scripts/boat_minigame/boat_minigame.gd" id="1_i0vp1"]
 [ext_resource type="Script" uid="uid://daldox8dnifhx" path="res://script/minigame_scripts/boat_minigame/grid_container.gd" id="1_ob00f"]
-[ext_resource type="Texture2D" uid="uid://cb4mtmvgi7shg" path="res://assets/boat_minigame/background/ihategiminayeyay.jpeg" id="1_yhncm"]
 [ext_resource type="Texture2D" uid="uid://bwbtfor2xnme4" path="res://assets/boat_minigame/cogs/SpriteSheets/Bronze Gear Wheels/Gear 2 - Bronze_spritesheet.png" id="2_6cq4k"]
+[ext_resource type="Texture2D" uid="uid://mamwf5qgjxs7" path="res://assets/boat_minigame/background/engine_background_no_border.png" id="2_e0pqp"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6cq4k"]
-content_margin_left = 16.0
-content_margin_top = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
-texture = ExtResource("1_yhncm")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i0vp1"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("2_e0pqp")
 
-[node name="Node2D" type="Control" unique_id=1655621527]
-layout_mode = 3
-anchors_preset = 0
-mouse_filter = 2
+[node name="Node2D" type="CanvasLayer" unique_id=1050869910 node_paths=PackedStringArray("grid")]
+script = ExtResource("1_i0vp1")
+grid = NodePath("CenterContainer2/VBoxContainer/PanelContainer/GridContainer")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=741811538]
-layout_mode = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_6cq4k")
+[node name="CenterContainer2" type="CenterContainer" parent="." unique_id=508611052]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer" unique_id=996953150]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2" unique_id=1035874612]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer2/VBoxContainer" unique_id=741811538]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_i0vp1")
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer2/VBoxContainer/PanelContainer" unique_id=996953150]
 layout_mode = 2
 columns = 5
 script = ExtResource("1_ob00f")
 cog_texture = ExtResource("2_6cq4k")
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer2/VBoxContainer" unique_id=1725224565]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CenterContainer2/VBoxContainer/Panel" unique_id=255870238]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_e0pqp")
+text = "Cyan tiles are the starting cog/s
+Red tiles blocks you from placing a cog
+Yellow tiles are the cogs you must spin
+
+If the  yellow tiles is spinning in the right direction,
+it turns into Green Tiles
+You can only put up 10 max cogs"
+
+[node name="Label" type="Label" parent="CenterContainer2/VBoxContainer/Panel/Label2" unique_id=1231850417]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 365.0
+offset_bottom = -9.0
+theme_override_fonts/font = ExtResource("1_e0pqp")
+text = "Left click to place/remove cogs"

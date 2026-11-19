@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bjworn45gymki"]
 
 [ext_resource type="Script" uid="uid://ctgxv74ts5miy" path="res://script/boat.gd" id="2_1f4x8"]
+[ext_resource type="PackedScene" uid="uid://c55e0oae2q8vr" path="res://scenes/minigames/boat_minigame.tscn" id="2_u2646"]
 [ext_resource type="Texture2D" uid="uid://ljdfuf665wks" path="res://assets/boat/boat_hi.png" id="2_uhw1y"]
 [ext_resource type="Texture2D" uid="uid://qgf5jjlj3xun" path="res://assets/boat/idle_boat_dark.png" id="3_caegn"]
 [ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="3_hffbi"]
@@ -176,6 +177,7 @@ z_index = 1
 scale = Vector2(2, 2)
 collision_layer = 129
 script = ExtResource("2_1f4x8")
+engine_puzzle = ExtResource("2_u2646")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1961976248]
 position = Vector2(-8.5, -8.5)
