@@ -432,10 +432,6 @@ func on_casting_finished():
 	if $Player.animation == "cast":
 		$Player.play("fish")
 		$FishingRod.play("fish")
-		if $Player.flip_h == false:
-			$AnimationPlayer.play("fish_pos")
-		elif $Player.flip_h == true:
-			$AnimationPlayer.play("invert_fish_pos")
 		state = "fish"
 		spawn_fishing_bob()
 		is_charging_cast = false
@@ -495,6 +491,8 @@ func spawn_fish_bar():
 				current_fish_species.get("speed", 1.0),
 				current_fish_species.get("grace", 0.35)
 			)
+		if fish_ui.has_method("set_fish_icon") and current_fish_species.has("texture"):
+			fish_ui.set_fish_icon(current_fish_species["texture"])
 
 func update_fish_bar_position() -> void:
 	if fish_bar_instance == null or not is_instance_valid(fish_bar_instance):
@@ -517,7 +515,7 @@ func _on_fish_bar_finished(caught: bool) -> void:
 		if not fish_id.is_empty():
 			GameState.add_fish_to_inventory(fish_id)
 		var species_name: String = current_fish_species.get("name", "Fish")
-		show_message("Caught %s!" % species_name, Color(0.4, 1.0, 0.5))
+		show_message("Caught %s!" % species_name, Color(0.4, 1.0, 0.5), 36)
 	current_fish_species = {}
 	if state == "fish":
 		SoundManager.play_sfx("cast")
@@ -547,6 +545,7 @@ func _on_fish_bite() -> void:
 
 func _on_fish_missed() -> void:
 	print("Fish escaped before minigame")
+	show_message("Fish escaped!", Color(1.0, 0.0, 0.0), 36)
 	current_fish_species = {}
 	if state == "fish" and fish_bar_instance == null:
 		SoundManager.play_sfx("cast")
@@ -571,24 +570,24 @@ func is_fishing_mode_active() -> bool:
 var message_scene = preload("res://scenes/ui/DisplayMessage.tscn")
 var message_instance = null
 
-func show_message(text: String, color: Color = Color(1, 1, 1)) -> void:
+func show_message(text: String, color: Color = Color(1, 1, 1), font_size: int = 28) -> void:
 	if message_instance == null or not is_instance_valid(message_instance):
 		message_instance = message_scene.instantiate()
 		add_child(message_instance)
 		message_instance.z_as_relative = false
 		message_instance.z_index = 200
-		message_instance.position = Vector2(-100, -260)
+		message_instance.position = Vector2(-100, -100)
 	var label = message_instance.get_node_or_null("Label")
 	if label == null:
 		return
 	label.text = text
 	label.add_theme_color_override("font_color", color)
+	label.add_theme_font_size_override("font_size", font_size)
 	label.modulate = Color(1, 1, 1, 0)
 	var tween = create_tween()
 	tween.tween_property(label, "modulate:a", 1.0, 0.15)
 	tween.tween_interval(1.4)
 	tween.tween_property(label, "modulate:a", 0.0, 0.4)
-
 
 
 

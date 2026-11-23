@@ -19,6 +19,16 @@ const GAS_DRAIN_AMOUNT := 1
 var row_energy_drain_timer := 0.0
 const ROW_ENERGY_DRAIN_INTERVAL := 2.5 # 1 energy point per 2.5s of rowing
 
+#boat break variables
+@export var engine_puzzle: PackedScene
+var is_broken: bool = false 
+var active_puzzle: CanvasLayer = null
+@export_range(0.0, 1.0, 0.01) var breakdown_chance: float = 0.05
+@export var check_interval: float = 1.0 # Seconds between each chance roll
+@export var only_roll_while_moving: bool = true
+var check_timer: float = 0.0
+var puzzle_layer: CanvasLayer = null
+
 func _ready() -> void:
 	add_to_group("boats")
 	if interact_area == null:
@@ -32,9 +42,11 @@ func _ready() -> void:
 		
 
 func _physics_process(_delta: float) -> void:
-	
 	if rider == null:
 		velocity = Vector2.ZERO
+		return
+		
+	if is_broken:
 		return
 	
 	var rider_is_fishing := false
@@ -107,6 +119,7 @@ func _physics_process(_delta: float) -> void:
 					
 
 	move_and_slide()
+	_roll_breakdown_chance(_delta)
 
 	if rider != null:
 		rider.global_position = get_mount_position()
@@ -194,3 +207,33 @@ func setup_boat_camera(camera_zoom: Vector2, limit: Rect2):
 	cam.limit_top = limit.position.y
 	cam.limit_bottom = limit.size.y
 	cam.limit_right = limit.size.x
+	
+func break_engine() -> void:
+	if is_broken or engine_puzzle == null:
+		return
+
+	is_broken = true
+	velocity = Vector2.ZERO # Stops boat drift while repairing (remove if using RigidBody2D)
+
+	active_puzzle = engine_puzzle.instantiate() as CanvasLayer
+	get_tree().current_scene.add_child(active_puzzle)
+	active_puzzle.puzzle_solved.connect(_on_engine_repaired, CONNECT_ONE_SHOT)
+
+	
+func _on_engine_repaired() -> void:
+	# Short pause so the player sees the solved green grid before the UI closes
+	await get_tree().create_timer(0.6).timeout
+	if is_instance_valid(active_puzzle):
+		active_puzzle.queue_free()
+	active_puzzle = null
+	is_broken = false
+
+func _roll_breakdown_chance(delta: float) -> void:
+	if only_roll_while_moving and velocity.length() < 10.0:
+		return
+
+	check_timer += delta
+	if check_timer >= check_interval:
+		check_timer = 0.0
+		if randf() < breakdown_chance:
+			break_engine()
