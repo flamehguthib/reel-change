@@ -89,4 +89,10 @@ func check_win_loss():
 	elif progress <= 0:
 		print("Fish Escaped!")
 		emit_signal("finished", false)
-		queue_free()
+		queue_free()	
+
+@onready var target_fish_icon = %Fish_icon
+
+func set_fish_icon(new_texture: Texture2D) -> void:
+	if target_fish_icon != null and new_texture != null:
+		target_fish_icon.texture = new_texture

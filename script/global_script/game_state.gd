@@ -94,7 +94,7 @@ const SPECIES: Array[Dictionary] = [
 		"min_value": 40, "max_value": 70,
 		"weight": 34,
 		"speed": 1.0, "grace": 0.45,
-		"emoji": "🐟",
+		"texture": preload("res://assets/fish/tilapia.png"),
 	},
 	{
 		"id": "galunggong",
@@ -102,7 +102,7 @@ const SPECIES: Array[Dictionary] = [
 		"min_value": 70, "max_value": 110,
 		"weight": 28,
 		"speed": 1.15, "grace": 0.40,
-		"emoji": "🐟",
+		"texture": preload("res://assets/fish/galunggong.png"),
 	},
 	{
 		"id": "bangus",
@@ -110,7 +110,7 @@ const SPECIES: Array[Dictionary] = [
 		"min_value": 90, "max_value": 140,
 		"weight": 22,
 		"speed": 1.3, "grace": 0.35,
-		"emoji": "🐠",
+		"texture": preload("res://assets/fish/bangus.png"),
 	},
 	{
 		"id": "alimango",
@@ -118,7 +118,7 @@ const SPECIES: Array[Dictionary] = [
 		"min_value": 200, "max_value": 350,
 		"weight": 11,
 		"speed": 1.55, "grace": 0.30,
-		"emoji": "🦀",
+		"texture": preload("res://assets/fish/alimango.png"),
 	},
 	{
 		"id": "lapulapu",
@@ -126,7 +126,7 @@ const SPECIES: Array[Dictionary] = [
 		"min_value": 300, "max_value": 450,
 		"weight": 5,
 		"speed": 1.85, "grace": 0.25,
-		"emoji": "🐡",
+		"texture": preload("res://assets/fish/lapulapu.png"),
 	},
 ]
 

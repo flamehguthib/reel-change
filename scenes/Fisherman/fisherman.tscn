@@ -426,10 +426,6 @@ region = Rect2(164, 328, 164, 164)
 atlas = ExtResource("8_rhwrs")
 region = Rect2(328, 328, 164, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ufy8k"]
-atlas = ExtResource("8_rhwrs")
-region = Rect2(0, 492, 123, 164)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_hn2hl"]
 animations = [{
 "frames": [{
@@ -466,7 +462,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ufy8k")
+"texture": SubResource("AtlasTexture_642fh")
 }],
 "loop": 1,
 "name": &"fish",
@@ -546,9 +542,9 @@ texture_repeat = 2
 position = Vector2(-24, -4.140251)
 scale = Vector2(3, 3.0182927)
 sprite_frames = SubResource("SpriteFrames_hn2hl")
-animation = &"hook"
-frame = 3
-frame_progress = 1.0
+animation = &"fish"
+frame_progress = 0.18575169
+offset = Vector2(30, 35)
 
 [node name="FishingRodTip" type="Marker2D" parent="FishingRod" unique_id=1299054818]
 unique_name_in_owner = true
@@ -558,13 +554,8 @@ position = Vector2(79.333336, 433.07275)
 
 [node name="Pause" parent="CanvasLayer" unique_id=1789781790 instance=ExtResource("2_e7hpt")]
 visible = false
-z_index = 100
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1526013981]
 visible = false
