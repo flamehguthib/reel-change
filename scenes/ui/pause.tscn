@@ -3,63 +3,163 @@
 [ext_resource type="Script" uid="uid://b35nvcdjt14y" path="res://script/ui_scripts/pause.gd" id="1_xld5c"]
 [ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="2_k23cl"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
+bg_color = Color(0.8751118, 0.9595291, 0.9988827, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.04303915, 0.043039165, 0.04303909, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.28235295)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+bg_color = Color(0.68406814, 0.9035979, 0.9999998, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.04303915, 0.043039165, 0.04303909, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.28235295)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(0.80766165, 0.9364405, 0.99999934, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.04303915, 0.043039165, 0.04303909, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.28235295)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7vrkn"]
+
 [node name="Pause" type="CanvasLayer" unique_id=426163400]
 process_mode = 3
 layer = 10
 script = ExtResource("1_xld5c")
 
 [node name="Label" type="Label" parent="." unique_id=1011295418]
-offset_left = 397.0
-offset_top = 39.0
-offset_right = 454.0
-offset_bottom = 62.0
-scale = Vector2(3, 3)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -200.0
+offset_top = 60.0
+offset_right = 200.0
+offset_bottom = 160.0
 theme_override_fonts/font = ExtResource("2_k23cl")
+theme_override_font_sizes/font_size = 72
 text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect" type="ColorRect" parent="." unique_id=807382812]
-process_mode = 3
-offset_left = -1176.0
-offset_top = -298.0
-offset_right = 306.0
-offset_bottom = 348.0
-scale = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 color = Color(0, 0, 0, 0.34117648)
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=871859804]
-offset_left = 349.0
-offset_top = 126.0
-offset_right = 482.0
-offset_bottom = 262.0
-scale = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -50.0
+offset_right = 250.0
+offset_bottom = 150.0
+theme_override_constants/separation = 20
 
 [node name="Continue" type="Button" parent="VBoxContainer" unique_id=1382163369]
+modulate = Color(0.9428228, 0.94282264, 0.94282264, 1)
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k23cl")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7vrkn")
 text = "Continue"
-metadata/_edit_lock_ = true
 
 [node name="Main Menu" type="Button" parent="VBoxContainer" unique_id=945565824]
+modulate = Color(0.9428228, 0.94282264, 0.94282264, 1)
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k23cl")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7vrkn")
 text = "Main Menu"
-metadata/_edit_lock_ = true
 
-[node name="FUCKING MUTE" type="Button" parent="VBoxContainer" unique_id=1828247773]
+[node name="Mute" type="Button" parent="VBoxContainer" unique_id=1828247773]
+modulate = Color(0.9428228, 0.94282264, 0.94282264, 1)
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k23cl")
-text = "Mute Sounds >:("
-metadata/_edit_lock_ = true
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7vrkn")
+text = "Mute"
 
 [node name="Exit" type="Button" parent="VBoxContainer" unique_id=2071622264]
+modulate = Color(0.9428228, 0.94282264, 0.94282264, 1)
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_k23cl")
-text = "Exit
-"
-metadata/_edit_lock_ = true
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7vrkn")
+text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="VBoxContainer/FUCKING MUTE" to="." method="_on_fucking_mute_pressed"]
+[connection signal="pressed" from="VBoxContainer/Mute" to="." method="_on_fucking_mute_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

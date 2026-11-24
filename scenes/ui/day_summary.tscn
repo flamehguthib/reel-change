@@ -1,6 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://day_summary_temp_001"]
+[gd_scene load_steps=3 format=3 uid="uid://day_summary_temp_001"]
 
 [ext_resource type="Script" path="res://script/ui_scripts/day_summary.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="2_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://pyknrb6rnfmp" path="res://assets/ui/Day_summary.png" id="3_day_sum"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_day_sum"]
+texture = ExtResource("3_day_sum")
+stretch_mode = 0
+margin_left = 0
+margin_top = 0
+margin_right = 0
+margin_bottom = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
+bg_color = Color(0.8751118, 0.9595291, 0.9988827, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.04303915, 0.043039165, 0.04303909, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.28235295)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+bg_color = Color(0.68406814, 0.9035979, 0.9999998, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.04303915, 0.043039165, 0.04303909, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.28235295)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(0.80766165, 0.9364405, 0.99999934, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.04303915, 0.043039165, 0.04303909, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.28235295)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.14)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7vrkn"]
 
 [node name="DaySummary" type="CanvasLayer"]
 layer = 101
@@ -24,53 +81,68 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.470588)
 
 [node name="Panel" type="Panel" parent="Control"]
-custom_minimum_size = Vector2(400, 300)
+custom_minimum_size = Vector2(700, 800)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -150.0
-offset_right = 200.0
-offset_bottom = 150.0
+offset_left = -350.0
+offset_top = -400.0
+offset_right = 350.0
+offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_day_sum")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -80.0
+offset_right = 300.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="DayLabel" type="Label" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 48
+theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
 text = "Summary of Day 1"
 horizontal_alignment = 1
+custom_minimum_size = Vector2(600, 1)
 
 [node name="Separator1" type="HSeparator" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
 
 [node name="EarningsLabel" type="Label" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
 text = "Earnings: +₱0"
 
 [node name="FamilyExpensesLabel" type="Label" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
 text = "  Family Expenses: -₱0"
 
 [node name="FishingExpensesLabel" type="Label" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
 text = "  Fishing Costs: -₱0"
 
 [node name="Separator2" type="HSeparator" parent="Control/Panel/VBoxContainer"]
@@ -78,7 +150,9 @@ layout_mode = 2
 
 [node name="NetLabel" type="Label" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
 text = "Net Profit: ₱0"
 
 [node name="Control" type="Control" parent="Control/Panel/VBoxContainer"]
@@ -86,7 +160,18 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="ContinueButton" type="Button" parent="Control/Panel/VBoxContainer"]
+modulate = Color(0.9428228, 0.94282264, 0.94282264, 1)
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7vrkn")
 text = "Next Day"
