@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cmdsexbts5j1f" path="res://assets/fisherman/long string casting/fisherman casting adjust string.png" id="7_ufy8k"]
 [ext_resource type="Texture2D" uid="uid://bm2w8b6a17xcn" path="res://assets/fisherman/long string casting/long_fishing_rod (test).png" id="8_rhwrs"]
 [ext_resource type="Script" uid="uid://cnrb4f0gohhdh" path="res://script/sceneries script/rain.gd" id="8_xpf6s"]
+[ext_resource type="Texture2D" uid="uid://c0wb8r07lyb38" path="res://assets/fisherman/ripple/ripple.png" id="9_ugtqp"]
 [ext_resource type="Texture2D" uid="uid://bknut2vyyx0qp" path="res://assets/ui/warneng.png" id="10_rhwrs"]
 [ext_resource type="Script" uid="uid://qteud7dilq55" path="res://script/player_script/area_2d.gd" id="11_area2d"]
 
@@ -486,6 +487,42 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hn2hl"]
+atlas = ExtResource("9_ugtqp")
+region = Rect2(0, 0, 24, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll2d4"]
+atlas = ExtResource("9_ugtqp")
+region = Rect2(24, 0, 24, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrot5"]
+atlas = ExtResource("9_ugtqp")
+region = Rect2(48, 0, 24, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p083l"]
+atlas = ExtResource("9_ugtqp")
+region = Rect2(72, 0, 24, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tlvsc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hn2hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ll2d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrot5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p083l")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufy8k"]
 size = Vector2(72, 12)
 
@@ -522,9 +559,9 @@ script = ExtResource("8_xpf6s")
 [node name="Player" type="AnimatedSprite2D" parent="." unique_id=37638068]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ofheh")
-animation = &"hook"
+animation = &"cast"
 autoplay = "idle"
-frame = 3
+frame = 8
 frame_progress = 1.0
 metadata/_edit_lock_ = true
 
@@ -534,21 +571,29 @@ scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_ovuf2")
 
 [node name="FishingRod" type="AnimatedSprite2D" parent="." unique_id=2005310400]
-visible = false
 clip_children = 2
 light_mask = 512
-z_index = 2
+z_index = 3
 texture_repeat = 2
-position = Vector2(-24, -4.140251)
+position = Vector2(-18.125, 4.3750005)
 scale = Vector2(3, 3.0182927)
 sprite_frames = SubResource("SpriteFrames_hn2hl")
-animation = &"fish"
-frame_progress = 0.18575169
-offset = Vector2(30, 35)
+animation = &"cast"
+frame = 8
+frame_progress = 1.0
 
 [node name="FishingRodTip" type="Marker2D" parent="FishingRod" unique_id=1299054818]
 unique_name_in_owner = true
-position = Vector2(79.333336, 433.07275)
+position = Vector2(60.833332, 106.22727)
+
+[node name="Ripple" type="AnimatedSprite2D" parent="FishingRod" unique_id=2125645775]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+position = Vector2(81.24999, 105.606064)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_tlvsc")
+frame_progress = 0.8981837
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1953319369]
 

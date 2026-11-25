@@ -53,19 +53,18 @@ shadow_offset = Vector2(0, 3.14)
 [node name="Pause" type="CanvasLayer" unique_id=426163400]
 process_mode = 3
 layer = 10
+follow_viewport_enabled = true
 script = ExtResource("1_xld5c")
 
 [node name="Label" type="Label" parent="." unique_id=1011295418]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.0
 anchor_right = 0.5
-anchor_bottom = 0.0
 offset_left = -200.0
 offset_top = 60.0
 offset_right = 200.0
 offset_bottom = 160.0
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_k23cl")
 theme_override_font_sizes/font_size = 72
 text = "Paused"
@@ -73,17 +72,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="ColorRect" parent="." unique_id=807382812]
-layout_mode = 1
 anchors_preset = 15
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.34117648)
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=871859804]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -93,6 +90,8 @@ offset_left = -250.0
 offset_top = -50.0
 offset_right = 250.0
 offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 20
 
 [node name="Continue" type="Button" parent="VBoxContainer" unique_id=1382163369]

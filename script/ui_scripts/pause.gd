@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 func _ready() -> void:
+	get_window().content_scale_size = Vector2i(1280, 1080)
 	# Setup button animations like main menu
 	for btn in $VBoxContainer.get_children():
 		if btn is Button:

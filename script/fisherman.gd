@@ -308,11 +308,6 @@ func update_charge(delta):
 
 func release_charge_cast():
 	is_charging_cast = false
-	var charge_ratio = get_charge_ratio()
-	cast_target_distance = lerp(min_cast_distance, max_cast_distance, charge_ratio)
-	arc_peak_height = lerp(min_arc_peak_height, max_arc_peak_height, charge_ratio)
-	cast_target_distance *= GameState.get_cast_power_multiplier()
-	arc_peak_height *= GameState.get_cast_power_multiplier()
 	$Player.play("cast")
 	$FishingRod.visible = true
 	SoundManager.play_sfx("cast")
@@ -435,9 +430,13 @@ func on_casting_finished():
 		state = "fish"
 		spawn_fishing_bob()
 		is_charging_cast = false
-		
+	
+	if $Player.animation == "fish":
+		%Ripple.play("default")
+		%Ripple.visible = true
 
 	if $Player.animation == "hook":
+		%Ripple.visible = false
 		$Player.play("fish")
 		$FishingRod.visible = false
 		state = "idle"
