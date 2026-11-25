@@ -22,6 +22,12 @@ var daily_family_expenses: int = 0
 var daily_fishing_expenses: int = 0
 var last_day_summary: Dictionary = {}
 
+# New receipt-style ledger tracking
+var daily_catches: Dictionary = {}          # {fish_name: {count: int, total: int}}
+var daily_expense_breakdown: Dictionary = {} # {bait: int, refuel: int, dock_fee: int, family: int}
+var daily_pearls_earned: int = 0
+var daily_weather: String = "Sunny"
+
 #Day Tracking System
 enum TIME_PERIOD {Morning, Afternoon, Night}
 var current_time_index: int = 0
@@ -145,14 +151,15 @@ func _ready() -> void:
 	current_energy = max_energy
 	current_gas = max_gas
 	current_money = 0
-	fish_inventory = ["tilapia", "tilapia", "bangus"]
+	fish_inventory = [] # Start empty
 	active_bait = "kawil"
 	hipon_bait_count = 0
 	tahong_bait_count = 0
 	weather = WEATHER_SUNNY
 	generate_daily_contract()
+	_reset_daily_ledger()
+	# Check if debug mode enabled
 	if debug_start_with_talipapa_test_state:
-		current_gas = 100
 		fish_inventory = ["tilapia", "galunggong", "bangus"]
 		print("Talipapa test state enabled: 3 fish on hand")
 
@@ -238,6 +245,8 @@ func claim_contract() -> bool:
 		match_indices.reverse()
 		for idx in match_indices:
 			fish_inventory.remove_at(idx)
+			# Record this fish as caught for ledger
+			_record_caught(target_id)
 
 		var total_reward: int = active_contract.get("reward", 0) + active_contract.get("bonus", 0)
 		add_money(total_reward)
@@ -276,11 +285,11 @@ func switch_bait(bait_type: String) -> bool:
 		return true
 	return false
 
-func sleep_until_morning() -> void:
-	"""Sleep to next day, deduct daily family expense, and fully recover energy."""
-	if not current_energy >= 100: 
+func sleep_until_morning() -> Dictionary:
+	"""Sleep to next day, deduct daily family expense, and fully recover energy.
+	Returns a ledger dictionary for the new receipt-style DaySummaryUI."""
+	if not current_energy >= 100:
 		current_energy += 45
-	update_time()	
 
 	# Deduct family daily expenses (rice, food, electricity)
 	var expense := DAILY_FAMILY_EXPENSE
@@ -290,8 +299,17 @@ func sleep_until_morning() -> void:
 	else:
 		spend_money(current_money, "family") # Spend everything
 		print("Money ran out paying family expenses!")
-		
-	# Store summary
+
+	# Build ledger for new DaySummaryUI
+	var ledger: Dictionary = {
+		"day": current_day,
+		"weather": daily_weather,
+		"catches": daily_catches,
+		"expenses": _build_expenses_array(),
+		"secondary_earned": daily_pearls_earned
+	}
+
+	# Store old summary for backwards compat
 	last_day_summary = {
 		"day": current_day,
 		"earnings": daily_earnings,
@@ -300,6 +318,7 @@ func sleep_until_morning() -> void:
 		"fishing_expenses": daily_fishing_expenses,
 		"net": daily_earnings - daily_expenses
 	}
+
 	# Reset for next day
 	daily_earnings = 0
 	daily_expenses = 0
@@ -307,7 +326,10 @@ func sleep_until_morning() -> void:
 	daily_fishing_expenses = 0
 
 	advance_day()
+	_reset_daily_ledger()
 	print("Slept - Day %d, Energy restored" % current_day)
+
+	return ledger
 
 func spend_gas(amount: int) -> bool:
 	"""Attempt to spend gas. Returns true if successful."""
@@ -328,6 +350,7 @@ func buy_gas() -> bool:
 	"""Attempt to refuel gas. Returns true if successful."""
 	if can_afford_refuel():
 		spend_money(gas_refuel_cost, "fishing")
+		_record_expense("refuel", gas_refuel_cost)
 		refuel_gas(gas_refuel_amount)
 		return true
 	return false
@@ -391,8 +414,11 @@ func spend_money(amount: int, category: String = "fishing") -> void:
 	match category:
 		"family":
 			daily_family_expenses += amount
+			_record_expense("family", amount)
 		"fishing":
 			daily_fishing_expenses += amount
+		"dock_fee":
+			_record_expense("dock_fee", amount)
 	if current_money < 0:
 		current_money = 0
 
@@ -403,6 +429,10 @@ func add_fish_to_inventory(species_id: String) -> void:
 	fish_inventory.append(species_id)
 	total_caught += 1
 	consume_active_bait()
+	# Record catch immediately so it appears in day summary
+	var species := get_species(species_id)
+	if species != null:
+		_record_caught(species.name)
 
 func consume_active_bait() -> void:
 	"""Consume 1 count of special bait upon successful catch."""
@@ -450,11 +480,28 @@ func sell_all_fish() -> int:
 
 	var payout := 0
 	var mult := get_weather_sell_multiplier()
+	# Count fish by type for ledger
+	var fish_counts: Dictionary = {}
 	for species_id in fish_inventory:
 		var s = get_species(species_id)
 		if s != null:
-			var base_val := randi_range(int(s.min_value), int(s.max_value))
-			payout += int(base_val * mult)
+			var fish_name: String = s.name
+			if fish_counts.has(fish_name):
+				fish_counts[fish_name] += 1
+			else:
+				fish_counts[fish_name] = 1
+
+	for fish_name: String in fish_counts:
+		var count: int = fish_counts[fish_name]
+		var s = get_species_by_name(fish_name)
+		if s != null:
+			var total_for_type := 0
+			for i in range(count):
+				var base_val := randi_range(int(s.min_value), int(s.max_value))
+				total_for_type += int(base_val * mult)
+			payout += total_for_type
+			_record_catch_sold(fish_name, count, total_for_type)
+
 	fish_inventory.clear()
 	add_money(payout)
 	return payout
@@ -462,6 +509,12 @@ func sell_all_fish() -> int:
 func get_species(species_id: String) -> Dictionary:
 	for s in SPECIES:
 		if s.get("id", "") == species_id:
+			return s
+	return {}
+
+func get_species_by_name(fish_name: String) -> Dictionary:
+	for s in SPECIES:
+		if s.get("name", "") == fish_name:
 			return s
 	return {}
 
@@ -527,6 +580,7 @@ func can_afford_paon_hipon() -> bool:
 func buy_paon_hipon() -> bool:
 	if can_afford_paon_hipon():
 		spend_money(HIPON_BAIT_COST, "fishing")
+		_record_expense("bait", HIPON_BAIT_COST)
 		hipon_bait_count += 5
 		active_bait = "hipon"
 		return true
@@ -538,6 +592,7 @@ func can_afford_paon_tahong() -> bool:
 func buy_paon_tahong() -> bool:
 	if can_afford_paon_tahong():
 		spend_money(TAHONG_BAIT_COST, "fishing")
+		_record_expense("bait", TAHONG_BAIT_COST)
 		tahong_bait_count += 3
 		active_bait = "tahong"
 		return true
@@ -621,3 +676,45 @@ func reset_game() -> void:
 func roll_weather() -> String:
 	randomize()
 	return weather_rolls.pick_random()
+
+
+# ===== DAILY LEDGER TRACKING =====
+
+func _reset_daily_ledger() -> void:
+	daily_catches = {}
+	daily_expense_breakdown = {"bait": 0, "refuel": 0, "dock_fee": 0, "family": 0}
+	daily_pearls_earned = 0
+	daily_weather = weather
+
+func _record_caught(fish_name: String) -> void:
+	"""Record a fish catch in the daily ledger for display purposes."""
+	if daily_catches.has(fish_name):
+		daily_catches[fish_name].count += 1
+	else:
+		daily_catches[fish_name] = {"count": 1, "total": 0}
+
+func _record_catch_sold(fish_name: String, count: int, total_value: int) -> void:
+	if daily_catches.has(fish_name):
+		daily_catches[fish_name].count += count
+		daily_catches[fish_name].total += total_value
+	else:
+		daily_catches[fish_name] = {"count": count, "total": total_value}
+
+func _record_expense(category: String, amount: int) -> void:
+	if daily_expense_breakdown.has(category):
+		daily_expense_breakdown[category] += amount
+
+func add_pearls(amount: int) -> void:
+	daily_pearls_earned += amount
+
+func _build_expenses_array() -> Array:
+	var expenses: Array = []
+	if daily_expense_breakdown.bait > 0:
+		expenses.append({"label": "Bait", "amount": daily_expense_breakdown.bait})
+	if daily_expense_breakdown.refuel > 0:
+		expenses.append({"label": "Refuel", "amount": daily_expense_breakdown.refuel})
+	if daily_expense_breakdown.dock_fee > 0:
+		expenses.append({"label": "Dock Fee", "amount": daily_expense_breakdown.dock_fee})
+	if daily_expense_breakdown.family > 0:
+		expenses.append({"label": "Family", "amount": daily_expense_breakdown.family})
+	return expenses

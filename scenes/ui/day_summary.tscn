@@ -1,16 +1,91 @@
-[gd_scene load_steps=3 format=3 uid="uid://day_summary_temp_001"]
+[gd_scene format=3 uid="uid://bhipxsk5wox5i"]
 
-[ext_resource type="Script" path="res://script/ui_scripts/day_summary.gd" id="1_script"]
 [ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="2_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://pyknrb6rnfmp" path="res://assets/ui/Day_summary.png" id="3_day_sum"]
 
+[sub_resource type="GDScript" id="GDScript_1blyj"]
+script/source = "extends CanvasLayer
+
+signal summary_closed
+
+@onready var day_label = $Control/Panel/VBoxContainer/DayLabel
+@onready var earnings_label = $Control/Panel/VBoxContainer/EarningsLabel
+@onready var family_expenses_label = $Control/Panel/VBoxContainer/FamilyExpensesLabel
+@onready var fishing_expenses_label = $Control/Panel/VBoxContainer/FishingExpensesLabel
+@onready var net_label = $Control/Panel/VBoxContainer/NetLabel
+@onready var continue_button = $Control/Panel/VBoxContainer/ContinueButton
+@onready var separator1 = $Control/Panel/VBoxContainer/Separator1
+@onready var separator2 = $Control/Panel/VBoxContainer/Separator2
+
+func _ready() -> void:
+	# Setup button animations like main menu
+	continue_button.pivot_offset = continue_button.size / 2
+	continue_button.item_rect_changed.connect(func(): continue_button.pivot_offset = continue_button.size / 2)
+
+	continue_button.mouse_entered.connect(_on_button_hover.bind(continue_button))
+	continue_button.mouse_exited.connect(_on_button_unhover.bind(continue_button))
+	continue_button.pressed.connect(_on_button_pressed_anim.bind(continue_button))
+
+	# Populate labels from GameState
+	var summary = GameState.last_day_summary
+	if summary.is_empty():
+		# Fallback for testing
+		day_label.text = \"Day Summary\"
+		earnings_label.text = \"Earnings: +₱0\"
+		family_expenses_label.text = \"  Family: -₱0\"
+		fishing_expenses_label.text = \"  Fishing: -₱0\"
+		net_label.text = \"Net: ₱0\"
+	else:
+		day_label.text = \"Summary of Day %d\" % summary.get(\"day\", 1)
+		earnings_label.text = \"Earnings: +₱%d\" % summary.get(\"earnings\", 0)
+		family_expenses_label.text = \"  Family Expenses: -₱%d\" % summary.get(\"family_expenses\", 0)
+		fishing_expenses_label.text = \"  Fishing Costs: -₱%d\" % summary.get(\"fishing_expenses\", 0)
+
+		var net = summary.get(\"net\", 0)
+		net_label.text = \"Net Profit: ₱%d\" % net
+
+		if net > 0:
+			net_label.add_theme_color_override(\"font_color\", Color.GREEN)
+		elif net < 0:
+			net_label.add_theme_color_override(\"font_color\", Color.RED)
+
+	continue_button.pressed.connect(_on_continue_pressed)
+	# Force focus for gamepad/keyboard support
+	continue_button.grab_focus()
+
+func _on_continue_pressed() -> void:
+	SoundManager.play_sfx(\"select\")
+	summary_closed.emit()
+	queue_free()
+
+func _on_button_hover(btn: Button) -> void:
+	var tw := create_tween()
+	tw.set_parallel(true)
+	tw.set_trans(Tween.TRANS_BACK)
+	tw.set_ease(Tween.EASE_OUT)
+	tw.tween_property(btn, \"scale\", Vector2(1.05, 1.05), 0.2)
+	tw.tween_property(btn, \"rotation_degrees\", 1.0, 0.2)
+	tw.tween_property(btn, \"modulate\", Color.WHITE, 0.2)
+
+func _on_button_unhover(btn: Button) -> void:
+	var tw := create_tween()
+	tw.set_parallel(true)
+	tw.set_trans(Tween.TRANS_SINE)
+	tw.set_ease(Tween.EASE_IN_OUT)
+	tw.tween_property(btn, \"scale\", Vector2.ONE, 0.2)
+	tw.tween_property(btn, \"rotation_degrees\", 0.0, 0.2)
+	tw.tween_property(btn, \"modulate\", Color(0.94, 0.94, 0.94), 0.2)
+
+func _on_button_pressed_anim(btn: Button) -> void:
+	var tw := create_tween()
+	tw.set_trans(Tween.TRANS_QUAD)
+	tw.set_ease(Tween.EASE_OUT)
+	tw.tween_property(btn, \"scale\", Vector2(0.9, 0.9), 0.1)
+	tw.tween_property(btn, \"scale\", Vector2(1.05, 1.05), 0.1)
+"
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_day_sum"]
 texture = ExtResource("3_day_sum")
-stretch_mode = 0
-margin_left = 0
-margin_top = 0
-margin_right = 0
-margin_bottom = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(0.8751118, 0.9595291, 0.9988827, 1)
@@ -59,11 +134,11 @@ shadow_offset = Vector2(0, 3.14)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7vrkn"]
 
-[node name="DaySummary" type="CanvasLayer"]
+[node name="DaySummary" type="CanvasLayer" unique_id=1879595244]
 layer = 101
-script = ExtResource("1_script")
+script = SubResource("GDScript_1blyj")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=642350476]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,7 +146,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=124128802]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,8 +155,23 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.470588)
 
-[node name="Panel" type="Panel" parent="Control"]
-custom_minimum_size = Vector2(700, 800)
+[node name="Panel" type="Panel" parent="Control" unique_id=917138901]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_day_sum")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel" unique_id=212235025]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,79 +179,64 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -350.0
-offset_top = -400.0
+offset_top = -120.0
 offset_right = 350.0
-offset_bottom = 400.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_day_sum")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -80.0
-offset_right = 300.0
-offset_bottom = 200.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 25
 alignment = 1
 
-[node name="DayLabel" type="Label" parent="Control/Panel/VBoxContainer"]
+[node name="DayLabel" type="Label" parent="Control/Panel/VBoxContainer" unique_id=817744361]
+custom_minimum_size = Vector2(700, 1)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_fu7sn")
-theme_override_font_sizes/font_size = 48
 theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 44
 text = "Summary of Day 1"
 horizontal_alignment = 1
-custom_minimum_size = Vector2(600, 1)
 
-[node name="Separator1" type="HSeparator" parent="Control/Panel/VBoxContainer"]
+[node name="Separator1" type="HSeparator" parent="Control/Panel/VBoxContainer" unique_id=1663358822]
 layout_mode = 2
 
-[node name="EarningsLabel" type="Label" parent="Control/Panel/VBoxContainer"]
+[node name="EarningsLabel" type="Label" parent="Control/Panel/VBoxContainer" unique_id=386830163]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_fu7sn")
-theme_override_font_sizes/font_size = 24
 theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 22
 text = "Earnings: +₱0"
 
-[node name="FamilyExpensesLabel" type="Label" parent="Control/Panel/VBoxContainer"]
+[node name="FamilyExpensesLabel" type="Label" parent="Control/Panel/VBoxContainer" unique_id=1820746921]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_fu7sn")
-theme_override_font_sizes/font_size = 24
 theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 22
 text = "  Family Expenses: -₱0"
 
-[node name="FishingExpensesLabel" type="Label" parent="Control/Panel/VBoxContainer"]
+[node name="FishingExpensesLabel" type="Label" parent="Control/Panel/VBoxContainer" unique_id=781249628]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_fu7sn")
-theme_override_font_sizes/font_size = 24
 theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 22
 text = "  Fishing Costs: -₱0"
 
-[node name="Separator2" type="HSeparator" parent="Control/Panel/VBoxContainer"]
+[node name="Separator2" type="HSeparator" parent="Control/Panel/VBoxContainer" unique_id=514557760]
 layout_mode = 2
 
-[node name="NetLabel" type="Label" parent="Control/Panel/VBoxContainer"]
+[node name="NetLabel" type="Label" parent="Control/Panel/VBoxContainer" unique_id=811165950]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_fu7sn")
-theme_override_font_sizes/font_size = 28
 theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 26
 text = "Net Profit: ₱0"
 
-[node name="Control" type="Control" parent="Control/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
+[node name="Control" type="Control" parent="Control/Panel/VBoxContainer" unique_id=133552120]
+custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="ContinueButton" type="Button" parent="Control/Panel/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="Control/Panel/VBoxContainer" unique_id=2102035280]
 modulate = Color(0.9428228, 0.94282264, 0.94282264, 1)
-custom_minimum_size = Vector2(120, 40)
+custom_minimum_size = Vector2(140, 44)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.11858118, 0.118581496, 0.11858127, 1)
@@ -169,7 +244,7 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_fu7sn")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")

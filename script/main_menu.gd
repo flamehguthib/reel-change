@@ -1,30 +1,28 @@
 extends Control
 
-func _ready():
+func _ready() -> void:
 	SoundManager.play_sfx("main_menu")
-	
-	get_window().content_scale_size = Vector2i(1280, 720)
-	
+
+	$AnimatedSprite2D.play("default")
+
 	# Intro animation
 	$VBoxContainer.modulate.a = 0
 	$VBoxContainer.position.y += 50
 	var intro_tw := create_tween().set_parallel(true)
 	intro_tw.tween_property($VBoxContainer, "modulate:a", 1.0, 1.0).set_trans(Tween.TRANS_SINE)
 	intro_tw.tween_property($VBoxContainer, "position:y", $VBoxContainer.position.y - 50, 1.0).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	
+
 	# Title breathing animation
 	_animate_title()
-	
+
 	for btn in $VBoxContainer.get_children():
 		if btn is Button:
-			# Ensure pivot is centered for scaling
 			btn.pivot_offset = btn.size / 2
 			btn.item_rect_changed.connect(func(): btn.pivot_offset = btn.size / 2)
-			
 			btn.mouse_entered.connect(_on_button_hover.bind(btn))
 			btn.mouse_exited.connect(_on_button_unhover.bind(btn))
 			btn.pressed.connect(_on_button_pressed_anim.bind(btn))
-	
+
 	_update_mute_button_text()
 
 func _animate_title() -> void:

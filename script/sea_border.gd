@@ -44,19 +44,22 @@ func _attempt_sail() -> void:
 		return
 
 	# Only require gas when sailing OUT to open sea (returning to town is always free)
-	var is_returning_to_town: bool = target_scene_path.is_empty()
-	if require_gas_to_cross and not is_returning_to_town and not GameState.can_travel_to_opensea():
+	var is_going_to_opensea: bool = require_gas_to_cross
+	if is_going_to_opensea and not GameState.can_travel_to_opensea():
 		_show_hint("Not enough gas to sail out! Need %d gas." % GameState.gas_cost_to_opensea)
 		return
 
 	# Spend gas only when sailing outward to open sea
-	if require_gas_to_cross and not is_returning_to_town:
+	if is_going_to_opensea:
 		SoundManager.stop_sfx("boat_move")
 		GameState.travel_to_opensea()
 	else:
 		SoundManager.stop_sfx("boat_move")
-	
-	GameState.update_time()
+
+	# Only advance time when going TO open sea (not returning)
+	if is_going_to_opensea:
+		GameState.update_time()
+
 	GameState.next_scene_path = target_scene_path
 	get_tree().change_scene_to_file("res://scenes/ui/loading_screen.tscn")
 

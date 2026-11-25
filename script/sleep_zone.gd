@@ -25,17 +25,19 @@ func _physics_process(_delta: float) -> void:
 			_perform_sleep()
 
 func _perform_sleep() -> void:
-	GameState.sleep_until_morning()
+	# Get ledger from GameState (returns dictionary for new DaySummaryUI)
+	var ledger: Dictionary = GameState.sleep_until_morning()
 	print("Slept until morning.")
-	
-	# Show Day Summary
-	var summary_scene = load("res://scenes/ui/day_summary.tscn")
+
+	# Show new receipt-style Day Summary
+	var summary_scene = load("res://scenes/ui/DaySummaryUI.tscn")
 	if summary_scene:
 		var summary_instance = summary_scene.instantiate()
 		get_tree().root.add_child(summary_instance)
-		# Wait for the user to click "Continue"
-		await summary_instance.summary_closed
-	
+		summary_instance.show_summary(ledger)
+		# Wait for the user to click "NEXT DAY >>"
+		await summary_instance.next_day_pressed
+
 	is_sleeping = false
 	if player_in_range != null and sleep_label != null:
 		sleep_label.visible = true

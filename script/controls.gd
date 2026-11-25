@@ -1,7 +1,7 @@
 extends Control
 
 func _ready() -> void:
-	get_window().content_scale_size = Vector2i(1280, 1080)
+	pass
 
 func _on_button_pressed() -> void:
 	SoundManager.stop_sfx("main_menu")

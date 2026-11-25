@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://d1uqbf1ofrlq"]
+
+[ext_resource type="Script" uid="uid://caj3i54x6oo6t" path="res://script/ui_scripts/day_summary_ui.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_paper"]
+content_margin_left = 14.0
+content_margin_top = 16.0
+content_margin_right = 14.0
+content_margin_bottom = 16.0
+bg_color = Color(0.96, 0.93, 0.85, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22, 0.18, 0.14, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_divider"]
+color = Color(0.45, 0.4, 0.34, 0.6)
+grow_begin = 0.0
+grow_end = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_secondary"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+bg_color = Color(0.9, 0.86, 0.76, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.3, 0.25, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stamp"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12, 0.55, 0.25, 1)
+
+[node name="DaySummaryUI" type="CanvasLayer" unique_id=73964063]
+layer = 100
+script = ExtResource("1_script")
+
+[node name="Dimmer" type="ColorRect" parent="." unique_id=1198288403]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.07, 0.1, 0.72)
+
+[node name="CenterWrapper" type="CenterContainer" parent="Dimmer" unique_id=2128357205]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReceiptPaper" type="PanelContainer" parent="Dimmer/CenterWrapper" unique_id=1438718375]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_paper")
+
+[node name="MainColumn" type="VBoxContainer" parent="Dimmer/CenterWrapper/ReceiptPaper" unique_id=1864955498]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="HeaderLabel" type="Label" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn" unique_id=1341495213]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.18, 0.15, 0.12, 1)
+theme_override_font_sizes/font_size = 14
+text = "PALENGKE LEDGER - DAY 4"
+horizontal_alignment = 1
+
+[node name="SubHeaderLabel" type="Label" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn" unique_id=825700509]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.35, 0.3, 1)
+theme_override_font_sizes/font_size = 11
+text = "TIDE: HIGH TIDE"
+horizontal_alignment = 1
+
+[node name="Divider1" type="HSeparator" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn" unique_id=470809259]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_divider")
+
+[node name="CatchList" type="VBoxContainer" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn" unique_id=1504639543]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Divider2" type="HSeparator" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn" unique_id=1121031972]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_divider")
+
+[node name="ExpenseList" type="VBoxContainer" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn" unique_id=327977823]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Divider3" type="HSeparator" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn" unique_id=1577304667]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_divider")
+
+[node name="NetRow" type="HBoxContainer" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn" unique_id=1441738694]
+layout_mode = 2
+
+[node name="NetTitle" type="Label" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn/NetRow" unique_id=864045675]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.18, 0.15, 0.12, 1)
+theme_override_font_sizes/font_size = 14
+text = "NETO"
+
+[node name="NetAmount" type="Label" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn/NetRow" unique_id=824573840]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.55, 0.25, 1)
+theme_override_font_sizes/font_size = 14
+text = "+₱450"
+horizontal_alignment = 2
+
+[node name="SecondaryBox" type="PanelContainer" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn" unique_id=293156084]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_secondary")
+
+[node name="SecondaryLabel" type="Label" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn/SecondaryBox" unique_id=1390644831]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.35, 0.55, 1)
+theme_override_font_sizes/font_size = 11
+text = "+3 PEARLS COLLECTED"
+horizontal_alignment = 1
+
+[node name="FooterRow" type="HBoxContainer" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn" unique_id=411877722]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn/FooterRow" unique_id=158684400]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+text = "NEXT DAY >>"
+
+[node name="StampAnchor" type="Control" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn/FooterRow" unique_id=1175903862]
+custom_minimum_size = Vector2(72, 28)
+layout_mode = 2
+
+[node name="StampLabel" type="Label" parent="Dimmer/CenterWrapper/ReceiptPaper/MainColumn/FooterRow/StampAnchor" unique_id=287587833]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -11.0
+offset_right = 28.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.139626
+pivot_offset = Vector2(28, 11)
+theme_override_colors/font_color = Color(0.12, 0.55, 0.25, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_stamp")
+text = "KITA"
+horizontal_alignment = 1
+vertical_alignment = 1

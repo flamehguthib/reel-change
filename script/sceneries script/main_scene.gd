@@ -10,7 +10,13 @@ func _ready() -> void:
 	SoundManager.play_sfx("beach")
 	SoundManager.play_sfx("game_theme")
 	tree_exiting.connect(on_scene_left)
-	get_window().content_scale_size = Vector2i(1280, 1080)
+
+	# Update camera zoom on window resize
+	get_window().size_changed.connect(_on_window_resized)
+
+func _on_window_resized():
+	%Spawn.setup_player_camera(camera_zoom, map_limits)
+	%Boat.setup_boat_camera(Vector2(0.8, 0.8), map_limits)
 	
 func on_scene_left():
 	SoundManager.stop_sfx("beach")

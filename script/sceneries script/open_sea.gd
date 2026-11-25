@@ -126,6 +126,12 @@ func _ready() -> void:
 	SoundManager.play_sfx("sea")
 	SoundManager.play_sfx("game_theme")
 	tree_exiting.connect(on_scene_left)
+
+	# Update camera zoom on window resize
+	get_window().size_changed.connect(_on_window_resized)
+
+func _on_window_resized():
+	%Boat.setup_boat_camera(camera_zoom, map_limits)
 	
 	# Configure weather overlay with CanvasItemMaterial set to MULTIPLY blend mode.
 	# MULTIPLY mode darkens baked-in highlights (like the baked sun in background assets).
