@@ -571,6 +571,7 @@ scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_ovuf2")
 
 [node name="FishingRod" type="AnimatedSprite2D" parent="." unique_id=2005310400]
+visible = false
 clip_children = 2
 light_mask = 512
 z_index = 3
@@ -593,7 +594,7 @@ z_index = 2
 position = Vector2(81.24999, 105.606064)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tlvsc")
-frame_progress = 0.8981837
+frame_progress = 0.14031057
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1953319369]
 
