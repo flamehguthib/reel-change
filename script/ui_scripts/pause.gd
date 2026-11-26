@@ -12,6 +12,7 @@ func _ready() -> void:
 			btn.pressed.connect(_on_button_pressed_anim.bind(btn))
 
 	_update_mute_button_text()
+	scale = Vector2.ONE
 
 func _process(_delta):
 	if not Input.is_action_just_pressed("ESC"):

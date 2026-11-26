@@ -45,7 +45,7 @@ bg_color = Color(0.45, 0.36, 0.14, 0.25)
 bg_color = Color(0.14, 0.52, 0.24, 1)
 
 [node name="TaskSheetUI" type="CanvasLayer" unique_id=923002353]
-layer = 100
+layer = 9
 script = ExtResource("1_script")
 
 [node name="HUDAnchor" type="Control" parent="." unique_id=1265893868]
