@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://ckoih5dwcgjvq" path="res://script/sea_border.gd" id="5_border"]
 [ext_resource type="Texture2D" uid="uid://dbwx7fk7mkobe" path="res://assets/Afternoon/Afternoon_Sea/afternoon_4_sea.png" id="5_tj4g1"]
 [ext_resource type="Texture2D" uid="uid://1kx4sjpff03i" path="res://assets/Afternoon/Afternoon_Sea/afternoon_5_sea.png" id="6_f61wx"]
-[ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="6_sail_prompt"]
 [ext_resource type="Texture2D" uid="uid://dt5ydhmlbpbr1" path="res://assets/Afternoon/Afternoon_Sea/afternoon_6_sea.png" id="7_fa02j"]
 [ext_resource type="Texture2D" uid="uid://dweebuv04mfrm" path="res://assets/Night/Night_Sea/night_sea_1.png" id="9_oorhp"]
 [ext_resource type="Script" uid="uid://cx6me1v503cyy" path="res://script/sceneries script/open_sea_anim.gd" id="9_v5jyr"]
@@ -22,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://by4hag8chvp0j" path="res://assets/Night/Night_Sea/night_sea_6.png" id="14_ak11i"]
 [ext_resource type="Script" uid="uid://bryylrgduv1kx" path="res://script/sceneries script/lightning_flash.gd" id="16_c2cbj"]
 [ext_resource type="PackedScene" uid="uid://df8wfs78qck25" path="res://scenes/ui/TaskSheetUI.tscn" id="17_tasksheet"]
+[ext_resource type="SpriteFrames" uid="uid://c0e8hirt4sym4" path="res://assets/ui/E_sprite.tres" id="22_xmf87"]
+[ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="23_8tcwm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hdu7"]
 atlas = ExtResource("1_itwo7")
@@ -205,7 +206,7 @@ scale = Vector2(9, 9)
 
 [node name="HUD" parent="." unique_id=1622611448 instance=ExtResource("4_06y86")]
 
-[node name="TaskSheetUI" parent="." instance=ExtResource("17_tasksheet")]
+[node name="TaskSheetUI" parent="." unique_id=1015559653 instance=ExtResource("17_tasksheet")]
 
 [node name="WeatherOverlay" type="ColorRect" parent="." unique_id=1622611450]
 visible = false
@@ -227,10 +228,11 @@ require_gas_to_cross = false
 position = Vector2(269, 328)
 shape = SubResource("RectangleShape2D_nleqy")
 
-[node name="SailPrompt" type="Sprite2D" parent="OpenSea" unique_id=1131841614]
+[node name="SailPrompt" type="AnimatedSprite2D" parent="OpenSea" unique_id=227159988]
 position = Vector2(229.99927, 31.999878)
-scale = Vector2(1.6310816, 1.8034717)
-texture = ExtResource("6_sail_prompt")
+scale = Vector2(0.1, 0.1)
+sprite_frames = ExtResource("22_xmf87")
+autoplay = "default"
 
 [node name="Label" type="Label" parent="OpenSea/SailPrompt" unique_id=1162825523]
 anchors_preset = -1
@@ -238,11 +240,13 @@ anchor_left = -0.84200007
 anchor_top = -1.465
 anchor_right = 2.332
 anchor_bottom = 11.869
-offset_left = -46.300713
-offset_top = 166.81815
-offset_right = -366.21484
-offset_bottom = -1470.0035
-theme_override_font_sizes/font_size = 32
+offset_left = -967.78436
+offset_top = 1260.161
+offset_right = -1287.6985
+offset_bottom = -376.66113
+scale = Vector2(30, 30)
+theme_override_fonts/font = ExtResource("23_8tcwm")
+theme_override_font_sizes/font_size = 16
 text = "Press"
 
 [node name="Label2" type="Label" parent="OpenSea/SailPrompt" unique_id=1978092711]
@@ -251,11 +255,12 @@ anchor_left = 1.797
 anchor_top = 5.4690003
 anchor_right = 1.797
 anchor_bottom = 5.4690003
-offset_left = -158.66501
-offset_top = -720.18036
-offset_right = -26.664978
-offset_bottom = -697.18036
-scale = Vector2(2, 2)
+offset_left = -1350.1207
+offset_top = -5840.2554
+offset_right = -1218.1206
+offset_bottom = -5817.2554
+scale = Vector2(30, 30)
+theme_override_fonts/font = ExtResource("23_8tcwm")
 text = "to go back home"
 
 [node name="Boundary1" type="StaticBody2D" parent="." unique_id=1210049299]

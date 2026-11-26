@@ -24,5 +24,4 @@ func setup_player_camera(zoom_setting: Vector2, limit: Rect2):
 		cam.limit_bottom = limit.size.y
 		cam.limit_right = limit.size.x
 
-		
-		
+var can_play_walk_sfx := false

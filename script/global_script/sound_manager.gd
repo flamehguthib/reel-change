@@ -16,6 +16,7 @@ const SFX = {
 	#music
 	"main_menu": preload("res://assets/sfx/main_menu.mp3"),
 	"game_theme": preload("res://assets/sfx/game_theme.mp3"),
+	"engine_break": preload("res://assets/sfx/engine_break.mp3"),
 }
 
 var active_sfx: Dictionary = {}
@@ -24,16 +25,21 @@ func play_sfx(sound_name):
 	if not SFX.has(sound_name):
 		print("sound does not exist bruh")
 		return
-	
 	var sfx_player = AudioStreamPlayer.new()
 	if sound_name == "boat_move":
-		sfx_player.volume_db = -15.0
+		sfx_player.volume_db = -20
+	if sound_name == "boat_idle":
+		sfx_player.volume_db = -20
 	if sound_name == "sea":
 		sfx_player.volume_db = -15.0
 	if sound_name == "beach":
 		sfx_player.volume_db = -15
 	if sound_name == "main_menu":
 		sfx_player.volume_db = -15
+	if sound_name == "game_theme":
+		sfx_player.volume_db = -20
+	if sound_name == "engine_break":
+		sfx_player.volume_db = 5
 		
 	sfx_player.stream = SFX[sound_name]
 	add_child(sfx_player)
@@ -69,3 +75,6 @@ func is_sfx_playing(sound_name: String) -> bool:
 		# Double-check that the instance hasn't been corrupted or freed
 		return is_instance_valid(active_sfx[sound_name][0])
 	return false
+	
+
+	

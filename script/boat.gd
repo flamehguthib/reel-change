@@ -45,7 +45,12 @@ func _physics_process(_delta: float) -> void:
 	if rider == null:
 		velocity = Vector2.ZERO
 		return
-		
+	if Input.is_action_just_pressed("interact") and is_broken == true:
+		if active_puzzle.visible == false:
+			active_puzzle.visible = true
+		else: 
+			active_puzzle.visible = false 
+			
 	if is_broken:
 		return
 	
@@ -54,13 +59,14 @@ func _physics_process(_delta: float) -> void:
 		rider_is_fishing = rider.call("is_fishing_mode_active")
 
 	if rider_is_fishing:
+		$AnimatedSprite2D.play("idle")
 		velocity = Vector2.ZERO
 		move_and_slide()
 		if rider != null:
 			rider.global_position = get_mount_position()
 			rider.velocity = Vector2.ZERO
 		return
-
+	
 	var is_out_of_gas := GameState.current_gas <= 0
 	var is_exhausted := GameState.current_energy <= 0
 	var dir := Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -219,13 +225,18 @@ func setup_boat_camera(camera_zoom: Vector2, limit: Rect2):
 func break_engine() -> void:
 	if is_broken or engine_puzzle == null:
 		return
-
+	
+	$AnimatedSprite2D.play("idle")
+	$E2.visible = true
 	is_broken = true
 	velocity = Vector2.ZERO # Stops boat drift while repairing (remove if using RigidBody2D)
-
+	SoundManager.play_sfx("engine_break")
+	SoundManager.stop_sfx("boat_move")
+	SoundManager.stop_sfx("boat_idle")
 	active_puzzle = engine_puzzle.instantiate() as CanvasLayer
 	get_tree().current_scene.add_child(active_puzzle)
 	active_puzzle.puzzle_solved.connect(_on_engine_repaired, CONNECT_ONE_SHOT)
+	active_puzzle.visible = false 
 
 	
 func _on_engine_repaired() -> void:
@@ -235,6 +246,7 @@ func _on_engine_repaired() -> void:
 		active_puzzle.queue_free()
 	active_puzzle = null
 	is_broken = false
+	$E2.visible = false
 
 func _roll_breakdown_chance(delta: float) -> void:
 	if only_roll_while_moving and velocity.length() < 10.0:

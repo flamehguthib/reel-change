@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c55e0oae2q8vr" path="res://scenes/minigames/boat_minigame.tscn" id="2_u2646"]
 [ext_resource type="Texture2D" uid="uid://ljdfuf665wks" path="res://assets/boat/boat_hi.png" id="2_uhw1y"]
 [ext_resource type="Texture2D" uid="uid://qgf5jjlj3xun" path="res://assets/boat/idle_boat_dark.png" id="3_caegn"]
-[ext_resource type="Texture2D" uid="uid://crars01vpg0bx" path="res://assets/ui/E.png" id="3_hffbi"]
+[ext_resource type="SpriteFrames" uid="uid://c0e8hirt4sym4" path="res://assets/ui/E_sprite.tres" id="5_4cx7k"]
+[ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="6_2j838"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_caegn"]
 atlas = ExtResource("2_uhw1y")
@@ -184,7 +185,6 @@ position = Vector2(-8.5, -8.5)
 scale = Vector2(0.07788086, 0.07525635)
 sprite_frames = SubResource("SpriteFrames_eklwj")
 animation = &"idle"
-frame_progress = 0.37185127
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1183787065]
 visible = false
@@ -202,26 +202,56 @@ visible = false
 position = Vector2(15.875, -14.9375)
 shape = SubResource("RectangleShape2D_qyrje")
 
-[node name="E" type="Sprite2D" parent="." unique_id=12071532]
+[node name="E" type="AnimatedSprite2D" parent="." unique_id=790218968]
 visible = false
-position = Vector2(-19, -54)
-scale = Vector2(0.15390626, 0.1617187)
-texture = ExtResource("3_hffbi")
+position = Vector2(-9.5, -43.5)
+scale = Vector2(0.01, 0.01)
+sprite_frames = ExtResource("5_4cx7k")
+autoplay = "default"
 
 [node name="Label" type="Label" parent="E" unique_id=317399598]
-offset_left = 64.99999
-offset_top = -24.999939
-offset_right = 224.99997
-offset_bottom = 30.000061
-scale = Vector2(2, 2)
+offset_left = 550.0002
+offset_top = -300.0
+offset_right = 751.0002
+offset_bottom = -245.0
+scale = Vector2(30, 30)
+theme_override_fonts/font = ExtResource("6_2j838")
+theme_override_font_sizes/font_size = 16
 text = "to enter the boat"
 
 [node name="Label" type="Label" parent="E/Label" unique_id=743372857]
 layout_mode = 0
-offset_left = -107.49999
-offset_top = -5.722046e-05
-offset_right = -65.49999
-offset_bottom = 22.999943
+offset_left = -83.33334
+offset_right = -12.3333435
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("6_2j838")
+theme_override_font_sizes/font_size = 16
+text = "Press"
+
+[node name="E2" type="AnimatedSprite2D" parent="." unique_id=1190999668]
+visible = false
+position = Vector2(-9.5, -43.5)
+scale = Vector2(0.01, 0.01)
+sprite_frames = ExtResource("5_4cx7k")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="E2" unique_id=449703286]
+offset_left = 550.0002
+offset_top = -300.0
+offset_right = 751.0002
+offset_bottom = -245.0
+scale = Vector2(30, 30)
+theme_override_fonts/font = ExtResource("6_2j838")
+theme_override_font_sizes/font_size = 16
+text = "to fix the boat"
+
+[node name="Label" type="Label" parent="E2/Label" unique_id=789486061]
+layout_mode = 0
+offset_left = -83.33334
+offset_right = -12.3333435
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("6_2j838")
+theme_override_font_sizes/font_size = 16
 text = "Press"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=849036275]

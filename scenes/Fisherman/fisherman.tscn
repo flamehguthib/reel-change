@@ -595,6 +595,7 @@ position = Vector2(81.24999, 105.606064)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tlvsc")
 frame_progress = 0.14031057
+flip_h = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1953319369]
 

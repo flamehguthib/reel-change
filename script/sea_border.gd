@@ -3,7 +3,7 @@ extends Area2D
 @export_file("*.tscn") var target_scene_path: String = ""
 @export var require_gas_to_cross: bool = true
 
-@onready var sail_prompt: Sprite2D = $SailPrompt if has_node("SailPrompt") else $ReturnPrompt if has_node("ReturnPrompt") else null
+@onready var sail_prompt: AnimatedSprite2D = $SailPrompt if has_node("SailPrompt") else $ReturnPrompt if has_node("ReturnPrompt") else null
 var boat_nearby: CharacterBody2D = null
 
 func _ready() -> void:

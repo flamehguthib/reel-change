@@ -48,8 +48,10 @@ const FISH_BAR_OFFSET_RIGHT = Vector2(112.0, 18.0)
 const FISH_BAR_OFFSET_LEFT = Vector2(-96.0, 18.0)
 
 @onready var body_collision_shape: CollisionShape2D = $CollisionShape2D
-
+var can_play_footsteps = false
+@onready var base_ripple_x: float = abs(%Ripple.position.x)
 func _ready() -> void:
+	reset_spawn_audio()
 	$Player.connect("animation_finished", Callable(self, "on_casting_finished"))
 	# Auto-mount on boat when in OpenSea scene
 	if get_tree().current_scene.name == "OpenSea":
@@ -94,11 +96,15 @@ func _physics_process(delta):
 		if mounted_boat.velocity.x < 0:
 			$Player.flip_h = true
 			$FishingRod.flip_h = true
+			if $FishingRod.flip_h == true:
+				%Ripple.position.x = -base_ripple_x + 19
 			$AnimationPlayer.play("invert_cast_pos")
 		elif mounted_boat.velocity.x > 0:
 			$Player.flip_h = false
 			$FishingRod.flip_h = false
 			$AnimationPlayer.play("cast_pos")
+			$FishingRod.flip_h == false
+			%Ripple.position.x = base_ripple_x
 		if state != "cast" and state != "fish" and state != "hook" and state != "charge":
 			if state != "boat_cast_ready":
 				$Player.play("fish")
@@ -146,6 +152,7 @@ func _physics_process(delta):
 		
 	elif can_start_charge() and Input.is_action_just_pressed("fish_button") and is_in_open_sea	:
 		begin_charge_cast()
+		
 	elif mounted_boat != null and is_in_open_sea and not GameState.can_fish() and Input.is_action_just_pressed("fish_button") and (state == "idle" or state == "boat_cast_ready"):
 		show_message("Too tired to fish! Sleep to recover energy.", Color(0.95, 0.3, 0.3))
 	
@@ -154,28 +161,28 @@ func _physics_process(delta):
 			update_charge(delta)
 		elif Input.is_action_just_released("fish_button"):
 			release_charge_cast()
-		
-	elif state != "cast" and state != "fish" and state != "hook" and state != "charge" and mounted_boat == null:	
-		if velocity.x == 0:
+	
+	elif state != "cast" and state != "fish" and state != "hook" and state != "charge" and mounted_boat == null:
+		var has_move_input := Input.get_axis("left", "right") != 0.0
+		if abs(velocity.x) >= 10 and has_move_input:
+			if state != "walk":
+				$Player.play("walk")
+				state = "walk"
+			if not walk_on_port:
+				if not SoundManager.is_sfx_playing("walk"):
+					SoundManager.stop_sfx("walk_on_port")
+					SoundManager.play_sfx("walk")
+			else:
+				if not SoundManager.is_sfx_playing("walk_on_port"):
+					SoundManager.stop_sfx("walk")
+					SoundManager.play_sfx("walk_on_port")
+		elif velocity.x == 0:
 			if state != "idle":
 				SoundManager.stop_sfx("walk")
 				SoundManager.stop_sfx("walk_on_port")
 				$Player.play("idle")
 				$FishingRod.visible = false
 				state = "idle"
-		elif velocity.x != 0:
-			if state != "walk":
-				$Player.play("walk")
-				state = "walk"
-			if walk_on_port == false:
-				if not SoundManager.is_sfx_playing("walk"):
-					SoundManager.stop_sfx("walk_on_port")
-					SoundManager.play_sfx("walk")
-			if walk_on_port == true:
-				if not SoundManager.is_sfx_playing("walk_on_port"):
-					SoundManager.stop_sfx("walk")
-					SoundManager.play_sfx("walk_on_port")
-				
 
 	if fish_bar_instance != null:
 		update_fish_bar_position()
@@ -603,3 +610,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_open_sea_tree_entered() -> void:
 	is_in_open_sea = true
+
+func reset_spawn_audio() -> void:
+	SoundManager.stop_sfx("walk")
+	SoundManager.stop_sfx("walk_on_port")
+	can_play_footsteps = false
+	await get_tree().create_timer(0.15).timeout
+	can_play_footsteps = true
