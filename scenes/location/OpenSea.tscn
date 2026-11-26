@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cgysilkwb7cv6" path="res://assets/Night/Night_Sea/night_sea_5.png" id="13_8tcwm"]
 [ext_resource type="Texture2D" uid="uid://by4hag8chvp0j" path="res://assets/Night/Night_Sea/night_sea_6.png" id="14_ak11i"]
 [ext_resource type="Script" uid="uid://bryylrgduv1kx" path="res://script/sceneries script/lightning_flash.gd" id="16_c2cbj"]
+[ext_resource type="PackedScene" uid="uid://df8wfs78qck25" path="res://scenes/ui/TaskSheetUI.tscn" id="17_tasksheet"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hdu7"]
 atlas = ExtResource("1_itwo7")
@@ -203,6 +204,8 @@ position = Vector2(1563, 1391)
 scale = Vector2(9, 9)
 
 [node name="HUD" parent="." unique_id=1622611448 instance=ExtResource("4_06y86")]
+
+[node name="TaskSheetUI" parent="." instance=ExtResource("17_tasksheet")]
 
 [node name="WeatherOverlay" type="ColorRect" parent="." unique_id=1622611450]
 visible = false

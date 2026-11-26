@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://df8wfs78qck25"]
+
+[ext_resource type="Script" uid="uid://bnfhum7iywif7" path="res://script/ui_scripts/task_sheet_ui.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud_yellow"]
+content_margin_left = 8.0
+content_margin_top = 5.0
+content_margin_right = 8.0
+content_margin_bottom = 5.0
+bg_color = Color(0.95, 0.87, 0.54, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 3
+border_color = Color(0.45, 0.36, 0.14, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yellow_sheet"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 14.0
+bg_color = Color(0.95, 0.87, 0.54, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 3
+border_color = Color(0.45, 0.36, 0.14, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pinned_box"]
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+bg_color = Color(0.91, 0.81, 0.45, 1)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.75, 0.22, 0.18, 0.85)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_bg"]
+bg_color = Color(0.45, 0.36, 0.14, 0.25)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_fill"]
+bg_color = Color(0.14, 0.52, 0.24, 1)
+
+[node name="TaskSheetUI" type="CanvasLayer" unique_id=923002353]
+layer = 100
+script = ExtResource("1_script")
+
+[node name="HUDAnchor" type="Control" parent="." unique_id=1265893868]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -126.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = 42.0
+grow_horizontal = 0
+
+[node name="TaskHUDButton" type="Button" parent="HUDAnchor" unique_id=2144749070]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1718.0
+offset_top = 370.0
+offset_right = -1687.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.1, 0.22, 0.48, 1)
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_hud_yellow")
+text = "LISTAHAN (5)"
+
+[node name="PopupContainer" type="CenterContainer" parent="." unique_id=426368982]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="YellowPadPaper" type="PanelContainer" parent="PopupContainer" unique_id=1776636828]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(272, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yellow_sheet")
+
+[node name="PaperDetailsOverlay" type="Control" parent="PopupContainer/YellowPadPaper" unique_id=1254709211]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RedMarginLine" type="ColorRect" parent="PopupContainer/YellowPadPaper/PaperDetailsOverlay" unique_id=1285423343]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_right = 15.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.82, 0.24, 0.24, 0.45)
+
+[node name="CreaseShadow1" type="ColorRect" parent="PopupContainer/YellowPadPaper/PaperDetailsOverlay" unique_id=18217310]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 74.0
+offset_right = 258.0
+offset_bottom = 76.0
+rotation = 0.09
+mouse_filter = 2
+color = Color(0.35, 0.26, 0.08, 0.16)
+
+[node name="CreaseHighlight1" type="ColorRect" parent="PopupContainer/YellowPadPaper/PaperDetailsOverlay" unique_id=340072170]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 76.0
+offset_right = 258.0
+offset_bottom = 77.0
+rotation = 0.09
+mouse_filter = 2
+color = Color(1, 0.98, 0.86, 0.4)
+
+[node name="CreaseShadow2" type="ColorRect" parent="PopupContainer/YellowPadPaper/PaperDetailsOverlay" unique_id=743626334]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 185.0
+offset_right = 264.0
+offset_bottom = 187.0
+rotation = -0.14
+mouse_filter = 2
+color = Color(0.35, 0.26, 0.08, 0.15)
+
+[node name="CreaseHighlight2" type="ColorRect" parent="PopupContainer/YellowPadPaper/PaperDetailsOverlay" unique_id=403929376]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 187.0
+offset_right = 264.0
+offset_bottom = 188.0
+rotation = -0.14
+mouse_filter = 2
+color = Color(1, 0.98, 0.86, 0.38)
+
+[node name="MainVBox" type="VBoxContainer" parent="PopupContainer/YellowPadPaper" unique_id=542710837]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HeaderRow" type="HBoxContainer" parent="PopupContainer/YellowPadPaper/MainVBox" unique_id=387661650]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="PopupContainer/YellowPadPaper/MainVBox/HeaderRow" unique_id=830054333]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.1, 0.22, 0.48, 1)
+theme_override_font_sizes/font_size = 11
+text = "   LISTAHAN SA TALIPAPA"
+
+[node name="CloseButton" type="Button" parent="PopupContainer/YellowPadPaper/MainVBox/HeaderRow" unique_id=296179940]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = " ✕ "
+
+[node name="PinnedGoalBox" type="PanelContainer" parent="PopupContainer/YellowPadPaper/MainVBox" unique_id=2110686488]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pinned_box")
+
+[node name="GoalVBox" type="VBoxContainer" parent="PopupContainer/YellowPadPaper/MainVBox/PinnedGoalBox" unique_id=975685265]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PinHeader" type="HBoxContainer" parent="PopupContainer/YellowPadPaper/MainVBox/PinnedGoalBox/GoalVBox" unique_id=416783644]
+layout_mode = 2
+
+[node name="PinLabel" type="Label" parent="PopupContainer/YellowPadPaper/MainVBox/PinnedGoalBox/GoalVBox/PinHeader" unique_id=1307085904]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.72, 0.16, 0.16, 1)
+theme_override_font_sizes/font_size = 9
+text = "● PINNED GOAL: SAVE ₱2,500"
+
+[node name="ClaimGoalButton" type="Button" parent="PopupContainer/YellowPadPaper/MainVBox/PinnedGoalBox/GoalVBox/PinHeader" unique_id=1689628663]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+disabled = true
+text = "IN PROGRESS"
+
+[node name="GoalProgress" type="ProgressBar" parent="PopupContainer/YellowPadPaper/MainVBox/PinnedGoalBox/GoalVBox" unique_id=2123742774]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bar_fill")
+max_value = 2500.0
+show_percentage = false
+
+[node name="GoalAmountLabel" type="Label" parent="PopupContainer/YellowPadPaper/MainVBox/PinnedGoalBox/GoalVBox" unique_id=1539447362]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.22, 0.48, 1)
+theme_override_font_sizes/font_size = 9
+text = "₱0 / ₱2,500"
+horizontal_alignment = 2
+
+[node name="DeliveriesTitle" type="Label" parent="PopupContainer/YellowPadPaper/MainVBox" unique_id=902632685]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.36, 0.14, 1)
+theme_override_font_sizes/font_size = 8
+text = "   FISH DELIVERIES (PAYS TOWARD GOAL):"
+
+[node name="DeliveryList" type="VBoxContainer" parent="PopupContainer/YellowPadPaper/MainVBox" unique_id=1950203050]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2

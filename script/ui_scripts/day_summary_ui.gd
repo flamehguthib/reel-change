@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func show_summary(ledger: Dictionary) -> void:
 	show()
-	header_label.text = "PALENGKE LEDGER - DAY %d" % ledger.get("day", 1)
+	header_label.text = "RESIBO - DAY %d" % ledger.get("day", 1)
 	sub_header_label.text = "WEATHER: %s" % str(ledger.get("weather", "NORMAL")).to_upper()
 
 	_clear_children(catch_list)
@@ -55,10 +55,7 @@ func show_summary(ledger: Dictionary) -> void:
 	net_amount.text = ("%s₱%d" % ["+" if is_profit else "-", abs(net)])
 	net_amount.add_theme_color_override("font_color", active_color)
 
-	var pearls: int = ledger.get("secondary_earned", 0)
-	secondary_box.visible = pearls > 0
-	if pearls > 0:
-		secondary_label.text = "+%d PEARLS COLLECTED" % pearls
+
 
 	_update_stamp(is_profit, active_color)
 	_play_print_animation()

@@ -25,7 +25,7 @@ var last_day_summary: Dictionary = {}
 # New receipt-style ledger tracking
 var daily_catches: Dictionary = {}          # {fish_name: {count: int, total: int}}
 var daily_expense_breakdown: Dictionary = {} # {bait: int, refuel: int, dock_fee: int, family: int}
-var daily_pearls_earned: int = 0
+
 var daily_weather: String = "Sunny"
 
 #Day Tracking System
@@ -158,6 +158,7 @@ func _ready() -> void:
 	weather = WEATHER_SUNNY
 	generate_daily_contract()
 	_reset_daily_ledger()
+	_init_task_sheet_state()
 	# Check if debug mode enabled
 	if debug_start_with_talipapa_test_state:
 		fish_inventory = ["tilapia", "galunggong", "bangus"]
@@ -305,8 +306,7 @@ func sleep_until_morning() -> Dictionary:
 		"day": current_day,
 		"weather": daily_weather,
 		"catches": daily_catches,
-		"expenses": _build_expenses_array(),
-		"secondary_earned": daily_pearls_earned
+		"expenses": _build_expenses_array()
 	}
 
 	# Store old summary for backwards compat
@@ -405,6 +405,8 @@ func add_money(amount: int) -> void:
 	daily_earnings += amount
 	print("Money: ₱%d / ₱%d" % [current_money, money_goal])
 
+
+
 func spend_money(amount: int, category: String = "fishing") -> void:
 	"""Deduct money and track daily expenses by category."""
 	if amount <= 0:
@@ -422,6 +424,60 @@ func spend_money(amount: int, category: String = "fishing") -> void:
 	if current_money < 0:
 		current_money = 0
 
+# ===== TASK SHEET (LISTAHAN) STATE =====
+# Delivery orders are tracked here so progress persists no matter which
+# scene a fish was caught in. Quest payouts are REAL spendable cash, so
+# delivering pays into the shared wallet (current_money) and the goal simply
+# reads that wallet against the existing money_goal.
+signal task_sheet_changed
+
+var ts_deliveries: Array = []
+var ts_goal_claimed: bool = false
+
+func _init_task_sheet_state() -> void:
+	ts_deliveries = [
+		{"stall": "ALING NENA", "fish": "Bangus", "current": 0, "target": 4, "pesos": 240, "delivered": false},
+		{"stall": "MANG BERTO", "fish": "Tilapia", "current": 0, "target": 5, "pesos": 210, "delivered": false},
+		{"stall": "SEAFRONT KUSINA", "fish": "Lapu-Lapu", "current": 0, "target": 2, "pesos": 360, "delivered": false},
+		{"stall": "TITA GLORIA", "fish": "Galunggong", "current": 0, "target": 6, "pesos": 180, "delivered": false},
+		{"stall": "FISHERMAN'S COOP", "fish": "Alimango", "current": 0, "target": 3, "pesos": 450, "delivered": false}
+	]
+
+func ts_record_catch(fish_name: String, count: int = 1) -> void:
+	for item in ts_deliveries:
+		if not item.delivered and item.fish.to_lower() == fish_name.to_lower():
+			item.current = min(item.target, item.current + count)
+			print("Listahan: %s progress %d/%d" % [fish_name, item.current, item.target])
+			task_sheet_changed.emit()
+
+func ts_deliver_order(fish_name: String) -> bool:
+	for item in ts_deliveries:
+		if not item.delivered and item.fish.to_lower() == fish_name.to_lower():
+			if item.current >= item.target:
+				item.delivered = true
+				# Quest payout is real, spendable cash -> shared wallet
+				add_money(item.pesos)
+				print("Listahan: delivered %s, +P%d (wallet P%d)" % [fish_name, item.pesos, current_money])
+				task_sheet_changed.emit()
+				return true
+	return false
+
+func ts_goal_reached() -> bool:
+	return current_money >= money_goal
+
+func ts_claim_goal() -> void:
+	if ts_goal_reached() and not ts_goal_claimed:
+		ts_goal_claimed = true
+		print("Listahan: goal P%d claimed! (wallet P%d)" % [money_goal, current_money])
+		task_sheet_changed.emit()
+
+func ts_get_open_count() -> int:
+	var c := 0
+	for item in ts_deliveries:
+		if not item.delivered:
+			c += 1
+	return c
+
 func add_fish_to_inventory(species_id: String) -> void:
 	"""Store caught fish until sold at the talipapa and consume active bait."""
 	if get_species(species_id) == null:
@@ -429,10 +485,13 @@ func add_fish_to_inventory(species_id: String) -> void:
 	fish_inventory.append(species_id)
 	total_caught += 1
 	consume_active_bait()
-	# Record catch immediately so it appears in day summary
+	
+	# Record catch immediately
 	var species := get_species(species_id)
 	if species != null:
 		_record_caught(species.name)
+		# Track delivery progress in GameState (works in ANY scene)
+		ts_record_catch(species.name)
 
 func consume_active_bait() -> void:
 	"""Consume 1 count of special bait upon successful catch."""
@@ -672,6 +731,7 @@ func reset_game() -> void:
 	weather = roll_weather()
 	active_contract = {}
 	generate_daily_contract()
+	_init_task_sheet_state()
 
 func roll_weather() -> String:
 	randomize()
@@ -683,7 +743,6 @@ func roll_weather() -> String:
 func _reset_daily_ledger() -> void:
 	daily_catches = {}
 	daily_expense_breakdown = {"bait": 0, "refuel": 0, "dock_fee": 0, "family": 0}
-	daily_pearls_earned = 0
 	daily_weather = weather
 
 func _record_caught(fish_name: String) -> void:
@@ -704,8 +763,7 @@ func _record_expense(category: String, amount: int) -> void:
 	if daily_expense_breakdown.has(category):
 		daily_expense_breakdown[category] += amount
 
-func add_pearls(amount: int) -> void:
-	daily_pearls_earned += amount
+
 
 func _build_expenses_array() -> Array:
 	var expenses: Array = []
