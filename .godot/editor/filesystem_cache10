@@ -1,5 +1,5 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1795721918
+::res://::1795731174
 ARCHITECTURE.md::TextFile::-1::1795720749::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::7035748302501140234::1790281773::1790288514::1::::<><><>0<>0<>e24970e3d095c7f15b3d2e8290ac8b24<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1790288514::0::1::::<><><>0<>0<><>::
@@ -158,10 +158,12 @@ bangus.png::CompressedTexture2D::4794748978767851939::1790288514::1790288514::1:
 galunggong.png::CompressedTexture2D::2520401379902039677::1790288514::1790288514::1::::<><><>0<>0<>34640f59a9969e1aaafcb088379bde78<>res://.godot/imported/galunggong.png-1d7b68be89b9037a9918f819362e2114.ctex::
 lapulapu.png::CompressedTexture2D::9068802851888391989::1790288514::1790288514::1::::<><><>0<>0<>682697d001cce3910a46bab9980645a6<>res://.godot/imported/lapulapu.png-662867a136c328e01f090ca311fc4352.ctex::
 tilapia.png::CompressedTexture2D::8859358228892328050::1790288514::1790288514::1::::<><><>0<>0<>569733e35bfe74708c7a64608e5c8fc8<>res://.godot/imported/tilapia.png-b9b96f470154d5c1d1260ec878f17f7d.ctex::
-::res://assets/fisherman/::1795720749
+::res://assets/fisherman/::1795740380
 casting adjust string.png::CompressedTexture2D::58159701234442612::1790281773::1790288514::1::::<><><>0<>0<>7ed9d70f8472d543aa15044ba8d032ac<>res://.godot/imported/casting adjust string.png-48a50fedcf7262b5f8b7ace5e6b37a34.ctex::
+cast_hook.png::CompressedTexture2D::5015463670294077952::1795740374::1795740380::1::::<><><>0<>0<>143be9c4566cf1dcb873a2e531a17682<>res://.godot/imported/cast_hook.png-3c976a213242546b5a02597e4a44be86.ctex::
 idle fisherman.png::CompressedTexture2D::629993848338927177::1790281773::1790288514::1::::<><><>0<>0<>6832b49d1b46ea58f5474cdb5d86e007<>res://.godot/imported/idle fisherman.png-ea27c9e7dc2644a0afddcbcce88b806e.ctex::
 long_fishing_rod (test).png::CompressedTexture2D::4352511734754375370::1790281773::1790288514::1::::<><><>0<>0<>c55c492cdd7c9b72cb4bcd45fda13c3a<>res://.godot/imported/long_fishing_rod (test).png-2ca8daaedefd16da15b1080ddf560907.ctex::
+long_fishing_rod (test_again).png::CompressedTexture2D::5360266024421110966::1795739078::1795739079::1::::<><><>0<>0<>f3c1f21dd36a7adf1a5a1feb4982185e<>res://.godot/imported/long_fishing_rod (test_again).png-2c4042b9c05bf56124c5c4f837465a33.ctex::
 walkING FISHERMAN.png::CompressedTexture2D::1475726357406926841::1790281773::1790288514::1::::<><><>0<>0<>87dfc94308c83011be11a318a02b9e6c<>res://.godot/imported/walkING FISHERMAN.png-521ac037aa3caa00a5e87ea688aeca43.ctex::
 ::res://assets/fisherman/HOOK/::1790288514
 (fisherman)hook.png::CompressedTexture2D::2192757583377173503::1790281773::1790288514::1::::<><><>0<>0<>cfea2909108c68ebd8338cd728d36849<>res://.godot/imported/(fisherman)hook.png-c23880ca5e6f1ca550f642fcd3880a36.ctex::
@@ -172,8 +174,9 @@ walkING FISHERMAN.png::CompressedTexture2D::1475726357406926841::1790281773::179
 (fishing rod)casting long string.png::CompressedTexture2D::2077381444386125876::1790281773::1790288514::1::::<><><>0<>0<>1f32eb7d53e462d41e75ebd56211f772<>res://.godot/imported/(fishing rod)casting long string.png-9e9029e6d7f7546c8bbc6caf390b5822.ctex::
 fisherman casting adjust string.png::CompressedTexture2D::5622401883820561229::1790281773::1790288514::1::::<><><>0<>0<>f042bd21b12ff7194701136d2fa0dd80<>res://.godot/imported/fisherman casting adjust string.png-a42da629628aee3027de26c6e6dd01b1.ctex::
 long_fishing_rod (test).png::CompressedTexture2D::3285819812197143565::1790281773::1790288514::1::::<><><>0<>0<>a27d23eefc94782947d85471ff5899dc<>res://.godot/imported/long_fishing_rod (test).png-10b738a21dd23d927e27536db1c31bee.ctex::
-::res://assets/fisherman/ripple/::1795720749
+::res://assets/fisherman/ripple/::1795745009
 ripple.png::CompressedTexture2D::6573099350104596365::1795720749::1795720749::1::::<><><>0<>0<>372312021358135a6ac4570510d2197c<>res://.godot/imported/ripple.png-9795234b0a698b03c257a603febf2a70.ctex::
+splash.png::CompressedTexture2D::675526233167498852::1795745458::1795745470::1::::<><><>0<>0<>8ea8fd511b58ecbde225ff80d6c64806<>res://.godot/imported/splash.png-fd5136d638a09c34563e92d606ff95b4.ctex::
 ::res://assets/fisherman/short string casting/::1790288514
 (fishing man)casting short string.png::CompressedTexture2D::7130661211905970993::1790281773::1790288514::1::::<><><>0<>0<>efb89550029deadae161747a4fb43b1b<>res://.godot/imported/(fishing man)casting short string.png-03a1337e1629139822a3cf082a0d2a39.ctex::
 (fishing rod)casting short string.png::CompressedTexture2D::6391830870943854319::1790281773::1790288514::1::::<><><>0<>0<>5a1318bfe78f173d934dcdcdc5f464b7<>res://.godot/imported/(fishing rod)casting short string.png-fdac7065ee4954583a3f2c4e4e71a647.ctex::
@@ -222,7 +225,7 @@ sea_waves.mp3::AudioStreamMP3::8556743770491247170::1790281773::1795725626::1:::
 select.mp3::AudioStreamMP3::1107651567017775470::1790281773::1790288514::1::::<><><>0<>0<>4a41703ddc5f9f4099d0b9e083452e34<>res://.godot/imported/select.mp3-ed3a3213d0851b25b11cdde9cfd5959d.mp3str::
 walk.mp3::AudioStreamMP3::197708812443805643::1790281773::1790288514::1::::<><><>0<>0<>00bddc8342a69673602994809a4cd398<>res://.godot/imported/walk.mp3-2325816e2fb5a2ecb2e5a62f8fbbfefd.mp3str::
 walking_on_port.mp3::AudioStreamMP3::7771735099783859125::1790281773::1790288514::1::::<><><>0<>0<>aca8e36c378d33ce661a760622c79ae3<>res://.godot/imported/walking_on_port.mp3-c27732511b8f901a456908fa885f76e8.mp3str::
-::res://assets/ui/::1795726278
+::res://assets/ui/::1795727752
 animated_E.png::CompressedTexture2D::1356648607631928349::1795726271::1795726280::1::::<><><>0<>0<>e640ab989bdbe3db7d04f0569c98f138<>res://.godot/imported/animated_E.png-6e381df295c1e46457a270656329569d.ctex::
 box.png::CompressedTexture2D::3886538698163322160::1795720749::1795720749::1::::<><><>0<>0<>4fe6057f9ba39cde962502241a5b695d<>res://.godot/imported/box.png-afe7582c3d9b5d2d45545f9f39b2dbe8.ctex::
 button.png::CompressedTexture2D::1980060533131901622::1790281773::1790288514::1::::<><><>0<>0<>f801d32d3cb3185c1e50d112f510792a<>res://.godot/imported/button.png-473760ec7449fb30c95f607492aecb17.ctex::
@@ -235,6 +238,7 @@ fish_filelt.jpg::CompressedTexture2D::5224644915570762752::1790281773::179028851
 hook_icon.png::CompressedTexture2D::8812160517538022526::1795720749::1795720749::1::::<><><>0<>0<>1ef997a49e1a79383d5add4a743c5ba8<>res://.godot/imported/hook_icon.png-3d02f164a3b6e32540f2aa6ae420005c.ctex::
 mussels.png::CompressedTexture2D::7861080893759597993::1795720749::1795720749::1::::<><><>0<>0<>0b704d2728e44ea8479a9c75b7a91017<>res://.godot/imported/mussels.png-88b4659dc21131f920b331d9d36e0fad.ctex::
 Peso_coin.png::CompressedTexture2D::7903818800218175519::1795720749::1795720749::1::::<><><>0<>0<>32797e8078021d11bbd1f53663868ee7<>res://.godot/imported/Peso_coin.png-edae0bb04bf61d276765a812c9a76d94.ctex::
+E_sprite.tres::SpriteFrames::6537836578023117077::1795727752::0::1::::<><><>0<>0<><>::uid://tlf2l3rxwlm0::::res://assets/ui/animated_E.png
 shirmp.png::CompressedTexture2D::4217747932091654378::1795720749::1795720749::1::::<><><>0<>0<>8880002cc6150f4a8cc1301470bb8492<>res://.godot/imported/shirmp.png-f0dd1467116ba0917536567dd9186613.ctex::
 shop_ui.png::CompressedTexture2D::5393041741085882091::1795720749::1795720749::1::::<><><>0<>0<>18bc99bdf7794cd5b0cf8a89c100d17b<>res://.godot/imported/shop_ui.png-e552c9eacef6d00fbf4217e46d8f05bc.ctex::
 timecycle.png::CompressedTexture2D::7826103605945516655::1790288090::1790288678::1::::<><><>0<>0<>b8fc365cd1ca7f3cbf6b16ca1ac7816c<>res://.godot/imported/timecycle.png-bd3cc2407b1380f52a7ea343425cb20c.ctex::
@@ -269,14 +273,14 @@ Icons_18.png::CompressedTexture2D::4041578522579604341::1790281773::1790288514::
 Icons_19.png::CompressedTexture2D::877636011560535932::1790281773::1790288514::1::::<><><>0<>0<>474115367678335fa2d3501f69ec8838<>res://.godot/imported/Icons_19.png-35ddff09a6dedda52f0dff85ac6e638f.ctex::
 Icons_20.png::CompressedTexture2D::751494455902371331::1790281773::1790288514::1::::<><><>0<>0<>f4c1a2cd9197211aa55e5f5d4352f496<>res://.godot/imported/Icons_20.png-fb485b2030c25abfbfe22c207caa29ab.ctex::
 ::res://scenes/::1795720749
-::res://scenes/Fisherman/::1795723574
-boat.tscn::PackedScene::3064417712394739500::1795722451::0::1::::<><><>0<>0<><>::uid://ctgxv74ts5miy::::res://script/boat.gd<>uid://c55e0oae2q8vr::::res://scenes/minigames/boat_minigame.tscn<>uid://ljdfuf665wks::::res://assets/boat/boat_hi.png<>uid://qgf5jjlj3xun::::res://assets/boat/idle_boat_dark.png<>uid://crars01vpg0bx::::res://assets/ui/E.png
-fisherman.tscn::PackedScene::201059441330827739::1795723574::0::1::::<><><>0<>0<><>::uid://x7xj5fom70mn::::res://script/fisherman.gd<>uid://dh0ubhxr6xwkg::::res://script/camera_2d.gd<>uid://bvhla3g00a2rq::::res://scenes/ui/pause.tscn<>uid://i8f53csglnmf::::res://assets/fisherman/idle fisherman.png<>uid://va386d0nke0x::::res://assets/fisherman/walkING FISHERMAN.png<>uid://b8neosp7w4sws::::res://assets/sceneries/rain.png<>uid://cmdsexbts5j1f::::res://assets/fisherman/long string casting/fisherman casting adjust string.png<>uid://bm2w8b6a17xcn::::res://assets/fisherman/long string casting/long_fishing_rod (test).png<>uid://cnrb4f0gohhdh::::res://script/sceneries script/rain.gd<>uid://c0wb8r07lyb38::::res://assets/fisherman/ripple/ripple.png<>uid://bknut2vyyx0qp::::res://assets/ui/warneng.png<>uid://qteud7dilq55::::res://script/player_script/area_2d.gd
+::res://scenes/Fisherman/::1795744706
+boat.tscn::PackedScene::3064417712394739500::1795742336::0::1::::<><><>0<>0<><>::uid://ctgxv74ts5miy::::res://script/boat.gd<>uid://c55e0oae2q8vr::::res://scenes/minigames/boat_minigame.tscn<>uid://ljdfuf665wks::::res://assets/boat/boat_hi.png<>uid://qgf5jjlj3xun::::res://assets/boat/idle_boat_dark.png<>uid://c0e8hirt4sym4::::res://assets/ui/E_sprite.tres<>uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf
+fisherman.tscn::PackedScene::201059441330827739::1795740713::0::1::::<><><>0<>0<><>::uid://x7xj5fom70mn::::res://script/fisherman.gd<>uid://dh0ubhxr6xwkg::::res://script/camera_2d.gd<>uid://bvhla3g00a2rq::::res://scenes/ui/pause.tscn<>uid://i8f53csglnmf::::res://assets/fisherman/idle fisherman.png<>uid://va386d0nke0x::::res://assets/fisherman/walkING FISHERMAN.png<>uid://b8neosp7w4sws::::res://assets/sceneries/rain.png<>uid://cmdsexbts5j1f::::res://assets/fisherman/long string casting/fisherman casting adjust string.png<>uid://cdpr7oxl7x5ya::::res://assets/fisherman/cast_hook.png<>uid://cnrb4f0gohhdh::::res://script/sceneries script/rain.gd<>uid://c0wb8r07lyb38::::res://assets/fisherman/ripple/ripple.png<>uid://bknut2vyyx0qp::::res://assets/ui/warneng.png<>uid://qteud7dilq55::::res://script/player_script/area_2d.gd
 fishingbob.tscn::PackedScene::254099507392442007::1790288514::0::1::::<><><>0<>0<><>::uid://i4whp5vlrkuy::::res://script/fish_detect.gd
-fishing_mechanic.tscn::PackedScene::5553413158167626639::1795720749::0::1::::<><><>0<>0<><>::uid://cl8mmk0ena0vw::::res://script/fish_bar.gd<>uid://3we0h4ot85du::::res://assets/ui/fish_filelt-removebg-preview.png<>uid://c53mbvypqdj6h::::res://fishing_game_assets/4 Icons/Icons_04.png<>uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf<>uid://bu0e7crcroof0::::res://fishing_game_assets/tarub.jpeg
-::res://scenes/location/::1795720749
-main_scene.tscn::PackedScene::2563535045295316081::1795720749::0::1::::<><><>0<>0<><>::uid://ccllmaf22jug7::::res://assets/sceneries/Day Extended Version Spliced/33%.jpg<>uid://bn5wuisa06wnf::::res://script/sceneries script/main_scene.gd<>uid://rk83fbji3h05::::res://script/sceneries script/home_animation.gd<>uid://f665dkpdo4o1::::res://assets/Afternoon/afternoon_1.png<>uid://543wi1tvcl2i::::res://assets/sceneries/Day Extended Version Spliced/66%.jpg<>uid://cnb1y0ckjx3js::::res://assets/Afternoon/afternoon_2.png<>uid://7tn3u7wcpgro::::res://script/spawn.gd<>uid://sir8qsldsspa::::res://script/sleep_zone.gd<>uid://o74e6igij8u6::::res://assets/Night/night_1.png<>uid://bjworn45gymki::::res://scenes/Fisherman/boat.tscn<>uid://bj4jxknn3ouec::::res://assets/Afternoon/afternoon_3.png<>uid://c7p6yg3ngofg6::::res://assets/Night/night_2_bop.png<>uid://cxgxwnd0fadow::::res://assets/Afternoon/afternoon_4.png<>uid://bsbcnsptji28::::res://scenes/ui/hud.tscn<>uid://b6by8vo4xqqgj::::res://assets/Afternoon/afternoon_5.png<>uid://ckoih5dwcgjvq::::res://script/sea_border.gd<>uid://dxu18aq33cw3p::::res://assets/Night/night_3.png<>uid://dp3egokfw7d8c::::res://assets/Afternoon/afternoon_6.png<>uid://w66n8vavl2dg::::res://assets/Night/night_4.png<>uid://crars01vpg0bx::::res://assets/ui/E.png<>uid://4ptkpn0cvm8y::::res://assets/Night/night_5.png<>uid://cefgalhblxedd::::res://script/talipapa.gd<>uid://c3v3rs67m36fa::::res://assets/Afternoon/afternoon_7.png<>uid://bsud8dfcywf3a::::res://assets/Night/night_6.png<>uid://dwepws2hv5va1::::res://assets/Night/night_7.png<>uid://en5uttrvft4w::::res://assets/Night/night_8.png<>uid://bryylrgduv1kx::::res://script/sceneries script/lightning_flash.gd
-OpenSea.tscn::PackedScene::8292557682354463281::1795720749::0::1::::<><><>0<>0<><>::uid://bldcqe2lh3r::::res://script/sceneries script/open_sea.gd<>uid://b474x0lbj3dur::::res://assets/sceneries/Settings Extension (3).png<>uid://c4nojc5cw6y6::::res://scenes/Fisherman/fisherman.tscn<>uid://cr3wnspm7t0ym::::res://assets/Afternoon/Afternoon_Sea/afternoon_1_sea.png<>uid://bjworn45gymki::::res://scenes/Fisherman/boat.tscn<>uid://b7k6rua1krntj::::res://assets/Afternoon/Afternoon_Sea/afternoon_2_sea.png<>uid://bsbcnsptji28::::res://scenes/ui/hud.tscn<>uid://cvjeuqbu73to::::res://assets/Afternoon/Afternoon_Sea/afternoon_3_sea.png<>uid://ckoih5dwcgjvq::::res://script/sea_border.gd<>uid://dbwx7fk7mkobe::::res://assets/Afternoon/Afternoon_Sea/afternoon_4_sea.png<>uid://1kx4sjpff03i::::res://assets/Afternoon/Afternoon_Sea/afternoon_5_sea.png<>uid://crars01vpg0bx::::res://assets/ui/E.png<>uid://dt5ydhmlbpbr1::::res://assets/Afternoon/Afternoon_Sea/afternoon_6_sea.png<>uid://dweebuv04mfrm::::res://assets/Night/Night_Sea/night_sea_1.png<>uid://cx6me1v503cyy::::res://script/sceneries script/open_sea_anim.gd<>uid://dkr2pqmckj2uc::::res://assets/Night/Night_Sea/night_sea_2.png<>uid://c8axosuqsaho7::::res://assets/Night/Night_Sea/night_sea_3.png<>uid://chcdgodnvhy2a::::res://assets/Night/Night_Sea/night_sea_4.png<>uid://cgysilkwb7cv6::::res://assets/Night/Night_Sea/night_sea_5.png<>uid://by4hag8chvp0j::::res://assets/Night/Night_Sea/night_sea_6.png<>uid://bryylrgduv1kx::::res://script/sceneries script/lightning_flash.gd<>uid://df8wfs78qck25::::res://scenes/ui/TaskSheetUI.tscn
+fishing_mechanic.tscn::PackedScene::5553413158167626639::1795744706::0::1::::<><><>0<>0<><>::uid://cl8mmk0ena0vw::::res://script/fish_bar.gd<>uid://chhygku463p83::::res://fishing_game_assets/4 Icons/Icons_03.png<>uid://3we0h4ot85du::::res://assets/ui/fish_filelt-removebg-preview.png<>uid://c53mbvypqdj6h::::res://fishing_game_assets/4 Icons/Icons_04.png<>uid://bf5hwhtticujx::::res://script/ui_scripts/fishing_mechanic.gdshader<>uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf
+::res://scenes/location/::1795731364
+main_scene.tscn::PackedScene::2563535045295316081::1795728214::0::1::::<><><>0<>0<><>::uid://ccllmaf22jug7::::res://assets/sceneries/Day Extended Version Spliced/33%.jpg<>uid://bn5wuisa06wnf::::res://script/sceneries script/main_scene.gd<>uid://rk83fbji3h05::::res://script/sceneries script/home_animation.gd<>uid://f665dkpdo4o1::::res://assets/Afternoon/afternoon_1.png<>uid://543wi1tvcl2i::::res://assets/sceneries/Day Extended Version Spliced/66%.jpg<>uid://cnb1y0ckjx3js::::res://assets/Afternoon/afternoon_2.png<>uid://7tn3u7wcpgro::::res://script/spawn.gd<>uid://sir8qsldsspa::::res://script/sleep_zone.gd<>uid://o74e6igij8u6::::res://assets/Night/night_1.png<>uid://bjworn45gymki::::res://scenes/Fisherman/boat.tscn<>uid://bj4jxknn3ouec::::res://assets/Afternoon/afternoon_3.png<>uid://c7p6yg3ngofg6::::res://assets/Night/night_2_bop.png<>uid://cxgxwnd0fadow::::res://assets/Afternoon/afternoon_4.png<>uid://bsbcnsptji28::::res://scenes/ui/hud.tscn<>uid://b6by8vo4xqqgj::::res://assets/Afternoon/afternoon_5.png<>uid://ckoih5dwcgjvq::::res://script/sea_border.gd<>uid://dxu18aq33cw3p::::res://assets/Night/night_3.png<>uid://dp3egokfw7d8c::::res://assets/Afternoon/afternoon_6.png<>uid://w66n8vavl2dg::::res://assets/Night/night_4.png<>uid://4ptkpn0cvm8y::::res://assets/Night/night_5.png<>uid://cefgalhblxedd::::res://script/talipapa.gd<>uid://c3v3rs67m36fa::::res://assets/Afternoon/afternoon_7.png<>uid://bsud8dfcywf3a::::res://assets/Night/night_6.png<>uid://dwepws2hv5va1::::res://assets/Night/night_7.png<>uid://en5uttrvft4w::::res://assets/Night/night_8.png<>uid://c0e8hirt4sym4::::res://assets/ui/E_sprite.tres<>uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf<>uid://bryylrgduv1kx::::res://script/sceneries script/lightning_flash.gd
+OpenSea.tscn::PackedScene::8292557682354463281::1795731364::0::1::::<><><>0<>0<><>::uid://bldcqe2lh3r::::res://script/sceneries script/open_sea.gd<>uid://b474x0lbj3dur::::res://assets/sceneries/Settings Extension (3).png<>uid://c4nojc5cw6y6::::res://scenes/Fisherman/fisherman.tscn<>uid://cr3wnspm7t0ym::::res://assets/Afternoon/Afternoon_Sea/afternoon_1_sea.png<>uid://bjworn45gymki::::res://scenes/Fisherman/boat.tscn<>uid://b7k6rua1krntj::::res://assets/Afternoon/Afternoon_Sea/afternoon_2_sea.png<>uid://bsbcnsptji28::::res://scenes/ui/hud.tscn<>uid://cvjeuqbu73to::::res://assets/Afternoon/Afternoon_Sea/afternoon_3_sea.png<>uid://ckoih5dwcgjvq::::res://script/sea_border.gd<>uid://dbwx7fk7mkobe::::res://assets/Afternoon/Afternoon_Sea/afternoon_4_sea.png<>uid://1kx4sjpff03i::::res://assets/Afternoon/Afternoon_Sea/afternoon_5_sea.png<>uid://dt5ydhmlbpbr1::::res://assets/Afternoon/Afternoon_Sea/afternoon_6_sea.png<>uid://dweebuv04mfrm::::res://assets/Night/Night_Sea/night_sea_1.png<>uid://cx6me1v503cyy::::res://script/sceneries script/open_sea_anim.gd<>uid://dkr2pqmckj2uc::::res://assets/Night/Night_Sea/night_sea_2.png<>uid://c8axosuqsaho7::::res://assets/Night/Night_Sea/night_sea_3.png<>uid://chcdgodnvhy2a::::res://assets/Night/Night_Sea/night_sea_4.png<>uid://cgysilkwb7cv6::::res://assets/Night/Night_Sea/night_sea_5.png<>uid://by4hag8chvp0j::::res://assets/Night/Night_Sea/night_sea_6.png<>uid://bryylrgduv1kx::::res://script/sceneries script/lightning_flash.gd<>uid://df8wfs78qck25::::res://scenes/ui/TaskSheetUI.tscn<>uid://c0e8hirt4sym4::::res://assets/ui/E_sprite.tres<>uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf
 ::res://scenes/minigames/::1795720749
 boat_minigame.tscn::PackedScene::6940726257513047695::1795720749::0::1::::<><><>0<>0<><>::uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf<>uid://du6jt4olflrn5::::res://script/minigame_scripts/boat_minigame/boat_minigame.gd<>uid://daldox8dnifhx::::res://script/minigame_scripts/boat_minigame/grid_container.gd<>uid://bwbtfor2xnme4::::res://assets/boat_minigame/cogs/SpriteSheets/Bronze Gear Wheels/Gear 2 - Bronze_spritesheet.png<>uid://mamwf5qgjxs7::::res://assets/boat_minigame/background/engine_background_no_border.png
 ::res://scenes/ui/::1795722581
@@ -299,29 +303,29 @@ talipapa_shop.tscn::PackedScene::177987323195311424::1794694937::0::1::::<><><>0
 TaskSheetUI.tscn::PackedScene::7579676434338709772::1795721918::0::1::::<><><>0<>0<><>::uid://bnfhum7iywif7::::res://script/ui_scripts/task_sheet_ui.gd
 transition_layer.tscn::PackedScene::3221841775636627016::1790281773::0::1::::<><><>0<>0<><>::uid://c61fgx33wirqd::::res://script/ui_scripts/transition_layer.gd
 victory.tscn::PackedScene::8043208421819432047::1795720749::0::1::::<><><>0<>0<><>::uid://csxafiqr2nwnf::::res://assets/sceneries/EXTENDED VERSION - Copy.png<>uid://i8f53csglnmf::::res://assets/fisherman/idle fisherman.png<>uid://bjt0nh5gjt3x0::::res://assets/graduation_kid/graduation_kid.png<>uid://vjxxghcpj0uo::::res://script/dialogue_box.gd<>uid://vwappabsrekd::::res://fishing_game_assets/ari-w9500-condensed-bold.ttf
-::res://script/::1795725034
-boat.gd::GDScript::6120251381973860616::1795722798::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://script/::1795743511
+boat.gd::GDScript::6120251381973860616::1795734607::0::1::::<>CharacterBody2D<><>0<>0<><>::
 camera_2d.gd::GDScript::7703409930054969402::1790281773::0::1::::<>Camera2D<><>0<>0<><>::
 controls.gd::GDScript::3171568624332186512::1795720749::0::1::::<>Control<><>0<>0<><>::
 credits.gd::GDScript::224660540181221644::1795720749::0::1::::<>Control<><>0<>0<><>::
 defeat.gd::GDScript::2709770464673276523::1790281773::0::1::::<><><>0<>0<><>::
 dialogue_box.gd::GDScript::1493983006343690322::1795720749::0::1::::<>ColorRect<><>0<>0<><>::
-fisherman.gd::GDScript::1681817638861375817::1795725034::0::1::::<>CharacterBody2D<><>0<>0<><>::
-fish_bar.gd::GDScript::5613793710781342804::1795720749::0::1::::<>Control<><>0<>0<><>::
+fisherman.gd::GDScript::1681817638861375817::1795743511::0::1::::<>CharacterBody2D<><>0<>0<><>::
+fish_bar.gd::GDScript::5613793710781342804::1795737834::0::1::::<>Control<><>0<>0<><>::
 fish_detect.gd::GDScript::622726813534097728::1790281773::0::1::::<>Area2D<><>0<>0<><>::
 forage_area.gd::GDScript::3233373388556738705::1790281773::0::1::::<>Area2D<><>0<>0<><>::
 fuel_station.gd::GDScript::6373226406110926324::1790281773::0::1::::<>Node2D<><>0<>0<><>::
 hud.gd::GDScript::6028974002529216604::1795720749::0::1::::<>CanvasLayer<><>0<>0<><>::
 main_menu.gd::GDScript::5034855121179563543::1795720749::0::1::::<>Control<><>0<>0<><>::
-sea_border.gd::GDScript::5504130910160245326::1795720749::0::1::::<>Area2D<><>0<>0<><>::
+sea_border.gd::GDScript::5504130910160245326::1795726489::0::1::::<>Area2D<><>0<>0<><>::
 sleep_zone.gd::GDScript::1281006196277561830::1795720749::0::1::::<>Node2D<><>0<>0<><>::
 spawn.gd::GDScript::2286106597783066432::1795724509::0::1::::<>Marker2D<><>0<>0<><>::
 talipapa.gd::GDScript::5064283521296755649::1790281773::0::1::::<>Area2D<><>0<>0<><>::
 victory.gd::GDScript::4118849509166069223::1790281773::0::1::::<><><>0<>0<><>::
-::res://script/global_script/::1795725355
+::res://script/global_script/::1795735335
 events.gd::GDScript::2889311995677608553::1790281773::0::1::::<>Node<><>0<>0<><>::
-game_state.gd::GDScript::7903041953554177962::1795720749::0::1::::<>Node<><>0<>0<><>::
-sound_manager.gd::GDScript::5186472539235188009::1795725355::0::1::::<>Node<><>0<>0<><>::
+game_state.gd::GDScript::7903041953554177962::1795735335::0::1::::<>Node<><>0<>0<><>::
+sound_manager.gd::GDScript::5186472539235188009::1795729024::0::1::::<>Node<><>0<>0<><>::
 ::res://script/minigame_scripts/::1795720749
 ::res://script/minigame_scripts/boat_minigame/::1795720749
 boat_minigame.gd::GDScript::8627616562546234916::1795720749::0::1::::<>CanvasLayer<><>0<>0<><>::
@@ -329,20 +333,21 @@ cog_ui.gd::GDScript::4238121769522516237::1795720749::0::1::::CogUI<>TextureRect
 grid_container.gd::GDScript::7182178617636526793::1795720749::0::1::::<>GridContainer<><>0<>0<><>::
 ::res://script/player_script/::1795725177
 area_2d.gd::GDScript::1162523466536058258::1795725177::0::1::::<>Area2D<><>0<>0<><>::
-::res://script/sceneries script/::1795720749
+::res://script/sceneries script/::1795728042
 home_animation.gd::GDScript::1215908046960052812::1795720749::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
 lightning_flash.gd::GDScript::3630653845526102939::1795720749::0::1::::<>ColorRect<><>0<>0<><>::
-main_scene.gd::GDScript::3362178921356208799::1795720749::0::1::::<>Node2D<><>0<>0<><>::
+main_scene.gd::GDScript::3362178921356208799::1795728042::0::1::::<>Node2D<><>0<>0<><>::
 open_sea.gd::GDScript::2737752038040685::1795720749::0::1::::<>Node2D<><>0<>0<><>::
 open_sea_anim.gd::GDScript::6451917627971188416::1795720749::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
 rain.gd::GDScript::5720503563044113441::1795720749::0::1::::<>GPUParticles2D<><>0<>0<><>::
-::res://script/ui_scripts/::1795721918
+::res://script/ui_scripts/::1795741387
 day_summary_ui.gd::GDScript::4793136750908281321::1795720749::0::1::::<>CanvasLayer<><>0<>0<><>::
 inventory.gd::GDScript::5174412816080105919::1795720749::0::1::::<>CanvasLayer<><>0<>0<><>::
 inventory_menu.gd::GDScript::2937722712947564474::1795720749::0::1::::<>CanvasLayer<><>0<>0<><>::
 loading_screen.gd::GDScript::5199798712007506746::1795720749::0::1::::<>Control<><>0<>0<><>::
 opening_cutscene.gd::GDScript::4675219105609132505::1795720749::0::1::::<>Node2D<><>0<>0<><>::
 pause.gd::GDScript::129837252084536674::1795721918::0::1::::<>CanvasLayer<><>0<>0<><>::
+fishing_mechanic.gdshader::Shader::2799760938809129929::1795741387::0::1::::<><><>0<>0<><>::
 talipapa_shop.gd::GDScript::4391874772073917568::1795720749::0::1::::<>CanvasLayer<><>0<>0<><>::
 task_sheet_ui.gd::GDScript::3309658954695656730::1795720749::0::1::::<>CanvasLayer<><>0<>0<><>::
 transition_layer.gd::GDScript::7002684894091524743::1790281773::0::1::::<>CanvasLayer<><>0<>0<><>::

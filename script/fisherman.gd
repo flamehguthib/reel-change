@@ -45,7 +45,7 @@ var nearby_boat: CharacterBody2D = null
 var mounted_boat: CharacterBody2D = null
 var board_interact_distance = 120.0
 const FISH_BAR_OFFSET_RIGHT = Vector2(112.0, 18.0)
-const FISH_BAR_OFFSET_LEFT = Vector2(-96.0, 18.0)
+const FISH_BAR_OFFSET_LEFT := Vector2(-176.0, 18.0)
 
 @onready var body_collision_shape: CollisionShape2D = $CollisionShape2D
 var can_play_footsteps = false
@@ -486,7 +486,7 @@ func spawn_fish_bar():
 		else:
 			fish_bar_instance.global_position = get_viewport_rect().size / 2.0
 		fish_bar_instance.z_as_relative = false
-		fish_bar_instance.z_index = 100
+		fish_bar_instance.z_index = 300
 		update_fish_bar_position()
 		var fish_ui = fish_bar_instance.get_node_or_null("Control")
 		if fish_ui != null and fish_ui.has_signal("finished"):
@@ -505,9 +505,13 @@ func update_fish_bar_position() -> void:
 		return
 	# Left and right use slightly different offsets so they visually match.
 	if $Player.flip_h:
-		fish_bar_instance.position = FISH_BAR_OFFSET_LEFT
-	else:
 		fish_bar_instance.position = FISH_BAR_OFFSET_RIGHT
+		fish_bar_instance.get_node("Control/BubbleTailLeft").visible = true
+		fish_bar_instance.get_node("Control/BubbleTailRight").visible = false
+	else:
+		fish_bar_instance.position = FISH_BAR_OFFSET_LEFT
+		fish_bar_instance.get_node("Control/BubbleTailRight").visible = true
+		fish_bar_instance.get_node("Control/BubbleTailLeft").visible = false
 
 func kill_fish_bar():
 	if fish_bar_instance != null and is_instance_valid(fish_bar_instance):
@@ -521,7 +525,8 @@ func _on_fish_bar_finished(caught: bool) -> void:
 		if not fish_id.is_empty():
 			GameState.add_fish_to_inventory(fish_id)
 		var species_name: String = current_fish_species.get("name", "Fish")
-		show_message("Caught %s!" % species_name, Color(0.4, 1.0, 0.5), 36)
+		var species_weight: String = str(current_fish_species.get("weight", 0))
+		show_message("Caught %s (%skg)!" % [species_name, species_weight], Color(0.4, 1.0, 0.5), 36)
 	current_fish_species = {}
 	if state == "fish":
 		SoundManager.play_sfx("cast")
@@ -536,10 +541,11 @@ func _on_fish_bar_finished(caught: bool) -> void:
 
 func _on_fish_bite() -> void:
 	current_fish_species = GameState.roll_species_for_zone(global_position.x)
+	%Ripple.play("splash")
 	if has_node("warneng"):
 		$warneng.visible = true
 	SoundManager.play_sfx("alert")
-	var timer = get_tree().create_timer(1.5)
+	var timer = get_tree().create_timer(0.5)
 	if timer != null:
 		await timer.timeout
 	if not is_instance_valid(self) or not is_inside_tree():
@@ -575,6 +581,7 @@ func is_fishing_mode_active() -> bool:
 
 var message_scene = preload("res://scenes/ui/DisplayMessage.tscn")
 var message_instance = null
+var font = preload("res://fishing_game_assets/ari-w9500-condensed-bold.ttf")
 
 func show_message(text: String, color: Color = Color(1, 1, 1), font_size: int = 28) -> void:
 	if message_instance == null or not is_instance_valid(message_instance):
@@ -589,6 +596,7 @@ func show_message(text: String, color: Color = Color(1, 1, 1), font_size: int = 
 	label.text = text
 	label.add_theme_color_override("font_color", color)
 	label.add_theme_font_size_override("font_size", font_size)
+	label.add_theme_font_override("font", font)
 	label.modulate = Color(1, 1, 1, 0)
 	var tween = create_tween()
 	tween.tween_property(label, "modulate:a", 1.0, 0.15)

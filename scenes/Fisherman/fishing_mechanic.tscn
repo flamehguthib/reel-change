@@ -1,10 +1,27 @@
 [gd_scene format=3 uid="uid://cled5yjky8ogd"]
 
 [ext_resource type="Script" uid="uid://cl8mmk0ena0vw" path="res://script/fish_bar.gd" id="1_dmaw5"]
+[ext_resource type="Texture2D" uid="uid://chhygku463p83" path="res://fishing_game_assets/4 Icons/Icons_03.png" id="2_2nxad"]
 [ext_resource type="Texture2D" uid="uid://3we0h4ot85du" path="res://assets/ui/fish_filelt-removebg-preview.png" id="3_5wbbv"]
 [ext_resource type="Texture2D" uid="uid://c53mbvypqdj6h" path="res://fishing_game_assets/4 Icons/Icons_04.png" id="3_sdupj"]
+[ext_resource type="Shader" uid="uid://bf5hwhtticujx" path="res://script/ui_scripts/fishing_mechanic.gdshader" id="3_y5j6m"]
 [ext_resource type="FontFile" uid="uid://vwappabsrekd" path="res://fishing_game_assets/ari-w9500-condensed-bold.ttf" id="4_2nxad"]
-[ext_resource type="Texture2D" uid="uid://bu0e7crcroof0" path="res://fishing_game_assets/tarub.jpeg" id="4_c2wj3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ptl4r"]
+shader = ExtResource("3_y5j6m")
+shader_parameter/blur_amount = 1.8
+shader_parameter/glass_tint = Color(0.85, 0.95, 1, 0.35)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbsvx"]
+bg_color = Color(1, 1, 1, 0.72)
+border_color = Color(0.23921569, 0.23921569, 0.23921569, 0.6)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 20
+anti_aliasing = false
+anti_aliasing_size = 8.1
 
 [sub_resource type="Gradient" id="Gradient_ahjk1"]
 offsets = PackedFloat32Array(0.11448598, 0.34813085, 0.5864486, 0.98364484)
@@ -21,11 +38,9 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.21960784, 0.25490198, 0.32156864, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+border_color = Color(0.078431375, 0.09411765, 0.11764706, 1)
+corner_detail = 1
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugtqp"]
 bg_color = Color(0.20392157, 0.59607846, 0.85882354, 1)
@@ -33,6 +48,18 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+corner_detail = 16
+anti_aliasing = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbsvx"]
+shader = ExtResource("3_y5j6m")
+shader_parameter/blur_amount = 1.8
+shader_parameter/glass_tint = Color(0.85, 0.95, 1, 0.35)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlvsc"]
+shader = ExtResource("3_y5j6m")
+shader_parameter/blur_amount = 1.8
+shader_parameter/glass_tint = Color(0.85, 0.95, 1, 0.35)
 
 [node name="FishUI" type="Node2D" unique_id=399001178]
 z_index = 50
@@ -41,25 +68,51 @@ scale = Vector2(2, 2)
 [node name="Control" type="Control" parent="." unique_id=127233768]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -100.0
-offset_top = -308.0
-offset_right = 100.0
-offset_bottom = -88.0
+offset_left = -89.5
+offset_top = -305.5
+offset_right = 110.5
+offset_bottom = -85.5
 script = ExtResource("1_dmaw5")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Control" unique_id=1573870680]
+[node name="Sprite2D3" type="Sprite2D" parent="Control" unique_id=212250753]
+position = Vector2(87, 120)
+rotation = -0.23038346
+scale = Vector2(1.551462, 1.9818181)
+texture = ExtResource("2_2nxad")
+flip_h = true
+
+[node name="Panel" type="Panel" parent="Control" unique_id=2024352118]
+unique_name_in_owner = true
+z_index = -7
+material = SubResource("ShaderMaterial_ptl4r")
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.102000006
+anchor_bottom = 0.102000006
+offset_left = 52.0
+offset_top = 67.56
+offset_right = 1081.6973
+offset_bottom = 1131.5549
+scale = Vector2(0.07720716, 0.21146718)
+theme_override_styles/panel = SubResource("StyleBoxFlat_lbsvx")
+
+[node name="Sprite2D4" type="Panel" parent="Control" unique_id=1631294136]
 visible = false
 z_index = -7
-position = Vector2(101.49999, 220)
-scale = Vector2(0.735, 0.5)
-texture = ExtResource("4_c2wj3")
+layout_mode = 0
+offset_left = 52.0
+offset_top = 90.0
+offset_right = 1081.6973
+offset_bottom = 1153.9949
+scale = Vector2(0.07720716, 0.21146718)
+theme_override_styles/panel = SubResource("StyleBoxFlat_lbsvx")
 
 [node name="ColorRect" type="TextureRect" parent="Control" unique_id=1231248613]
 texture_filter = 2
 layout_mode = 0
-offset_left = 83.0
+offset_left = 90.0
 offset_top = 105.0
-offset_right = 117.5
+offset_right = 113.5
 offset_bottom = 305.0
 texture = SubResource("GradientTexture2D_5wbbv")
 expand_mode = 1
@@ -68,7 +121,7 @@ expand_mode = 1
 unique_name_in_owner = true
 layout_mode = 1
 offset_top = 56.0
-offset_right = 35.0
+offset_right = 26.5
 offset_bottom = 94.0
 texture = ExtResource("3_sdupj")
 expand_mode = 1
@@ -78,24 +131,49 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 1
 offset_top = 46.5
-offset_right = 35.0
+offset_right = 24.0
 offset_bottom = 99.5
 color = Color(0, 0.2901961, 0, 0.59607846)
 
 [node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=672790883]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 119.0
+offset_left = 117.0
 offset_top = 102.0
-offset_right = 157.5
-offset_bottom = 304.0
+offset_right = 126.0
+offset_bottom = 305.5
 theme_override_fonts/font = ExtResource("4_2nxad")
 theme_override_styles/background = SubResource("StyleBoxFlat_ufy8k")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ugtqp")
 fill_mode = 3
+show_percentage = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=1233161542]
 z_index = 1
-position = Vector2(100, 202)
-scale = Vector2(0.122507125, 0.31504923)
+position = Vector2(101.25, 200.5)
+scale = Vector2(0.07834758, 0.31082982)
 texture = ExtResource("3_5wbbv")
+
+[node name="BubbleTailRight" type="Polygon2D" parent="Control" unique_id=620697225]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_lbsvx")
+position = Vector2(131, 290)
+polygon = PackedVector2Array(0, -7, 9, 0, 0, 7)
+
+[node name="Line2D" type="Line2D" parent="Control/BubbleTailRight" unique_id=1605281728]
+material = SubResource("ShaderMaterial_tlvsc")
+points = PackedVector2Array(0, -7, 9, 0, 0, 7)
+width = 1.0
+metadata/_edit_lock_ = true
+
+[node name="BubbleTailLeft" type="Polygon2D" parent="Control" unique_id=678335622]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_lbsvx")
+position = Vector2(52.5, 290)
+polygon = PackedVector2Array(0, 7, -9, 0, 0, -7, 0, -0.5)
+
+[node name="Line2D" type="Line2D" parent="Control/BubbleTailLeft" unique_id=1830193918]
+material = SubResource("ShaderMaterial_tlvsc")
+points = PackedVector2Array(0, 7, -9, 0, 0, -7)
+width = 1.0
+metadata/_edit_lock_ = true

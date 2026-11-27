@@ -125,7 +125,8 @@ func _physics_process(_delta: float) -> void:
 					
 
 	move_and_slide()
-	_roll_breakdown_chance(_delta)
+	if not nearest_port:
+		_roll_breakdown_chance(_delta)
 
 	if rider != null:
 		rider.global_position = get_mount_position()

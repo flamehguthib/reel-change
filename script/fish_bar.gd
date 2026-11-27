@@ -24,8 +24,10 @@ var progress = 52.0
 var max_height = 200
 var grace_time = 0.35
 
+@onready var progress_fill: StyleBoxFlat = %ProgressBar.get_theme_stylebox("fill").duplicate()
 func _ready() -> void:
 	bar_size = %PlayerBar.size.y
+	%ProgressBar.add_theme_stylebox_override("fill", progress_fill)
 
 func set_difficulty(speed: float, grace: float) -> void:
 	speed_multiplier = speed
@@ -78,7 +80,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		# Green/Cyan safe tension
 		%PlayerBar.color = Color(0.1, 0.85, 0.4, 0.75)
+	
+	var ratio := clampf(progress / 100.0, 0.0, 1.0)
+# Smoothly transitions from Red (0.0) -> Yellow/Orange -> Green (0.33)
+	progress_fill.bg_color = Color.from_hsv(lerpf(0.0, 0.33, ratio), 0.9, 0.95)
 
+# Optional danger pulse when progress drops below 20%
+	if progress < 20.0:
+		var flash := sin(Time.get_ticks_msec() * 0.015) * 0.5 + 0.5
+		progress_fill.bg_color.a = lerpf(0.45, 1.0, flash)
 	check_win_loss()
 	
 func check_win_loss():
